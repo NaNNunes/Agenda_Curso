@@ -34,6 +34,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jlbl_Login_TelaLogin = new javax.swing.JLabel();
         jtxtf_campoLogin_TelaLogin = new javax.swing.JTextField();
         jpsw_campoPSW_Tela_Login = new javax.swing.JPasswordField();
+        Jbtn_forgotPsw_TelaLogin = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,7 +47,8 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel_conteinerCampos_Tela_Inicial.setBackground(new java.awt.Color(47, 63, 115));
         jPanel_conteinerCampos_Tela_Inicial.setPreferredSize(new java.awt.Dimension(330, 300));
 
-        jlbl_password_TelaLogin.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jlbl_password_TelaLogin.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jlbl_password_TelaLogin.setForeground(new java.awt.Color(255, 255, 255));
         jlbl_password_TelaLogin.setText("Senha:");
 
         jBtn_acessar_TelaLogin.setBackground(new java.awt.Color(243, 236, 196));
@@ -59,16 +61,34 @@ public class Tela_Login extends javax.swing.JFrame {
             }
         });
 
-        jlbl_Login_TelaLogin.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jlbl_Login_TelaLogin.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jlbl_Login_TelaLogin.setForeground(new java.awt.Color(255, 255, 255));
         jlbl_Login_TelaLogin.setText("Login:");
 
+        jtxtf_campoLogin_TelaLogin.setBackground(new java.awt.Color(255, 255, 255));
         jtxtf_campoLogin_TelaLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtf_campoLogin_TelaLoginActionPerformed(evt);
             }
         });
 
+        jpsw_campoPSW_Tela_Login.setBackground(new java.awt.Color(255, 255, 255));
+        jpsw_campoPSW_Tela_Login.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jpsw_campoPSW_Tela_Login.setForeground(new java.awt.Color(0, 0, 0));
         jpsw_campoPSW_Tela_Login.setText("jPasswordField1");
+
+        Jbtn_forgotPsw_TelaLogin.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_forgotPsw_TelaLogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_forgotPsw_TelaLogin.setForeground(new java.awt.Color(243, 236, 196));
+        Jbtn_forgotPsw_TelaLogin.setText("Esqueceu a senha?");
+        Jbtn_forgotPsw_TelaLogin.setMaximumSize(new java.awt.Dimension(140, 30));
+        Jbtn_forgotPsw_TelaLogin.setMinimumSize(new java.awt.Dimension(140, 30));
+        Jbtn_forgotPsw_TelaLogin.setPreferredSize(new java.awt.Dimension(140, 30));
+        Jbtn_forgotPsw_TelaLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_forgotPsw_TelaLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_conteinerCampos_Tela_InicialLayout = new javax.swing.GroupLayout(jPanel_conteinerCampos_Tela_Inicial);
         jPanel_conteinerCampos_Tela_Inicial.setLayout(jPanel_conteinerCampos_Tela_InicialLayout);
@@ -77,32 +97,35 @@ public class Tela_Login extends javax.swing.JFrame {
             .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtxtf_campoLogin_TelaLogin)
+                    .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
+                        .addComponent(jlbl_password_TelaLogin)
+                        .addGap(272, 272, 272))
                     .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
                         .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlbl_password_TelaLogin)
-                            .addComponent(jlbl_Login_TelaLogin))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jpsw_campoPSW_Tela_Login))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jBtn_acessar_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                            .addComponent(jtxtf_campoLogin_TelaLogin)
+                            .addComponent(jpsw_campoPSW_Tela_Login)
+                            .addComponent(jlbl_Login_TelaLogin)
+                            .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
+                                .addComponent(jBtn_acessar_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jbtn_forgotPsw_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel_conteinerCampos_Tela_InicialLayout.setVerticalGroup(
             jPanel_conteinerCampos_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jlbl_Login_TelaLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtxtf_campoLogin_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtf_campoLogin_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlbl_password_TelaLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpsw_campoPSW_Tela_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jBtn_acessar_TelaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpsw_campoPSW_Tela_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel_conteinerCampos_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Jbtn_forgotPsw_TelaLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtn_acessar_TelaLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -132,11 +155,11 @@ public class Tela_Login extends javax.swing.JFrame {
         );
         JPanel_bgContent_Tela_InicialLayout.setVerticalGroup(
             JPanel_bgContent_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_bgContent_Tela_InicialLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+            .addGroup(JPanel_bgContent_Tela_InicialLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel_conteinerCampos_Tela_Inicial, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel_conteinerCampos_Tela_Inicial, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
 
@@ -183,6 +206,10 @@ public class Tela_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtf_campoLogin_TelaLoginActionPerformed
 
+    private void Jbtn_forgotPsw_TelaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_forgotPsw_TelaLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_forgotPsw_TelaLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +248,7 @@ public class Tela_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_backg_TelaLogin;
     private javax.swing.JPanel JPanel_bgContent_Tela_Inicial;
+    private javax.swing.JButton Jbtn_forgotPsw_TelaLogin;
     private javax.swing.JButton jBtn_acessar_TelaLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_conteinerCampos_Tela_Inicial;
