@@ -151,7 +151,7 @@ public class Tela_Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_bgContent_Tela_InicialLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(209, 209, 209))
+                .addGap(214, 214, 214))
         );
         JPanel_bgContent_Tela_InicialLayout.setVerticalGroup(
             JPanel_bgContent_Tela_InicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
