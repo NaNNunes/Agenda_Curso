@@ -44,7 +44,7 @@ public class Tela_Inicial extends javax.swing.JFrame {
         Jlbl_TrocarUsuarioButton_BarraLateral_TelaInicial = new javax.swing.JLabel();
         Jlbl_ConfigButton_BarraLateral_TelaInicial = new javax.swing.JLabel();
         JPanel_Backg_TelaInicial1 = new javax.swing.JPanel();
-        jPanel_LogoFundo_TelaInicial1 = new javax.swing.JPanel();
+        JPanel_LogoBackg_TelaInicial = new javax.swing.JPanel();
         jPanel_BarraLateral_Tela_Inicial1 = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral_TelaInicial1 = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral_TelaInicial1 = new javax.swing.JPanel();
@@ -328,14 +328,14 @@ public class Tela_Inicial extends javax.swing.JFrame {
 
         JPanel_Backg_TelaInicial1.setBackground(new java.awt.Color(38, 37, 38));
 
-        javax.swing.GroupLayout jPanel_LogoFundo_TelaInicial1Layout = new javax.swing.GroupLayout(jPanel_LogoFundo_TelaInicial1);
-        jPanel_LogoFundo_TelaInicial1.setLayout(jPanel_LogoFundo_TelaInicial1Layout);
-        jPanel_LogoFundo_TelaInicial1Layout.setHorizontalGroup(
-            jPanel_LogoFundo_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JPanel_LogoBackg_TelaInicialLayout = new javax.swing.GroupLayout(JPanel_LogoBackg_TelaInicial);
+        JPanel_LogoBackg_TelaInicial.setLayout(JPanel_LogoBackg_TelaInicialLayout);
+        JPanel_LogoBackg_TelaInicialLayout.setHorizontalGroup(
+            JPanel_LogoBackg_TelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 760, Short.MAX_VALUE)
         );
-        jPanel_LogoFundo_TelaInicial1Layout.setVerticalGroup(
-            jPanel_LogoFundo_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        JPanel_LogoBackg_TelaInicialLayout.setVerticalGroup(
+            JPanel_LogoBackg_TelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 760, Short.MAX_VALUE)
         );
 
@@ -565,7 +565,7 @@ public class Tela_Inicial extends javax.swing.JFrame {
             .addGroup(JPanel_Backg_TelaInicial1Layout.createSequentialGroup()
                 .addComponent(jPanel_BarraLateral_Tela_Inicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(144, 144, 144)
-                .addComponent(jPanel_LogoFundo_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPanel_LogoBackg_TelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         JPanel_Backg_TelaInicial1Layout.setVerticalGroup(
@@ -573,7 +573,7 @@ public class Tela_Inicial extends javax.swing.JFrame {
             .addComponent(jPanel_BarraLateral_Tela_Inicial1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_Backg_TelaInicial1Layout.createSequentialGroup()
                 .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jPanel_LogoFundo_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPanel_LogoBackg_TelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -663,6 +663,7 @@ public class Tela_Inicial extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_Backg_TelaInicial1;
     private javax.swing.JPanel JPanel_FuncionarioIcon_funcionarioButton_TelaInicial;
     private javax.swing.JPanel JPanel_FuncionarioIcon_funcionarioButton_TelaInicial1;
+    private javax.swing.JPanel JPanel_LogoBackg_TelaInicial;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral_TelaInicial;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral_TelaInicial1;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral_TelaInicial;
@@ -689,7 +690,6 @@ public class Tela_Inicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_EquipeIcon_EquipeBtn_BarraLateral_TelaInicial;
     private javax.swing.JPanel jPanel_EquipeIcon_EquipeBtn_BarraLateral_TelaInicial1;
     private javax.swing.JPanel jPanel_LogoFundo_TelaInicial;
-    private javax.swing.JPanel jPanel_LogoFundo_TelaInicial1;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial1;
     // End of variables declaration//GEN-END:variables
