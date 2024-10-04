@@ -79,7 +79,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
         Jbtn_forgotPsw_TelaLogin.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_forgotPsw_TelaLogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_forgotPsw_TelaLogin.setForeground(new java.awt.Color(243, 236, 196));
+        Jbtn_forgotPsw_TelaLogin.setForeground(new java.awt.Color(242, 226, 5));
         Jbtn_forgotPsw_TelaLogin.setText("Esqueceu a senha?");
         Jbtn_forgotPsw_TelaLogin.setMaximumSize(new java.awt.Dimension(140, 30));
         Jbtn_forgotPsw_TelaLogin.setMinimumSize(new java.awt.Dimension(140, 30));
