@@ -26,123 +26,84 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        Jpanel_botoes_TelaCadastroFuncionario = new javax.swing.JPanel();
-        Jbtn_Pesquisa_TelaCadastroFuncionario = new javax.swing.JButton();
-        Jbtn_Adicionar_TelaCadastroFuncionario = new javax.swing.JButton();
-        jPanel_BarraLateral_Tela_Inicial1 = new javax.swing.JPanel();
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
+        Jpanel_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JLabel();
         jPanel_contentFuncionarioButton_TelaInicial1 = new javax.swing.JPanel();
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        JPanel_contentEquipe_BarraLateral_TelaInicial1 = new javax.swing.JPanel();
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        jpanel_backgBranco_TelacadastroFuncionario = new javax.swing.JPanel();
-        Jbtn_Fechar_TelaCadastroFuncionario = new javax.swing.JButton();
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        JPanel_contentEquipe_BarraLateral = new javax.swing.JPanel();
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_Treinamento_BarraLateral = new javax.swing.JButton();
+        Jpanel_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(242, 237, 228));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpanel_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(47, 63, 115));
+        Jpanel_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(232, 832));
 
-        Jpanel_botoes_TelaCadastroFuncionario.setBackground(new java.awt.Color(242, 237, 228));
-        Jpanel_botoes_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(136, 105));
-
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setBackground(new java.awt.Color(242, 237, 228));
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 0, 20)); // NOI18N
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setText("Pesquisar");
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Jbtn_Pesquisa_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(136, 45));
-        Jbtn_Pesquisa_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout.png"))); // NOI18N
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setMaximumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setMinimumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Pesquisa_TelaCadastroFuncionarioActionPerformed(evt);
-            }
-        });
-
-        Jbtn_Adicionar_TelaCadastroFuncionario.setBackground(new java.awt.Color(242, 237, 228));
-        Jbtn_Adicionar_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 0, 20)); // NOI18N
-        Jbtn_Adicionar_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Adicionar_TelaCadastroFuncionario.setText("Adicionar");
-        Jbtn_Adicionar_TelaCadastroFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Jbtn_Adicionar_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(136, 45));
-        Jbtn_Adicionar_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Adicionar_TelaCadastroFuncionarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Jpanel_botoes_TelaCadastroFuncionarioLayout = new javax.swing.GroupLayout(Jpanel_botoes_TelaCadastroFuncionario);
-        Jpanel_botoes_TelaCadastroFuncionario.setLayout(Jpanel_botoes_TelaCadastroFuncionarioLayout);
-        Jpanel_botoes_TelaCadastroFuncionarioLayout.setHorizontalGroup(
-            Jpanel_botoes_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_botoes_TelaCadastroFuncionarioLayout.createSequentialGroup()
-                .addGroup(Jpanel_botoes_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Jbtn_Adicionar_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_Pesquisa_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        Jpanel_botoes_TelaCadastroFuncionarioLayout.setVerticalGroup(
-            Jpanel_botoes_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_botoes_TelaCadastroFuncionarioLayout.createSequentialGroup()
-                .addComponent(Jbtn_Adicionar_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(Jbtn_Pesquisa_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel_BarraLateral_Tela_Inicial1.setBackground(new java.awt.Color(47, 63, 115));
-        jPanel_BarraLateral_Tela_Inicial1.setPreferredSize(new java.awt.Dimension(232, 832));
-
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout.png"))); // NOI18N
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(133, 143));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBarraLateral.png"))); // NOI18N
+        jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBarraLateral.png"))); // NOI18N
 
         javax.swing.GroupLayout JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout = new javax.swing.GroupLayout(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario);
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setLayout(JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout);
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setHorizontalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setVerticalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel_contentFuncionarioButton_TelaInicial1.setBackground(new java.awt.Color(40, 54, 98));
         jPanel_contentFuncionarioButton_TelaInicial1.setPreferredSize(new java.awt.Dimension(232, 40));
 
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/IconeFuncionarioComFundo.png"))); // NOI18N
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setText("Funcionário");
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setAlignmentX(0.5F);
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setBorder(null);
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setIconTextGap(30);
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMargin(new java.awt.Insets(0, 0, 0, 10));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(232, 45));
-        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setText("Funcionário");
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setAlignmentX(0.5F);
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setBorder(null);
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setIconTextGap(30);
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setMargin(new java.awt.Insets(0, 0, 0, 10));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setMaximumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setMinimumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(232, 45));
+        Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
+            }
+        });
+
+        Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeFuncionarioComFundo.png"))); // NOI18N
+        Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
@@ -151,235 +112,302 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         jPanel_contentFuncionarioButton_TelaInicial1Layout.setHorizontalGroup(
             jPanel_contentFuncionarioButton_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_contentFuncionarioButton_TelaInicial1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel_contentFuncionarioButton_TelaInicial1Layout.setVerticalGroup(
             jPanel_contentFuncionarioButton_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+            .addGroup(jPanel_contentFuncionarioButton_TelaInicial1Layout.createSequentialGroup()
+                .addComponent(Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        JPanel_contentEquipe_BarraLateral_TelaInicial1.setBackground(new java.awt.Color(40, 54, 98));
-        JPanel_contentEquipe_BarraLateral_TelaInicial1.setMaximumSize(new java.awt.Dimension(232, 46));
-        JPanel_contentEquipe_BarraLateral_TelaInicial1.setMinimumSize(new java.awt.Dimension(232, 46));
+        JPanel_contentEquipe_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
+        JPanel_contentEquipe_BarraLateral.setMaximumSize(new java.awt.Dimension(232, 46));
+        JPanel_contentEquipe_BarraLateral.setMinimumSize(new java.awt.Dimension(232, 46));
 
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setText("Equipe");
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setBorder(null);
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(232, 45));
-        Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setText("Equipe");
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setAlignmentX(0.5F);
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setBorder(null);
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setIconTextGap(30);
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setMargin(new java.awt.Insets(0, 0, 0, 10));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setMaximumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setMinimumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(232, 45));
+        Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Equipe_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_Equipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout JPanel_contentEquipe_BarraLateral_TelaInicial1Layout = new javax.swing.GroupLayout(JPanel_contentEquipe_BarraLateral_TelaInicial1);
-        JPanel_contentEquipe_BarraLateral_TelaInicial1.setLayout(JPanel_contentEquipe_BarraLateral_TelaInicial1Layout);
-        JPanel_contentEquipe_BarraLateral_TelaInicial1Layout.setHorizontalGroup(
-            JPanel_contentEquipe_BarraLateral_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeEquipeComFundo.png"))); // NOI18N
+        Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPanel_contentEquipe_BarraLateralLayout = new javax.swing.GroupLayout(JPanel_contentEquipe_BarraLateral);
+        JPanel_contentEquipe_BarraLateral.setLayout(JPanel_contentEquipe_BarraLateralLayout);
+        JPanel_contentEquipe_BarraLateralLayout.setHorizontalGroup(
+            JPanel_contentEquipe_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_contentEquipe_BarraLateralLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        JPanel_contentEquipe_BarraLateral_TelaInicial1Layout.setVerticalGroup(
-            JPanel_contentEquipe_BarraLateral_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        JPanel_contentEquipe_BarraLateralLayout.setVerticalGroup(
+            JPanel_contentEquipe_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setText("Trocar Usuário");
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeTrocaUsario.png"))); // NOI18N
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setMaximumSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setMinimumSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setText("Configurações");
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeConfiguracao.png"))); // NOI18N
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setMaximumSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setMinimumSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Configuração_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_Configuração_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setText("Treinamento");
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setBorder(null);
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(232, 45));
-        Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Treinamento_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Treinamento_BarraLateral.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Treinamento_BarraLateral.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Treinamento_BarraLateral.setText("Treinamento");
+        Jbtn_Treinamento_BarraLateral.setBorder(null);
+        Jbtn_Treinamento_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 45));
+        Jbtn_Treinamento_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_Treinamento_BarraLateralActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel_BarraLateral_Tela_Inicial1Layout = new javax.swing.GroupLayout(jPanel_BarraLateral_Tela_Inicial1);
-        jPanel_BarraLateral_Tela_Inicial1.setLayout(jPanel_BarraLateral_Tela_Inicial1Layout);
-        jPanel_BarraLateral_Tela_Inicial1Layout.setHorizontalGroup(
-            jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_BarraLateral_Tela_Pesquisa_Funcionario);
+        Jpanel_BarraLateral_Tela_Pesquisa_Funcionario.setLayout(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout);
+        Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel_contentFuncionarioButton_TelaInicial1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(JPanel_contentEquipe_BarraLateral_TelaInicial1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
-                .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
+            .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
-                        .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
+                        .addComponent(Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                        .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
+                            .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jbtn_Treinamento_BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel_BarraLateral_Tela_Inicial1Layout.setVerticalGroup(
-            jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
-                .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
+        Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(jPanel_contentFuncionarioButton_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JPanel_contentEquipe_BarraLateral_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
+                        .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_Treinamento_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Jpanel_BarraLateral_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jpanel_backgBranco_TelacadastroFuncionario.setBackground(new java.awt.Color(255, 255, 255));
-        jpanel_backgBranco_TelacadastroFuncionario.setPreferredSize(new java.awt.Dimension(875, 765));
+        Jpanel_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(242, 237, 228));
+        Jpanel_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(1048, 832));
 
-        Jbtn_Fechar_TelaCadastroFuncionario.setBackground(new java.awt.Color(198, 95, 95));
-        Jbtn_Fechar_TelaCadastroFuncionario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        Jbtn_Fechar_TelaCadastroFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Fechar_TelaCadastroFuncionario.setText("X");
-        Jbtn_Fechar_TelaCadastroFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Jbtn_Fechar_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(45, 30));
-        Jbtn_Fechar_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(242, 237, 228));
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(135, 105));
+
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(242, 237, 228));
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Bookman Old Style", 0, 20)); // NOI18N
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setText("Adicionar");
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(135, 45));
+        Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Fechar_TelaCadastroFuncionarioActionPerformed(evt);
+                Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jpanel_backgBranco_TelacadastroFuncionarioLayout = new javax.swing.GroupLayout(jpanel_backgBranco_TelacadastroFuncionario);
-        jpanel_backgBranco_TelacadastroFuncionario.setLayout(jpanel_backgBranco_TelacadastroFuncionarioLayout);
-        jpanel_backgBranco_TelacadastroFuncionarioLayout.setHorizontalGroup(
-            jpanel_backgBranco_TelacadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_backgBranco_TelacadastroFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(825, Short.MAX_VALUE)
-                .addComponent(Jbtn_Fechar_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(242, 237, 228));
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Bookman Old Style", 0, 20)); // NOI18N
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setText("Pesquisar");
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(135, 45));
+
+        javax.swing.GroupLayout Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario);
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario.setLayout(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout);
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jpanel_backgBranco_TelacadastroFuncionarioLayout.setVerticalGroup(
-            jpanel_backgBranco_TelacadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanel_backgBranco_TelacadastroFuncionarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Jbtn_Fechar_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(729, Short.MAX_VALUE))
+        Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addComponent(Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel_BarraLateral_Tela_Inicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jpanel_botoes_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jpanel_backgBranco_TelacadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE)
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(885, 766));
+
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(198, 95, 95));
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setText("X");
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(45, 30));
+        Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario);
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout);
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addContainerGap(829, Short.MAX_VALUE)
+                .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_BarraLateral_Tela_Inicial1, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jpanel_backgBranco_TelacadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(Jpanel_botoes_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(730, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_Fundo_Tela_Pesquisa_Funcionario);
+        Jpanel_Fundo_Tela_Pesquisa_Funcionario.setLayout(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout);
+        Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Jpanel_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Jpanel_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpanel_BarraLateral_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Jpanel_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_Pesquisa_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Pesquisa_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Pesquisa_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Equipe_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Equipe_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_Equipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Equipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Equipe_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Equipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Configuração_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Configuração_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Fechar_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Fechar_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_Configuração_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Fechar_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Configuração_BarraLateral_Tela_Pesquisa_FuncionarioActionPerformed
 
-    private void Jbtn_Adicionar_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Adicionar_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinamento_BarraLateralActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Adicionar_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Treinamento_BarraLateralActionPerformed
 
-    private void Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    private void Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
+
+    private void Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,22 +446,24 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanel_contentEquipe_BarraLateral_TelaInicial1;
+    private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Adicionar_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Fechar_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Pesquisa_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JPanel Jpanel_botoes_TelaCadastroFuncionario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel_BarraLateral_Tela_Inicial1;
+    private javax.swing.JButton Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_Treinamento_BarraLateral;
+    private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel Jpanel_BarraLateral_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel Jpanel_Fundo_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial1;
-    private javax.swing.JPanel jpanel_backgBranco_TelacadastroFuncionario;
+    private javax.swing.JLabel jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario;
     // End of variables declaration//GEN-END:variables
 }
