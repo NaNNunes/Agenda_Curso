@@ -735,12 +735,14 @@
                                       <Component id="Jtxtf_cpf_Tela_Cadastro_Funcionario" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Jlbl_Nome_Tela_Cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Jtxtf_Nome_Tela_cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="Jlbl_Sobrenome_Tela_Cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="Jtxtf_Sobrenome_Tela_cadastro_Funcionario" alignment="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="Jlbl_Nome_Tela_Cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Jtxtf_Nome_Tela_cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -890,13 +892,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="Jpanel_contatConteiner_Tela_Cadastro_Funcionario" min="-2" pref="560" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="Jpanel_DescConteiner_Tela_Cadastro_Funcionario" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Jpanel_contatConteiner_Tela_Cadastro_Funcionario" min="-2" pref="560" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="Jpanel_DescConteiner_Tela_Cadastro_Funcionario" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>

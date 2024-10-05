@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.agendacurso;
+package com.mycompany.agendacurso.TelasFuncionario;
 
 /**
  *
@@ -448,12 +448,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                     .addComponent(Jlbl_CPF_Tela_Cadastro_Funcionario)
                     .addComponent(Jtxtf_cpf_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(Jpanel_identiConteinar_Tela_cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jlbl_Nome_Tela_Cadastro_Funcionario)
-                    .addComponent(Jtxtf_Nome_Tela_cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Jpanel_identiConteinar_Tela_cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Jpanel_identiConteinar_Tela_cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Jlbl_Sobrenome_Tela_Cadastro_Funcionario)
-                        .addComponent(Jtxtf_Sobrenome_Tela_cadastro_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Jtxtf_Sobrenome_Tela_cadastro_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Jpanel_identiConteinar_Tela_cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Jlbl_Nome_Tela_Cadastro_Funcionario)
+                        .addComponent(Jtxtf_Nome_Tela_cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
 
@@ -633,11 +634,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.setHorizontalGroup(
             Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                .addComponent(Jpanel_contatConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Jpanel_DescConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
+                        .addComponent(Jpanel_contatConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Jpanel_DescConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.setVerticalGroup(

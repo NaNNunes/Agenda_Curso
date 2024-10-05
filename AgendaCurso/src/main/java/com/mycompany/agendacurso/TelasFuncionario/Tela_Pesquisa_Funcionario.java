@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.agendacurso;
+package com.mycompany.agendacurso.TelasFuncionario;
 
 /**
  *
@@ -345,7 +345,6 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         });
 
         JLabel_IconeLupa_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/IconeLupa.png"))); // NOI18N
-        JLabel_IconeLupa_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(30, 30));
 
         javax.swing.GroupLayout JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(JPanel_Pesquisa_Tela_Pesquisa_Funcionario);
         JPanel_Pesquisa_Tela_Pesquisa_Funcionario.setLayout(JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout);
