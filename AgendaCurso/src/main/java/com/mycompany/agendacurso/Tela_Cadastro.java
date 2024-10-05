@@ -98,7 +98,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
 
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setText("Sair");
+        Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout.png"))); // NOI18N
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(40, 40));
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(40, 40));
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(40, 40));
