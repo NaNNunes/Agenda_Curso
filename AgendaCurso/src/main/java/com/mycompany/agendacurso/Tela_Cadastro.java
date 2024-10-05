@@ -33,6 +33,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         jPanel_BarraLateral_Tela_Inicial1 = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel_contentFuncionarioButton_TelaInicial1 = new javax.swing.JPanel();
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
         JPanel_contentEquipe_BarraLateral_TelaInicial1 = new javax.swing.JPanel();
@@ -108,17 +109,20 @@ public class Tela_Cadastro extends javax.swing.JFrame {
             }
         });
 
+        JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(133, 143));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBarraLateral.png"))); // NOI18N
 
         javax.swing.GroupLayout JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout = new javax.swing.GroupLayout(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario);
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setLayout(JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout);
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setHorizontalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 133, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setVerticalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 143, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel_contentFuncionarioButton_TelaInicial1.setBackground(new java.awt.Color(40, 54, 98));
@@ -127,8 +131,11 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(40, 54, 98));
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/IconeFuncionarioComFundo.png"))); // NOI18N
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setText("Funcionário");
+        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setAlignmentX(0.5F);
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setBorder(null);
+        Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setIconTextGap(30);
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMargin(new java.awt.Insets(0, 0, 0, 10));
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(170, 30));
         Jbtn_Funcionario_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(170, 30));
@@ -422,6 +429,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario;
     private javax.swing.JPanel Jpanel_botoes_TelaCadastroFuncionario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_BarraLateral_Tela_Inicial1;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial1;
