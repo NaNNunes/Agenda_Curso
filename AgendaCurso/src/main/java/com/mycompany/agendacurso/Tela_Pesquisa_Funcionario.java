@@ -45,6 +45,11 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
         Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
         Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
+        jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario = new javax.swing.JScrollPane();
+        JTable_ListaDeFuncionario_Tela_Pesquisa_Funcionario = new javax.swing.JTable();
+        JPanel_Pesquisa_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        JTextField_Insirir_Tela_Pesquisa_Funcionario = new javax.swing.JTextField();
+        JLabel_IconeLupa_Tela_Pesquisa_Funcionario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -308,21 +313,85 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
             }
         });
 
+        JTable_ListaDeFuncionario_Tela_Pesquisa_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"666333777", "Clidoaldo Pereira", "33366677788", "28 999944445", "A2030"}
+            },
+            new String [] {
+                "Matricula", "Nome ", "CPF", "Celular", "Equipe"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario.setViewportView(JTable_ListaDeFuncionario_Tela_Pesquisa_Funcionario);
+
+        JPanel_Pesquisa_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
+        JPanel_Pesquisa_Tela_Pesquisa_Funcionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        JTextField_Insirir_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
+        JTextField_Insirir_Tela_Pesquisa_Funcionario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        JTextField_Insirir_Tela_Pesquisa_Funcionario.setText("Insira as informações do funcionário para realizar a busca (Matrícula, Nome, CPF, Equipe).");
+        JTextField_Insirir_Tela_Pesquisa_Funcionario.setBorder(null);
+        JTextField_Insirir_Tela_Pesquisa_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed(evt);
+            }
+        });
+
+        JLabel_IconeLupa_Tela_Pesquisa_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/IconeLupa.png"))); // NOI18N
+        JLabel_IconeLupa_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(30, 30));
+
+        javax.swing.GroupLayout JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(JPanel_Pesquisa_Tela_Pesquisa_Funcionario);
+        JPanel_Pesquisa_Tela_Pesquisa_Funcionario.setLayout(JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout);
+        JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JLabel_IconeLupa_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTextField_Insirir_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(JPanel_Pesquisa_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JTextField_Insirir_Tela_Pesquisa_Funcionario)
+                    .addComponent(JLabel_IconeLupa_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario);
         Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout);
         Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
             Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
-                .addContainerGap(829, Short.MAX_VALUE)
-                .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                        .addContainerGap(829, Short.MAX_VALUE)
+                        .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JPanel_Pesquisa_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(176, 176, 176))
         );
         Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
             Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(730, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(JPanel_Pesquisa_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_Fundo_Tela_Pesquisa_Funcionario);
@@ -409,6 +478,10 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed
 
+    private void JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -446,8 +519,12 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel_IconeLupa_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel JPanel_Pesquisa_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral_TelaCadastroFuncionario;
+    private javax.swing.JTable JTable_ListaDeFuncionario_Tela_Pesquisa_Funcionario;
+    private javax.swing.JTextField JTextField_Insirir_Tela_Pesquisa_Funcionario;
     private javax.swing.JButton Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Funcionario;
     private javax.swing.JButton Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Funcionario;
@@ -464,6 +541,7 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial1;
+    private javax.swing.JScrollPane jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario;
     private javax.swing.JLabel jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario;
     // End of variables declaration//GEN-END:variables
 }
