@@ -182,15 +182,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -200,10 +194,7 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -229,23 +220,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -431,6 +415,9 @@
                   <Dimension value="[80, 40]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Jbtn_Configura&#xe7;&#xe3;o_BarraLateral_TelaCadastroFuncionario">
               <Properties>
@@ -454,28 +441,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_Configura&#xe7;&#xe3;o_BarraLateral_TelaCadastroFuncionarioActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Sair"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Trocar Usu&#xe1;rio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario">
               <Properties>

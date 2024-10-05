@@ -39,9 +39,6 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         Jbtn_Equipe_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
         Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
         Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
-        Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario = new javax.swing.JLabel();
-        Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario = new javax.swing.JLabel();
-        Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario = new javax.swing.JLabel();
         Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario = new javax.swing.JButton();
         jpanel_backgBranco_TelacadastroFuncionario = new javax.swing.JPanel();
         Jbtn_Fechar_TelaCadastroFuncionario = new javax.swing.JButton();
@@ -191,6 +188,11 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setMaximumSize(new java.awt.Dimension(80, 40));
         Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setMinimumSize(new java.awt.Dimension(80, 40));
         Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.setPreferredSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
+            }
+        });
 
         Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario.setForeground(new java.awt.Color(0, 0, 0));
@@ -203,17 +205,6 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                 Jbtn_Configuração_BarraLateral_TelaCadastroFuncionarioActionPerformed(evt);
             }
         });
-
-        Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario.setText("Sair");
-        Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario.setToolTipText("");
-
-        Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario.setText("Trocar Usuário");
-
-        Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario.setText("Configurações");
 
         Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setBackground(new java.awt.Color(40, 54, 98));
         Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
@@ -237,13 +228,9 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                 .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
                         .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
@@ -251,9 +238,7 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                                 .addComponent(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -271,19 +256,13 @@ public class Tela_Cadastro extends javax.swing.JFrame {
                         .addComponent(JPanel_contentEquipe_BarraLateral_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_BarraLateral_Tela_Inicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario)
-                    .addComponent(Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario))
+                    .addComponent(Jbtn_Configuração_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -391,6 +370,10 @@ public class Tela_Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_Adicionar_TelaCadastroFuncionarioActionPerformed
 
+    private void Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -438,9 +421,6 @@ public class Tela_Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Pesquisa_TelaCadastroFuncionario;
     private javax.swing.JButton Jbtn_Treinamento_BarraLateral_TelaCadastroFuncionario;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JLabel Jlbl_ConfigButton_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JLabel Jlbl_TrocarUsuarioButton_BarraLateral_TelaCadastroFuncionario;
-    private javax.swing.JLabel Jlbl_sairButton_BarraLateral_TelaCadastroFuncionario;
     private javax.swing.JPanel Jpanel_botoes_TelaCadastroFuncionario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_BarraLateral_Tela_Inicial1;
