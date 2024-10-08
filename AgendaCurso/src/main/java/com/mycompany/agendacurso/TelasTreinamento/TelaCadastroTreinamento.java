@@ -682,7 +682,7 @@ public class TelaCadastroTreinamento extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(80, 80, 80)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
