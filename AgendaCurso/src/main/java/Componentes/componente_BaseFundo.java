@@ -26,11 +26,20 @@ public class componente_BaseFundo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         Jbtn_AdicionarItem_Fundo_TelaNomeTela = new javax.swing.JButton();
         Jbtn_Pesquisaitem_Fundo_TelanomeTela = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Jbtn_FecharAba_abaBase_TelanomeTela = new javax.swing.JButton();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setBackground(new java.awt.Color(242, 237, 228));
         setPreferredSize(new java.awt.Dimension(1048, 832));
@@ -133,7 +142,9 @@ public class componente_BaseFundo extends javax.swing.JPanel {
     private javax.swing.JButton Jbtn_AdicionarItem_Fundo_TelaNomeTela;
     private javax.swing.JButton Jbtn_FecharAba_abaBase_TelanomeTela;
     private javax.swing.JButton Jbtn_Pesquisaitem_Fundo_TelanomeTela;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

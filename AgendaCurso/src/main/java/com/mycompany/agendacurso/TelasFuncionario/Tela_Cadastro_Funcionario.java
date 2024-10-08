@@ -470,7 +470,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 .addGroup(Jpanel_identificaocontainer_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jlbl_h2_Identificacao_Tela_Cadastro_Funcionario)
                     .addComponent(Jpanel_identiConteinar_Tela_cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Jpanel_identificaocontainer_Tela_Cadastro_FuncionarioLayout.setVerticalGroup(
             Jpanel_identificaocontainer_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,15 +587,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpanel_DescConteiner_Tela_Cadastro_Funcionario.setLayout(Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout);
         Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.setHorizontalGroup(
             Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(Jlbl_Setor_Tela_Cadastro_Funcionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Jtxtf_Setor_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(Jlbl_Equipe_Tela_Cadastro_Funcionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Jtxtf_Equipe_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -609,7 +608,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                         .addComponent(Jlbl_Admissao_Tela_Cadastro_Funcionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Jtxtf_Admissao_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
         Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.setVerticalGroup(
             Jpanel_DescConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,15 +646,15 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_ContatoConteiner_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
                 .addComponent(Jpanel_contatConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jpanel_DescConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Jpanel_DescConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jButton2.setBackground(new java.awt.Color(153, 0, 0));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Limpar Registros");
+        jButton2.setText("Cancelar");
+        jButton2.setPreferredSize(new java.awt.Dimension(180, 60));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -663,9 +662,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(51, 153, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar Funcionário");
+        jButton1.setText("Salvar");
+        jButton1.setPreferredSize(new java.awt.Dimension(180, 60));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -681,14 +681,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jpanel_identificaocontainer_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                        .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jpanel_ContatoConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jButton2)
-                                .addGap(68, 68, 68)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(Jpanel_ContatoConteiner_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)))
                 .addContainerGap())
         );
         Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.setVerticalGroup(
@@ -701,13 +700,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Jlbl_conteinerDeCampos_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Cadastro de Funcionário");
+        jLabel15.setPreferredSize(new java.awt.Dimension(160, 55));
 
         Jbtn_CancelarCadastro_Tela_Cadastro_Funcionario.setBackground(new java.awt.Color(198, 95, 95));
         Jbtn_CancelarCadastro_Tela_Cadastro_Funcionario.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -757,14 +757,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             Jpanel_abaConteiner_Fundo_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_abaConteiner_Fundo_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel15)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Jbtn_CancelarCadastro_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_Fundo_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(Jlbl_conteinerDeCampos_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
+                .addGap(155, 155, 155))
             .addGroup(Jpanel_abaConteiner_Fundo_Tela_Cadastro_FuncionarioLayout.createSequentialGroup()
                 .addGap(317, 317, 317)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -776,7 +776,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Jpanel_abaConteiner_Fundo_Tela_Cadastro_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_CancelarCadastro_Tela_Cadastro_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -898,10 +898,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_CadastrarFuncionario_Tela_Cadastro_FuncionarioActionPerformed
 
-    private void Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -909,6 +905,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_CancelarCadastro_Tela_Cadastro_FuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
