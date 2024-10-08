@@ -43,7 +43,7 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
         Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
         Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
+        Jpanel_conteiner_Tela_Pesquisa_Funcionario = new javax.swing.JPanel();
         Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario = new javax.swing.JButton();
         jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario = new javax.swing.JScrollPane();
         JTable_ListaDeFuncionario_Tela_Pesquisa_Funcionario = new javax.swing.JTable();
@@ -298,8 +298,8 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
                 .addComponent(Jbtn_PesquisarFuncionario_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(885, 766));
+        Jpanel_conteiner_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
+        Jpanel_conteiner_Tela_Pesquisa_Funcionario.setPreferredSize(new java.awt.Dimension(885, 766));
 
         Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setBackground(new java.awt.Color(198, 95, 95));
         Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -366,25 +366,25 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario);
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario.setLayout(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout);
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
-            Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
-                .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout = new javax.swing.GroupLayout(Jpanel_conteiner_Tela_Pesquisa_Funcionario);
+        Jpanel_conteiner_Tela_Pesquisa_Funcionario.setLayout(Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout);
+        Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.setHorizontalGroup(
+            Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                .addGroup(Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+                    .addGroup(Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                         .addContainerGap(829, Short.MAX_VALUE)
                         .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(JPanel_Pesquisa_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(176, 176, 176))
         );
-        Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
-            Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
+        Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
+            Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_conteiner_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Jbtn_FecharAba_abaBase_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
@@ -401,7 +401,7 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE)
                 .addComponent(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addComponent(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jpanel_conteiner_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.setVerticalGroup(
@@ -410,9 +410,9 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
                 .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Jpanel_conteiner_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Jpanel_Fundo_Tela_Pesquisa_FuncionarioLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(80, 80, 80)
                         .addComponent(Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -469,10 +469,6 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_Treinamento_BarraLateralActionPerformed
 
-    private void Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
-
     private void Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_AdicionarFuncionario_Fundo_Tela_Pesquisa_FuncionarioActionPerformed
@@ -480,6 +476,10 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     private void JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextField_Insirir_Tela_Pesquisa_FuncionarioActionPerformed
+
+    private void Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_FecharAba_abaBase_Tela_Pesquisa_FuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -537,8 +537,8 @@ public class Tela_Pesquisa_Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel Jpanel_BarraLateral_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel Jpanel_Fundo_Tela_Pesquisa_Funcionario;
-    private javax.swing.JPanel Jpanel_abaConteiner_Fundo_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel Jpanel_conteinerBotoes_Fundo_Tela_Pesquisa_Funcionario;
+    private javax.swing.JPanel Jpanel_conteiner_Tela_Pesquisa_Funcionario;
     private javax.swing.JPanel jPanel_contentFuncionarioButton_TelaInicial1;
     private javax.swing.JScrollPane jScrollPane_ListaDeFuncionario_Tela_Pesquisa_Funcionario;
     private javax.swing.JLabel jlbl_Logo_BarraLateral_Tela_Pesquisa_Funcionario;
