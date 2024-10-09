@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="JPanel_backg_TelaLogin" min="-2" max="-2" attributes="0"/>
+              <Component id="Jpanel_Basebackg_Tela_Login" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -32,14 +32,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="JPanel_backg_TelaLogin" min="-2" max="-2" attributes="0"/>
+              <Component id="Jpanel_Basebackg_Tela_Login" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="JPanel_backg_TelaLogin">
+    <Container class="javax.swing.JPanel" name="Jpanel_Basebackg_Tela_Login">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="26" green="25" red="26" type="rgb"/>
@@ -51,7 +51,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
-                  <Component id="JPanel_bgContent_Tela_Inicial" min="-2" max="-2" attributes="0"/>
+                  <Component id="Jpanel_bgContent_Tela_Login" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="340" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -60,14 +60,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                  <Component id="JPanel_bgContent_Tela_Inicial" min="-2" max="-2" attributes="0"/>
+                  <Component id="Jpanel_bgContent_Tela_Login" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="141" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="JPanel_bgContent_Tela_Inicial">
+        <Container class="javax.swing.JPanel" name="Jpanel_bgContent_Tela_Login">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="73" green="3f" red="2f" type="rgb"/>
@@ -82,7 +82,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                      <Component id="jPanel_conteinerCampos_Tela_Inicial" min="-2" pref="340" max="-2" attributes="0"/>
+                      <Component id="Jpanel_conteinerCampos_Tela_Inicial" min="-2" pref="340" max="-2" attributes="0"/>
                       <EmptySpace pref="130" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -98,14 +98,14 @@
                       <EmptySpace pref="52" max="32767" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel_conteinerCampos_Tela_Inicial" min="-2" pref="235" max="-2" attributes="0"/>
+                      <Component id="Jpanel_conteinerCampos_Tela_Inicial" min="-2" pref="235" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel_conteinerCampos_Tela_Inicial">
+            <Container class="javax.swing.JPanel" name="Jpanel_conteinerCampos_Tela_Inicial">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="73" green="3f" red="2f" type="rgb"/>
@@ -122,18 +122,18 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jlbl_password_TelaLogin" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlbl_password_Tela_Login" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jtxtf_campoLogin_TelaLogin" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jpsw_campoPSW_Tela_Login" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jlbl_Login_TelaLogin" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Jtxtf_campoLogin_Tela_Login" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Jpsw_campoPSW_Tela_Login" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jlbl_Login_Tela_Login" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jBtn_acessar_TelaLogin" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="Jbtn_acessar_Tela_Login" min="-2" pref="166" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Jbtn_forgotPsw_TelaLogin" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="Jbtn_forgotPsw_Tela_Login" min="-2" pref="160" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -146,17 +146,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jlbl_Login_TelaLogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlbl_Login_Tela_Login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtxtf_campoLogin_TelaLogin" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="Jtxtf_campoLogin_Tela_Login" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jlbl_password_TelaLogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlbl_password_Tela_Login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jpsw_campoPSW_Tela_Login" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="Jpsw_campoPSW_Tela_Login" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace pref="41" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Jbtn_forgotPsw_TelaLogin" max="32767" attributes="0"/>
-                              <Component id="jBtn_acessar_TelaLogin" pref="50" max="32767" attributes="0"/>
+                              <Component id="Jbtn_forgotPsw_Tela_Login" max="32767" attributes="0"/>
+                              <Component id="Jbtn_acessar_Tela_Login" pref="50" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -164,7 +164,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jlbl_password_TelaLogin">
+                <Component class="javax.swing.JLabel" name="jlbl_password_Tela_Login">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="20" style="1"/>
@@ -175,7 +175,7 @@
                     <Property name="text" type="java.lang.String" value="Senha:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtn_acessar_TelaLogin">
+                <Component class="javax.swing.JButton" name="Jbtn_acessar_Tela_Login">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c4" green="ec" red="f3" type="rgb"/>
@@ -189,10 +189,10 @@
                     <Property name="text" type="java.lang.String" value="Acessar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtn_acessar_TelaLoginActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_acessar_Tela_LoginActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jlbl_Login_TelaLogin">
+                <Component class="javax.swing.JLabel" name="jlbl_Login_Tela_Login">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="20" style="1"/>
@@ -203,17 +203,17 @@
                     <Property name="text" type="java.lang.String" value="Login:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtxtf_campoLogin_TelaLogin">
+                <Component class="javax.swing.JTextField" name="Jtxtf_campoLogin_Tela_Login">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxtf_campoLogin_TelaLoginActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jtxtf_campoLogin_Tela_LoginActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="jpsw_campoPSW_Tela_Login">
+                <Component class="javax.swing.JPasswordField" name="Jpsw_campoPSW_Tela_Login">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -227,7 +227,7 @@
                     <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="Jbtn_forgotPsw_TelaLogin">
+                <Component class="javax.swing.JButton" name="Jbtn_forgotPsw_Tela_Login">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="73" green="3f" red="2f" type="rgb"/>
@@ -250,25 +250,39 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_forgotPsw_TelaLoginActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_forgotPsw_Tela_LoginActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="73" green="3f" red="2f" type="rgb"/>
+                </Property>
+              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="172" max="32767" attributes="0"/>
+                      <Component id="Jlbl_Logo_Tela_Login" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="190" max="32767" attributes="0"/>
+                      <Component id="Jlbl_Logo_Tela_Login" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="Jlbl_Logo_Tela_Login">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Imagens/LogoTelaLogin.png"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
