@@ -43,12 +43,14 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
         Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Treinamento = new javax.swing.JButton();
         JPanel_FundoBase_Tela_Pesquisa_Treinamento = new javax.swing.JPanel();
         JPanel_conteiner_Tela_Pesquisa_Treinamento = new javax.swing.JPanel();
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento = new javax.swing.JButton();
         Jpanel_contentSearch_Tela_Pesquisa_Treinamento = new javax.swing.JPanel();
         Jbtn_requestRegistro_Tela_Pesquisar_Treinamento = new javax.swing.JButton();
         JtxtF_registro_Tela_Pesquisar_Treinamento = new javax.swing.JTextField();
         JsPanel_table_Tela_Pesquisa_Treinamento = new javax.swing.JScrollPane();
         Jtb_responseRegistros_Tela_Pesquisa_Treinamento = new javax.swing.JTable();
+        JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento = new javax.swing.JPanel();
+        Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento = new javax.swing.JButton();
+        Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento = new javax.swing.JButton();
         JPanel_conteinerBotoes_Fundo_Tela_Pesquisa_Treinamento = new javax.swing.JPanel();
         Jbtn_AdicionarTreinamento_Tela_Pesquisa_Treinamento = new javax.swing.JButton();
         Jbtn_PesquisarTreinamento_Tela_Pesquisa_Treinamento = new javax.swing.JButton();
@@ -299,16 +301,6 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
         JPanel_conteiner_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(255, 255, 255));
         JPanel_conteiner_Tela_Pesquisa_Treinamento.setPreferredSize(new java.awt.Dimension(800, 766));
 
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/IconePesquisarTreinamento.png"))); // NOI18N
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento.setPreferredSize(new java.awt.Dimension(40, 40));
-        Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_IrParaTreinamento_Tela_Pesquisar_TreinamentoActionPerformed(evt);
-            }
-        });
-
         Jpanel_contentSearch_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
         Jpanel_contentSearch_Tela_Pesquisa_Treinamento.setPreferredSize(new java.awt.Dimension(560, 70));
 
@@ -358,17 +350,17 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
         Jtb_responseRegistros_Tela_Pesquisa_Treinamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtb_responseRegistros_Tela_Pesquisa_Treinamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Onboarding", "Arthur", "2024-04-01"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {"Onboarding", "Inativo", "2024-04-01", "2024-04-10", "Sim"},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Treinamento", "Instrutor", "Data"
+                "Treinamento", "Status", "Data", "Termino", "Obrigatório"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -380,34 +372,70 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
         Jtb_responseRegistros_Tela_Pesquisa_Treinamento.setShowHorizontalLines(true);
         JsPanel_table_Tela_Pesquisa_Treinamento.setViewportView(Jtb_responseRegistros_Tela_Pesquisa_Treinamento);
 
+        JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(255, 255, 255));
+        JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento.setPreferredSize(new java.awt.Dimension(110, 40));
+
+        Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(234, 151, 151));
+        Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LixeiraIcon.png"))); // NOI18N
+        Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento.setPreferredSize(new java.awt.Dimension(30, 30));
+        Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_ApagarTreinamento_Tela_Pesquisa_TreinamentoActionPerformed(evt);
+            }
+        });
+
+        Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/PesquisarTreinamentoIcon.png"))); // NOI18N
+        Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento.setPreferredSize(new java.awt.Dimension(30, 30));
+
+        javax.swing.GroupLayout JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout = new javax.swing.GroupLayout(JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento);
+        JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento.setLayout(JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout);
+        JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.setHorizontalGroup(
+            JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.setVerticalGroup(
+            JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JPanel_BackgroundButtons_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout = new javax.swing.GroupLayout(JPanel_conteiner_Tela_Pesquisa_Treinamento);
         JPanel_conteiner_Tela_Pesquisa_Treinamento.setLayout(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout);
         JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.setHorizontalGroup(
             JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JsPanel_table_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Jpanel_contentSearch_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(21, 21, 21)
+                .addComponent(JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(JsPanel_table_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Jpanel_contentSearch_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
         JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.setVerticalGroup(
             JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(Jpanel_contentSearch_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Jpanel_contentSearch_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JsPanel_table_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(JsPanel_table_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
                     .addGroup(JPanel_conteiner_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addGap(54, 54, 54)
+                        .addComponent(JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         JPanel_conteinerBotoes_Fundo_Tela_Pesquisa_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
@@ -449,7 +477,7 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
             .addGroup(JPanel_FundoBase_Tela_Pesquisa_TreinamentoLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(JPanel_conteinerBotoes_Fundo_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(24, 24, 24)
                 .addComponent(JPanel_conteiner_Tela_Pesquisa_Treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94))
         );
@@ -526,9 +554,9 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_requestRegistro_Tela_Pesquisar_TreinamentoActionPerformed
 
-    private void Jbtn_IrParaTreinamento_Tela_Pesquisar_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IrParaTreinamento_Tela_Pesquisar_TreinamentoActionPerformed
+    private void Jbtn_ApagarTreinamento_Tela_Pesquisa_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ApagarTreinamento_Tela_Pesquisa_TreinamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_IrParaTreinamento_Tela_Pesquisar_TreinamentoActionPerformed
+    }//GEN-LAST:event_Jbtn_ApagarTreinamento_Tela_Pesquisa_TreinamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,6 +594,7 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanel_BackgroundButtons_Tela_Pesquisa_Treinamento;
     private javax.swing.JPanel JPanel_BarraLateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JPanel JPanel_FundoBase_Tela_Pesquisa_Treinamento;
     private javax.swing.JPanel JPanel_conteinerBotoes_Fundo_Tela_Pesquisa_Treinamento;
@@ -573,11 +602,12 @@ public class Tela_Pesquisa_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_conteiner_Tela_Pesquisa_Treinamento;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_AdicionarTreinamento_Tela_Pesquisa_Treinamento;
+    private javax.swing.JButton Jbtn_ApagarTreinamento_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_Equipe_BarraLateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_Funcionario_BarraLateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_Tela_Pesquisa_Treinamento;
-    private javax.swing.JButton Jbtn_IrParaTreinamento_Tela_Pesquisar_Treinamento;
+    private javax.swing.JButton Jbtn_IrTreinamento_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_PesquisarTreinamento_Tela_Pesquisa_Treinamento;
     private javax.swing.JButton Jbtn_Treinamento_BarraLateral_Tela_Pesquisar_Treinamento;
