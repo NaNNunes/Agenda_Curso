@@ -668,11 +668,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="Jlbl_title_Tela_Cadastro_Treinamento" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Jst_separador_Tela_Cadastro_Treinamento" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="Jlbl_titleConteinerResumo_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Jpanel_conteinerResumo_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
@@ -682,8 +682,8 @@
                       <Component id="Jpanel_conteinerOperacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Jbtn_Salvar_Tela_Cadastro_Treinamento" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="Jbtn_Cancelar_Tela_Cadastro_Treinamento" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="Jbtn_Salvar_Tela_Cadastro_Treinamento" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="Jbtn_Cancelar_Tela_Cadastro_Treinamento" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
@@ -966,24 +966,21 @@
                                   <Component id="Jlbl_dtTermino_Operacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="Jtxtf_dtTermino_Operacao_Tela_Cadastro_Treinamento" min="-2" pref="168" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Jlbl_Obrigatorio_Operacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Jcbx_Obrigatorio_Operacao_Tela_Cadastro_Treinamento" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Jlbl_Status_Operacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Jcbx_Status_Operacao_Tela_Cadastro_Treinamento" min="-2" pref="183" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Jlbl_Obrigatorio_Operacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Jcbx_Obrigatorio_Operacao_Tela_Cadastro_Treinamento" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="Jlbl_Status_Operacao_Tela_Cadastro_Treinamento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Jcbx_Status_Operacao_Tela_Cadastro_Treinamento" min="-2" pref="183" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
