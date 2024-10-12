@@ -26,17 +26,26 @@ public class componente_BaseFundo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        Jpanel_conteinerBotoes_Fundo = new javax.swing.JPanel();
         Jbtn_AdicionarItem_Fundo_TelaNomeTela = new javax.swing.JButton();
         Jbtn_Pesquisaitem_Fundo_TelanomeTela = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        Jpanel_abaConteiner_Fundo = new javax.swing.JPanel();
         Jbtn_FecharAba_abaBase_TelanomeTela = new javax.swing.JButton();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setBackground(new java.awt.Color(242, 237, 228));
         setPreferredSize(new java.awt.Dimension(1048, 832));
 
-        jPanel1.setBackground(new java.awt.Color(242, 237, 228));
-        jPanel1.setPreferredSize(new java.awt.Dimension(135, 105));
+        Jpanel_conteinerBotoes_Fundo.setBackground(new java.awt.Color(242, 237, 228));
+        Jpanel_conteinerBotoes_Fundo.setPreferredSize(new java.awt.Dimension(135, 105));
 
         Jbtn_AdicionarItem_Fundo_TelaNomeTela.setBackground(new java.awt.Color(242, 237, 228));
         Jbtn_AdicionarItem_Fundo_TelaNomeTela.setFont(new java.awt.Font("Bookman Old Style", 0, 20)); // NOI18N
@@ -52,23 +61,23 @@ public class componente_BaseFundo extends javax.swing.JPanel {
         Jbtn_Pesquisaitem_Fundo_TelanomeTela.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Jbtn_Pesquisaitem_Fundo_TelanomeTela.setPreferredSize(new java.awt.Dimension(135, 45));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Jpanel_conteinerBotoes_FundoLayout = new javax.swing.GroupLayout(Jpanel_conteinerBotoes_Fundo);
+        Jpanel_conteinerBotoes_Fundo.setLayout(Jpanel_conteinerBotoes_FundoLayout);
+        Jpanel_conteinerBotoes_FundoLayout.setHorizontalGroup(
+            Jpanel_conteinerBotoes_FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Jbtn_AdicionarItem_Fundo_TelaNomeTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Jbtn_Pesquisaitem_Fundo_TelanomeTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        Jpanel_conteinerBotoes_FundoLayout.setVerticalGroup(
+            Jpanel_conteinerBotoes_FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_conteinerBotoes_FundoLayout.createSequentialGroup()
                 .addComponent(Jbtn_AdicionarItem_Fundo_TelaNomeTela, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(Jbtn_Pesquisaitem_Fundo_TelanomeTela, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(885, 766));
+        Jpanel_abaConteiner_Fundo.setBackground(new java.awt.Color(255, 255, 255));
+        Jpanel_abaConteiner_Fundo.setPreferredSize(new java.awt.Dimension(885, 766));
 
         Jbtn_FecharAba_abaBase_TelanomeTela.setBackground(new java.awt.Color(198, 95, 95));
         Jbtn_FecharAba_abaBase_TelanomeTela.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -82,18 +91,18 @@ public class componente_BaseFundo extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout Jpanel_abaConteiner_FundoLayout = new javax.swing.GroupLayout(Jpanel_abaConteiner_Fundo);
+        Jpanel_abaConteiner_Fundo.setLayout(Jpanel_abaConteiner_FundoLayout);
+        Jpanel_abaConteiner_FundoLayout.setHorizontalGroup(
+            Jpanel_abaConteiner_FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_abaConteiner_FundoLayout.createSequentialGroup()
                 .addContainerGap(829, Short.MAX_VALUE)
                 .addComponent(Jbtn_FecharAba_abaBase_TelanomeTela, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        Jpanel_abaConteiner_FundoLayout.setVerticalGroup(
+            Jpanel_abaConteiner_FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_abaConteiner_FundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Jbtn_FecharAba_abaBase_TelanomeTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(730, Short.MAX_VALUE))
@@ -105,9 +114,9 @@ public class componente_BaseFundo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jpanel_conteinerBotoes_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jpanel_abaConteiner_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -116,10 +125,10 @@ public class componente_BaseFundo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Jpanel_abaConteiner_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(80, 80, 80)
+                        .addComponent(Jpanel_conteinerBotoes_Fundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -133,7 +142,9 @@ public class componente_BaseFundo extends javax.swing.JPanel {
     private javax.swing.JButton Jbtn_AdicionarItem_Fundo_TelaNomeTela;
     private javax.swing.JButton Jbtn_FecharAba_abaBase_TelanomeTela;
     private javax.swing.JButton Jbtn_Pesquisaitem_Fundo_TelanomeTela;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel Jpanel_abaConteiner_Fundo;
+    private javax.swing.JPanel Jpanel_conteinerBotoes_Fundo;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
