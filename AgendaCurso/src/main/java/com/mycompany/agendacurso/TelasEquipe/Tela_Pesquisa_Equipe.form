@@ -58,24 +58,22 @@
                   <Component id="jPanel3" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="JPanel_BarraLateral_Tela_Cadastro_Funcionario1" alignment="1" pref="800" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel2" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace pref="638" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Component id="JPanel_BarraLateral_Tela_Cadastro_Funcionario1" alignment="0" pref="800" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -144,7 +142,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Jpanel_contentTreinamento_Barra_Lateral_Tela_Cadastro_Funcionario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="288" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Jbtn_Configuração_BarraLateral_Tela_Cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -508,7 +506,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                       <Component id="Jbtn_IrParaTreinamento_Tela_Pesquisa_Equipe" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

@@ -636,7 +636,7 @@
                                   <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="89" max="32767" attributes="0"/>
+                          <EmptySpace pref="50" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -739,7 +739,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="Jlbl_Sobrenome_Tela_Cadastro_Equipes" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Jtxtf_Sobrenome_Tela_cadastro_Equipes" pref="119" max="32767" attributes="0"/>
+                                      <Component id="Jtxtf_Sobrenome_Tela_cadastro_Equipes" pref="123" max="32767" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="Jlbl_Telefone_Tela_Cadastro_Equipes" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>

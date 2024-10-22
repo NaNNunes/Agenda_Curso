@@ -93,7 +93,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         JPanel_logo_Barra_Lateral_TelaCadastroEquipes.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_logo_Barra_Lateral_TelaCadastroEquipes.setPreferredSize(new java.awt.Dimension(133, 143));
 
-        jlbl_Logo_BarraLateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoBarraLateral.png"))); // NOI18N
+        jlbl_Logo_BarraLateral.setIcon(new javax.swing.ImageIcon("P:\\TURMAS\\HTC-DDS-19\\Renan\\MODULO-2\\TechNight\\Agenda_Curso\\AgendaCurso\\src\\main\\java\\Imagens\\LogoBarraLateral.png")); // NOI18N
 
         javax.swing.GroupLayout JPanel_logo_Barra_Lateral_TelaCadastroEquipesLayout = new javax.swing.GroupLayout(JPanel_logo_Barra_Lateral_TelaCadastroEquipes);
         JPanel_logo_Barra_Lateral_TelaCadastroEquipes.setLayout(JPanel_logo_Barra_Lateral_TelaCadastroEquipesLayout);
@@ -127,7 +127,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         });
 
         Jbtn_IconeFuncionario_BarraLateral_Tela_Cadastro_Equipes.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_IconeFuncionario_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeFuncionarioComFundo.png"))); // NOI18N
+        Jbtn_IconeFuncionario_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon("P:\\TURMAS\\HTC-DDS-19\\Renan\\MODULO-2\\TechNight\\Agenda_Curso\\AgendaCurso\\src\\main\\java\\Imagens\\iconeFuncionarioComFundo.png")); // NOI18N
         Jbtn_IconeFuncionario_BarraLateral_Tela_Cadastro_Equipes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_IconeFuncionario_BarraLateral_Tela_Cadastro_EquipesActionPerformed(evt);
@@ -173,7 +173,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         });
 
         Jbtn_iconeEquipe_BarraLateral_Tela_Cadastro_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_iconeEquipe_BarraLateral_Tela_Cadastro_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeEquipeComFundo.png"))); // NOI18N
+        Jbtn_iconeEquipe_BarraLateral_Tela_Cadastro_Funcionario.setIcon(new javax.swing.ImageIcon("P:\\TURMAS\\HTC-DDS-19\\Renan\\MODULO-2\\TechNight\\Agenda_Curso\\AgendaCurso\\src\\main\\java\\Imagens\\iconeEquipeComFundo.png")); // NOI18N
         Jbtn_iconeEquipe_BarraLateral_Tela_Cadastro_Funcionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_iconeEquipe_BarraLateral_Tela_Cadastro_FuncionarioActionPerformed(evt);
@@ -198,7 +198,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
 
         Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeTrocaUsario.png"))); // NOI18N
+        Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon("P:\\TURMAS\\HTC-DDS-19\\Renan\\MODULO-2\\TechNight\\Agenda_Curso\\AgendaCurso\\src\\main\\java\\Imagens\\iconeTrocaUsario.png")); // NOI18N
         Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setMaximumSize(new java.awt.Dimension(80, 40));
         Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setMinimumSize(new java.awt.Dimension(80, 40));
         Jbtn_trocarUsuario_BarraLateral_Tela_Cadastro_Equipes.setPreferredSize(new java.awt.Dimension(80, 40));
@@ -210,7 +210,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
 
         Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeConfiguracao.png"))); // NOI18N
+        Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setIcon(new javax.swing.ImageIcon("P:\\TURMAS\\HTC-DDS-19\\Renan\\MODULO-2\\TechNight\\Agenda_Curso\\AgendaCurso\\src\\main\\java\\Imagens\\iconeConfiguracao.png")); // NOI18N
         Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setMaximumSize(new java.awt.Dimension(90, 40));
         Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setMinimumSize(new java.awt.Dimension(90, 40));
         Jbtn_Configuração_BarraLateral_Tela_Cadastro_Equipes.setPreferredSize(new java.awt.Dimension(90, 40));
@@ -290,7 +290,6 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.setText("Cad.Equipe");
-        Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.setPreferredSize(new java.awt.Dimension(135, 45));
         Jbtn_AdicionarEquipe_Fundo_Tela_Adicionar_Equipes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,7 +301,6 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.setText("Pesquisar");
-        Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.setPreferredSize(new java.awt.Dimension(135, 45));
         Jbtn_PesquisarEquipe_Fundo_Tela_Adicionar_Equipes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,7 +312,6 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.setText("Adicionar");
-        Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.setPreferredSize(new java.awt.Dimension(135, 45));
         Jbtn_Adicionar_Equipe_Fundo_Tela_Adicionar_Equipes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,10 +345,10 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         Jlbl_Title_Tela_Adicionar_Equipes.setText("ADICIONAR EQUIPE");
 
         jPanel3.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         Jlbl_Equipe01_Tela_Adicionar_Equipe.setBackground(new java.awt.Color(255, 255, 255));
         Jlbl_Equipe01_Tela_Adicionar_Equipe.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -466,10 +463,10 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         Jlbl_Equipe02_Tela_Adicionar_Equipe.setBackground(new java.awt.Color(255, 255, 255));
         Jlbl_Equipe02_Tela_Adicionar_Equipe.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -584,11 +581,11 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         );
 
         jPanel9.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel9.setPreferredSize(new java.awt.Dimension(193, 272));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         Jlbl_Adcionar_Equipe_Tela_Adicionar_Equipe.setBackground(new java.awt.Color(255, 255, 255));
         Jlbl_Adcionar_Equipe_Tela_Adicionar_Equipe.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -600,7 +597,7 @@ public class Tela_Adicionar_Equipes extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(Jlbl_Adcionar_Equipe_Tela_Adicionar_Equipe)
                 .addGap(34, 34, 34))
         );
