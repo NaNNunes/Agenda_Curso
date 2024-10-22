@@ -452,7 +452,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                     .addGroup(Jpanel_identiConteinar_Tela_cadastro_EquipesLayout.createSequentialGroup()
                         .addComponent(Jlbl_Sobrenome_Tela_Cadastro_Equipes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Jtxtf_Sobrenome_Tela_cadastro_Equipes, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(Jtxtf_Sobrenome_Tela_cadastro_Equipes, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Jlbl_Telefone_Tela_Cadastro_Equipes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -702,7 +702,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                         .addComponent(Jpanel_aba_Fundo_Tela_Cadastro_Equipes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Jpanel_abaCriandoEquipe_Fundo_Tela_Cadastro_Equipes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
