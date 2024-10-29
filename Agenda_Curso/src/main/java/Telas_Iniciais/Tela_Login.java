@@ -26,9 +26,53 @@ public class Tela_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        Imagem_login = new javax.swing.JLabel();
+        Login_login = new javax.swing.JLabel();
+        Text_login = new javax.swing.JTextField();
+        Senha_login = new javax.swing.JLabel();
+        Esqueceu_senha_login = new javax.swing.JLabel();
+        Acessar_login = new javax.swing.JButton();
+        Text_senha_login = new javax.swing.JPasswordField();
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMaximumSize(new java.awt.Dimension(1048, 832));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1048, 832));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(47, 63, 115));
+        jPanel4.setMaximumSize(new java.awt.Dimension(600, 570));
+        jPanel4.setMinimumSize(new java.awt.Dimension(600, 570));
+        jPanel4.setPreferredSize(new java.awt.Dimension(600, 570));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 832));
@@ -40,28 +84,48 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(1048, 832));
         jPanel2.setMinimumSize(new java.awt.Dimension(1048, 832));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 840, 790));
-
-        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
-        jPanel3.setMaximumSize(new java.awt.Dimension(232, 832));
-        jPanel3.setMinimumSize(new java.awt.Dimension(232, 832));
-        jPanel3.setPreferredSize(new java.awt.Dimension(232, 832));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(249, 246, 226));
+        jPanel5.setMaximumSize(new java.awt.Dimension(1280, 832));
+        jPanel5.setMinimumSize(new java.awt.Dimension(1280, 832));
+        jPanel5.setPreferredSize(new java.awt.Dimension(1280, 832));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(47, 63, 115));
+        jPanel1.setMaximumSize(new java.awt.Dimension(600, 570));
+        jPanel1.setMinimumSize(new java.awt.Dimension(600, 570));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 570));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Imagem_login.setForeground(new java.awt.Color(255, 255, 255));
+        Imagem_login.setText("jLabel1");
+        jPanel1.add(Imagem_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+
+        Login_login.setForeground(new java.awt.Color(255, 255, 255));
+        Login_login.setText("Login");
+        jPanel1.add(Login_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+
+        Text_login.setText("jTextField1");
+        jPanel1.add(Text_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 340, -1));
+
+        Senha_login.setForeground(new java.awt.Color(255, 255, 255));
+        Senha_login.setText("Senha");
+        jPanel1.add(Senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+
+        Esqueceu_senha_login.setForeground(new java.awt.Color(255, 255, 255));
+        Esqueceu_senha_login.setText("Esqueceu senha ?");
+        jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+
+        Acessar_login.setText("Acessar");
+        jPanel1.add(Acessar_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+
+        Text_senha_login.setText("jPasswordField1");
+        jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 340, -1));
+
+        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,8 +166,18 @@ public class Tela_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Acessar_login;
+    private javax.swing.JLabel Esqueceu_senha_login;
+    private javax.swing.JLabel Imagem_login;
+    private javax.swing.JLabel Login_login;
+    private javax.swing.JLabel Senha_login;
+    private javax.swing.JTextField Text_login;
+    private javax.swing.JPasswordField Text_senha_login;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 }

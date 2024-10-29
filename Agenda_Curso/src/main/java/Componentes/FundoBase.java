@@ -44,7 +44,7 @@ public class FundoBase extends javax.swing.JPanel {
             .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 840, 790));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 840, 790));
     }// </editor-fold>//GEN-END:initComponents
 
 
