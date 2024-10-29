@@ -109,6 +109,7 @@ public class componente_BarraLateral extends javax.swing.JPanel {
 
         Jbtn_IconeFuncionario_BarraLateral.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_IconeFuncionario_BarraLateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/iconeFuncionarioComFundo.png"))); // NOI18N
+        Jbtn_IconeFuncionario_BarraLateral.setPreferredSize(new java.awt.Dimension(65, 32));
         Jbtn_IconeFuncionario_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_IconeFuncionario_BarraLateralActionPerformed(evt);
@@ -120,7 +121,7 @@ public class componente_BarraLateral extends javax.swing.JPanel {
         JPanel_contentFuncionarioButton_TelaInicial1Layout.setHorizontalGroup(
             JPanel_contentFuncionarioButton_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_contentFuncionarioButton_TelaInicial1Layout.createSequentialGroup()
-                .addComponent(Jbtn_IconeFuncionario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_IconeFuncionario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jbtn_Funcionario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
         );

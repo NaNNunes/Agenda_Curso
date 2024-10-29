@@ -4,6 +4,9 @@
  */
 package Telas_Funcionario;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author r.nunes
@@ -809,7 +812,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Cancelar_CadFuncActionPerformed
 
     private void Jbtn_Salvar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadFuncActionPerformed
-        // TODO add your handling code here:
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        String path = "jdbc:mysql//localhost:3306/agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
     }//GEN-LAST:event_Jbtn_Salvar_CadFuncActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
