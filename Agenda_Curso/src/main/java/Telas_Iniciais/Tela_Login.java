@@ -94,35 +94,47 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(47, 63, 115));
         jPanel1.setMaximumSize(new java.awt.Dimension(600, 570));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 570));
-        jPanel1.setPreferredSize(new java.awt.Dimension(600, 570));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 571));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Imagem_login.setForeground(new java.awt.Color(255, 255, 255));
-        Imagem_login.setText("jLabel1");
-        jPanel1.add(Imagem_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+        Imagem_login.setText("Logo");
+        Imagem_login.setPreferredSize(new java.awt.Dimension(200, 200));
+        jPanel1.add(Imagem_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
+        Login_login.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Login_login.setForeground(new java.awt.Color(255, 255, 255));
         Login_login.setText("Login");
-        jPanel1.add(Login_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+        jPanel1.add(Login_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
-        Text_login.setText("jTextField1");
-        jPanel1.add(Text_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 340, -1));
+        Text_login.setBackground(new java.awt.Color(255, 255, 255));
+        Text_login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Text_login.setForeground(new java.awt.Color(0, 0, 0));
+        Text_login.setPreferredSize(new java.awt.Dimension(323, 24));
+        jPanel1.add(Text_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, 30));
 
+        Senha_login.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Senha_login.setForeground(new java.awt.Color(255, 255, 255));
         Senha_login.setText("Senha");
-        jPanel1.add(Senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
+        jPanel1.add(Senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
 
-        Esqueceu_senha_login.setForeground(new java.awt.Color(255, 255, 255));
-        Esqueceu_senha_login.setText("Esqueceu senha ?");
-        jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+        Esqueceu_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Esqueceu_senha_login.setForeground(new java.awt.Color(234, 242, 5));
+        Esqueceu_senha_login.setText("Esqueceu a senha?");
+        jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 340, -1, 20));
 
+        Acessar_login.setBackground(new java.awt.Color(255, 255, 255));
+        Acessar_login.setForeground(new java.awt.Color(0, 0, 0));
         Acessar_login.setText("Acessar");
-        jPanel1.add(Acessar_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+        Acessar_login.setPreferredSize(new java.awt.Dimension(220, 52));
+        jPanel1.add(Acessar_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
-        Text_senha_login.setText("jPasswordField1");
-        jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 340, -1));
+        Text_senha_login.setBackground(new java.awt.Color(255, 255, 255));
+        Text_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Text_senha_login.setPreferredSize(new java.awt.Dimension(323, 25));
+        jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 30));
 
-        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

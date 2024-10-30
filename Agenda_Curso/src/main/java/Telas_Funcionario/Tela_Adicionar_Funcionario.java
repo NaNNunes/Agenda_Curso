@@ -198,7 +198,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
 
         Jlbl_Identificacao_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Identificacao_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Identificacao_Tela_Adicionar_Funcionario.setText("Identifição Equipe: *");
+        Jlbl_Identificacao_Tela_Adicionar_Funcionario.setText("Identifição Equipe: ");
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         Jtxtf_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(255, 255, 255));
@@ -236,10 +236,16 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
 
         jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 534, -1, -1));
 
+        Jbtn_Salvar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Salvar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Salvar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setText("Salvar");
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(151, 35));
         jPanel2.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, -1, -1));
 
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setText("Cancelar");
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.addActionListener(new java.awt.event.ActionListener() {
