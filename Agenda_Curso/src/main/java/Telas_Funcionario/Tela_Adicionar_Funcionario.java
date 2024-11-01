@@ -149,7 +149,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
 
         Jlbl_Numero_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Numero_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Numero_Tela_Adicionar_Funcionario.setText("Numero:");
+        Jlbl_Numero_Tela_Adicionar_Funcionario.setText("Telefone:");
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
         Jtxtf_Numero_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(255, 255, 255));

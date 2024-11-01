@@ -27,34 +27,37 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        JPanel_BarraLateral = new javax.swing.JPanel();
-        Jbtn_LogoutButton_BarraLateral_CadFunc = new javax.swing.JButton();
+        Jpanel_Fundo_CadEqp = new javax.swing.JPanel();
+        JPanel_BarraLateral_CadEqp = new javax.swing.JPanel();
+        Jbtn_LogoutButton_BarraLateral_CadEqp = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario = new javax.swing.JPanel();
-        Jlbl_Logo_BarraLateral_CadFunc = new javax.swing.JLabel();
+        Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         JPanel_contentFuncionarioButton_TelaInicial1 = new javax.swing.JPanel();
-        Jbtn_Funcionario_BarraLateral = new javax.swing.JButton();
-        Jbtn_IconeFuncionario_BarraLateral_CadFunc = new javax.swing.JButton();
+        Jbtn_Funcionario_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jbtn_IconeFuncionario_BarraLateral_CadEqp = new javax.swing.JButton();
         JPanel_contentEquipe_BarraLateral = new javax.swing.JPanel();
-        Jbtn_Equipe_BarraLateral = new javax.swing.JButton();
-        Jbtn_iconeEquipe_BarraLateral_CadFunc = new javax.swing.JButton();
-        Jbtn_trocarUsuario_BarraLateral_CadFunc = new javax.swing.JButton();
-        Jbtn_Configuração_BarraLateral_CadFunc = new javax.swing.JButton();
+        Jbtn_Equipe_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jbtn_iconeEquipe_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jbtn_trocarUsuario_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jbtn_Configuração_BarraLateral_CadEqp = new javax.swing.JButton();
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
-        Jbtn_Treinamento_BarraLateral = new javax.swing.JButton();
-        Jbtn_iconeTreinamento_BarraLateral_CadFunc = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        Jbtn_Treinamento_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
+        Jlbl_Titulo_CadEqp = new javax.swing.JLabel();
+        Jpanel_Conteiner_CadEqp = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        Jlbl_Header_Conteiner_CadEqp = new javax.swing.JLabel();
+        Jlbl_Nome_CadEqp = new javax.swing.JLabel();
+        Jtxtf_Nome_CadEqp = new javax.swing.JTextField();
+        Jlbl_Supervisor_CadEqp = new javax.swing.JLabel();
+        Jlbl_Turno_CadEqp = new javax.swing.JLabel();
+        Jlbl_Setor_CadEqp = new javax.swing.JLabel();
+        Jlbl_Treinamento_CadEqp = new javax.swing.JLabel();
+        Jcmbx_Setor_CadEqp = new javax.swing.JComboBox<>();
+        Jcmbx_Treinamento_CadEqp1 = new javax.swing.JComboBox<>();
+        Jcmbx_Turno_CadEqp1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -70,19 +73,19 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(249, 246, 226));
+        Jpanel_Fundo_CadEqp.setBackground(new java.awt.Color(249, 246, 226));
 
-        JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
-        JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
+        JPanel_BarraLateral_CadEqp.setBackground(new java.awt.Color(47, 63, 115));
+        JPanel_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(232, 832));
 
-        Jbtn_LogoutButton_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_LogoutButton_BarraLateral_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_LogoutButton_BarraLateral_CadFunc.setMaximumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_CadFunc.setMinimumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_CadFunc.setPreferredSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_LogoutButton_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_LogoutButton_BarraLateral_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_LogoutButton_BarraLateral_CadEqp.setMaximumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_CadEqp.setMinimumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed(evt);
+                Jbtn_LogoutButton_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
@@ -93,37 +96,37 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionario.setLayout(JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout);
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setHorizontalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jlbl_Logo_BarraLateral_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+            .addComponent(Jlbl_Logo_BarraLateral_Eqp, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
         );
         JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.setVerticalGroup(
             JPanel_logo_Barra_Lateral_TelaCadastroFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jlbl_Logo_BarraLateral_CadFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+            .addComponent(Jlbl_Logo_BarraLateral_Eqp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
         );
 
         JPanel_contentFuncionarioButton_TelaInicial1.setBackground(new java.awt.Color(40, 54, 98));
         JPanel_contentFuncionarioButton_TelaInicial1.setPreferredSize(new java.awt.Dimension(232, 40));
 
-        Jbtn_Funcionario_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Funcionario_BarraLateral.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Funcionario_BarraLateral.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Funcionario_BarraLateral.setText("Funcionário");
-        Jbtn_Funcionario_BarraLateral.setAlignmentX(0.5F);
-        Jbtn_Funcionario_BarraLateral.setBorder(null);
-        Jbtn_Funcionario_BarraLateral.setIconTextGap(30);
-        Jbtn_Funcionario_BarraLateral.setMargin(new java.awt.Insets(0, 0, 0, 10));
-        Jbtn_Funcionario_BarraLateral.setMaximumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Funcionario_BarraLateral.setMinimumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Funcionario_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 45));
-        Jbtn_Funcionario_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Funcionario_BarraLateral_CadEqp.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Funcionario_BarraLateral_CadEqp.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Funcionario_BarraLateral_CadEqp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Funcionario_BarraLateral_CadEqp.setText("Funcionário");
+        Jbtn_Funcionario_BarraLateral_CadEqp.setAlignmentX(0.5F);
+        Jbtn_Funcionario_BarraLateral_CadEqp.setBorder(null);
+        Jbtn_Funcionario_BarraLateral_CadEqp.setIconTextGap(30);
+        Jbtn_Funcionario_BarraLateral_CadEqp.setMargin(new java.awt.Insets(0, 0, 0, 10));
+        Jbtn_Funcionario_BarraLateral_CadEqp.setMaximumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Funcionario_BarraLateral_CadEqp.setMinimumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Funcionario_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(232, 45));
+        Jbtn_Funcionario_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Funcionario_BarraLateralActionPerformed(evt);
+                Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
-        Jbtn_IconeFuncionario_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_IconeFuncionario_BarraLateral_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_IconeFuncionario_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_IconeFuncionario_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_IconeFuncionario_BarraLateral_CadFuncActionPerformed(evt);
+                Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
@@ -132,43 +135,43 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
         JPanel_contentFuncionarioButton_TelaInicial1Layout.setHorizontalGroup(
             JPanel_contentFuncionarioButton_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_contentFuncionarioButton_TelaInicial1Layout.createSequentialGroup()
-                .addComponent(Jbtn_IconeFuncionario_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_IconeFuncionario_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jbtn_Funcionario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Jbtn_Funcionario_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPanel_contentFuncionarioButton_TelaInicial1Layout.setVerticalGroup(
             JPanel_contentFuncionarioButton_TelaInicial1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel_contentFuncionarioButton_TelaInicial1Layout.createSequentialGroup()
-                .addComponent(Jbtn_Funcionario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_Funcionario_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(Jbtn_IconeFuncionario_BarraLateral_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jbtn_IconeFuncionario_BarraLateral_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         JPanel_contentEquipe_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
         JPanel_contentEquipe_BarraLateral.setMaximumSize(new java.awt.Dimension(232, 46));
         JPanel_contentEquipe_BarraLateral.setMinimumSize(new java.awt.Dimension(232, 46));
 
-        Jbtn_Equipe_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Equipe_BarraLateral.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Equipe_BarraLateral.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Equipe_BarraLateral.setText("Equipe");
-        Jbtn_Equipe_BarraLateral.setAlignmentX(0.5F);
-        Jbtn_Equipe_BarraLateral.setBorder(null);
-        Jbtn_Equipe_BarraLateral.setIconTextGap(30);
-        Jbtn_Equipe_BarraLateral.setMargin(new java.awt.Insets(0, 0, 0, 10));
-        Jbtn_Equipe_BarraLateral.setMaximumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Equipe_BarraLateral.setMinimumSize(new java.awt.Dimension(170, 30));
-        Jbtn_Equipe_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 45));
-        Jbtn_Equipe_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Equipe_BarraLateral_CadEqp.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Equipe_BarraLateral_CadEqp.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Equipe_BarraLateral_CadEqp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Equipe_BarraLateral_CadEqp.setText("Equipe");
+        Jbtn_Equipe_BarraLateral_CadEqp.setAlignmentX(0.5F);
+        Jbtn_Equipe_BarraLateral_CadEqp.setBorder(null);
+        Jbtn_Equipe_BarraLateral_CadEqp.setIconTextGap(30);
+        Jbtn_Equipe_BarraLateral_CadEqp.setMargin(new java.awt.Insets(0, 0, 0, 10));
+        Jbtn_Equipe_BarraLateral_CadEqp.setMaximumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Equipe_BarraLateral_CadEqp.setMinimumSize(new java.awt.Dimension(170, 30));
+        Jbtn_Equipe_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(232, 45));
+        Jbtn_Equipe_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Equipe_BarraLateralActionPerformed(evt);
+                Jbtn_Equipe_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
-        Jbtn_iconeEquipe_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_iconeEquipe_BarraLateral_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_iconeEquipe_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_iconeEquipe_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_iconeEquipe_BarraLateral_CadFuncActionPerformed(evt);
+                Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
@@ -178,55 +181,55 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
             JPanel_contentEquipe_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel_contentEquipe_BarraLateralLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Jbtn_iconeEquipe_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_iconeEquipe_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jbtn_Equipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Jbtn_Equipe_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPanel_contentEquipe_BarraLateralLayout.setVerticalGroup(
             JPanel_contentEquipe_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jbtn_Equipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Jbtn_iconeEquipe_BarraLateral_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jbtn_Equipe_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jbtn_iconeEquipe_BarraLateral_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.setMaximumSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.setMinimumSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.setPreferredSize(new java.awt.Dimension(80, 40));
-        Jbtn_trocarUsuario_BarraLateral_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.setMaximumSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.setMinimumSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(80, 40));
+        Jbtn_trocarUsuario_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_trocarUsuario_BarraLateral_CadFuncActionPerformed(evt);
+                Jbtn_trocarUsuario_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
-        Jbtn_Configuração_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Configuração_BarraLateral_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Configuração_BarraLateral_CadFunc.setMaximumSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_CadFunc.setMinimumSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_CadFunc.setPreferredSize(new java.awt.Dimension(90, 40));
-        Jbtn_Configuração_BarraLateral_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Configuração_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Configuração_BarraLateral_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Configuração_BarraLateral_CadEqp.setMaximumSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_CadEqp.setMinimumSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(90, 40));
+        Jbtn_Configuração_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Configuração_BarraLateral_CadFuncActionPerformed(evt);
+                Jbtn_Configuração_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
         Jpanel_contentTreinamento_Barra_Lateral.setBackground(new java.awt.Color(40, 54, 98));
         Jpanel_contentTreinamento_Barra_Lateral.setPreferredSize(new java.awt.Dimension(232, 45));
 
-        Jbtn_Treinamento_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
-        Jbtn_Treinamento_BarraLateral.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
-        Jbtn_Treinamento_BarraLateral.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Treinamento_BarraLateral.setText("Treinamento");
-        Jbtn_Treinamento_BarraLateral.setBorder(null);
-        Jbtn_Treinamento_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 45));
-        Jbtn_Treinamento_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Treinamento_BarraLateral_CadEqp.setBackground(new java.awt.Color(40, 54, 98));
+        Jbtn_Treinamento_BarraLateral_CadEqp.setFont(new java.awt.Font("Bookman Old Style", 1, 20)); // NOI18N
+        Jbtn_Treinamento_BarraLateral_CadEqp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_Treinamento_BarraLateral_CadEqp.setText("Treinamento");
+        Jbtn_Treinamento_BarraLateral_CadEqp.setBorder(null);
+        Jbtn_Treinamento_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(160, 45));
+        Jbtn_Treinamento_BarraLateral_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Treinamento_BarraLateralActionPerformed(evt);
+                Jbtn_Treinamento_BarraLateral_CadEqpActionPerformed(evt);
             }
         });
 
-        Jbtn_iconeTreinamento_BarraLateral_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_iconeTreinamento_BarraLateral_CadFunc.setPreferredSize(new java.awt.Dimension(65, 32));
+        Jbtn_iconeTreinamento_BarraLateral_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_iconeTreinamento_BarraLateral_CadEqp.setPreferredSize(new java.awt.Dimension(65, 32));
 
         javax.swing.GroupLayout Jpanel_contentTreinamento_Barra_LateralLayout = new javax.swing.GroupLayout(Jpanel_contentTreinamento_Barra_Lateral);
         Jpanel_contentTreinamento_Barra_Lateral.setLayout(Jpanel_contentTreinamento_Barra_LateralLayout);
@@ -234,210 +237,234 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
             Jpanel_contentTreinamento_Barra_LateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_contentTreinamento_Barra_LateralLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Jbtn_iconeTreinamento_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_iconeTreinamento_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jbtn_Treinamento_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Jbtn_Treinamento_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         Jpanel_contentTreinamento_Barra_LateralLayout.setVerticalGroup(
             Jpanel_contentTreinamento_Barra_LateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_contentTreinamento_Barra_LateralLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(Jpanel_contentTreinamento_Barra_LateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jbtn_Treinamento_BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jbtn_iconeTreinamento_BarraLateral_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Jbtn_Treinamento_BarraLateral_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Jbtn_iconeTreinamento_BarraLateral_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout JPanel_BarraLateralLayout = new javax.swing.GroupLayout(JPanel_BarraLateral);
-        JPanel_BarraLateral.setLayout(JPanel_BarraLateralLayout);
-        JPanel_BarraLateralLayout.setHorizontalGroup(
-            JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JPanel_BarraLateral_CadEqpLayout = new javax.swing.GroupLayout(JPanel_BarraLateral_CadEqp);
+        JPanel_BarraLateral_CadEqp.setLayout(JPanel_BarraLateral_CadEqpLayout);
+        JPanel_BarraLateral_CadEqpLayout.setHorizontalGroup(
+            JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanel_contentFuncionarioButton_TelaInicial1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+            .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
+                .addGroup(JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_trocarUsuario_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Jbtn_trocarUsuario_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Jbtn_Configuração_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                        .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                        .addComponent(Jbtn_Configuração_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
+                        .addGroup(JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                            .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Jbtn_LogoutButton_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+            .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        JPanel_BarraLateralLayout.setVerticalGroup(
-            JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+        JPanel_BarraLateral_CadEqpLayout.setVerticalGroup(
+            JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
+                .addGroup(JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(JPanel_logo_Barra_Lateral_TelaCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(JPanel_contentFuncionarioButton_TelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                    .addGroup(JPanel_BarraLateral_CadEqpLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jbtn_Configuração_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_trocarUsuario_BarraLateral_CadFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JPanel_BarraLateral_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jbtn_Configuração_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jbtn_trocarUsuario_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Adicionar Equipe");
+        Jlbl_Titulo_CadEqp.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Jlbl_Titulo_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo_CadEqp.setText("Adicionar Equipe");
 
-        jPanel3.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.setPreferredSize(new java.awt.Dimension(780, 300));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        Jpanel_Conteiner_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jpanel_Conteiner_CadEqp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpanel_Conteiner_CadEqp.setPreferredSize(new java.awt.Dimension(780, 300));
+        Jpanel_Conteiner_CadEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpanel_Conteiner_CadEqp.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Identificação");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Jlbl_Header_Conteiner_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
+        Jlbl_Header_Conteiner_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Header_Conteiner_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Header_Conteiner_CadEqp.setText("Identificação");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Header_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Nome:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        Jlbl_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Nome_CadEqp.setText("Nome:");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, 30));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setMaximumSize(new java.awt.Dimension(130, 25));
-        jTextField1.setMinimumSize(new java.awt.Dimension(130, 25));
-        jTextField1.setPreferredSize(new java.awt.Dimension(130, 25));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 200, -1));
+        Jtxtf_Nome_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Nome_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Jtxtf_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_Nome_CadEqp.setMaximumSize(new java.awt.Dimension(240, 25));
+        Jtxtf_Nome_CadEqp.setMinimumSize(new java.awt.Dimension(240, 25));
+        Jtxtf_Nome_CadEqp.setPreferredSize(new java.awt.Dimension(240, 25));
+        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Supervisor Responsavel:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
+        Jlbl_Supervisor_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
+        Jlbl_Supervisor_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Supervisor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Supervisor_CadEqp.setText("Supervisor Responsavel:");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Supervisor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, 30));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setMaximumSize(new java.awt.Dimension(130, 25));
-        jTextField2.setMinimumSize(new java.awt.Dimension(130, 25));
-        jTextField2.setPreferredSize(new java.awt.Dimension(130, 25));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 220, -1));
+        Jlbl_Turno_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Turno_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Turno_CadEqp.setText("Turno:");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 30));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setMaximumSize(new java.awt.Dimension(100, 25));
-        jTextField3.setMinimumSize(new java.awt.Dimension(100, 25));
-        jTextField3.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 200, -1));
+        Jlbl_Setor_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Setor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Setor_CadEqp.setText("Setor:");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Setor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, 30));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Turno:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        Jlbl_Treinamento_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Treinamento_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Treinamento_CadEqp.setText("Treinamento:");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Treinamento_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, 30));
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setMaximumSize(new java.awt.Dimension(100, 25));
-        jTextField4.setMinimumSize(new java.awt.Dimension(100, 25));
-        jTextField4.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 220, -1));
+        Jcmbx_Setor_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Setor_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Setor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jcmbx_Setor_CadEqp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Automação", "Escavação", "RH", "Adiministração" }));
+        Jcmbx_Setor_CadEqp.setMaximumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Setor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Setor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 25));
+        Jpanel_Conteiner_CadEqp.add(Jcmbx_Setor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Setor:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
+        Jcmbx_Treinamento_CadEqp1.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Treinamento_CadEqp1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Treinamento_CadEqp1.setForeground(new java.awt.Color(0, 0, 0));
+        Jcmbx_Treinamento_CadEqp1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008", "0009", "0010" }));
+        Jcmbx_Treinamento_CadEqp1.setMaximumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Treinamento_CadEqp1.setMinimumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Treinamento_CadEqp1.setPreferredSize(new java.awt.Dimension(240, 25));
+        Jpanel_Conteiner_CadEqp.add(Jcmbx_Treinamento_CadEqp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 130, -1));
+
+        Jcmbx_Turno_CadEqp1.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Turno_CadEqp1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Turno_CadEqp1.setForeground(new java.awt.Color(0, 0, 0));
+        Jcmbx_Turno_CadEqp1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Matutino", "Vespertino", "Noturno" }));
+        Jcmbx_Turno_CadEqp1.setMaximumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Turno_CadEqp1.setMinimumSize(new java.awt.Dimension(240, 25));
+        Jcmbx_Turno_CadEqp1.setPreferredSize(new java.awt.Dimension(240, 25));
+        Jpanel_Conteiner_CadEqp.add(Jcmbx_Turno_CadEqp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Philipe", "Talisson", "Thiago" }));
+        jComboBox1.setMaximumSize(new java.awt.Dimension(240, 25));
+        jComboBox1.setMinimumSize(new java.awt.Dimension(240, 25));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(240, 25));
+        Jpanel_Conteiner_CadEqp.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(380, 380, 380)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout Jpanel_Fundo_CadEqpLayout = new javax.swing.GroupLayout(Jpanel_Fundo_CadEqp);
+        Jpanel_Fundo_CadEqp.setLayout(Jpanel_Fundo_CadEqpLayout);
+        Jpanel_Fundo_CadEqpLayout.setHorizontalGroup(
+            Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                .addComponent(JPanel_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                        .addGap(383, 383, 383)
+                        .addComponent(Jlbl_Titulo_CadEqp)
+                        .addContainerGap(399, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(141, 141, 141))))
+        );
+        Jpanel_Fundo_CadEqpLayout.setVerticalGroup(
+            Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPanel_BarraLateral_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(Jlbl_Titulo_CadEqp)
+                .addGap(18, 18, 18)
+                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 830));
+        getContentPane().add(Jpanel_Fundo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed
+    private void Jbtn_LogoutButton_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed
+    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Funcionario_BarraLateralActionPerformed
+    private void Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Funcionario_BarraLateralActionPerformed
+    }//GEN-LAST:event_Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_IconeFuncionario_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadFuncActionPerformed
+    private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadFuncActionPerformed
+    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Equipe_BarraLateralActionPerformed
+    private void Jbtn_Equipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Equipe_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Equipe_BarraLateralActionPerformed
+    }//GEN-LAST:event_Jbtn_Equipe_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_iconeEquipe_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadFuncActionPerformed
+    private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadFuncActionPerformed
+    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_trocarUsuario_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateral_CadFuncActionPerformed
+    private void Jbtn_trocarUsuario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateral_CadFuncActionPerformed
+    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_Configuração_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateral_CadFuncActionPerformed
+    private void Jbtn_Configuração_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Configuração_BarraLateral_CadFuncActionPerformed
+    }//GEN-LAST:event_Jbtn_Configuração_BarraLateral_CadEqpActionPerformed
 
-    private void Jbtn_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinamento_BarraLateralActionPerformed
+    private void Jbtn_Treinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinamento_BarraLateral_CadEqpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Treinamento_BarraLateralActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_Jbtn_Treinamento_BarraLateral_CadEqpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -476,34 +503,37 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanel_BarraLateral;
+    private javax.swing.JPanel JPanel_BarraLateral_CadEqp;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton_TelaInicial1;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral_TelaCadastroFuncionario;
-    private javax.swing.JButton Jbtn_Configuração_BarraLateral_CadFunc;
-    private javax.swing.JButton Jbtn_Equipe_BarraLateral;
-    private javax.swing.JButton Jbtn_Funcionario_BarraLateral;
-    private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadFunc;
-    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral_CadFunc;
-    private javax.swing.JButton Jbtn_Treinamento_BarraLateral;
-    private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadFunc;
-    private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadFunc;
-    private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_CadFunc;
-    private javax.swing.JLabel Jlbl_Logo_BarraLateral_CadFunc;
+    private javax.swing.JButton Jbtn_Configuração_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_Equipe_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_Funcionario_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_Treinamento_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
+    private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_CadEqp;
+    private javax.swing.JComboBox<String> Jcmbx_Setor_CadEqp;
+    private javax.swing.JComboBox<String> Jcmbx_Treinamento_CadEqp1;
+    private javax.swing.JComboBox<String> Jcmbx_Turno_CadEqp1;
+    private javax.swing.JLabel Jlbl_Header_Conteiner_CadEqp;
+    private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
+    private javax.swing.JLabel Jlbl_Nome_CadEqp;
+    private javax.swing.JLabel Jlbl_Setor_CadEqp;
+    private javax.swing.JLabel Jlbl_Supervisor_CadEqp;
+    private javax.swing.JLabel Jlbl_Titulo_CadEqp;
+    private javax.swing.JLabel Jlbl_Treinamento_CadEqp;
+    private javax.swing.JLabel Jlbl_Turno_CadEqp;
+    private javax.swing.JPanel Jpanel_Conteiner_CadEqp;
+    private javax.swing.JPanel Jpanel_Fundo_CadEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField Jtxtf_Nome_CadEqp;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
