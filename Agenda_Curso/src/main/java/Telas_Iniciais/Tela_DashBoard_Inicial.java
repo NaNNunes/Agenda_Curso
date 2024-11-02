@@ -310,7 +310,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed
-        // TODO add your handling code here:
+        Tela_Login telaLogin = new Tela_Login();
     }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral_CadFuncActionPerformed
 
     private void Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Funcionario_BarraLateral_CadEqpActionPerformed
