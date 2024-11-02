@@ -8,6 +8,7 @@ import Telas_Equipe.Tela_Adicionar_Equipe;
 import Telas_Funcionario.Tela_Adicionar_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
+import Telas_Treinamento.Tela_Adicionar_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import javax.swing.JOptionPane;
 
@@ -290,11 +291,11 @@ public class Barra_Lateral extends javax.swing.JFrame {
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
-            /*case 2 -> {
+            case 2 -> {
                 Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
-            }*/
+            }
             default -> {
                 JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
             }
