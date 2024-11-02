@@ -189,15 +189,15 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
         Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_Cadastro_CadEqp.setText("Cadastrar");
-        Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(120, 45));
         Jbtn_Cadastro_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Cadastro_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_Dados.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
+        Jpanel_Conteiner_Dados.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
@@ -210,7 +210,7 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
                 Jbtn_Editar_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_Dados.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+        Jpanel_Conteiner_Dados.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         Jbtn_Apagar_CadEqp.setBackground(new java.awt.Color(234, 151, 151));
         Jbtn_Apagar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
@@ -415,9 +415,9 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
             .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(Jlbl_Titulo_CadEqp)
-                .addGap(83, 83, 83)
-                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
                 .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
             .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
