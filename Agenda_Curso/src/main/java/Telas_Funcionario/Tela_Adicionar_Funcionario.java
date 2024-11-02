@@ -38,7 +38,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Foto_Funcionario_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Identificacao_Tela_Adiciona_Funcionario = new javax.swing.JLabel();
         Jlbl_Maticula_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
@@ -85,6 +84,11 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
@@ -99,13 +103,9 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setText("Cadastrar Funcionário");
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(351, 49));
-        jPanel2.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+        jPanel2.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
-        Jlbl_Foto_Funcionario_Tela_Adicionar_Funcionario.setText("jLabel1");
-        Jlbl_Foto_Funcionario_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(130, 130));
-        jPanel2.add(Jlbl_Foto_Funcionario_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
-
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,9 +159,9 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jtxtf_Sobrenome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        jPanel2.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 223, -1, -1));
+        jPanel2.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
-        Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 114));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -196,9 +196,9 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jlbl_Email_Tela_Adicionar_Funcionario.setText("Email:");
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        jPanel2.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 407, -1, -1));
+        jPanel2.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
 
-        Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Area_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Area_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
         Jpnl_Area_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -258,7 +258,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jtxtf_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jtxtf_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
 
-        jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 534, -1, -1));
+        jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
 
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -270,9 +270,9 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, -1, -1));
+        jPanel2.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, -1));
 
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(234, 151, 151));
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setText("Cancelar");
@@ -282,7 +282,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Cancelar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
+        jPanel2.add(Jbtn_Cancelar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -580,6 +580,10 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setVisible(false);
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -640,7 +644,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Codigo_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Contato_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Email_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Foto_Funcionario_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Identificacao_Tela_Adiciona_Funcionario;
     private javax.swing.JLabel Jlbl_Identificacao_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
