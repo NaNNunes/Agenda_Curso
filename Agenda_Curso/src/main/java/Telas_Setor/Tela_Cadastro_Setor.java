@@ -32,18 +32,18 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Jlbl_Titulo_CadSet = new javax.swing.JPanel();
+        Jpnl_Fundo_CadSet = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Jlbl_Nome_CadSet = new javax.swing.JLabel();
         Jlbl_Sigla_CadSet = new javax.swing.JLabel();
         Jtxtf_Nome_CadSet = new javax.swing.JTextField();
         Jtxtf_Sigla_CadSet = new javax.swing.JTextField();
-        Jbtn_Cadastrar_CadSetor = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Jbtn_Cadastrar_CadSet = new javax.swing.JButton();
+        Jlbl_Titulo_CadSet = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Jlbl_Titulo_CadSet.setBackground(new java.awt.Color(249, 246, 226));
+        Jpnl_Fundo_CadSet.setBackground(new java.awt.Color(249, 246, 226));
 
         jPanel2.setBackground(new java.awt.Color(243, 228, 188));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -66,16 +66,16 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         Jtxtf_Sigla_CadSet.setMinimumSize(new java.awt.Dimension(200, 30));
         Jtxtf_Sigla_CadSet.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        Jbtn_Cadastrar_CadSetor.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cadastrar_CadSetor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jbtn_Cadastrar_CadSetor.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cadastrar_CadSetor.setText("Cadastrar");
-        Jbtn_Cadastrar_CadSetor.setMaximumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastrar_CadSetor.setMinimumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastrar_CadSetor.setPreferredSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastrar_CadSetor.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Cadastrar_CadSet.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Cadastrar_CadSet.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jbtn_Cadastrar_CadSet.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Cadastrar_CadSet.setText("Cadastrar");
+        Jbtn_Cadastrar_CadSet.setMaximumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastrar_CadSet.setMinimumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastrar_CadSet.setPreferredSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastrar_CadSet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cadastrar_CadSetorActionPerformed(evt);
+                Jbtn_Cadastrar_CadSetActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
                             .addComponent(Jlbl_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(228, 228, 228)
-                        .addComponent(Jbtn_Cadastrar_CadSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_Cadastrar_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -111,33 +111,33 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
                     .addComponent(Jtxtf_Nome_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jtxtf_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(Jbtn_Cadastrar_CadSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_Cadastrar_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Cadastro Setor");
+        Jlbl_Titulo_CadSet.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Jlbl_Titulo_CadSet.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo_CadSet.setText("Cadastro Setor");
 
-        javax.swing.GroupLayout Jlbl_Titulo_CadSetLayout = new javax.swing.GroupLayout(Jlbl_Titulo_CadSet);
-        Jlbl_Titulo_CadSet.setLayout(Jlbl_Titulo_CadSetLayout);
-        Jlbl_Titulo_CadSetLayout.setHorizontalGroup(
-            Jlbl_Titulo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jlbl_Titulo_CadSetLayout.createSequentialGroup()
-                .addGroup(Jlbl_Titulo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Jlbl_Titulo_CadSetLayout.createSequentialGroup()
+        javax.swing.GroupLayout Jpnl_Fundo_CadSetLayout = new javax.swing.GroupLayout(Jpnl_Fundo_CadSet);
+        Jpnl_Fundo_CadSet.setLayout(Jpnl_Fundo_CadSetLayout);
+        Jpnl_Fundo_CadSetLayout.setHorizontalGroup(
+            Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
+                .addGroup(Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Jlbl_Titulo_CadSetLayout.createSequentialGroup()
+                    .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
                         .addGap(308, 308, 308)
-                        .addComponent(jLabel1)))
+                        .addComponent(Jlbl_Titulo_CadSet)))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
-        Jlbl_Titulo_CadSetLayout.setVerticalGroup(
-            Jlbl_Titulo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jlbl_Titulo_CadSetLayout.createSequentialGroup()
+        Jpnl_Fundo_CadSetLayout.setVerticalGroup(
+            Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
                 .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(Jlbl_Titulo_CadSet)
                 .addGap(89, 89, 89)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(122, 122, 122))
@@ -147,17 +147,17 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jlbl_Titulo_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jpnl_Fundo_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jlbl_Titulo_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jpnl_Fundo_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_Cadastrar_CadSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastrar_CadSetorActionPerformed
+    private void Jbtn_Cadastrar_CadSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastrar_CadSetActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
         
@@ -174,11 +174,11 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
             statement.setString(2, Jtxtf_Sigla_CadSet.getText());
             
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Setro Criado");
+            JOptionPane.showMessageDialog(null, "Setor Criado");
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
-    }//GEN-LAST:event_Jbtn_Cadastrar_CadSetorActionPerformed
+    }//GEN-LAST:event_Jbtn_Cadastrar_CadSetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,13 +216,13 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Jbtn_Cadastrar_CadSetor;
+    private javax.swing.JButton Jbtn_Cadastrar_CadSet;
     private javax.swing.JLabel Jlbl_Nome_CadSet;
     private javax.swing.JLabel Jlbl_Sigla_CadSet;
-    private javax.swing.JPanel Jlbl_Titulo_CadSet;
+    private javax.swing.JLabel Jlbl_Titulo_CadSet;
+    private javax.swing.JPanel Jpnl_Fundo_CadSet;
     private javax.swing.JTextField Jtxtf_Nome_CadSet;
     private javax.swing.JTextField Jtxtf_Sigla_CadSet;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
