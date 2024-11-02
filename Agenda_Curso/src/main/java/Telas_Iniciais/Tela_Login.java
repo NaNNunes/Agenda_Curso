@@ -121,12 +121,17 @@ public class Tela_Login extends javax.swing.JFrame {
         Esqueceu_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Esqueceu_senha_login.setForeground(new java.awt.Color(234, 242, 5));
         Esqueceu_senha_login.setText("Esqueceu a senha?");
-        jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 340, -1, 20));
+        jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, 20));
 
         Acessar_login.setBackground(new java.awt.Color(255, 255, 255));
         Acessar_login.setForeground(new java.awt.Color(0, 0, 0));
         Acessar_login.setText("Acessar");
         Acessar_login.setPreferredSize(new java.awt.Dimension(220, 52));
+        Acessar_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Acessar_loginActionPerformed(evt);
+            }
+        });
         jPanel1.add(Acessar_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         Text_senha_login.setBackground(new java.awt.Color(255, 255, 255));
@@ -134,12 +139,18 @@ public class Tela_Login extends javax.swing.JFrame {
         Text_senha_login.setPreferredSize(new java.awt.Dimension(323, 25));
         jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 30));
 
-        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, 520));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Acessar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Acessar_loginActionPerformed
+        Tela_DashBoard_Inicial dashBoard = new Tela_DashBoard_Inicial();
+        dashBoard.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Acessar_loginActionPerformed
 
     /**
      * @param args the command line arguments
