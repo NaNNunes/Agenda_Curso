@@ -127,6 +127,11 @@ public class Tela_Login extends javax.swing.JFrame {
         Acessar_login.setForeground(new java.awt.Color(0, 0, 0));
         Acessar_login.setText("Acessar");
         Acessar_login.setPreferredSize(new java.awt.Dimension(220, 52));
+        Acessar_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Acessar_loginActionPerformed(evt);
+            }
+        });
         jPanel1.add(Acessar_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         Text_senha_login.setBackground(new java.awt.Color(255, 255, 255));
@@ -140,6 +145,12 @@ public class Tela_Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Acessar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Acessar_loginActionPerformed
+        Tela_DashBoard_Inicial dashBoard = new Tela_DashBoard_Inicial();
+        dashBoard.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Acessar_loginActionPerformed
 
     /**
      * @param args the command line arguments

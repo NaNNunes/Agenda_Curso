@@ -61,7 +61,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
-        Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
+        Jtxtf_Setor_CadFunc = new javax.swing.JTextField();
         Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         Jbtn_Cancelar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         JPanel_BarraLateral_CadFunc = new javax.swing.JPanel();
@@ -176,7 +176,10 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jtxtf_Telefone_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Telefone_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Telefone_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jtxtf_Telefone_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Telefone_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
         Jtxtf_Telefone_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Telefone_CadFunc.setRequestFocusEnabled(false);
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jtxtf_Telefone_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         Jtxtf_Email_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,11 +248,12 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jcmbx_Turno_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        Jcmbx_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Setor_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jcmbx_Setor_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "ADM", "RH", "ATM", "ESC" }));
-        Jcmbx_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jtxtf_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Setor_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_Setor_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Setor_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jtxtf_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
 
         jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 534, -1, -1));
 
@@ -573,7 +577,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
             String query = "INSERT INTO funcionario(cpf, nome, sobrenome, Telefone, email, setor, turno, cargo) values(?, ?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(query);
             
-            String setor = (String) Jcmbx_Setor_CadFunc.getSelectedItem();
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
                     
@@ -582,7 +585,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
             statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
             statement.setString(4, Jtxtf_Telefone_CadFunc.getText());
             statement.setString(5, Jtxtf_Email_CadFunc.getText());
-            statement.setString(6, setor);
+            statement.setString(6, Jtxtf_Setor_CadFunc.getText());
             statement.setString(7, turno);
             statement.setString(8, cargo);
             
@@ -591,6 +594,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
             
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
+            System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
 
@@ -646,7 +650,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Cargo_CadFunc;
-    private javax.swing.JComboBox<String> Jcmbx_Setor_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Turno_CadFunc;
     private javax.swing.JLabel Jlbl_Area_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_CPF_Tela_Adicionar_Funcionario;
@@ -673,6 +676,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JTextField Jtxtf_Identificacao_CadFunc;
     private javax.swing.JTextField Jtxtf_Matricula_CadFunc;
     private javax.swing.JTextField Jtxtf_Nome_CadFunc;
+    private javax.swing.JTextField Jtxtf_Setor_CadFunc;
     private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
     private javax.swing.JTextField Jtxtf_Telefone_CadFunc;
     private javax.swing.JPanel jPanel1;
