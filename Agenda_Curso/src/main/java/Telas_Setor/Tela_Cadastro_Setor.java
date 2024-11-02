@@ -174,7 +174,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
             statement.setString(2, Jtxtf_Sigla_CadSet.getText());
             
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Equipe Criada");
+            JOptionPane.showMessageDialog(null, "Setro Criado");
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
