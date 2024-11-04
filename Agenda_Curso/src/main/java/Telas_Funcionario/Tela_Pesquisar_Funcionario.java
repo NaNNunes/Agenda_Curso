@@ -4,7 +4,7 @@
  */
 package Telas_Funcionario;
 
-import Telas_Equipe.Tela_Adicionar_Equipe;
+import Telas_Equipe.Tela_Cadastro_Equipe;
 import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import javax.swing.JOptionPane;
@@ -282,7 +282,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Funcionario Tela_CadFunc = new Tela_Adicionar_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -300,7 +300,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }*/
             case 2 -> {
-                Tela_Adicionar_Equipe Tela_CadEqp = new Tela_Adicionar_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }

@@ -4,10 +4,10 @@
  */
 package Telas_Equipe;
 
-import Telas_Funcionario.Tela_Adicionar_Funcionario;
+import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
-import Telas_Treinamento.Tela_Adicionar_Treinamento;
+import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
@@ -20,12 +20,12 @@ import javax.swing.JOptionPane;
  *
  * @author r.nunes
  */
-public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
+public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
     /**
      * Creates new form Tela_Cadastro_Equipe
      */
-    public Tela_Adicionar_Equipe() {
+    public Tela_Cadastro_Equipe() {
         initComponents();
     }
 
@@ -499,7 +499,7 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Funcionario Tela_CadFunc = new Tela_Adicionar_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -517,7 +517,7 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
                 this.dispose();
             }*/
             case 2 -> {
-                Tela_Adicionar_Equipe Tela_CadEqp = new Tela_Adicionar_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }
@@ -545,7 +545,7 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
             }
@@ -572,21 +572,23 @@ public class Tela_Adicionar_Equipe extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Adicionar_Equipe().setVisible(true);
+                new Tela_Cadastro_Equipe().setVisible(true);
             }
         });
     }

@@ -4,10 +4,12 @@
  */
 package Telas_Iniciais;
 
-import Telas_Equipe.Tela_Adicionar_Equipe;
-import Telas_Funcionario.Tela_Adicionar_Funcionario;
+import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
+import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
+import Telas_configuracao.Popup_Opcoes;
 import javax.swing.JOptionPane;
 
 /**
@@ -270,7 +272,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Funcionario Tela_CadFunc = new Tela_Adicionar_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -288,7 +290,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                 this.dispose();
             }*/
             case 2 -> {
-                Tela_Adicionar_Equipe Tela_CadEqp = new Tela_Adicionar_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }
@@ -303,7 +305,9 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
 
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        // TODO add your handling code here:
+        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
+        popup_opcoes.setVisible(true);
+
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -313,11 +317,11 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
-            /*case 2 -> {
-                Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
+            case 2 -> {
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
-            }*/
+            }
             default -> {
                 JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
             }

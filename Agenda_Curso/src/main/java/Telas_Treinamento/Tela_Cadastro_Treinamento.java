@@ -12,12 +12,12 @@ import java.sql.PreparedStatement;
  *
  * @author mathe
  */
-public class Tela_Adicionar_Treinamento extends javax.swing.JFrame {
+public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
     /**
      * Creates new form Tela_Adicionar_Treinamento
      */
-    public Tela_Adicionar_Treinamento() {
+    public Tela_Cadastro_Treinamento() {
         initComponents();
     }
 
@@ -298,20 +298,21 @@ public class Tela_Adicionar_Treinamento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Adicionar_Treinamento().setVisible(true);
+                new Tela_Cadastro_Treinamento().setVisible(true);
             }
         });
     }
