@@ -6,7 +6,9 @@ package Telas_Funcionario;
 
 import Telas_Equipe.Tela_Adicionar_Equipe;
 import Telas_Iniciais.Tela_Login;
+import Telas_Treinamento.Tela_Adicionar_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
+import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -511,6 +513,10 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setVisible(false);
+    }//GEN-LAST:event_formWindowOpened
+
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
         telaLogin.setVisible(true);
@@ -559,7 +565,8 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
 
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        // TODO add your handling code here:
+        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
+        popup_opcoes.setVisible(true);
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -569,20 +576,16 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
-            /*case 2 -> {
+            case 2 -> {
                 Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
-            }*/
+            }
             default -> {
                 JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setVisible(false);
-    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

@@ -39,7 +39,7 @@ public class Tela_Cadastro_Sala extends javax.swing.JFrame {
         Jbtn_Cadastrar_CadSala = new javax.swing.JButton();
         Jlbl_Titulo_CadSala = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Jpnl_Fundo_CadSala.setBackground(new java.awt.Color(249, 246, 226));
 

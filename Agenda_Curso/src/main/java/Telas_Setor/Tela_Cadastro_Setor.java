@@ -41,7 +41,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         Jbtn_Cadastrar_CadSet = new javax.swing.JButton();
         Jlbl_Titulo_CadSet = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Jpnl_Fundo_CadSet.setBackground(new java.awt.Color(249, 246, 226));
 
