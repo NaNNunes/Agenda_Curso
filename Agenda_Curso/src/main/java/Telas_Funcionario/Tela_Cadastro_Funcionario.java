@@ -489,20 +489,21 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario(cpf, nome, sobrenome, Telefone, email, turno, cargo, id_setor) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO funcionario(id_funcionario ,cpf, nome, sobrenome, Telefone, email, turno, cargo, id_setor) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(query);
             
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
-                    
-            statement.setString(1, Jtxtf_CPF_CadFunc.getText());
-            statement.setString(2, Jtxtf_Nome_CadFunc.getText());
-            statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
-            statement.setString(4, Jtxtf_Telefone_CadFunc.getText());
-            statement.setString(5, Jtxtf_Email_CadFunc.getText());
-            statement.setString(6, turno);
-            statement.setString(7, cargo);
-            statement.setString(8, Jtxtf_Setor_CadFunc.getText());
+            
+            statement.setString(1, Jtxtf_Matricula_CadFunc.getText());
+            statement.setString(2, Jtxtf_CPF_CadFunc.getText());
+            statement.setString(3, Jtxtf_Nome_CadFunc.getText());
+            statement.setString(4, Jtxtf_Sobrenome_CadFunc.getText());
+            statement.setString(5, Jtxtf_Telefone_CadFunc.getText());
+            statement.setString(6, Jtxtf_Email_CadFunc.getText());
+            statement.setString(7, turno);
+            statement.setString(8, cargo);
+            statement.setString(9, Jtxtf_Setor_CadFunc.getText());
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");

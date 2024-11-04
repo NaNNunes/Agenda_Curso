@@ -48,12 +48,12 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jlbl_Supervisor_CadEqp = new javax.swing.JLabel();
         Jlbl_Turno_CadEqp = new javax.swing.JLabel();
         Jlbl_Setor_CadEqp = new javax.swing.JLabel();
-        Jcmbx_Setor_CadEqp = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadEqp = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtxta_descricao_CadEqp = new javax.swing.JTextArea();
         Jlbl_Descricao_CadEqp = new javax.swing.JLabel();
         Jtxtf_Supervisor_CadEqp = new javax.swing.JTextField();
+        Jtxt_Setor_CadEqp = new javax.swing.JTextField();
         Jpanel_Conteiner_Dados = new javax.swing.JPanel();
         Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
         Jbtn_Editar_CadEqp = new javax.swing.JButton();
@@ -144,15 +144,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jlbl_Setor_CadEqp.setText("Setor:");
         Jpanel_Conteiner_CadEqp.add(Jlbl_Setor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, 30));
 
-        Jcmbx_Setor_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Setor_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jcmbx_Setor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jcmbx_Setor_CadEqp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "ADM", "RH", "ATM", "ESC" }));
-        Jcmbx_Setor_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Setor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Setor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
-        Jpanel_Conteiner_CadEqp.add(Jcmbx_Setor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
-
         Jcmbx_Turno_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Turno_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jcmbx_Turno_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
@@ -184,6 +175,14 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jtxtf_Supervisor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
         Jtxtf_Supervisor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
         Jpanel_Conteiner_CadEqp.add(Jtxtf_Supervisor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+
+        Jtxt_Setor_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxt_Setor_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxt_Setor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxt_Setor_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
+        Jtxt_Setor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
+        Jtxt_Setor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
+        Jpanel_Conteiner_CadEqp.add(Jtxt_Setor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
 
         Jpanel_Conteiner_Dados.setBackground(new java.awt.Color(249, 246, 226));
         Jpanel_Conteiner_Dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -442,23 +441,23 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao, setor, turno) values(?, ?, ?, ?)"; // adicionar tambem id instrutor
+            String query = "INSERT INTO equipe(nome ,descricao, turno, id_setor, id_instrutor) values(?, ?, ?, ?, ?)"; // adicionar tambem id instrutor
             statement = connection.prepareStatement(query);
             
-            String setor = (String) Jcmbx_Setor_CadEqp.getSelectedItem();
             String turno = (String) Jcmbx_Turno_CadEqp.getSelectedItem();
             
             statement.setString(1, Jtxtf_Nome_CadEqp.getText());
             statement.setString(2, Jtxta_descricao_CadEqp.getText());
-            statement.setString(3, setor);
-            statement.setString(4, turno);
-            //statement.setString(3, Jtxtf_Supervisor_CadEqp.getText());
+            statement.setString(3, turno);
+            statement.setString(4, Jtxt_Setor_CadEqp.getText());
+            statement.setString(5, Jtxtf_Supervisor_CadEqp.getText());
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Equipe Criada");
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
+            System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Cadastro_CadEqpActionPerformed
 
@@ -609,7 +608,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Setor_CadEqp;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Turno_CadEqp;
     private javax.swing.JLabel Jlbl_Descricao_CadEqp;
@@ -624,6 +622,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_Conteiner_Dados;
     private javax.swing.JPanel Jpanel_Fundo_CadEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JTextField Jtxt_Setor_CadEqp;
     private javax.swing.JTextArea Jtxta_descricao_CadEqp;
     private javax.swing.JTextField Jtxtf_Nome_CadEqp;
     private javax.swing.JTextField Jtxtf_Supervisor_CadEqp;
