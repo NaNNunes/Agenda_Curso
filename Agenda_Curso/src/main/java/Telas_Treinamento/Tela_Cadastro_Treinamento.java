@@ -2,32 +2,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Telas_Funcionario;
+package Telas_Treinamento;
 
-import Telas_Equipe.Tela_Adicionar_Equipe;
+import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Funcionario.Tela_Cadastro_Funcionario;
+import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
-import Telas_Treinamento.Tela_Adicionar_Treinamento;
-import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author mathe
  */
-public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
+public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
     /**
-     * Creates new form Tela_Adicionar_Funcionario
+     * Creates new form Tela_Adicionar_Treinamento
      */
-    public Tela_Adicionar_Funcionario() {
+    public Tela_Cadastro_Treinamento() {
         initComponents();
     }
-
+    private void popJcmBoxSupervisor(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadTreino.getModel();
+            cBoxModel.setSelectedItem("-- Selecione --");
+            
+            while(resultSet.next()){
+                cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,35 +63,34 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
-        Jlbl_Identificacao_Tela_Adiciona_Funcionario = new javax.swing.JLabel();
-        Jlbl_Maticula_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Matricula_CadFunc = new javax.swing.JTextField();
-        Jlbl_Nome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Nome_CadFunc = new javax.swing.JTextField();
-        Jlbl_CPF_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_CPF_CadFunc = new javax.swing.JTextField();
-        Jlbl_Sobrenome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Sobrenome_CadFunc = new javax.swing.JTextField();
-        Jpnl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
-        Jlbl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Numero_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Telefone_CadFunc = new javax.swing.JTextField();
-        Jtxtf_Email_CadFunc = new javax.swing.JTextField();
-        Jlbl_Email_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jpnl_Area_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
-        Jlbl_Area_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Codigo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Identificacao_CadFunc = new javax.swing.JTextField();
-        Jlbl_Cargo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
-        Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
-        Jtxtf_Setor_CadFunc = new javax.swing.JTextField();
-        Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        Jpnl_Operacao_Tela_Adicionar_Treinamento = new javax.swing.JPanel();
+        Jlbl_Operação_CadTreino = new javax.swing.JLabel();
+        Jlbl_Data_Inicio_CadTreino = new javax.swing.JLabel();
+        Jlbl_Formato_CadTreino = new javax.swing.JLabel();
+        Jlbl_Previsao_CadTreino = new javax.swing.JLabel();
+        Jlbl_Status_CadTreino = new javax.swing.JLabel();
+        Jcmbx_Status_CadTreino = new javax.swing.JComboBox<>();
+        Jcmbx_Formato_CadTreino = new javax.swing.JComboBox<>();
+        Jckbx_Obrigatorio_CadTreino_ = new javax.swing.JCheckBox();
+        Jckbx_Certificado_CadTreino = new javax.swing.JCheckBox();
+        Jftxtf_prevInicion_CadTreino = new javax.swing.JFormattedTextField();
+        Jftxtf_prevFim_CadTreino = new javax.swing.JFormattedTextField();
+        Jpnl_Identificacao_CadTreino = new javax.swing.JPanel();
+        Jlbl_Resumo_CadTreino = new javax.swing.JLabel();
+        Jlbl_Treinamento_CadTreino = new javax.swing.JLabel();
+        Jtxtf_Treinamento_CadTreino = new javax.swing.JTextField();
+        Jlbl_Descricao_CadTreino = new javax.swing.JLabel();
+        Jtxtf_Descricao_CadTreino = new javax.swing.JTextField();
+        Jlbl_Carga_CadTreino = new javax.swing.JLabel();
+        Jtxtf_Carga_CadTreino = new javax.swing.JTextField();
+        Jlbl_Validade_CadTreino = new javax.swing.JLabel();
+        Jtxtf_Validade_CadTreino = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        Jcmbx_Instrutor_CadTreino = new javax.swing.JComboBox<>();
+        Jtxtf_Instrutor_CadTreino = new javax.swing.JTextField();
+        Jbtn_Salvar_CadTreino = new javax.swing.JButton();
+        Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -85,7 +108,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -93,7 +115,6 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -101,190 +122,199 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setText("Cadastrar Funcionário");
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(351, 49));
-        jPanel2.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Adicionar Treinamento");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.setPreferredSize(new java.awt.Dimension(780, 270));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Identificacao_Tela_Adiciona_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Identificacao_Tela_Adiciona_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Identificacao_Tela_Adiciona_Funcionario.setText("Identificação");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Identificacao_Tela_Adiciona_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        Jlbl_Operação_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Operação_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Operação_CadTreino.setText("Operação");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jlbl_Operação_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setText("Matricula: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Maticula_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jlbl_Data_Inicio_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Data_Inicio_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Data_Inicio_CadTreino.setText("Data de Inicio: ");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jlbl_Data_Inicio_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        Jtxtf_Matricula_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Matricula_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Matricula_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Matricula_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Matricula_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jlbl_Formato_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Formato_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Formato_CadTreino.setText("Formato: ");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jlbl_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        Jlbl_Previsao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Previsao_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Previsao_CadTreino.setText("Previsão de Temino:");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jlbl_Previsao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
-        Jtxtf_Nome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Nome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Nome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Nome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Nome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        Jlbl_Status_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Status_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Status_CadTreino.setText("Status: ");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jlbl_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jcmbx_Status_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Status_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Jcmbx_Status_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jcmbx_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        Jtxtf_CPF_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_CPF_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_CPF_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_CPF_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jcmbx_Formato_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Formato_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Hibrido", "Presencial", "Online" }));
+        Jcmbx_Formato_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jcmbx_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setText("Sobrenome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
-
-        Jtxtf_Sobrenome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Sobrenome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Sobrenome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Sobrenome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
-
-        jPanel2.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
-
-        Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 114));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jlbl_Contato_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Contato_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Contato_Tela_Adicionar_Funcionario.setText("Contato");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
-
-        Jlbl_Numero_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Numero_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Numero_Tela_Adicionar_Funcionario.setText("Telefone:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
-
-        Jtxtf_Telefone_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Telefone_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Telefone_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Telefone_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Telefone_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Telefone_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Telefone_CadFunc.setRequestFocusEnabled(false);
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jtxtf_Telefone_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
-
-        Jtxtf_Email_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Email_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Email_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Email_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jtxtf_Email_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
-
-        Jlbl_Email_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Email_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Email_Tela_Adicionar_Funcionario.setText("Email:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        jPanel2.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
-
-        Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
-        Jpnl_Area_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jpnl_Area_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
-        Jpnl_Area_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jlbl_Area_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Area_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Area_Tela_Adicionar_Funcionario.setText("Área/Atuação");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
-
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
-
-        Jlbl_Identificacao_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Identificacao_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Identificacao_Tela_Adicionar_Funcionario.setText("Identifição Equipe: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        Jtxtf_Identificacao_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Identificacao_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Identificacao_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Identificacao_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Identificacao_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jckbx_Obrigatorio_CadTreino_.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jckbx_Obrigatorio_CadTreino_.setForeground(new java.awt.Color(0, 0, 0));
+        Jckbx_Obrigatorio_CadTreino_.setText("Obrigatorio");
+        Jckbx_Obrigatorio_CadTreino_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jtxtf_Identificacao_CadFuncActionPerformed(evt);
+                Jckbx_Obrigatorio_CadTreino_ActionPerformed(evt);
             }
         });
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jtxtf_Identificacao_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jckbx_Obrigatorio_CadTreino_, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
 
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setText("Cargo: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        Jckbx_Certificado_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jckbx_Certificado_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jckbx_Certificado_CadTreino.setText("Certificado");
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jckbx_Certificado_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
 
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        Jftxtf_prevInicion_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jftxtf_prevInicion_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            Jftxtf_prevInicion_CadTreino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        Jftxtf_prevInicion_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jftxtf_prevInicion_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevInicion_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevInicion_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jftxtf_prevInicion_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        Jcmbx_Cargo_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Cargo_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jcmbx_Cargo_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "supervisor", "instrutor", "operador" }));
-        Jcmbx_Cargo_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Cargo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        Jftxtf_prevFim_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jftxtf_prevFim_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        try {
+            Jftxtf_prevFim_CadTreino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        Jftxtf_prevFim_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jftxtf_prevFim_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevFim_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevFim_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Operacao_Tela_Adicionar_Treinamento.add(Jftxtf_prevFim_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        Jcmbx_Turno_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Turno_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jcmbx_Turno_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "matutino", "vespertino", "noturno" }));
-        Jcmbx_Turno_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel2.add(Jpnl_Operacao_Tela_Adicionar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
 
-        Jtxtf_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Setor_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_Setor_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Setor_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jtxtf_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
+        Jpnl_Identificacao_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Identificacao_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Identificacao_CadTreino.setPreferredSize(new java.awt.Dimension(780, 270));
+        Jpnl_Identificacao_CadTreino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
+        Jlbl_Resumo_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Resumo_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Resumo_CadTreino.setText("Resumo");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Resumo_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setText("Salvar");
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+        Jlbl_Treinamento_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Treinamento_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Treinamento_CadTreino.setText("Treinamento: ");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Treinamento_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        Jtxtf_Treinamento_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Treinamento_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Jtxtf_Treinamento_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jtxtf_Treinamento_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Treinamento_CadTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(evt);
+                Jtxtf_Treinamento_CadTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, -1));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Treinamento_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(234, 151, 151));
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setText("Cancelar");
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+        Jlbl_Descricao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Descricao_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Descricao_CadTreino.setText("Descrição: ");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        Jtxtf_Descricao_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Descricao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Jtxtf_Descricao_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jtxtf_Descricao_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 120));
+
+        Jlbl_Carga_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        Jlbl_Carga_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Carga_CadTreino.setText("Carga Horaria:");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Carga_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        Jtxtf_Carga_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Carga_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Jtxtf_Carga_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jtxtf_Carga_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Carga_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
+        Jlbl_Validade_CadTreino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Validade_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Validade_CadTreino.setText("Validade: ");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+
+        Jtxtf_Validade_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Validade_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Jtxtf_Validade_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jtxtf_Validade_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Instrutor");
+        Jpnl_Identificacao_CadTreino.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
+
+        Jcmbx_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Instrutor_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Instrutor_CadTreino.setLightWeightPopupEnabled(false);
+        Jcmbx_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, 30));
+
+        Jtxtf_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Instrutor_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_Instrutor_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
+
+        jPanel2.add(Jpnl_Identificacao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+
+        Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Salvar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Salvar_CadTreino.setText("Salvar");
+        Jbtn_Salvar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Salvar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed(evt);
+                Jbtn_Salvar_CadTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Cancelar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
+        jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, -1, -1));
+
+        Jbtn_Cancelar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Cancelar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Cancelar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Cancelar_CadTreino.setText("Cancelar");
+        Jbtn_Cancelar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Cancelar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Cancelar_CadTreinoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Jbtn_Cancelar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -471,15 +501,11 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jtxtf_Identificacao_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Identificacao_CadFuncActionPerformed
+    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jtxtf_Identificacao_CadFuncActionPerformed
+    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
 
-    private void Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed
-
-    private void Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
+    private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
         
@@ -489,33 +515,39 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario(cpf, nome, sobrenome, Telefone, email, setor, turno, cargo) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = 
+                "INSERT INTO treinamento"
+                + "(nome, id_instrutor , descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
+                + " VALUES(?,?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(query);
             
-            String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
-            String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
-                    
-            statement.setString(1, Jtxtf_CPF_CadFunc.getText());
-            statement.setString(2, Jtxtf_Nome_CadFunc.getText());
-            statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
-            statement.setString(4, Jtxtf_Telefone_CadFunc.getText());
-            statement.setString(5, Jtxtf_Email_CadFunc.getText());
-            statement.setString(6, Jtxtf_Setor_CadFunc.getText());
-            statement.setString(7, turno);
-            statement.setString(8, cargo);
+            String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+            
+            statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
+            statement.setString(2, Jtxtf_Instrutor_CadTreino.getText());
+            statement.setString(3, Jtxtf_Descricao_CadTreino.getText());
+            statement.setString(4, Jtxtf_Carga_CadTreino.getText());
+            statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
+            statement.setString(6, Jftxtf_prevFim_CadTreino.getText());
+            statement.setString(7, Jtxtf_Validade_CadTreino.getText());
+            statement.setString(8, formato);
             
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
-            
-        } catch (SQLException erro){
+            System.out.println("Treinamento cadastrado");
+        }
+        catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println("Erro: " + erro.getMessage());
         }
-    }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Jbtn_Cancelar_Tela_Adicionar_Funcionario.setVisible(false);
-    }//GEN-LAST:event_formWindowOpened
+    private void Jbtn_Cancelar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+
+    private void Jtxtf_Treinamento_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -532,7 +564,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Funcionario Tela_CadFunc = new Tela_Adicionar_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -550,7 +582,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }*/
             case 2 -> {
-                Tela_Adicionar_Equipe Tela_CadEqp = new Tela_Adicionar_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }
@@ -567,6 +599,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
+
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -577,7 +610,7 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
             }
@@ -586,6 +619,16 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Jcmbx_Instrutor_CadTreino.setVisible(false);
+        try {
+            this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -604,20 +647,21 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Adicionar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Treinamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Adicionar_Funcionario().setVisible(true);
+                new Tela_Cadastro_Treinamento().setVisible(true);
             }
         });
     }
@@ -627,46 +671,45 @@ public class Tela_Adicionar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
-    private javax.swing.JButton Jbtn_Cancelar_Tela_Adicionar_Funcionario;
+    private javax.swing.JButton Jbtn_Cancelar_CadTreino;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
-    private javax.swing.JButton Jbtn_Salvar_Tela_Adicionar_Funcionario;
+    private javax.swing.JButton Jbtn_Salvar_CadTreino;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Cargo_CadFunc;
+    private javax.swing.JCheckBox Jckbx_Certificado_CadTreino;
+    private javax.swing.JCheckBox Jckbx_Obrigatorio_CadTreino_;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
+    private javax.swing.JComboBox<String> Jcmbx_Formato_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
+    private javax.swing.JComboBox<String> Jcmbx_Instrutor_CadTreino;
+    private javax.swing.JComboBox<String> Jcmbx_Status_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Turno_CadFunc;
-    private javax.swing.JLabel Jlbl_Area_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_CPF_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Cadastrar_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Cargo_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Codigo_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Contato_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Email_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Identificacao_Tela_Adiciona_Funcionario;
-    private javax.swing.JLabel Jlbl_Identificacao_Tela_Adicionar_Funcionario;
+    private javax.swing.JFormattedTextField Jftxtf_prevFim_CadTreino;
+    private javax.swing.JFormattedTextField Jftxtf_prevInicion_CadTreino;
+    private javax.swing.JLabel Jlbl_Carga_CadTreino;
+    private javax.swing.JLabel Jlbl_Data_Inicio_CadTreino;
+    private javax.swing.JLabel Jlbl_Descricao_CadTreino;
+    private javax.swing.JLabel Jlbl_Formato_CadTreino;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_Maticula_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Sobrenome_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Operação_CadTreino;
+    private javax.swing.JLabel Jlbl_Previsao_CadTreino;
+    private javax.swing.JLabel Jlbl_Resumo_CadTreino;
+    private javax.swing.JLabel Jlbl_Status_CadTreino;
+    private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
+    private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JPanel Jpnl_Area_Tela_Adicionar_Funcionario;
-    private javax.swing.JPanel Jpnl_Contato_Tela_Adicionar_Funcionario;
-    private javax.swing.JPanel Jpnl_Identificacao_Tela_Adicionar_Funcionario;
-    private javax.swing.JTextField Jtxtf_CPF_CadFunc;
-    private javax.swing.JTextField Jtxtf_Email_CadFunc;
-    private javax.swing.JTextField Jtxtf_Identificacao_CadFunc;
-    private javax.swing.JTextField Jtxtf_Matricula_CadFunc;
-    private javax.swing.JTextField Jtxtf_Nome_CadFunc;
-    private javax.swing.JTextField Jtxtf_Setor_CadFunc;
-    private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
-    private javax.swing.JTextField Jtxtf_Telefone_CadFunc;
+    private javax.swing.JPanel Jpnl_Identificacao_CadTreino;
+    private javax.swing.JPanel Jpnl_Operacao_Tela_Adicionar_Treinamento;
+    private javax.swing.JTextField Jtxtf_Carga_CadTreino;
+    private javax.swing.JTextField Jtxtf_Descricao_CadTreino;
+    private javax.swing.JTextField Jtxtf_Instrutor_CadTreino;
+    private javax.swing.JTextField Jtxtf_Treinamento_CadTreino;
+    private javax.swing.JTextField Jtxtf_Validade_CadTreino;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
