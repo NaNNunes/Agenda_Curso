@@ -45,13 +45,38 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             cBoxModel.setSelectedItem("-- Selecione --");
             
             while(resultSet.next()){
-                cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
+                cBoxModel.addElement(resultSet.getString("nome"));
+                //cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
             }
         }
         catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
         }
     }
+    
+    private String pegaIdInstrutor(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        String id = "";
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            if(resultSet.next()){
+                id = resultSet.getString("id_funcionario");
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+        
+        return id;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -280,6 +305,11 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jcmbx_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
         Jcmbx_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
         Jcmbx_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Instrutor_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Instrutor_CadTreinoActionPerformed(evt);
+            }
+        });
         Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, 30));
 
         Jtxtf_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
@@ -522,9 +552,10 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             statement = connection.prepareStatement(query);
             
             String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+            String nomeCompleto_instrutor = (String) Jcmbx_Instrutor_CadTreino.getSelectedItem();
             
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
-            statement.setString(2, Jtxtf_Instrutor_CadTreino.getText());
+            statement.setString(2, this.pegaIdInstrutor("SELECT id_funcionario FROM funcionario WHERE nome LIKE '"+ nomeCompleto_instrutor +"'"));
             statement.setString(3, Jtxtf_Descricao_CadTreino.getText());
             statement.setString(4, Jtxtf_Carga_CadTreino.getText());
             statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
@@ -533,7 +564,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             statement.setString(8, formato);
             
             statement.executeUpdate();
-            System.out.println("Treinamento cadastrado");
+            JOptionPane.showMessageDialog(null, "Treinamento Cadastrado!");
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
@@ -621,7 +652,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Jcmbx_Instrutor_CadTreino.setVisible(false);
+        //Jcmbx_Instrutor_CadTreino.setVisible(false);
         try {
             this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
         }
@@ -629,6 +660,10 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
 
     /**
      * @param args the command line arguments

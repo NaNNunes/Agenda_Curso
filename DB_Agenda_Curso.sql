@@ -107,10 +107,10 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
   `id_funcionario` varchar(20) NOT NULL,
-  `CPF` varchar(11) DEFAULT NULL,
+  `CPF` varchar(16) DEFAULT NULL,
   `nome` varchar(20) DEFAULT NULL,
   `sobrenome` varchar(30) DEFAULT NULL,
-  `Telefone` varchar(11) DEFAULT NULL,
+  `telefone` varchar(16) DEFAULT NULL,
   `email` varchar(320) DEFAULT NULL,
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   `data_adimissao` date DEFAULT current_timestamp(),
@@ -119,6 +119,7 @@ CREATE TABLE `funcionario` (
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `CPF` (`CPF`),
   UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `CPF_2` (`CPF`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -130,6 +131,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+INSERT INTO `funcionario` VALUES ('123456','123.456.789-10','Thiago','Silva','(27) 9 4002-8922','thiagosilva@gmail.com','noturno','2024-11-06','instrutor',3);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +148,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +157,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
+INSERT INTO `setor` VALUES (1,'Adiministração','ADM'),(2,'Recursos Humanos','RH'),(3,'Mecanica','MEC');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +181,7 @@ CREATE TABLE `treinamento` (
   PRIMARY KEY (`id_treinamento`),
   KEY `FK_InstrutorTreino` (`id_instrutor`),
   CONSTRAINT `FK_InstrutorTreino` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +190,7 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
+INSERT INTO `treinamento` VALUES (2,'123456','Incendio','Pra quando a chapa esquentar','00:00:10','2024-11-07','2024-11-13',3,'Presencial');
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -199,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-06 15:56:06
+-- Dump completed on 2024-11-06 20:16:27
