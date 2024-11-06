@@ -41,7 +41,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         try {
             statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
-            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadEqp.getModel();
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadTreino.getModel();
             cBoxModel.setSelectedItem("-- Selecione --");
             
             while(resultSet.next()){
@@ -86,8 +86,9 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Carga_CadTreino = new javax.swing.JTextField();
         Jlbl_Validade_CadTreino = new javax.swing.JLabel();
         Jtxtf_Validade_CadTreino = new javax.swing.JTextField();
-        Jcmbx_Instrutor_CadEqp = new javax.swing.JComboBox<>();
-        Jlbl_Supervisor_CadEqp = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        Jcmbx_Instrutor_CadTreino = new javax.swing.JComboBox<>();
+        Jtxtf_Instrutor_CadTreino = new javax.swing.JTextField();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -246,7 +247,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Descricao_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 120));
 
-        Jlbl_Carga_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Carga_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Carga_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Carga_CadTreino.setText("Carga Horaria:");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Carga_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
@@ -257,7 +258,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Carga_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Carga_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        Jlbl_Validade_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Validade_CadTreino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Jlbl_Validade_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Validade_CadTreino.setText("Validade: ");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
@@ -268,19 +269,26 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Validade_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        Jcmbx_Instrutor_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Instrutor_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jcmbx_Instrutor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jcmbx_Instrutor_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Instrutor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Instrutor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
-        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 250, -1));
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Instrutor");
+        Jpnl_Identificacao_CadTreino.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
-        Jlbl_Supervisor_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
-        Jlbl_Supervisor_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jlbl_Supervisor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Supervisor_CadEqp.setText("Supervisor Responsavel:");
-        Jpnl_Identificacao_CadTreino.add(Jlbl_Supervisor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, 30));
+        Jcmbx_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Instrutor_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Instrutor_CadTreino.setLightWeightPopupEnabled(false);
+        Jcmbx_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, 30));
+
+        Jtxtf_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Instrutor_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_Instrutor_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
+        Jtxtf_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Identificacao_CadTreino.add(Jtxtf_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
 
         jPanel2.add(Jpnl_Identificacao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
@@ -509,19 +517,20 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = 
                 "INSERT INTO treinamento"
-                + "(nome, descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
-                + " VALUES(?,?,?,?,?,?,?)";
+                + "(nome, id_instrutor , descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
+                + " VALUES(?,?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(query);
             
             String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
             
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
-            statement.setString(2, Jtxtf_Descricao_CadTreino.getText());
-            statement.setString(3, Jtxtf_Carga_CadTreino.getText());
-            statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
-            statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
-            statement.setString(6, Jtxtf_Validade_CadTreino.getText());
-            statement.setString(7, formato);
+            statement.setString(2, Jtxtf_Instrutor_CadTreino.getText());
+            statement.setString(3, Jtxtf_Descricao_CadTreino.getText());
+            statement.setString(4, Jtxtf_Carga_CadTreino.getText());
+            statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
+            statement.setString(6, Jftxtf_prevFim_CadTreino.getText());
+            statement.setString(7, Jtxtf_Validade_CadTreino.getText());
+            statement.setString(8, formato);
             
             statement.executeUpdate();
             System.out.println("Treinamento cadastrado");
@@ -612,6 +621,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Jcmbx_Instrutor_CadTreino.setVisible(false);
         try {
             this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
         }
@@ -674,7 +684,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Formato_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Instrutor_CadEqp;
+    private javax.swing.JComboBox<String> Jcmbx_Instrutor_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Status_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JFormattedTextField Jftxtf_prevFim_CadTreino;
@@ -688,7 +698,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Previsao_CadTreino;
     private javax.swing.JLabel Jlbl_Resumo_CadTreino;
     private javax.swing.JLabel Jlbl_Status_CadTreino;
-    private javax.swing.JLabel Jlbl_Supervisor_CadEqp;
     private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
     private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
@@ -696,9 +705,11 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel Jpnl_Operacao_Tela_Adicionar_Treinamento;
     private javax.swing.JTextField Jtxtf_Carga_CadTreino;
     private javax.swing.JTextField Jtxtf_Descricao_CadTreino;
+    private javax.swing.JTextField Jtxtf_Instrutor_CadTreino;
     private javax.swing.JTextField Jtxtf_Treinamento_CadTreino;
     private javax.swing.JTextField Jtxtf_Validade_CadTreino;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
