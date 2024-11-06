@@ -558,13 +558,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             String nomeCompleto_instrutor = (String) Jcmbx_Instrutor_CadTreino.getSelectedItem();
             
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
-<<<<<<< HEAD
-            statement.setString(2, Jtxtf_Instrutor_CadTreino.getText());
-            statement.setString(3, Jtxta_Descricao_CadTreino.getText());
-=======
             statement.setString(2, this.pegaIdInstrutor("SELECT id_funcionario FROM funcionario WHERE nome LIKE '"+ nomeCompleto_instrutor +"'"));
-            statement.setString(3, Jtxtf_Descricao_CadTreino.getText());
->>>>>>> aa9d97653d1365ef31768ea0527877e2b0f6504c
+            statement.setString(3, Jtxta_Descricao_CadTreino.getText());
             statement.setString(4, Jtxtf_Carga_CadTreino.getText());
             statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
             statement.setString(6, Jftxtf_prevFim_CadTreino.getText());
@@ -660,11 +655,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-<<<<<<< HEAD
-        Jcmbx_Instrutor_CadTreino.setVisible(true);
-=======
-        //Jcmbx_Instrutor_CadTreino.setVisible(false);
->>>>>>> aa9d97653d1365ef31768ea0527877e2b0f6504c
         try {
             this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
         }

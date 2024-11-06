@@ -124,6 +124,10 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTbl_Funcionario);
+        if (jTbl_Funcionario.getColumnModel().getColumnCount() > 0) {
+            jTbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
+            jTbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 940, 670));
 
