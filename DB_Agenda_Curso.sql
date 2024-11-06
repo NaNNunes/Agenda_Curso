@@ -29,10 +29,10 @@ CREATE TABLE `cadastro_equipe_treinamento` (
   `id_equipe` int(11) DEFAULT NULL,
   `id_treinamento` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_cadastro`),
-  KEY `id_equipe` (`id_equipe`),
-  KEY `id_treinamento` (`id_treinamento`),
-  CONSTRAINT `cadastro_equipe_treinamento_ibfk_1` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
-  CONSTRAINT `cadastro_equipe_treinamento_ibfk_2` FOREIGN KEY (`id_treinamento`) REFERENCES `treinamento` (`id_treinamento`)
+  KEY `FK_EquipeTreinoCad` (`id_equipe`),
+  KEY `FK_TreinoEquipeCad` (`id_treinamento`),
+  CONSTRAINT `FK_EquipeTreinoCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
+  CONSTRAINT `FK_TreinoEquipeCad` FOREIGN KEY (`id_treinamento`) REFERENCES `treinamento` (`id_treinamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,10 +57,10 @@ CREATE TABLE `cadastro_funcionario_equipe` (
   `id_funcionario` varchar(20) DEFAULT NULL,
   `id_equipe` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_cadastro`),
-  KEY `id_funcionario` (`id_funcionario`),
-  KEY `id_equipe` (`id_equipe`),
-  CONSTRAINT `cadastro_funcionario_equipe_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
-  CONSTRAINT `cadastro_funcionario_equipe_ibfk_2` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`)
+  KEY `FK_FuncionarioCad` (`id_funcionario`),
+  KEY `FK_EquipeCad` (`id_equipe`),
+  CONSTRAINT `FK_EquipeCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
+  CONSTRAINT `FK_FuncionarioCad` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -84,7 +84,6 @@ CREATE TABLE `equipe` (
   `id_equipe` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(15) DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
-  `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   PRIMARY KEY (`id_equipe`),
   UNIQUE KEY `nome` (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -120,8 +119,8 @@ CREATE TABLE `funcionario` (
   PRIMARY KEY (`id_funcionario`),
   UNIQUE KEY `CPF` (`CPF`),
   UNIQUE KEY `email` (`email`),
-  KEY `id_setor` (`id_setor`),
-  CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
+  KEY `FK_SetorFuncionario` (`id_setor`),
+  CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -168,6 +167,7 @@ DROP TABLE IF EXISTS `treinamento`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `treinamento` (
   `id_treinamento` int(11) NOT NULL AUTO_INCREMENT,
+  `id_instrutor` varchar(11) DEFAULT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
   `carga_Horaria` time DEFAULT NULL,
@@ -175,7 +175,9 @@ CREATE TABLE `treinamento` (
   `prev_fim` date DEFAULT NULL,
   `validade` int(3) DEFAULT NULL,
   `formato` enum('Presencial','Online','Hibrido') DEFAULT NULL,
-  PRIMARY KEY (`id_treinamento`)
+  PRIMARY KEY (`id_treinamento`),
+  KEY `FK_InstrutorTreino` (`id_instrutor`),
+  CONSTRAINT `FK_InstrutorTreino` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -197,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-05 21:47:16
+-- Dump completed on 2024-11-06 15:56:06

@@ -30,7 +30,28 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     public Tela_Cadastro_Treinamento() {
         initComponents();
     }
-
+    private void popJcmBoxSupervisor(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadEqp.getModel();
+            cBoxModel.setSelectedItem("-- Selecione --");
+            
+            while(resultSet.next()){
+                cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +86,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Carga_CadTreino = new javax.swing.JTextField();
         Jlbl_Validade_CadTreino = new javax.swing.JLabel();
         Jtxtf_Validade_CadTreino = new javax.swing.JTextField();
+        Jcmbx_Instrutor_CadEqp = new javax.swing.JComboBox<>();
+        Jlbl_Supervisor_CadEqp = new javax.swing.JLabel();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -244,6 +267,20 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Validade_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Validade_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+
+        Jcmbx_Instrutor_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_Instrutor_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jcmbx_Instrutor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jcmbx_Instrutor_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
+        Jcmbx_Instrutor_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
+        Jcmbx_Instrutor_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
+        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 250, -1));
+
+        Jlbl_Supervisor_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
+        Jlbl_Supervisor_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Supervisor_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Supervisor_CadEqp.setText("Supervisor Responsavel:");
+        Jpnl_Identificacao_CadTreino.add(Jlbl_Supervisor_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, 30));
 
         jPanel2.add(Jpnl_Identificacao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
@@ -575,7 +612,12 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        try {
+            this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -632,6 +674,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Formato_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
+    private javax.swing.JComboBox<String> Jcmbx_Instrutor_CadEqp;
     private javax.swing.JComboBox<String> Jcmbx_Status_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JFormattedTextField Jftxtf_prevFim_CadTreino;
@@ -645,6 +688,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Previsao_CadTreino;
     private javax.swing.JLabel Jlbl_Resumo_CadTreino;
     private javax.swing.JLabel Jlbl_Status_CadTreino;
+    private javax.swing.JLabel Jlbl_Supervisor_CadEqp;
     private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
     private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
