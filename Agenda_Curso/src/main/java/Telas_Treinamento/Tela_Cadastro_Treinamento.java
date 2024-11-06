@@ -81,7 +81,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jlbl_Treinamento_CadTreino = new javax.swing.JLabel();
         Jtxtf_Treinamento_CadTreino = new javax.swing.JTextField();
         Jlbl_Descricao_CadTreino = new javax.swing.JLabel();
-        Jtxtf_Descricao_CadTreino = new javax.swing.JTextField();
         Jlbl_Carga_CadTreino = new javax.swing.JLabel();
         Jtxtf_Carga_CadTreino = new javax.swing.JTextField();
         Jlbl_Validade_CadTreino = new javax.swing.JLabel();
@@ -89,6 +88,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         Jcmbx_Instrutor_CadTreino = new javax.swing.JComboBox<>();
         Jtxtf_Instrutor_CadTreino = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Jtxta_Descricao_CadTreino = new javax.swing.JTextArea();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -241,12 +242,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jlbl_Descricao_CadTreino.setText("Descrição: ");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        Jtxtf_Descricao_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Descricao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Descricao_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Descricao_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_CadTreino.add(Jtxtf_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 120));
-
         Jlbl_Carga_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Carga_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Carga_CadTreino.setText("Carga Horaria:");
@@ -289,6 +284,14 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
         Jtxtf_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
+
+        Jtxta_Descricao_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxta_Descricao_CadTreino.setColumns(20);
+        Jtxta_Descricao_CadTreino.setRows(5);
+        Jtxta_Descricao_CadTreino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        jScrollPane1.setViewportView(Jtxta_Descricao_CadTreino);
+
+        Jpnl_Identificacao_CadTreino.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 250, 120));
 
         jPanel2.add(Jpnl_Identificacao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
@@ -525,7 +528,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
             statement.setString(2, Jtxtf_Instrutor_CadTreino.getText());
-            statement.setString(3, Jtxtf_Descricao_CadTreino.getText());
+            statement.setString(3, Jtxta_Descricao_CadTreino.getText());
             statement.setString(4, Jtxtf_Carga_CadTreino.getText());
             statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
             statement.setString(6, Jftxtf_prevFim_CadTreino.getText());
@@ -621,7 +624,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Jcmbx_Instrutor_CadTreino.setVisible(false);
+        Jcmbx_Instrutor_CadTreino.setVisible(true);
         try {
             this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
         }
@@ -703,8 +706,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Identificacao_CadTreino;
     private javax.swing.JPanel Jpnl_Operacao_Tela_Adicionar_Treinamento;
+    private javax.swing.JTextArea Jtxta_Descricao_CadTreino;
     private javax.swing.JTextField Jtxtf_Carga_CadTreino;
-    private javax.swing.JTextField Jtxtf_Descricao_CadTreino;
     private javax.swing.JTextField Jtxtf_Instrutor_CadTreino;
     private javax.swing.JTextField Jtxtf_Treinamento_CadTreino;
     private javax.swing.JTextField Jtxtf_Validade_CadTreino;
@@ -712,5 +715,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
