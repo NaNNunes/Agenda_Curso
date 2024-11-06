@@ -8,12 +8,6 @@ nome VARCHAR(20) UNIQUE,
 sigla CHAR(3)
 );
 
-CREATE TABLE localidade(
-id_localidade INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(11) UNIQUE,
-estado TINYINT(1)
-);
-
 CREATE TABLE funcionario(
 id_funcionario VARCHAR(20) UNIQUE NOT NULL PRIMARY KEY,
 CPF VARCHAR(11) UNIQUE,
@@ -31,13 +25,8 @@ FOREIGN KEY (id_setor) REFERENCES setor(id_setor)
 CREATE TABLE equipe(
 id_equipe INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 nome VARCHAR(15) UNIQUE,
-dt_criacao DATE DEFAULT CURRENT_TIMESTAMP,
 descricao VARCHAR(200),
-turno ENUM("matutino","vespertino","noturno"),
-id_instrutor VARCHAR(20),
-id_setor INT, 
-FOREIGN KEY (id_setor) REFERENCES setor(id_setor),
-FOREIGN KEY (id_instrutor) REFERENCES funcionario(id_funcionario)
+turno ENUM("matutino","vespertino","noturno")
 );
 
 CREATE TABLE treinamento(
@@ -45,6 +34,8 @@ id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome varchar(50),
 descricao VARCHAR(200),
 carga_Horaria TIME,
+prev_comeco DATE, 
+prev_fim DATE,
 validade INT(3), -- meses ou anos ou ate anos quebrados
 formato ENUM("Presencial", "Online", "Hibrido")
 );
@@ -59,14 +50,10 @@ FOREIGN KEY (id_equipe) REFERENCES equipe(id_equipe)
 
 CREATE TABLE cadastro_equipe_treinamento(
 id_cadastro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-prev_comeco DATE, 
-prev_fim DATE,
 id_equipe INT,
 id_treinamento INT,
-id_local INT,
 FOREIGN KEY (id_equipe) REFERENCES equipe(id_equipe),
-FOREIGN KEY (id_treinamento) REFERENCES treinamento(id_treinamento),
-FOREIGN KEY (id_local) REFERENCES localidade(id_localidade)
+FOREIGN KEY (id_treinamento) REFERENCES treinamento(id_treinamento)
 );
 
 
