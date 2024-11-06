@@ -12,7 +12,9 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 
@@ -573,7 +575,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        
     }//GEN-LAST:event_formWindowOpened
 
     /**

@@ -12,7 +12,9 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +29,64 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     public Tela_Cadastro_Funcionario() {
         initComponents();
     }
-
+    
+    private void popCmBoxSetores(String query){
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            statement = connection.prepareStatement(query);
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Setor_CadFunc.getModel();
+            cBoxModel.setSelectedItem("-- Selecione --");
+                    
+            String sigla;
+            while (resultSet.next()){
+                cBoxModel.addElement(resultSet.getString("sigla"));
+            }
+            
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+    
+    private int pegaIdSetor(String query, String sigla){
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        int id = 0;
+        
+        try{
+            connection = DriverManager.getConnection(url, user, psswrd);
+            statement = connection.prepareStatement(query);
+            
+            statement.setString(1, sigla);
+            
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            if(resultSet.next()){
+                id = resultSet.getInt("id_setor");
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+        
+        return id;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +125,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
         Jtxtf_Setor_CadFunc = new javax.swing.JTextField();
+        Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
         Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         Jbtn_Cancelar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -259,6 +319,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jtxtf_Setor_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
         Jtxtf_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jtxtf_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
+
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 250, -1));
 
         jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
 
@@ -494,6 +556,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
+            String sigla = (String) Jcmbx_Setor_CadFunc.getSelectedItem();
+            
             
             statement.setString(1, Jtxtf_Matricula_CadFunc.getText());
             statement.setString(2, Jtxtf_CPF_CadFunc.getText());
@@ -503,19 +567,22 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             statement.setString(6, Jtxtf_Email_CadFunc.getText());
             statement.setString(7, turno);
             statement.setString(8, cargo);
-            statement.setString(9, Jtxtf_Setor_CadFunc.getText());
+            
+            statement.setInt(9, this.pegaIdSetor("SELECT id_setor FROM setor WHERE sigla=?", sigla));
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
             
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
+            System.out.println(erro);
             System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setVisible(false);
+        this.popCmBoxSetores("SELECT sigla FROM setor");
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
@@ -640,6 +707,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Cargo_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
+    private javax.swing.JComboBox<String> Jcmbx_Setor_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Turno_CadFunc;
     private javax.swing.JLabel Jlbl_Area_Tela_Adicionar_Funcionario;
