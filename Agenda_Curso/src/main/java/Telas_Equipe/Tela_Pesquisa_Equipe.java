@@ -2,31 +2,64 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Componentes;
+package Telas_Equipe;
 
-import Telas_Equipe.Tela_Cadastro_Equipe;
-import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author renan_8tvcd4n
  */
-public class Barra_Lateral extends javax.swing.JFrame {
+public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
 
     /**
-     * Creates new form Barra_Lateral
+     * Creates new form Tela_Pesquisa_Equipe
      */
-    public Barra_Lateral() {
+    public Tela_Pesquisa_Equipe() {
         initComponents();
     }
 
+    private void populaTabela(String query) throws SQLException{
+        
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            DefaultTableModel model = (DefaultTableModel) Jtbl_ListaEqp.getModel();
+            model.setNumRows(0);
+            
+            while(resultSet.next()){
+                model.addRow(new Object[]{
+                    resultSet.getString("id_equipe"),
+                    resultSet.getString("nome"),
+                });
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,6 +69,17 @@ public class Barra_Lateral extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        Jpnl_Fundo_SearchEqp = new javax.swing.JPanel();
+        Jpnl_Conteiner_SearchEqp = new javax.swing.JPanel();
+        Jlbl_Title_SearchEqp = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Jtbl_ListaEqp = new javax.swing.JTable();
+        Jtxtf_consulta_SearchEqp = new javax.swing.JTextField();
+        Jbtn_consulta_SearchEqp = new javax.swing.JButton();
+        Jbtn_EditarEqp = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -52,7 +96,77 @@ public class Barra_Lateral extends javax.swing.JFrame {
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        Jpnl_Fundo_SearchEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_SearchEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jpnl_Conteiner_SearchEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jpnl_Conteiner_SearchEqp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Conteiner_SearchEqp.setPreferredSize(new java.awt.Dimension(1000, 797));
+        Jpnl_Conteiner_SearchEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Title_SearchEqp.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Jlbl_Title_SearchEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Title_SearchEqp.setText("Equipes");
+        Jpnl_Conteiner_SearchEqp.add(Jlbl_Title_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+
+        Jtbl_ListaEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtbl_ListaEqp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "numero", "nome"
+            }
+        ));
+        jScrollPane1.setViewportView(Jtbl_ListaEqp);
+
+        Jpnl_Conteiner_SearchEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 540, -1));
+
+        Jtxtf_consulta_SearchEqp.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchEqp.setPreferredSize(new java.awt.Dimension(90, 30));
+        Jpnl_Conteiner_SearchEqp.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 250, -1));
+
+        Jbtn_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_consulta_SearchEqp.setText("Consultar");
+        Jbtn_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta_SearchEqp.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_consulta_SearchEqpActionPerformed(evt);
+            }
+        });
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
+
+        Jbtn_EditarEqp.setText("Editar");
+        Jbtn_EditarEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_EditarEqpActionPerformed(evt);
+            }
+        });
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_EditarEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, 20));
+
+        jButton2.setText("Apagar");
+        Jpnl_Conteiner_SearchEqp.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 700, -1, -1));
+
+        Jpnl_Fundo_SearchEqp.add(Jpnl_Conteiner_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -221,19 +335,29 @@ public class Barra_Lateral extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        Jpnl_Fundo_SearchEqp.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jpnl_Fundo_SearchEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jpnl_Fundo_SearchEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            this.populaTabela("SELECT * FROM equipe");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -242,7 +366,7 @@ public class Barra_Lateral extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
 
     private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
-        
+
         switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
             case 1 -> {
                 Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
@@ -285,7 +409,6 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
-        
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -306,6 +429,20 @@ public class Barra_Lateral extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
+    private void Jbtn_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consulta_SearchEqpActionPerformed
+        try {
+            String numEquipe = Jtxtf_consulta_SearchEqp.getText();
+            this.populaTabela("SELECT * FROM equipe "
+                + "WHERE id_equipe = '"+numEquipe+"'");
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_consulta_SearchEqpActionPerformed
+
+    private void Jbtn_EditarEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_EditarEqpActionPerformed
+        
+    }//GEN-LAST:event_Jbtn_EditarEqpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,20 +460,20 @@ public class Barra_Lateral extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Barra_Lateral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Barra_Lateral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Barra_Lateral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Barra_Lateral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Barra_Lateral().setVisible(true);
+                new Tela_Pesquisa_Equipe().setVisible(true);
             }
         });
     }
@@ -347,8 +484,10 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_EditarEqp;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
+    private javax.swing.JButton Jbtn_consulta_SearchEqp;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
@@ -356,6 +495,15 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
+    private javax.swing.JLabel Jlbl_Title_SearchEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JPanel Jpnl_Conteiner_SearchEqp;
+    private javax.swing.JPanel Jpnl_Fundo_SearchEqp;
+    private javax.swing.JTable Jtbl_ListaEqp;
+    private javax.swing.JTextField Jtxtf_consulta_SearchEqp;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

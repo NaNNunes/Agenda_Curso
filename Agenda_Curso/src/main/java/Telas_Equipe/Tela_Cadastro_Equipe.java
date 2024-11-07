@@ -17,8 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +32,38 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     public Tela_Cadastro_Equipe() {
         initComponents();
     }
+    
+     private void populaTabela(String query) throws SQLException{
+        
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            DefaultTableModel model = (DefaultTableModel) Jtbl_ListaTreino.getModel();
+            model.setNumRows(0);
+            
+            while(resultSet.next()){
+                model.addRow(new Object[]{
+                    resultSet.getString("id_treinamento"),
+                    resultSet.getString("nome_treinamento"),
+                    resultSet.getString("carga_horaria"),
+                    resultSet.getString("validade"),
+                    resultSet.getString("formato"),
+                    resultSet.getString("nome")
+                });
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,11 +80,15 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jlbl_Header_Conteiner_CadEqp = new javax.swing.JLabel();
         Jlbl_Nome_CadEqp = new javax.swing.JLabel();
         Jtxtf_Nome_CadEqp = new javax.swing.JTextField();
-        Jlbl_Turno_CadEqp = new javax.swing.JLabel();
-        Jcmbx_Turno_CadEqp = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtxta_descricao_CadEqp = new javax.swing.JTextArea();
         Jlbl_Descricao_CadEqp = new javax.swing.JLabel();
+        Jlbl_Treinamento_CadEqp = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Jtbl_ListaTreino = new javax.swing.JTable();
+        Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
+        Jbtn_consulta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Jpanel_Conteiner_Dados = new javax.swing.JPanel();
         Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
         Jbtn_Editar_CadEqp = new javax.swing.JButton();
@@ -112,7 +148,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jlbl_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Jlbl_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Nome_CadEqp.setText("Nome:");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, 30));
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, 30));
 
         Jtxtf_Nome_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -125,21 +161,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 Jtxtf_Nome_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
-
-        Jlbl_Turno_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jlbl_Turno_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Turno_CadEqp.setText("Turno:");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, 30));
-
-        Jcmbx_Turno_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Turno_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jcmbx_Turno_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jcmbx_Turno_CadEqp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Matutino", "Vespertino", "Noturno" }));
-        Jcmbx_Turno_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Turno_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_Turno_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
-        Jpanel_Conteiner_CadEqp.add(Jcmbx_Turno_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
+        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 310, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,12 +172,58 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jtxta_descricao_CadEqp.setRows(5);
         jScrollPane1.setViewportView(Jtxta_descricao_CadEqp);
 
-        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
+        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 300, 300));
 
         Jlbl_Descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Jlbl_Descricao_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Descricao_CadEqp.setText("Descrição:");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Descricao_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Descricao_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        Jlbl_Treinamento_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
+        Jlbl_Treinamento_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Treinamento_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Treinamento_CadEqp.setText("Treinamento");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Treinamento_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+
+        Jtbl_ListaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtbl_ListaTreino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "id", "nome", "carga", "validade", "formato", "instrutor"
+            }
+        ));
+        jScrollPane2.setViewportView(Jtbl_ListaTreino);
+
+        Jpanel_Conteiner_CadEqp.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 390, 310));
+
+        Jtxtf_consulta_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_consulta_SearchTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_consulta_SearchTreino.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
+        Jpanel_Conteiner_CadEqp.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 250, -1));
+
+        Jbtn_consulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_consulta.setText("Consultar");
+        Jbtn_consulta.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_consultaActionPerformed(evt);
+            }
+        });
+        Jpanel_Conteiner_CadEqp.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Pesquisar Treinamento");
+        Jpanel_Conteiner_CadEqp.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
         Jpanel_Conteiner_Dados.setBackground(new java.awt.Color(249, 246, 226));
         Jpanel_Conteiner_Dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -375,14 +443,17 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
-                            .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(141, 141, 141))
                     .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                        .addGap(387, 387, 387)
-                        .addComponent(Jlbl_Titulo_CadEqp)
-                        .addContainerGap(395, Short.MAX_VALUE))))
+                        .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                                .addGap(387, 387, 387)
+                                .addComponent(Jlbl_Titulo_CadEqp))
+                            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(126, Short.MAX_VALUE))))
         );
         Jpanel_Fundo_CadEqpLayout.setVerticalGroup(
             Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,8 +461,8 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addComponent(Jlbl_Titulo_CadEqp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
             .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
@@ -414,14 +485,30 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
+            String query = "INSERT INTO equipe(nome ,descricao) values(?, ?)"; // adicionar tambem id instrutor
             statement = connection.prepareStatement(query);
-            
-            String turno = (String) Jcmbx_Turno_CadEqp.getSelectedItem();
             
             statement.setString(1, Jtxtf_Nome_CadEqp.getText());
             statement.setString(2, Jtxta_descricao_CadEqp.getText());
-            statement.setString(3, turno);
+            
+            statement.executeUpdate();
+            
+            String id = "";
+            query = "SELECT id_equipe FROM equipe WHERE nome LIKE '"+Jtxtf_Nome_CadEqp+"'";
+            ResultSet resultSet = statement.executeQuery(query);
+            if(resultSet.next()){
+                id = resultSet.getString("id_equipe");
+            }
+            
+            int linha = Jtbl_ListaTreino.getSelectedRow();
+            int id_treino = Integer.parseInt(Jtbl_ListaTreino.getValueAt(linha, 0).toString());
+            query = "INSERT INTO cadastro_equipe_treinamento(id_equipe,id_treinamento) "
+                    + "VALUES(?,?)";
+            statement.setInt(1, Integer.parseInt(id));
+            statement.setInt(2, id_treino);
+            
+            statement.execute(query);
+            //statement.
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Equipe Criada");
@@ -442,7 +529,11 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Editar_CadEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        try {
+            this.populaTabela("SELECT * FROM vw_treinamento");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_Apagar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_CadEqpActionPerformed
@@ -481,11 +572,11 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            /*case 1 -> {
-                Tela_Pesquisar_Equipe Tela_SearchEqp = new Tela_Pesquisar_Equipe();
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
-            }*/
+            }
             case 2 -> {
                 Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
@@ -524,6 +615,18 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void Jbtn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consultaActionPerformed
+        try {
+            String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
+            this.populaTabela("SELECT * FROM vw_treinamento "
+                + "WHERE nome_treinamento LIKE '%"+nomeTreino+"%' OR "
+                + "nome_treinamento LIKE '%"+nomeTreino+"' OR "
+                + "nome_treinamento LIKE '%"+nomeTreino+"%'");
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_consultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -574,26 +677,30 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Editar_CadEqp;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
+    private javax.swing.JButton Jbtn_consulta;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Turno_CadEqp;
     private javax.swing.JLabel Jlbl_Descricao_CadEqp;
     private javax.swing.JLabel Jlbl_Header_Conteiner_CadEqp;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Nome_CadEqp;
     private javax.swing.JLabel Jlbl_Titulo_CadEqp;
-    private javax.swing.JLabel Jlbl_Turno_CadEqp;
+    private javax.swing.JLabel Jlbl_Treinamento_CadEqp;
     private javax.swing.JPanel Jpanel_Conteiner_CadEqp;
     private javax.swing.JPanel Jpanel_Conteiner_Dados;
     private javax.swing.JPanel Jpanel_Fundo_CadEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JTable Jtbl_ListaTreino;
     private javax.swing.JTextArea Jtxta_descricao_CadEqp;
     private javax.swing.JTextField Jtxtf_Nome_CadEqp;
+    private javax.swing.JTextField Jtxtf_consulta_SearchTreino;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

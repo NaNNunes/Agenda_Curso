@@ -5,8 +5,11 @@
 package Telas_Funcionario;
 
 import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Iniciais.Tela_Login;
+import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
+import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -316,6 +319,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        PopularJTableFuncionario("SELECT id_funcionario,CPF,nome,sobrenome,Telefone,email,turno,cargo,id_setor"
+                + " FROM funcionario;", jTbl_Funcionario);  
+    }//GEN-LAST:event_formWindowOpened
+
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
         telaLogin.setVisible(true);
@@ -343,11 +352,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            /*case 1 -> {
-                Tela_Pesquisar_Equipe Tela_SearchEqp = new Tela_Pesquisar_Equipe();
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
-            }*/
+            }
             case 2 -> {
                 Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
@@ -364,7 +373,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
 
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        // TODO add your handling code here:
+        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
+        popup_opcoes.setVisible(true);
+
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -374,22 +385,16 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
-            /*case 2 -> {
-                Tela_Adicionar_Treinamento Tela_CadTreino = new Tela_Adicionar_Treinamento();
+            case 2 -> {
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
-            }*/
+            }
             default -> {
                 JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        PopularJTableFuncionario("SELECT id_funcionario,CPF,nome,sobrenome,Telefone,email,turno,cargo,id_setor"
-                + " FROM funcionario;", jTbl_Funcionario);  
-    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

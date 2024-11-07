@@ -5,6 +5,7 @@
 package Telas_Treinamento;
 
 import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
@@ -541,7 +542,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = 
                 "INSERT INTO treinamento"
-                + "(nome, id_instrutor , descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
+                + "(nome_treinamento, id_instrutor , descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
                 + " VALUES(?,?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(query);
             
@@ -574,6 +575,19 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
         telaLogin.setVisible(true);
@@ -601,11 +615,11 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            /*case 1 -> {
-                Tela_Pesquisar_Equipe Tela_SearchEqp = new Tela_Pesquisar_Equipe();
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
-            }*/
+            }
             case 2 -> {
                 Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
@@ -624,7 +638,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
-
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -644,19 +657,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
-        }
-        catch (SQLException erro){
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }//GEN-LAST:event_formWindowOpened
-
-    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
 
     /**
      * @param args the command line arguments

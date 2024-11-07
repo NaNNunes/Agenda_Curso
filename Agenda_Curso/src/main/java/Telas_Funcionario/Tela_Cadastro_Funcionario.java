@@ -5,6 +5,7 @@
 package Telas_Funcionario;
 
 import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
@@ -93,8 +94,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Jpnl_Fundo_CadFunc = new javax.swing.JPanel();
+        Jpnl_Container_CadFunc = new javax.swing.JPanel();
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Identificacao_Tela_Adiciona_Funcionario = new javax.swing.JLabel();
@@ -148,20 +149,20 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Fundo_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_CadFunc.setPreferredSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Container_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jpnl_Container_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Container_CadFunc.setPreferredSize(new java.awt.Dimension(1000, 797));
+        Jpnl_Container_CadFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setText("Cadastrar Funcionário");
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(351, 49));
-        jPanel2.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+        Jpnl_Container_CadFunc.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -221,7 +222,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jftxtf_CPF_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        jPanel2.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -264,7 +265,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jftxtf_Telefone_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jftxtf_Telefone_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        jPanel2.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
 
         Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Area_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -327,7 +328,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
 
-        jPanel2.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Salvar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -339,7 +340,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, -1));
 
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(234, 151, 151));
         Jbtn_Cancelar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -351,9 +352,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Cancelar_Tela_Adicionar_FuncionarioActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Cancelar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Cancelar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -522,17 +523,17 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Jpnl_Fundo_CadFunc.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -621,11 +622,11 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            /*case 1 -> {
-                Tela_Pesquisar_Equipe Tela_SearchEqp = new Tela_Pesquisar_Equipe();
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
-            }*/
+            }
             case 2 -> {
                 Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
                 Tela_CadEqp.setVisible(true);
@@ -738,14 +739,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Area_Tela_Adicionar_Funcionario;
+    private javax.swing.JPanel Jpnl_Container_CadFunc;
     private javax.swing.JPanel Jpnl_Contato_Tela_Adicionar_Funcionario;
+    private javax.swing.JPanel Jpnl_Fundo_CadFunc;
     private javax.swing.JPanel Jpnl_Identificacao_Tela_Adicionar_Funcionario;
     private javax.swing.JTextField Jtxtf_Email_CadFunc;
     private javax.swing.JTextField Jtxtf_Identificacao_CadFunc;
     private javax.swing.JTextField Jtxtf_Matricula_CadFunc;
     private javax.swing.JTextField Jtxtf_Nome_CadFunc;
     private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

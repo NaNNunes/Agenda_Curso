@@ -32,7 +32,7 @@ CREATE TABLE equipe(
 CREATE TABLE treinamento(
 	id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_instrutor VARCHAR(11),
-	nome varchar(50),
+	nome_treinamento varchar(30),
 	descricao VARCHAR(200),
 	carga_Horaria TIME,
 	prev_comeco DATE, 
@@ -63,4 +63,14 @@ CREATE TABLE cadastro_equipe_treinamento(
 		REFERENCES treinamento(id_treinamento)
 );
 
+CREATE VIEW vw_treinamento AS
+	SELECT treinamento.id_treinamento, treinamento.nome_treinamento, treinamento.carga_horaria, treinamento.validade, treinamento.formato, funcionario.nome
+		FROM treinamento
+	INNER JOIN funcionario
+		ON treinamento.id_instrutor = funcionario.id_funcionario
+WITH CHECK OPTION;
+DESC vw_treinamento;
+DROP VIEW vw_treinamento;
 
+SELECT * from cadastro_equipe_treinamento;
+SELECT * from equipe;

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_agenda_curso` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `db_agenda_curso`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_agenda_curso
@@ -54,7 +52,7 @@ DROP TABLE IF EXISTS `cadastro_funcionario_equipe`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cadastro_funcionario_equipe` (
   `id_cadastro` int(11) NOT NULL AUTO_INCREMENT,
-  `id_funcionario` varchar(20) DEFAULT NULL,
+  `id_funcionario` int(11) DEFAULT NULL,
   `id_equipe` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_cadastro`),
   KEY `FK_FuncionarioCad` (`id_funcionario`),
@@ -106,20 +104,21 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
-  `id_funcionario` varchar(20) NOT NULL,
-  `CPF` varchar(16) DEFAULT NULL,
+  `id_funcionario` int(11) NOT NULL,
+  `matricula` varchar(11) DEFAULT NULL,
+  `CPF` varchar(11) DEFAULT NULL,
   `nome` varchar(20) DEFAULT NULL,
   `sobrenome` varchar(30) DEFAULT NULL,
-  `telefone` varchar(16) DEFAULT NULL,
+  `Telefone` varchar(11) DEFAULT NULL,
   `email` varchar(320) DEFAULT NULL,
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   `data_adimissao` date DEFAULT current_timestamp(),
   `cargo` enum('supervisor','instrutor','operador') DEFAULT NULL,
   `id_setor` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_funcionario`),
+  UNIQUE KEY `matricula` (`matricula`),
   UNIQUE KEY `CPF` (`CPF`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `CPF_2` (`CPF`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -131,7 +130,6 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES ('123456','123.456.789-10','Thiago','Silva','(27) 9 4002-8922','thiagosilva@gmail.com','noturno','2024-11-06','instrutor',3);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +146,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +155,6 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Adiministração','ADM'),(2,'Recursos Humanos','RH'),(3,'Mecanica','MEC');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,8 +167,8 @@ DROP TABLE IF EXISTS `treinamento`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `treinamento` (
   `id_treinamento` int(11) NOT NULL AUTO_INCREMENT,
-  `id_instrutor` varchar(11) DEFAULT NULL,
-  `nome` varchar(50) DEFAULT NULL,
+  `id_instrutor` int(11) DEFAULT NULL,
+  `nome_treinamento` varchar(30) DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
   `carga_Horaria` time DEFAULT NULL,
   `prev_comeco` date DEFAULT NULL,
@@ -181,7 +178,7 @@ CREATE TABLE `treinamento` (
   PRIMARY KEY (`id_treinamento`),
   KEY `FK_InstrutorTreino` (`id_instrutor`),
   CONSTRAINT `FK_InstrutorTreino` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,9 +187,44 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
-INSERT INTO `treinamento` VALUES (2,'123456','Incendio','Pra quando a chapa esquentar','00:00:10','2024-11-07','2024-11-13',3,'Presencial');
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `vw_treinamento`
+--
+
+DROP TABLE IF EXISTS `vw_treinamento`;
+/*!50001 DROP VIEW IF EXISTS `vw_treinamento`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_treinamento` AS SELECT 
+ 1 AS `id_treinamento`,
+ 1 AS `nome_treinamento`,
+ 1 AS `carga_horaria`,
+ 1 AS `validade`,
+ 1 AS `formato`,
+ 1 AS `nome`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `vw_treinamento`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_treinamento`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`id_treinamento` AS `id_treinamento`,`treinamento`.`nome_treinamento` AS `nome_treinamento`,`treinamento`.`carga_Horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade`,`treinamento`.`formato` AS `formato`,`funcionario`.`nome` AS `nome` from (`treinamento` join `funcionario` on(`treinamento`.`id_instrutor` = `funcionario`.`id_funcionario`)) */
+/*!50002 WITH CASCADED CHECK OPTION */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -203,4 +235,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-06 20:16:27
+-- Dump completed on 2024-11-07 19:23:50
