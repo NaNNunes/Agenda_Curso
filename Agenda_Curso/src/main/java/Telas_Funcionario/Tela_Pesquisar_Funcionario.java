@@ -7,11 +7,20 @@ package Telas_Funcionario;
 import Telas_Equipe.Tela_Cadastro_Equipe;
 import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author m.schmidt
+ * @author m.schmidt //PopularJTableFuncionario
  */
 public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
@@ -20,6 +29,37 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
      */
     public Tela_Pesquisar_Funcionario() {
         initComponents();
+    }
+    
+    public static void PopularJTableFuncionario(String sql,JTable jTbl_Funcionario){
+        try {
+            Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/db_agenda_curso", "root", "");
+            PreparedStatement banco = (PreparedStatement) con.prepareStatement(sql);
+            banco.execute(); // cria o vetor
+
+            ResultSet resultado = banco.executeQuery(sql);
+
+            DefaultTableModel model =(DefaultTableModel) jTbl_Funcionario.getModel();
+            model.setNumRows(0);
+            //id_funcionario,CPF,nome,sobrenome,Telefone,email,turno,cargo,id_setor
+            while (resultado.next()) {
+                model.addRow(new Object[]{
+                    resultado.getString("id_funcionario"),
+                    resultado.getString("CPF"),
+                    resultado.getString("nome"),
+                    resultado.getString("sobrenome"),
+                    resultado.getString("Telefone"),
+                    resultado.getString("email"),
+                    resultado.getString("turno"),
+                    resultado.getString("cargo"),
+                    resultado.getString("id_setor")
+                });
+            }
+            banco.close();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -35,7 +75,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTbl_Funcionario = new javax.swing.JTable();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -53,6 +93,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,20 +112,24 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jLabel1.setText("Pesquisa Funcionario");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTbl_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "CPF", "Nome", "Sobrenome", "Telefone", "Email", "Turno", "Cargo", "Setor"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTbl_Funcionario);
+        if (jTbl_Funcionario.getColumnModel().getColumnCount() > 0) {
+            jTbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
+            jTbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 940, 590));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 940, 670));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -336,6 +385,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        PopularJTableFuncionario("SELECT id_funcionario,CPF,nome,sobrenome,Telefone,email,turno,cargo,id_setor"
+                + " FROM funcionario;", jTbl_Funcionario);  
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +446,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTbl_Funcionario;
     // End of variables declaration//GEN-END:variables
 }
