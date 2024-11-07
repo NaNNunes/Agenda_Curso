@@ -253,7 +253,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jftxtf_Telefone_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_Telefone_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
         try {
-            Jftxtf_Telefone_CadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) 9 ####-####")));
+            Jftxtf_Telefone_CadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
