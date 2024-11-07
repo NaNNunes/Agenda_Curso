@@ -112,7 +112,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Validade_CadTreino = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Jcmbx_Instrutor_CadTreino = new javax.swing.JComboBox<>();
-        Jtxtf_Instrutor_CadTreino = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtxta_Descricao_CadTreino = new javax.swing.JTextArea();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
@@ -305,15 +304,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
                 Jcmbx_Instrutor_CadTreinoActionPerformed(evt);
             }
         });
-        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, 30));
-
-        Jtxtf_Instrutor_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Instrutor_CadTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_Instrutor_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_Instrutor_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Instrutor_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
-        Jtxtf_Instrutor_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_CadTreino.add(Jtxtf_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
+        Jpnl_Identificacao_CadTreino.add(Jcmbx_Instrutor_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, 30));
 
         Jtxta_Descricao_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jtxta_Descricao_CadTreino.setColumns(20);
@@ -742,7 +733,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel Jpnl_Operacao_Tela_Adicionar_Treinamento;
     private javax.swing.JTextArea Jtxta_Descricao_CadTreino;
     private javax.swing.JTextField Jtxtf_Carga_CadTreino;
-    private javax.swing.JTextField Jtxtf_Instrutor_CadTreino;
     private javax.swing.JTextField Jtxtf_Treinamento_CadTreino;
     private javax.swing.JTextField Jtxtf_Validade_CadTreino;
     private javax.swing.JLabel jLabel1;

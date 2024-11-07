@@ -9,7 +9,15 @@ import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
 import Telas_configuracao.Popup_Opcoes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +32,65 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void populaTabela(String query) throws SQLException{
+        
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            DefaultTableModel model = (DefaultTableModel) Jtbl_listaTreinamentos.getModel();
+            model.setNumRows(0);
+            
+            while(resultSet.next()){
+                model.addRow(new Object[]{
+                    resultSet.getString("nome"),
+                    resultSet.getString("carga_horaria"),
+                    resultSet.getString("validade"),
+                    resultSet.getString("formato"),
+                    resultSet.getString("funcionario.nome")
+                });
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+    
+    private void consulta(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            DefaultTableModel model = (DefaultTableModel) Jtbl_listaTreinamentos.getModel();
+            model.setNumRows(0);
+            
+            while(resultSet.next()){
+                model.addRow(new Object[]{
+                    resultSet.getString("nome"),
+                    resultSet.getString("carga_horaria"),
+                    resultSet.getString("validade"),
+                    resultSet.getString("formato"),
+                    resultSet.getString("funcionario.nome")
+                });
+            }
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +102,11 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Jtbl_listaTreinamentos = new javax.swing.JTable();
+        Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
+        Jbtn_consulta = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -52,6 +124,11 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,6 +137,47 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Treinamentos");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
+        Jtbl_listaTreinamentos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtbl_listaTreinamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "nome", "carga", "validade", "formato", "instrutor"
+            }
+        ));
+        jScrollPane1.setViewportView(Jtbl_listaTreinamentos);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 640, -1));
+
+        Jtxtf_consulta_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_consulta_SearchTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_consulta_SearchTreino.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
+        jPanel2.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 250, -1));
+
+        Jbtn_consulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_consulta.setText("Consultar");
+        Jbtn_consulta.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_consultaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
@@ -235,7 +353,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,6 +434,31 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            this.populaTabela("SELECT "
+                    + "treinamento.nome, treinamento.carga_horaria, treinamento.validade, treinamento.formato, funcionario.nome FROM treinamento "
+                    + "LEFT JOIN funcionario ON treinamento.id_instrutor = funcionario.id_funcionario");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Pesquisar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void Jbtn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consultaActionPerformed
+            try {
+                String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
+                this.consulta("SELECT "
+                    + "treinamento.nome, treinamento.carga_horaria, treinamento.validade, treinamento.formato, funcionario.nome FROM treinamento "
+                    + "LEFT JOIN funcionario ON treinamento.id_instrutor = funcionario.id_funcionario "
+                    + "WHERE treinamento.nome LIKE '%"+nomeTreino+"%'");
+            } catch (SQLException erro) {
+                    System.out.println("Erro: " + erro.getMessage());
+            }
+        
+        
+        
+    }//GEN-LAST:event_Jbtn_consultaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -359,6 +502,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
+    private javax.swing.JButton Jbtn_consulta;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
@@ -367,7 +511,11 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JTable Jtbl_listaTreinamentos;
+    private javax.swing.JTextField Jtxtf_consulta_SearchTreino;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
