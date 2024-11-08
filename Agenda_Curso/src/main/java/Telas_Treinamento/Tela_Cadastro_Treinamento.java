@@ -542,21 +542,14 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = 
                 "INSERT INTO treinamento"
-                + "(nome_treinamento, id_instrutor , descricao, carga_Horaria, prev_comeco, prev_fim, validade, formato)"
-                + " VALUES(?,?,?,?,?,?,?,?)";
+                + "(nome_treinamento, descricao, carga_Horaria, validade)"
+                + " VALUES(?,?,?,?)";
             statement = connection.prepareStatement(query);
             
-            String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
-            String nomeCompleto_instrutor = (String) Jcmbx_Instrutor_CadTreino.getSelectedItem();
-            
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
-            statement.setString(2, this.pegaIdInstrutor("SELECT id_funcionario FROM funcionario WHERE nome LIKE '"+ nomeCompleto_instrutor +"'"));
-            statement.setString(3, Jtxta_Descricao_CadTreino.getText());
-            statement.setString(4, Jtxtf_Carga_CadTreino.getText());
-            statement.setString(5, Jftxtf_prevInicion_CadTreino.getText());
-            statement.setString(6, Jftxtf_prevFim_CadTreino.getText());
-            statement.setString(7, Jtxtf_Validade_CadTreino.getText());
-            statement.setString(8, formato);
+            statement.setString(2, Jtxta_Descricao_CadTreino.getText());
+            statement.setString(3, Jtxtf_Carga_CadTreino.getText());
+            statement.setString(4, Jtxtf_Validade_CadTreino.getText());
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Treinamento Cadastrado!");
