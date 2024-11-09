@@ -31,29 +31,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     public Tela_Cadastro_Treinamento() {
         initComponents();
     }
-    private void popJcmBoxSupervisor(String query) throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadTreino.getModel();
-            cBoxModel.setSelectedItem("-- Selecione --");
-            
-            while(resultSet.next()){
-                cBoxModel.addElement(resultSet.getString("nome"));
-                //cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
-            }
-        }
-        catch (SQLException erro){
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }
     
     private String pegaIdInstrutor(String query) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
@@ -117,7 +94,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxta_Descricao_CadTreino = new javax.swing.JTextArea();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -342,19 +318,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         });
         jPanel2.add(Jbtn_Cancelar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
@@ -540,10 +503,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-
     private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
@@ -583,17 +542,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            this.popJcmBoxSupervisor("SELECT nome, sobrenome FROM funcionario WHERE cargo LIKE 'instrutor'");
-        }
-        catch (SQLException erro){
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }//GEN-LAST:event_formWindowOpened
 
-    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+    }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -664,6 +614,14 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+
+    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -746,7 +704,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
