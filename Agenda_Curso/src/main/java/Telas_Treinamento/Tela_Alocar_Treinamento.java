@@ -142,6 +142,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
