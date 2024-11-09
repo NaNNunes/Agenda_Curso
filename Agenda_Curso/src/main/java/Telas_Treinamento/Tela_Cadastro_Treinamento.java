@@ -31,29 +31,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     public Tela_Cadastro_Treinamento() {
         initComponents();
     }
-    private void popJcmBoxSupervisor(String query) throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_CadTreino.getModel();
-            cBoxModel.setSelectedItem("-- Selecione --");
-            
-            while(resultSet.next()){
-                cBoxModel.addElement(resultSet.getString("nome"));
-                //cBoxModel.addElement(resultSet.getString("nome") +" "+ resultSet.getString("sobrenome"));
-            }
-        }
-        catch (SQLException erro){
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }
     
     private String pegaIdInstrutor(String query) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
@@ -526,10 +503,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-
     private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
@@ -569,6 +542,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+<<<<<<< HEAD
         try {
             this.popJcmBoxSupervisor("SELECT  FROM vw WHERE cargo LIKE 'instrutor'");
         }
@@ -576,10 +550,10 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_formWindowOpened
+=======
+>>>>>>> 9790763d75f1fe9b546eb48ce26fbaf580defda9
 
-    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+    }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -650,6 +624,14 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Instrutor_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Instrutor_CadTreinoActionPerformed
+
+    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
 
     /**
      * @param args the command line arguments
