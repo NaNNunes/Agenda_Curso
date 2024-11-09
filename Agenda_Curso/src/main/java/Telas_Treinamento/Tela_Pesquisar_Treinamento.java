@@ -50,7 +50,8 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             
             while(resultSet.next()){
                 model.addRow(new Object[]{
-                    resultSet.getString("nome_treinamento"),
+                    resultSet.getString("id_treinamento"),
+                    resultSet.getString("nome"),
                     resultSet.getString("carga_horaria"),
                     resultSet.getString("validade"),
                 });
@@ -77,6 +78,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jtbl_ListaTreino = new javax.swing.JTable();
         Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
         Jbtn_consulta = new javax.swing.JButton();
+        Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -116,13 +118,13 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jtbl_ListaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_ListaTreino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "nome", "carga", "validade"
+                "id", "nome", "carga", "validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_ListaTreino);
@@ -147,6 +149,14 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             }
         });
         Jpnl_Conteiner_SearchTreino.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+
+        Jbtn_Apagar_SearchFunc.setText("Apagar");
+        Jbtn_Apagar_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Apagar_SearchFuncActionPerformed(evt);
+            }
+        });
+        Jpnl_Conteiner_SearchTreino.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 720, -1, -1));
 
         Jpnl_Fundo_SearchTreino.add(Jpnl_Conteiner_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -421,6 +431,30 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
+    private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
+            Connection connection = null;
+            PreparedStatement statement = null;
+
+            String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+            String user = "root";
+            String psswrd = "";
+
+            try {
+                connection = DriverManager.getConnection(url,user,psswrd);
+                String query = "DELETE FROM treinamento WHERE id_treinamento = ?;";
+                statement = connection.prepareStatement(query);
+                statement.setInt(1, Integer.parseInt(Jtbl_ListaTreino.getValueAt(Jtbl_ListaTreino.getSelectedRow(), 0).toString()));
+                statement.execute();
+                this.populaTabela("SELECT * FROM vw_treinamento;");
+            }
+            catch (SQLException erro){
+                System.out.println("erro: " + erro.getMessage());
+                System.out.println("erro: " + erro.getSQLState());
+            }
+        }
+    }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +495,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
+    private javax.swing.JButton Jbtn_Apagar_SearchFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;

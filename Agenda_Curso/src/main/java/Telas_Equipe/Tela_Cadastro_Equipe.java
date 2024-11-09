@@ -13,12 +13,8 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -52,6 +48,8 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtxta_descricao_CadEqp = new javax.swing.JTextArea();
         Jlbl_Descricao_CadEqp = new javax.swing.JLabel();
+        Jcmbx_turno_CadFun = new javax.swing.JComboBox<>();
+        Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jpanel_Conteiner_Dados = new javax.swing.JPanel();
         Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
         Jbtn_Editar_CadEqp = new javax.swing.JButton();
@@ -116,15 +114,15 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jtxtf_Nome_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxtf_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_Nome_CadEqp.setMaximumSize(new java.awt.Dimension(240, 30));
-        Jtxtf_Nome_CadEqp.setMinimumSize(new java.awt.Dimension(240, 30));
-        Jtxtf_Nome_CadEqp.setPreferredSize(new java.awt.Dimension(240, 30));
+        Jtxtf_Nome_CadEqp.setMaximumSize(new java.awt.Dimension(280, 30));
+        Jtxtf_Nome_CadEqp.setMinimumSize(new java.awt.Dimension(280, 30));
+        Jtxtf_Nome_CadEqp.setPreferredSize(new java.awt.Dimension(280, 30));
         Jtxtf_Nome_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jtxtf_Nome_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 310, -1));
+        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,14 +131,27 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jtxta_descricao_CadEqp.setColumns(20);
         Jtxta_descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxta_descricao_CadEqp.setRows(5);
+        Jtxta_descricao_CadEqp.setPreferredSize(new java.awt.Dimension(230, 89));
         jScrollPane1.setViewportView(Jtxta_descricao_CadEqp);
 
-        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 300, 300));
+        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 300, 150));
 
         Jlbl_Descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Jlbl_Descricao_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Descricao_CadEqp.setText("Descrição:");
         Jpanel_Conteiner_CadEqp.add(Jlbl_Descricao_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
+
+        Jcmbx_turno_CadFun.setBackground(new java.awt.Color(255, 255, 255));
+        Jcmbx_turno_CadFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "matutino", "vespertino", "noturno" }));
+        Jcmbx_turno_CadFun.setMaximumSize(new java.awt.Dimension(240, 30));
+        Jcmbx_turno_CadFun.setMinimumSize(new java.awt.Dimension(240, 30));
+        Jcmbx_turno_CadFun.setPreferredSize(new java.awt.Dimension(240, 30));
+        Jpanel_Conteiner_CadEqp.add(Jcmbx_turno_CadFun, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 280, -1));
+
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
 
         Jpanel_Conteiner_Dados.setBackground(new java.awt.Color(249, 246, 226));
         Jpanel_Conteiner_Dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -402,11 +413,14 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao) values(?, ?)"; // adicionar tambem id instrutor
+            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
             statement = connection.prepareStatement(query);
+            
+            String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
             
             statement.setString(1, Jtxtf_Nome_CadEqp.getText());
             statement.setString(2, Jtxta_descricao_CadEqp.getText());
+            statement.setString(3, turno);
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Equipe Criada");
@@ -565,11 +579,13 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
+    private javax.swing.JComboBox<String> Jcmbx_turno_CadFun;
     private javax.swing.JLabel Jlbl_Descricao_CadEqp;
     private javax.swing.JLabel Jlbl_Header_Conteiner_CadEqp;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Nome_CadEqp;
     private javax.swing.JLabel Jlbl_Titulo_CadEqp;
+    private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_Conteiner_CadEqp;
     private javax.swing.JPanel Jpanel_Conteiner_Dados;
     private javax.swing.JPanel Jpanel_Fundo_CadEqp;

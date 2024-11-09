@@ -129,7 +129,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "numero", "nome", "sigla"
+                "numero", "nome", "turno"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_ListaEqp);

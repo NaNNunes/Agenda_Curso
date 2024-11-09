@@ -125,7 +125,7 @@
                       <Table columnCount="3" rowCount="4">
                         <Column editable="true" title="numero" type="java.lang.Object"/>
                         <Column editable="true" title="nome" type="java.lang.Object"/>
-                        <Column editable="true" title="sigla" type="java.lang.Object"/>
+                        <Column editable="true" title="turno" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
