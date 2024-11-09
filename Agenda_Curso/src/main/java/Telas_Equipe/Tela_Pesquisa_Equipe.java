@@ -220,6 +220,16 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         Jcmbx_Funcionario_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Funcionario_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Funcionario_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Funcionario_BarraLateral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jcmbx_Funcionario_BarraLateralMouseClicked(evt);
+            }
+        });
+        Jcmbx_Funcionario_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Funcionario_BarraLateralActionPerformed(evt);
+            }
+        });
         JPanel_contentFuncionarioButton.add(Jcmbx_Funcionario_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 160, -1));
 
         JPanel_contentEquipe_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
@@ -242,6 +252,11 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         Jcmbx_Equipe_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Equipe_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Equipe_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Equipe_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Equipe_BarraLateralActionPerformed(evt);
+            }
+        });
         JPanel_contentEquipe_BarraLateral.add(Jcmbx_Equipe_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         Jbtn_trocarUsuario_BarraLateral.setBackground(new java.awt.Color(243, 236, 196));
@@ -288,6 +303,11 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Treinamento_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Treinamento_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Treinamento_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Treinamento_BarraLateralActionPerformed(evt);
+            }
+        });
         Jpanel_contentTreinamento_Barra_Lateral.add(Jcmbx_Treinamento_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         javax.swing.GroupLayout JPanel_BarraLateralLayout = new javax.swing.GroupLayout(JPanel_BarraLateral);
@@ -364,76 +384,6 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
-        Tela_Login telaLogin = new Tela_Login();
-        telaLogin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
-
-    private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
-
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
-                Tela_SearchFunc.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
-                Tela_CadFunc.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
-
-    private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
-                Tela_SearchEqp.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
-                Tela_CadEqp.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-
-    private void Jbtn_trocarUsuario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
-
-    private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
-        popup_opcoes.setVisible(true);
-    }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
-
-    private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
-                Tela_SearchTreino.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
-                Tela_CadTreino.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-
     private void Jbtn_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consulta_SearchEqpActionPerformed
         try {
             String numEquipe = Jtxtf_consulta_SearchEqp.getText();
@@ -471,6 +421,134 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jbtn_Apagar_SearchEqpActionPerformed
+
+    private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+        Tela_Login telaLogin = new Tela_Login();
+        telaLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+
+    private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
+
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                Tela_SearchFunc.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_CadFunc.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Funcionario_BarraLateralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                Tela_SearchFunc.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_CadFunc.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+
+    private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                Tela_SearchEqp.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                Tela_CadEqp.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                Tela_SearchEqp.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                Tela_CadEqp.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+
+    private void Jbtn_trocarUsuario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
+
+    private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
+        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
+        popup_opcoes.setVisible(true);
+    }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
+
+    private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                Tela_SearchTreino.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                Tela_CadTreino.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                Tela_SearchTreino.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                Tela_CadTreino.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     /**
      * @param args the command line arguments

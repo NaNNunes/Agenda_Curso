@@ -61,8 +61,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jckbx_Obrigatorio_CadTreino_ = new javax.swing.JCheckBox();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
-        JPanel_BarraLateral = new javax.swing.JPanel();
-        Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
+        JPanel_BarraLateral2 = new javax.swing.JPanel();
+        Jbtn_LogoutButton_BarraLateral2 = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         JPanel_contentFuncionarioButton = new javax.swing.JPanel();
@@ -253,17 +253,17 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
-        JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
-        JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
+        JPanel_BarraLateral2.setBackground(new java.awt.Color(47, 63, 115));
+        JPanel_BarraLateral2.setPreferredSize(new java.awt.Dimension(232, 832));
 
-        Jbtn_LogoutButton_BarraLateral.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_LogoutButton_BarraLateral.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_LogoutButton_BarraLateral.setMaximumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral.setMinimumSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral.setPreferredSize(new java.awt.Dimension(40, 40));
-        Jbtn_LogoutButton_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_LogoutButton_BarraLateral2.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_LogoutButton_BarraLateral2.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_LogoutButton_BarraLateral2.setMaximumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral2.setMinimumSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral2.setPreferredSize(new java.awt.Dimension(40, 40));
+        Jbtn_LogoutButton_BarraLateral2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_LogoutButton_BarraLateralActionPerformed(evt);
+                Jbtn_LogoutButton_BarraLateral2ActionPerformed(evt);
             }
         });
 
@@ -300,6 +300,16 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Funcionario_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Funcionario_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Funcionario_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Funcionario_BarraLateral.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jcmbx_Funcionario_BarraLateralMouseClicked(evt);
+            }
+        });
+        Jcmbx_Funcionario_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Funcionario_BarraLateralActionPerformed(evt);
+            }
+        });
         JPanel_contentFuncionarioButton.add(Jcmbx_Funcionario_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 160, -1));
 
         JPanel_contentEquipe_BarraLateral.setBackground(new java.awt.Color(40, 54, 98));
@@ -322,6 +332,11 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Equipe_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Equipe_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Equipe_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Equipe_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Equipe_BarraLateralActionPerformed(evt);
+            }
+        });
         JPanel_contentEquipe_BarraLateral.add(Jcmbx_Equipe_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         Jbtn_trocarUsuario_BarraLateral.setBackground(new java.awt.Color(243, 236, 196));
@@ -368,59 +383,64 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral.setMaximumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Treinamento_BarraLateral.setMinimumSize(new java.awt.Dimension(160, 46));
         Jcmbx_Treinamento_BarraLateral.setPreferredSize(new java.awt.Dimension(160, 46));
+        Jcmbx_Treinamento_BarraLateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Treinamento_BarraLateralActionPerformed(evt);
+            }
+        });
         Jpanel_contentTreinamento_Barra_Lateral.add(Jcmbx_Treinamento_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
-        javax.swing.GroupLayout JPanel_BarraLateralLayout = new javax.swing.GroupLayout(JPanel_BarraLateral);
-        JPanel_BarraLateral.setLayout(JPanel_BarraLateralLayout);
-        JPanel_BarraLateralLayout.setHorizontalGroup(
-            JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout JPanel_BarraLateral2Layout = new javax.swing.GroupLayout(JPanel_BarraLateral2);
+        JPanel_BarraLateral2.setLayout(JPanel_BarraLateral2Layout);
+        JPanel_BarraLateral2Layout.setHorizontalGroup(
+            JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+            .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
+                .addGroup(JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Jbtn_trocarUsuario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Jbtn_Configuração_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                        .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                    .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
+                        .addGroup(JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                            .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+            .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        JPanel_BarraLateralLayout.setVerticalGroup(
-            JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+        JPanel_BarraLateral2Layout.setVerticalGroup(
+            JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
+                .addGroup(JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                    .addGroup(JPanel_BarraLateral2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
-                .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanel_BarraLateral2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_Configuração_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_trocarUsuario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(JPanel_BarraLateral2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -436,11 +456,23 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
+
+    private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
+
+    }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
+
+    private void Jbtn_Cancelar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+
+    private void Jbtn_LogoutButton_BarraLateral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateral2ActionPerformed
         Tela_Login telaLogin = new Tela_Login();
         telaLogin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateral2ActionPerformed
 
     private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
@@ -461,6 +493,28 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
+    private void Jcmbx_Funcionario_BarraLateralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                Tela_SearchFunc.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_CadFunc.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
             case 1 -> {
@@ -479,6 +533,24 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
 
+    private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                Tela_SearchEqp.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                Tela_CadEqp.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+
     private void Jbtn_trocarUsuario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
@@ -486,6 +558,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
+
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -506,17 +579,23 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
-    private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
-
-    private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
-
-    }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
-
-    private void Jbtn_Cancelar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+    private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+            case 1 -> {
+                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                Tela_SearchTreino.setVisible(true);
+                this.dispose();
+            }
+            case 2 -> {
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                Tela_CadTreino.setVisible(true);
+                this.dispose();
+            }
+            default -> {
+                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
+            }
+        }
+    }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -555,6 +634,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_BarraLateral;
+    private javax.swing.JPanel JPanel_BarraLateral1;
+    private javax.swing.JPanel JPanel_BarraLateral2;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
@@ -562,6 +643,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
+    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral1;
+    private javax.swing.JButton Jbtn_LogoutButton_BarraLateral2;
     private javax.swing.JButton Jbtn_Salvar_CadTreino;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
