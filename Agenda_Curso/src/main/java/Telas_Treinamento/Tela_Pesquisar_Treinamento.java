@@ -50,12 +50,9 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             
             while(resultSet.next()){
                 model.addRow(new Object[]{
-                    resultSet.getString("id_treinamento"),
                     resultSet.getString("nome_treinamento"),
                     resultSet.getString("carga_horaria"),
                     resultSet.getString("validade"),
-                    resultSet.getString("formato"),
-                    resultSet.getString("nome")
                 });
             }
         }
@@ -119,13 +116,13 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jtbl_ListaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_ListaTreino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "id", "nome", "carga", "validade", "formato", "instrutor"
+                "nome", "carga", "validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_ListaTreino);
@@ -348,9 +345,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             try {
                 String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
                 this.populaTabela("SELECT * FROM vw_treinamento "
-                + "WHERE nome_treinamento LIKE '%"+nomeTreino+"%' OR "
-                    + "nome_treinamento LIKE '%"+nomeTreino+"' OR "
-                    + "nome_treinamento LIKE '%"+nomeTreino+"%'");
+                + "WHERE nome_treinamento LIKE '%"+nomeTreino+"%'");
             } catch (SQLException erro) {
                     System.out.println("Erro: " + erro.getMessage());
             }

@@ -99,8 +99,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Title_identificacao = new javax.swing.JLabel();
-        Jlbl_Maticula_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jtxtf_Matricula_CadFunc = new javax.swing.JTextField();
         Jlbl_Nome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jtxtf_Nome_CadFunc = new javax.swing.JTextField();
         Jlbl_CPF_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
@@ -116,13 +114,11 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpnl_Area_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Area_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jlbl_Codigo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Equipe_CadFunc = new javax.swing.JLabel();
         Jlbl_Cargo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
-        Jcmbx_Equipe_CadFunc = new javax.swing.JComboBox<>();
         Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
@@ -176,17 +172,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Title_identificacao.setText("Identificação");
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Title_identificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Maticula_Tela_Adicionar_Funcionario.setText("Matricula: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Maticula_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
-
-        Jtxtf_Matricula_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Matricula_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Jtxtf_Matricula_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jtxtf_Matricula_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Matricula_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
-
         Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome: ");
@@ -201,18 +186,18 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setText("Sobrenome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
         Jtxtf_Sobrenome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Sobrenome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Sobrenome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Sobrenome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         Jftxtf_CPF_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_CPF_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
@@ -222,7 +207,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         Jftxtf_CPF_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
@@ -282,29 +267,24 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
-
-        Jlbl_Equipe_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Equipe_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Equipe_CadFunc.setText("Identifição Equipe: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Equipe_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setText("Cargo: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
         Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         Jcmbx_Cargo_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Cargo_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jcmbx_Cargo_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "supervisor", "instrutor", "operador" }));
         Jcmbx_Cargo_CadFunc.setSelectedIndex(-1);
         Jcmbx_Cargo_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Cargo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Cargo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         Jcmbx_Turno_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Turno_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -312,20 +292,12 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Turno_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matutino", "Vespertino", "Noturno" }));
         Jcmbx_Turno_CadFunc.setSelectedIndex(-1);
         Jcmbx_Turno_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         Jcmbx_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Setor_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jcmbx_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
-
-        Jcmbx_Equipe_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Equipe_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jcmbx_Equipe_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
-        Jcmbx_Equipe_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
-        Jcmbx_Equipe_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
-        Jcmbx_Equipe_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Equipe_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 250, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 250, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
@@ -536,24 +508,23 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario(matricula , CPF, nome, sobrenome, Telefone, email, turno, cargo, id_setor)"
-                    + " values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO funcionario(CPF, nome, sobrenome, Telefone, email, turno, cargo, id_setor)"
+                    + " values(?, ?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(query);
             
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
-            String sigla = (String) Jcmbx_Setor_CadFunc.getSelectedItem();
+            //String sigla = (String) ;
             
-            statement.setString(1, Jtxtf_Matricula_CadFunc.getText());
-            statement.setString(2, Jftxtf_CPF_CadFunc.getText());
-            statement.setString(3, Jtxtf_Nome_CadFunc.getText());
-            statement.setString(4, Jtxtf_Sobrenome_CadFunc.getText());
-            statement.setString(5, Jftxtf_Telefone_CadFunc.getText());
-            statement.setString(6, Jtxtf_Email_CadFunc.getText());
-            statement.setString(7, turno);
-            statement.setString(8, cargo);
+            statement.setString(1, Jftxtf_CPF_CadFunc.getText());
+            statement.setString(2, Jtxtf_Nome_CadFunc.getText());
+            statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
+            statement.setString(4, Jftxtf_Telefone_CadFunc.getText());
+            statement.setString(5, Jtxtf_Email_CadFunc.getText());
+            statement.setString(6, turno);
+            statement.setString(7, cargo);
             
-            statement.setInt(9, this.pegaIdSetor("SELECT id_setor FROM setor WHERE sigla LIKE \"" + sigla +"\";")); // view com where?
+            statement.setInt(8, this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '" + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"));
             
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
@@ -566,9 +537,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Jcmbx_Equipe_CadFunc.setVisible(false);
-        Jlbl_Equipe_CadFunc.setVisible(false);
-        
         try {
             this.popCmBoxSetor("SELECT sigla FROM setor"); // view
         } catch (SQLException ex) {
@@ -700,7 +668,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Cargo_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Equipe_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Setor_CadFunc;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
@@ -714,9 +681,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Codigo_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Contato_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Email_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Equipe_CadFunc;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_Maticula_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Sobrenome_Tela_Adicionar_Funcionario;
@@ -729,7 +694,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel Jpnl_Fundo_CadFunc;
     private javax.swing.JPanel Jpnl_Identificacao_Tela_Adicionar_Funcionario;
     private javax.swing.JTextField Jtxtf_Email_CadFunc;
-    private javax.swing.JTextField Jtxtf_Matricula_CadFunc;
     private javax.swing.JTextField Jtxtf_Nome_CadFunc;
     private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
     // End of variables declaration//GEN-END:variables

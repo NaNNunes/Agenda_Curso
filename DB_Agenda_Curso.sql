@@ -93,7 +93,7 @@ CREATE TABLE `equipe` (
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   PRIMARY KEY (`id_equipe`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +102,7 @@ CREATE TABLE `equipe` (
 
 LOCK TABLES `equipe` WRITE;
 /*!40000 ALTER TABLE `equipe` DISABLE KEYS */;
+INSERT INTO `equipe` VALUES (1,'Equipe 01','Equipe 01',NULL);
 /*!40000 ALTER TABLE `equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +115,6 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
-  `matricula` varchar(11) DEFAULT NULL,
   `cpf` varchar(14) DEFAULT NULL,
   `nome` varchar(20) DEFAULT NULL,
   `sobrenome` varchar(30) DEFAULT NULL,
@@ -125,12 +125,11 @@ CREATE TABLE `funcionario` (
   `cargo` enum('supervisor','instrutor','operador') DEFAULT NULL,
   `id_setor` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_funcionario`),
-  UNIQUE KEY `matricula` (`matricula`),
   UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +138,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (20,'12','123.456.789-01','Nome','Sobrenome','(13) 24981-2021','mial','vespertino','2024-11-08','operador',3),(21,'123454','089.240.352-34','Funcio','Nario','(23) 29480-3113','func@gmail.com','matutino','2024-11-08','supervisor',2);
+INSERT INTO `funcionario` VALUES (7,'123.124.342-34','ldsmjklasdjkd','jknkdsjndska','(21) 31243-2432','jlkadsksa','matutino','2024-11-09','supervisor',1);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +155,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +164,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Adiministração','ADM'),(3,'Automação','ATM');
+INSERT INTO `setor` VALUES (1,'ADIMINISTRAÇÂO','ADM');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,10 +179,10 @@ CREATE TABLE `treinamento` (
   `id_treinamento` int(11) NOT NULL AUTO_INCREMENT,
   `nome_treinamento` varchar(30) DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
-  `carga_Horaria` int(11) DEFAULT NULL,
+  `carga_horaria` int(11) DEFAULT NULL,
   `validade` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_treinamento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,6 +191,7 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
+INSERT INTO `treinamento` VALUES (1,'Incendio','Treino',10,3),(2,'Incendio','Descricao',10,3);
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,6 +238,20 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_getid_setor` AS SELECT 
  1 AS `id_setor`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_treinamento`
+--
+
+DROP TABLE IF EXISTS `vw_treinamento`;
+/*!50001 DROP VIEW IF EXISTS `vw_treinamento`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_treinamento` AS SELECT 
+ 1 AS `nome_treinamento`,
+ 1 AS `carga_horaria`,
+ 1 AS `validade`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -296,6 +310,25 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_treinamento`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_treinamento`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`nome_treinamento` AS `nome_treinamento`,`treinamento`.`carga_horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade` from `treinamento` */
+/*!50002 WITH CASCADED CHECK OPTION */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -306,4 +339,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-08 15:54:46
+-- Dump completed on 2024-11-09 16:43:49
