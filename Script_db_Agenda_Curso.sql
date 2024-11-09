@@ -10,7 +10,6 @@ CREATE TABLE setor (
 
 CREATE TABLE funcionario (
     id_funcionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    matricula VARCHAR(11) UNIQUE,
     cpf VARCHAR(14) UNIQUE,
     nome VARCHAR(20),
     sobrenome VARCHAR(30),
@@ -20,8 +19,7 @@ CREATE TABLE funcionario (
     data_adimissao DATE DEFAULT CURRENT_TIMESTAMP,
     cargo ENUM('supervisor', 'instrutor', 'operador'),
     id_setor INT,
-    CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor)
-        REFERENCES setor (id_setor)
+    CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor) REFERENCES setor (id_setor)
 );
 
 CREATE TABLE equipe (
@@ -35,7 +33,7 @@ CREATE TABLE treinamento (
     id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome_treinamento VARCHAR(30),
     descricao VARCHAR(200),
-    carga_Horaria INT,
+    carga_horaria INT,
     validade INT
 );
 
@@ -94,6 +92,13 @@ CREATE VIEW vw_Equipe AS
         FROM equipe WITH CHECK OPTION;
 DROP VIEW vw_Equipe;
 
+CREATE VIEW vw_treinamento AS 
+	SELECT
+		nome_treinamento,
+		carga_horaria,
+		validade
+    FROM treinamento WITH CHECK OPTION;
+    
 select * from funcionario;
 
 
