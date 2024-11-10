@@ -10,7 +10,14 @@ import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
 import Telas_configuracao.Popup_Opcoes;
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +33,56 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void popCmBoxEquipe(String query) throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        Connection connection = DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcbx_Equipe_Alocar_Treinamento.getModel();
+            cBoxModel.removeAllElements();
+            cBoxModel.addElement("-- Selecione --");
+
+            while (resultSet.next()) {
+                cBoxModel.addElement(resultSet.getString("nome"));
+            }
+
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+
+    private void popCmBoxInstrutor(String query) throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        Connection connection = DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcbx_Instrutor_Alocar_Treinamento.getModel();
+            cBoxModel.removeAllElements();
+            cBoxModel.addElement("-- Selecione --");
+
+            while (resultSet.next()) {
+                cBoxModel.addElement(resultSet.getString("nome"));
+            }
+
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +96,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Jlbl_Selecionar_Tela_Alocar_Treinamento = new javax.swing.JLabel();
         Jpnl_Intrutor_Tela_Alocar_Treinamento = new javax.swing.JPanel();
-        Jcbx_Equipe_Alocar_Treinamento = new javax.swing.JComboBox<>();
+        Jcbx_Instrutor_Alocar_Treinamento = new javax.swing.JComboBox<>();
         Jlbl_Equipe_Alocar_Treinamento = new javax.swing.JLabel();
         Jpnl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JPanel();
         Jlbl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JLabel();
@@ -55,7 +112,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         Jtxtf_Pesquisar_Tela_Alocar_Treinamento = new javax.swing.JTextField();
         Jpnl_Equipe_Tela_Alocar_Treinamento1 = new javax.swing.JPanel();
-        Jcbx_Equipe_Alocar_Treinamento1 = new javax.swing.JComboBox<>();
+        Jcbx_Equipe_Alocar_Treinamento = new javax.swing.JComboBox<>();
         Jlbl_Equipe_Alocar_Treinamento1 = new javax.swing.JLabel();
         Jckbx_Certificado_CadTreino = new javax.swing.JCheckBox();
         Jckbx_Obrigatorio_CadTreino_ = new javax.swing.JCheckBox();
@@ -78,8 +135,14 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -98,9 +161,13 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(275, 73));
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jcbx_Equipe_Alocar_Treinamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Jcbx_Equipe_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jcbx_Equipe_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
+        Jcbx_Instrutor_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jcbx_Instrutor_Alocar_Treinamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcbx_Instrutor_Alocar_TreinamentoActionPerformed(evt);
+            }
+        });
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jcbx_Instrutor_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
 
         Jlbl_Equipe_Alocar_Treinamento.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Equipe_Alocar_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
@@ -201,9 +268,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setPreferredSize(new java.awt.Dimension(275, 73));
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jcbx_Equipe_Alocar_Treinamento1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Jcbx_Equipe_Alocar_Treinamento1.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Equipe_Tela_Alocar_Treinamento1.add(Jcbx_Equipe_Alocar_Treinamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
+        Jcbx_Equipe_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jpnl_Equipe_Tela_Alocar_Treinamento1.add(Jcbx_Equipe_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
 
         Jlbl_Equipe_Alocar_Treinamento1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Equipe_Alocar_Treinamento1.setForeground(new java.awt.Color(0, 0, 0));
@@ -476,7 +542,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
                 Tela_SearchFunc.setVisible(true);
@@ -516,7 +582,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
@@ -562,7 +628,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
                 Tela_SearchTreino.setVisible(true);
@@ -596,6 +662,20 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
+
+    private void Jcbx_Instrutor_Alocar_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcbx_Instrutor_Alocar_TreinamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcbx_Instrutor_Alocar_TreinamentoActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        try {
+            this.popCmBoxEquipe("SELECT nome FROM equipe");
+            this.popCmBoxInstrutor("SELECT nome FROM funcionario WHERE cargo = 'instrutor'");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -646,7 +726,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
     private javax.swing.JComboBox<String> Jcbx_Equipe_Alocar_Treinamento;
-    private javax.swing.JComboBox<String> Jcbx_Equipe_Alocar_Treinamento1;
+    private javax.swing.JComboBox<String> Jcbx_Instrutor_Alocar_Treinamento;
     private javax.swing.JCheckBox Jckbx_Certificado_CadTreino;
     private javax.swing.JCheckBox Jckbx_Obrigatorio_CadTreino_;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
