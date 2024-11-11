@@ -409,7 +409,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
 
             try {
                 connection = DriverManager.getConnection(url,user,psswrd);
-                String query = "DELETE FROM funcionario WHERE id_funcionario = ?;";
+                String query = "DELETE FROM equipe WHERE id_equipe = ?;";
                 statement = connection.prepareStatement(query);
                 statement.setInt(1, Integer.parseInt(Jtbl_ListaEqp.getValueAt(Jtbl_ListaEqp.getSelectedRow(), 0).toString()));
                 statement.execute();
