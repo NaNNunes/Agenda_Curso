@@ -2,33 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Telas_Equipe;
+package Telas_Iniciais;
 
+import Telas_Equipe.Tela_Cadastro_Equipe;
+import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
-import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author r.nunes
+ * @author renan_8tvcd4n
  */
-public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
+public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
 
     /**
-     * Creates new form Tela_Cadastro_Equipe
+     * Creates new form Cadastro_Funcionario_Equipe
      */
-    public Tela_Cadastro_Equipe() {
+    public Cadastro_Funcionario_Equipe() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,22 +35,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        Jpanel_Fundo_CadEqp = new javax.swing.JPanel();
-        Jlbl_Titulo_CadEqp = new javax.swing.JLabel();
-        Jpanel_Conteiner_CadEqp = new javax.swing.JPanel();
-        Jlbl_Header_Conteiner_CadEqp = new javax.swing.JLabel();
-        Jlbl_Nome_CadEqp = new javax.swing.JLabel();
-        Jtxtf_Nome_CadEqp = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Jtxta_descricao_CadEqp = new javax.swing.JTextArea();
-        Jlbl_Descricao_CadEqp = new javax.swing.JLabel();
-        Jcmbx_turno_CadFun = new javax.swing.JComboBox<>();
-        Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jpanel_Conteiner_Dados = new javax.swing.JPanel();
-        Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
-        Jbtn_Editar_CadEqp = new javax.swing.JButton();
-        Jbtn_Apagar_CadEqp = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -69,131 +51,12 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(243, 236, 196));
 
-        Jpanel_Fundo_CadEqp.setBackground(new java.awt.Color(249, 246, 226));
-
-        Jlbl_Titulo_CadEqp.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        Jlbl_Titulo_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Titulo_CadEqp.setText("Adicionar Equipe");
-
-        Jpanel_Conteiner_CadEqp.setBackground(new java.awt.Color(243, 228, 188));
-        Jpanel_Conteiner_CadEqp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jpanel_Conteiner_CadEqp.setPreferredSize(new java.awt.Dimension(780, 300));
-        Jpanel_Conteiner_CadEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jlbl_Header_Conteiner_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
-        Jlbl_Header_Conteiner_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jlbl_Header_Conteiner_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Header_Conteiner_CadEqp.setText("Identificação");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Header_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        Jlbl_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jlbl_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Nome_CadEqp.setText("Nome:");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, 30));
-
-        Jtxtf_Nome_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_Nome_CadEqp.setMaximumSize(new java.awt.Dimension(280, 30));
-        Jtxtf_Nome_CadEqp.setMinimumSize(new java.awt.Dimension(280, 30));
-        Jtxtf_Nome_CadEqp.setPreferredSize(new java.awt.Dimension(280, 30));
-        Jtxtf_Nome_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jtxtf_Nome_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
-
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
-
-        Jtxta_descricao_CadEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxta_descricao_CadEqp.setColumns(20);
-        Jtxta_descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxta_descricao_CadEqp.setRows(5);
-        Jtxta_descricao_CadEqp.setPreferredSize(new java.awt.Dimension(230, 89));
-        jScrollPane1.setViewportView(Jtxta_descricao_CadEqp);
-
-        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 300, 150));
-
-        Jlbl_Descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        Jlbl_Descricao_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Descricao_CadEqp.setText("Descrição:");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Descricao_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
-
-        Jcmbx_turno_CadFun.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_turno_CadFun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "matutino", "vespertino", "noturno" }));
-        Jcmbx_turno_CadFun.setMaximumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_turno_CadFun.setMinimumSize(new java.awt.Dimension(240, 30));
-        Jcmbx_turno_CadFun.setPreferredSize(new java.awt.Dimension(240, 30));
-        Jpanel_Conteiner_CadEqp.add(Jcmbx_turno_CadFun, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 280, -1));
-
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
-
-        Jpanel_Conteiner_Dados.setBackground(new java.awt.Color(249, 246, 226));
-        Jpanel_Conteiner_Dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cadastro_CadEqp.setText("Cadastrar");
-        Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cadastro_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
-
-        Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Editar_CadEqp.setText("Editar");
-        Jbtn_Editar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.setPreferredSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Editar_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
-
-        Jbtn_Apagar_CadEqp.setBackground(new java.awt.Color(234, 151, 151));
-        Jbtn_Apagar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Apagar_CadEqp.setText("Apagar");
-        Jbtn_Apagar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Apagar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Apagar_CadEqp.setPreferredSize(new java.awt.Dimension(100, 30));
-        Jbtn_Apagar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Apagar_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Apagar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -382,94 +245,49 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout Jpanel_Fundo_CadEqpLayout = new javax.swing.GroupLayout(Jpanel_Fundo_CadEqp);
-        Jpanel_Fundo_CadEqp.setLayout(Jpanel_Fundo_CadEqpLayout);
-        Jpanel_Fundo_CadEqpLayout.setHorizontalGroup(
-            Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
-                    .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                        .addGap(387, 387, 387)
-                        .addComponent(Jlbl_Titulo_CadEqp))
-                    .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1280, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 829, Short.MAX_VALUE)
         );
-        Jpanel_Fundo_CadEqpLayout.setVerticalGroup(
-            Jpanel_Fundo_CadEqpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(Jlbl_Titulo_CadEqp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Jpanel_Conteiner_CadEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Jpanel_Conteiner_Dados, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-            .addGroup(Jpanel_Fundo_CadEqpLayout.createSequentialGroup()
-                .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Jpanel_Fundo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 830));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Jbtn_Cadastro_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastro_CadEqpActionPerformed
-        Connection connection = null;
-        PreparedStatement statement = null;
-        
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        
-        try {
-            connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
-            statement = connection.prepareStatement(query);
-            
-            String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
-            
-            statement.setString(1, Jtxtf_Nome_CadEqp.getText());
-            statement.setString(2, Jtxta_descricao_CadEqp.getText());
-            statement.setString(3, turno);
-            
-            statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Equipe Criada");
-        }
-        catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }//GEN-LAST:event_Jbtn_Cadastro_CadEqpActionPerformed
-
-    private void Jbtn_Editar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_CadEqpActionPerformed
-        Connection connection = null;
-        PreparedStatement statement = null;
-        
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "";
-        String psswrd = "";
-    }//GEN-LAST:event_Jbtn_Editar_CadEqpActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-    }//GEN-LAST:event_formWindowOpened
-
-    private void Jbtn_Apagar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_CadEqpActionPerformed
-    JOptionPane.showConfirmDialog(null, "Atenção!\n Ao Prosseguir no ato irá excluir permanentemente os dados a seguir.");
-      
-    }//GEN-LAST:event_Jbtn_Apagar_CadEqpActionPerformed
-
-    private void Jtxtf_Nome_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Nome_CadEqpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jtxtf_Nome_CadEqpActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -617,23 +435,20 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Cadastro_Equipe().setVisible(true);
+                new Cadastro_Funcionario_Equipe().setVisible(true);
             }
         });
     }
@@ -643,10 +458,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
-    private javax.swing.JButton Jbtn_Apagar_CadEqp;
-    private javax.swing.JButton Jbtn_Cadastro_CadEqp;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
-    private javax.swing.JButton Jbtn_Editar_CadEqp;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
@@ -655,20 +467,9 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_turno_CadFun;
-    private javax.swing.JLabel Jlbl_Descricao_CadEqp;
-    private javax.swing.JLabel Jlbl_Header_Conteiner_CadEqp;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_Nome_CadEqp;
-    private javax.swing.JLabel Jlbl_Titulo_CadEqp;
-    private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
-    private javax.swing.JPanel Jpanel_Conteiner_CadEqp;
-    private javax.swing.JPanel Jpanel_Conteiner_Dados;
-    private javax.swing.JPanel Jpanel_Fundo_CadEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JTextArea Jtxta_descricao_CadEqp;
-    private javax.swing.JTextField Jtxtf_Nome_CadEqp;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

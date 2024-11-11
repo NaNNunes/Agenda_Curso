@@ -4,7 +4,6 @@
  */
 package Telas_configuracao;
 
-import Telas_Salas_Treinamento.Tela_Cadastro_Sala;
 import Telas_Setor.Tela_Cadastro_Setor;
 
 /**
@@ -33,7 +32,6 @@ public class Popup_Opcoes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Jbtn_CredAcesso_popOp = new javax.swing.JButton();
-        Jbtn_CadSala_popOp = new javax.swing.JButton();
         Jbtn_CadSet_popOp = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
@@ -79,19 +77,6 @@ public class Popup_Opcoes extends javax.swing.JFrame {
             }
         });
 
-        Jbtn_CadSala_popOp.setBackground(new java.awt.Color(47, 63, 115));
-        Jbtn_CadSala_popOp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_CadSala_popOp.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_CadSala_popOp.setText("Cadastrar Sala");
-        Jbtn_CadSala_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CadSala_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CadSala_popOp.setPreferredSize(new java.awt.Dimension(230, 30));
-        Jbtn_CadSala_popOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_CadSala_popOpActionPerformed(evt);
-            }
-        });
-
         Jbtn_CadSet_popOp.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_CadSet_popOp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jbtn_CadSet_popOp.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,9 +102,7 @@ public class Popup_Opcoes extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Jbtn_CadSala_popOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -129,11 +112,9 @@ public class Popup_Opcoes extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(Jbtn_CadSala_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,12 +158,6 @@ public class Popup_Opcoes extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_Jbtn_CadSet_popOpActionPerformed
 
-    private void Jbtn_CadSala_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CadSala_popOpActionPerformed
-       Tela_Cadastro_Sala Cad_Sala = new Tela_Cadastro_Sala();
-       Cad_Sala.setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_Jbtn_CadSala_popOpActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -219,7 +194,6 @@ public class Popup_Opcoes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Jbtn_CadSala_popOp;
     private javax.swing.JButton Jbtn_CadSet_popOp;
     private javax.swing.JButton Jbtn_CredAcesso_popOp;
     private javax.swing.JButton jButton1;
