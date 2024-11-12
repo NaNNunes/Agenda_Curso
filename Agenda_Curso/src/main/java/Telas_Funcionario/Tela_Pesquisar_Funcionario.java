@@ -33,24 +33,22 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     public Tela_Pesquisar_Funcionario() {
         initComponents();
     }
-    
-    private void PopularJTableFuncionario(String sql,JTable jTbl_Funcionario){
+
+    private void PopularJTableFuncionario(String sql, JTable jTbl_Funcionario) {
         try {
-            Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/db_agenda_curso", "root", "");
-            PreparedStatement banco = (PreparedStatement) con.prepareStatement(sql);
-            banco.execute(); // cria o vetor
+            // Conexão com o banco de dados
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_agenda_curso", "root", "");
+            PreparedStatement banco = con.prepareStatement(sql);
+            ResultSet resultado = banco.executeQuery();
 
-            ResultSet resultado = banco.executeQuery(sql);
-
-            DefaultTableModel model =(DefaultTableModel) jTbl_Funcionario.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTbl_Funcionario.getModel();
             model.setNumRows(0);
-            String nome = "";
-            //id_funcionario,CPF,nome completo,Telefone,email,turno,cargo,id_setor
+
             while (resultado.next()) {
                 model.addRow(new Object[]{
                     resultado.getString("id_funcionario"),
                     resultado.getString("CPF"),
-                    resultado.getString("nome"),
+                    resultado.getString("nome_completo"),
                     resultado.getString("Telefone"),
                     resultado.getString("email"),
                     resultado.getString("turno"),
@@ -58,45 +56,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                     resultado.getString("setor")
                 });
             }
-            banco.close();
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
-    private void populaTabela(String query) throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
-        
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            
-            DefaultTableModel model = (DefaultTableModel) jTbl_Funcionario.getModel();
-            model.setNumRows(0);
-            
-            while(resultSet.next()){
-                model.addRow(new Object[]{
-                    resultSet.getString("id_funcionario"),
-                    resultSet.getString("CPF"),
-                    resultSet.getString("nome"),
-                    resultSet.getString("Telefone"),
-                    resultSet.getString("email"),
-                    resultSet.getString("turno"),
-                    resultSet.getString("cargo"),
-                    resultSet.getString("setor")
-                });
-            }
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,6 +160,10 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         Jtxtf_consulta_SearchEqp.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 Jtxtf_consulta_SearchEqpCaretUpdate(evt);
+            }
+        });
+        Jtxtf_consulta_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
             }
         });
         jPanel3.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
@@ -418,32 +387,31 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);  
+
+        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_Editar_SerachFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_SerachFuncActionPerformed
-       
+
     }//GEN-LAST:event_Jbtn_Editar_SerachFuncActionPerformed
 
     private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
-        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
+        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0) {
             Connection connection = null;
             PreparedStatement statement = null;
 
             String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
             String user = "root";
-            String psswrd = "";        
+            String psswrd = "";
 
             try {
-                connection = DriverManager.getConnection(url,user,psswrd);
+                connection = DriverManager.getConnection(url, user, psswrd);
                 String query = "DELETE FROM funcionario WHERE id_funcionario = ?;";
                 statement = connection.prepareStatement(query);
                 statement.setInt(1, Integer.parseInt(jTbl_Funcionario.getValueAt(jTbl_Funcionario.getSelectedRow(), 0).toString()));
                 statement.execute();
                 this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
-            }
-            catch (SQLException erro){
+            } catch (SQLException erro) {
                 System.out.println("erro: " + erro.getMessage());
                 System.out.println("erro: " + erro.getSQLState());
             }
@@ -451,12 +419,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
 
     private void Jbtn_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consulta_SearchEqpActionPerformed
-        try {
-            String nome = Jtxtf_consulta_SearchEqp.getText();
-            this.populaTabela("SELECT * FROM vw_funcionario WHERE nome LIKE'%"+nome+"%'");
-        } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
-        }
+        
+        String nome = Jtxtf_consulta_SearchEqp.getText();
+        
+        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'",jTbl_Funcionario);
+        
     }//GEN-LAST:event_Jbtn_consulta_SearchEqpActionPerformed
 
     private void Jtxtf_consulta_SearchEqpCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_consulta_SearchEqpCaretUpdate
@@ -471,7 +438,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
                 Tela_SearchFunc.setVisible(true);
@@ -493,7 +460,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
 
     private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
                 Tela_SearchFunc.setVisible(true);
@@ -511,7 +478,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
@@ -529,7 +496,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
                 Tela_SearchEqp.setVisible(true);
@@ -556,7 +523,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
                 Tela_SearchTreino.setVisible(true);
@@ -574,7 +541,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
+        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
             case 1 -> {
                 Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
                 Tela_SearchTreino.setVisible(true);

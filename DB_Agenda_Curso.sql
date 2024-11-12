@@ -67,7 +67,7 @@ CREATE TABLE `cadastro_funcionario_equipe` (
   KEY `FK_EquipeCad` (`id_equipe`),
   CONSTRAINT `FK_EquipeCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
   CONSTRAINT `FK_FuncionarioCad` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,6 +76,7 @@ CREATE TABLE `cadastro_funcionario_equipe` (
 
 LOCK TABLES `cadastro_funcionario_equipe` WRITE;
 /*!40000 ALTER TABLE `cadastro_funcionario_equipe` DISABLE KEYS */;
+INSERT INTO `cadastro_funcionario_equipe` VALUES (5,8,2);
 /*!40000 ALTER TABLE `cadastro_funcionario_equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +94,7 @@ CREATE TABLE `equipe` (
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   PRIMARY KEY (`id_equipe`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +103,7 @@ CREATE TABLE `equipe` (
 
 LOCK TABLES `equipe` WRITE;
 /*!40000 ALTER TABLE `equipe` DISABLE KEYS */;
-INSERT INTO `equipe` VALUES (1,'Equipe 01','Equipe 01',NULL);
+INSERT INTO `equipe` VALUES (2,'Equipe 1','Desc	','noturno'),(3,'Equipe 9','Descrição','noturno');
 /*!40000 ALTER TABLE `equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `funcionario` (
   UNIQUE KEY `email` (`email`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +139,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (7,'123.124.342-34','ldsmjklasdjkd','jknkdsjndska','(21) 31243-2432','jlkadsksa','matutino','2024-11-09','supervisor',1);
+INSERT INTO `funcionario` VALUES (8,'123.456.789-98','nome','sobrenome','(  )      -    ','email','vespertino','2024-11-09','instrutor',1),(9,'153.454.684-82','Clevo','naro','(54) 64894-5213','clevin@gmail.com','vespertino','2024-11-12','operador',1),(10,'898.795.487-87','Funcionario','Funcionario','(21) 65184-6510','fucnioanrio@gmail.com','matutino','2024-11-12','operador',1);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +192,7 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
-INSERT INTO `treinamento` VALUES (1,'Incendio','Treino',10,3),(2,'Incendio','Descricao',10,3);
+INSERT INTO `treinamento` VALUES (1,'Incendio','Treino',10,3);
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +221,7 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `vw_funcionario` AS SELECT 
  1 AS `id_funcionario`,
  1 AS `cpf`,
- 1 AS `nome`,
+ 1 AS `nome completo`,
  1 AS `telefone`,
  1 AS `email`,
  1 AS `turno`,
@@ -249,7 +250,8 @@ DROP TABLE IF EXISTS `vw_treinamento`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vw_treinamento` AS SELECT 
- 1 AS `nome_treinamento`,
+ 1 AS `id_treinamento`,
+ 1 AS `nome`,
  1 AS `carga_horaria`,
  1 AS `validade`*/;
 SET character_set_client = @saved_cs_client;
@@ -286,7 +288,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_funcionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`cpf` AS `cpf`,concat(`funcionario`.`nome`,' ',`funcionario`.`sobrenome`) AS `nome`,`funcionario`.`telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
+/*!50001 VIEW `vw_funcionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`cpf` AS `cpf`,concat(`funcionario`.`nome`,' ',`funcionario`.`sobrenome`) AS `nome completo`,`funcionario`.`telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
 /*!50002 WITH CASCADED CHECK OPTION */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -324,7 +326,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`nome_treinamento` AS `nome_treinamento`,`treinamento`.`carga_horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade` from `treinamento` */
+/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`id_treinamento` AS `id_treinamento`,`treinamento`.`nome_treinamento` AS `nome`,`treinamento`.`carga_horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade` from `treinamento` */
 /*!50002 WITH CASCADED CHECK OPTION */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -339,4 +341,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-09 16:43:49
+-- Dump completed on 2024-11-12 14:45:22

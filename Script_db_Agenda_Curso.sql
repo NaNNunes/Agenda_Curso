@@ -125,11 +125,11 @@ CREATE VIEW vw_getId_setor AS
 WITH CHECK OPTION;
 DROP VIEW vw_getId_setor;
 
-CREATE VIEW vw_funcionario AS
+CREATE OR REPLACE VIEW vw_funcionario AS
     SELECT 
         funcionario.id_funcionario,
-        funcionario.cpf,
-        concat(funcionario.nome," ",funcionario.sobrenome) AS nome,
+        funcionario.cpf, 
+        concat(funcionario.nome," ",funcionario.sobrenome) AS `nome completo`,
         funcionario.telefone,
         funcionario.email,
         funcionario.turno,
@@ -149,14 +149,19 @@ CREATE VIEW vw_Equipe AS
         FROM equipe WITH CHECK OPTION;
 DROP VIEW vw_Equipe;
 
-CREATE VIEW vw_treinamento AS 
+CREATE OR REPLACE VIEW vw_treinamento AS 
 	SELECT
-		nome_treinamento,
+		id_treinamento,
+		nome_treinamento AS nome,
 		carga_horaria,
 		validade
     FROM treinamento WITH CHECK OPTION;
     
-select * from funcionario;
+select * from cadastro_funcionario_equipe;
+DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
+
+select * from vw_funcionario;
+
 
 
     
