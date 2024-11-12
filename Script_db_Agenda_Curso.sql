@@ -71,7 +71,7 @@ DROP VIEW vw_getId_setor;
 CREATE OR REPLACE VIEW vw_funcionario AS
     SELECT 
         funcionario.id_funcionario,
-        funcionario.cpf,
+        funcionario.cpf, 
         concat(funcionario.nome," ",funcionario.sobrenome) AS `nome completo`,
         funcionario.telefone,
         funcionario.email,
@@ -101,6 +101,10 @@ CREATE OR REPLACE VIEW vw_treinamento AS
     FROM treinamento WITH CHECK OPTION;
     
 select * from cadastro_funcionario_equipe;
+DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
+
+select * from vw_funcionario;
+
 
 
     
