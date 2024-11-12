@@ -280,7 +280,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Jbtn_trocarUsuario_BarraLateral" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="Jbtn_Config_BarraLateral" min="-2" max="-2" attributes="0"/>
+                              <Component id="Jbtn_Configuração_BarraLateral" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -325,7 +325,7 @@
                       <Component id="Jpanel_contentTreinamento_Barra_Lateral" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="319" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Jbtn_Config_BarraLateral" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Jbtn_Configuração_BarraLateral" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Jbtn_trocarUsuario_BarraLateral" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -440,6 +440,10 @@
                       <Dimension value="[160, 46]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Jcmbx_Funcionario_BarraLateralMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jcmbx_Funcionario_BarraLateralActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -511,6 +515,9 @@
                       <Dimension value="[160, 46]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jcmbx_Equipe_BarraLateralActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -544,7 +551,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_trocarUsuario_BarraLateralActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="Jbtn_Config_BarraLateral">
+            <Component class="javax.swing.JButton" name="Jbtn_Configura&#xe7;&#xe3;o_BarraLateral">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c4" green="ec" red="f3" type="rgb"/>
@@ -563,7 +570,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_Config_BarraLateralActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_Configura&#xe7;&#xe3;o_BarraLateralActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="Jpanel_contentTreinamento_Barra_Lateral">
@@ -632,6 +639,9 @@
                       <Dimension value="[160, 46]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jcmbx_Treinamento_BarraLateralActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
