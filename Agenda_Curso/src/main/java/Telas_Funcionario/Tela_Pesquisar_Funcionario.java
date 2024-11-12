@@ -197,6 +197,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jtxtf_consulta_SearchEqpCaretUpdate(evt);
             }
         });
+        Jtxtf_consulta_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jtxtf_consulta_SearchEqpActionPerformed(evt);
+            }
+        });
         jPanel3.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
         Jtxtf_consulta_SearchEqp.getAccessibleContext().setAccessibleName("");
 
@@ -513,6 +518,10 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private void Jtxtf_consulta_SearchEqpCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_consulta_SearchEqpCaretUpdate
         // TODO add your handling code here: DELETAR METODO
     }//GEN-LAST:event_Jtxtf_consulta_SearchEqpCaretUpdate
+
+    private void Jtxtf_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_consulta_SearchEqpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxtf_consulta_SearchEqpActionPerformed
 
     /**
      * @param args the command line arguments
