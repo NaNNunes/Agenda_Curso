@@ -137,6 +137,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 832));
+        setMinimumSize(new java.awt.Dimension(1280, 832));
         setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {

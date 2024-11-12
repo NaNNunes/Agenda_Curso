@@ -101,6 +101,8 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 832));
+        setMinimumSize(new java.awt.Dimension(1280, 832));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -108,6 +110,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         });
 
         Jpnl_Fundo_SearchEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_SearchEqp.setPreferredSize(new java.awt.Dimension(1280, 832));
         Jpnl_Fundo_SearchEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jpnl_Conteiner_SearchEqp.setBackground(new java.awt.Color(255, 255, 255));
@@ -366,7 +369,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jpnl_Fundo_SearchEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_SearchEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
