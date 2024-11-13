@@ -33,7 +33,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
     private void initComponents() {
 
         Jpnl_Fundo_CadSet = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Jpnl_Conteiner = new javax.swing.JPanel();
         Jlbl_Nome_CadSet = new javax.swing.JLabel();
         Jlbl_Sigla_CadSet = new javax.swing.JLabel();
         Jtxtf_Nome_CadSet = new javax.swing.JTextField();
@@ -45,8 +45,8 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
 
         Jpnl_Fundo_CadSet.setBackground(new java.awt.Color(249, 246, 226));
 
-        jPanel2.setBackground(new java.awt.Color(243, 228, 188));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Conteiner.setBackground(new java.awt.Color(243, 228, 188));
+        Jpnl_Conteiner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Jlbl_Nome_CadSet.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Jlbl_Nome_CadSet.setForeground(new java.awt.Color(0, 0, 0));
@@ -79,40 +79,39 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jtxtf_Nome_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jlbl_Nome_CadSet))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jtxtf_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jlbl_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(Jbtn_Cadastrar_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        javax.swing.GroupLayout Jpnl_ConteinerLayout = new javax.swing.GroupLayout(Jpnl_Conteiner);
+        Jpnl_Conteiner.setLayout(Jpnl_ConteinerLayout);
+        Jpnl_ConteinerLayout.setHorizontalGroup(
+            Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jlbl_Nome_CadSet)
-                    .addComponent(Jlbl_Sigla_CadSet))
+                    .addComponent(Jlbl_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jtxtf_Nome_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jtxtf_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_ConteinerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Jbtn_Cadastrar_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
+        );
+        Jpnl_ConteinerLayout.setVerticalGroup(
+            Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jlbl_Nome_CadSet)
+                    .addComponent(Jtxtf_Nome_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 21, Short.MAX_VALUE)
+                .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jlbl_Sigla_CadSet)
+                    .addComponent(Jtxtf_Sigla_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(Jbtn_Cadastrar_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(40, 40, 40))
         );
 
         Jlbl_Titulo_CadSet.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -124,23 +123,22 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         Jpnl_Fundo_CadSetLayout.setHorizontalGroup(
             Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
-                .addGroup(Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addComponent(Jlbl_Titulo_CadSet)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(145, 145, 145)
+                .addComponent(Jpnl_Conteiner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_Fundo_CadSetLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(Jlbl_Titulo_CadSet)
+                .addGap(200, 200, 200))
         );
         Jpnl_Fundo_CadSetLayout.setVerticalGroup(
             Jpnl_Fundo_CadSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpnl_Fundo_CadSetLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(Jlbl_Titulo_CadSet)
-                .addGap(89, 89, 89)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(Jpnl_Conteiner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,7 +149,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jpnl_Fundo_CadSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Jpnl_Fundo_CadSet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -220,9 +218,9 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Nome_CadSet;
     private javax.swing.JLabel Jlbl_Sigla_CadSet;
     private javax.swing.JLabel Jlbl_Titulo_CadSet;
+    private javax.swing.JPanel Jpnl_Conteiner;
     private javax.swing.JPanel Jpnl_Fundo_CadSet;
     private javax.swing.JTextField Jtxtf_Nome_CadSet;
     private javax.swing.JTextField Jtxtf_Sigla_CadSet;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

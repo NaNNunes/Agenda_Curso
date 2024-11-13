@@ -88,7 +88,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }
 
-    private void popCmBoxInstrutor(String query) throws SQLException {
+    private void popTableInst(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
@@ -100,12 +100,14 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
 
-            DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Instrutor_Alocar_Treinamento.getModel();
-            cBoxModel.removeAllElements();
-            cBoxModel.addElement("-- Selecione --");
+            DefaultTableModel model = (DefaultTableModel) Jtbl_instrutor.getModel();
+            model.setNumRows(0);
 
             while (resultSet.next()) {
-                cBoxModel.addElement(resultSet.getString("nome"));
+                model.addRow(new Object[]{
+                    resultSet.getString("id_funcionario"),
+                    resultSet.getString("nome_completo"),
+                });
             }
 
         } catch (SQLException erro) {
@@ -124,7 +126,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         int id = 0;
         
         try {
-            statement.execute(query);
+            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()){
                 id = resultSet.getInt("id_funcionario");
@@ -172,8 +174,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Jlbl_Selecionar_Tela_Alocar_Treinamento = new javax.swing.JLabel();
         Jpnl_Intrutor_Tela_Alocar_Treinamento = new javax.swing.JPanel();
-        Jcmbx_Instrutor_Alocar_Treinamento = new javax.swing.JComboBox<>();
         Jlbl_Equipe_Alocar_Treinamento = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Jtbl_instrutor = new javax.swing.JTable();
         Jpnl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JPanel();
         Jlbl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JLabel();
         Jlbl_Data_Inicio_CadTreino = new javax.swing.JLabel();
@@ -186,7 +189,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Status_CadTreino = new javax.swing.JComboBox<>();
         Jslpn_Equipe_Tela_Alocar_Treinamento = new javax.swing.JScrollPane();
         Jtbl_Treinamento = new javax.swing.JTable();
-        Jtxtf_Pesquisar_Tela_Alocar_Treinamento = new javax.swing.JTextField();
         Jpnl_Equipe_Tela_Alocar_Treinamento1 = new javax.swing.JPanel();
         Jcmbx_Equipe_Alocar_Treinamento = new javax.swing.JComboBox<>();
         Jlbl_Equipe_Alocar_Treinamento1 = new javax.swing.JLabel();
@@ -194,6 +196,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jckbx_Obrigatorio_CadTreino_ = new javax.swing.JCheckBox();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
+        Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
+        Jbtn_consulta = new javax.swing.JButton();
         JPanel_BarraLateral2 = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral2 = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -237,20 +241,27 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(275, 73));
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jcmbx_Instrutor_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jcmbx_Instrutor_Alocar_Treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcmbx_Instrutor_Alocar_TreinamentoActionPerformed(evt);
-            }
-        });
-        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jcmbx_Instrutor_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
-
         Jlbl_Equipe_Alocar_Treinamento.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Equipe_Alocar_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Equipe_Alocar_Treinamento.setText("Intrutor:");
         Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jlbl_Equipe_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1, -1, -1));
 
-        jPanel2.add(Jpnl_Intrutor_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 130, -1, -1));
+        Jtbl_instrutor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "id", "nome"
+            }
+        ));
+        jScrollPane1.setViewportView(Jtbl_instrutor);
+
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 300, 70));
+
+        jPanel2.add(Jpnl_Intrutor_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 320, 160));
 
         Jpnl_Identificacao_Tela_Alocar_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Identificacao_Tela_Alocar_Treinamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -304,7 +315,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         Jcmbx_Formato_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
-        Jcmbx_Formato_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Hibrido", "Presencial", "Online" }));
+        Jcmbx_Formato_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Presencial", "Online" }));
         Jcmbx_Formato_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
@@ -318,7 +329,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Status_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        jPanel2.add(Jpnl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, 180));
+        jPanel2.add(Jpnl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, 180));
 
         Jtbl_Treinamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -333,11 +344,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         ));
         Jslpn_Equipe_Tela_Alocar_Treinamento.setViewportView(Jtbl_Treinamento);
 
-        jPanel2.add(Jslpn_Equipe_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 780, 260));
-
-        Jtxtf_Pesquisar_Tela_Alocar_Treinamento.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Pesquisar_Tela_Alocar_Treinamento.setText("Pesquisar");
-        jPanel2.add(Jtxtf_Pesquisar_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 780, 30));
+        jPanel2.add(Jslpn_Equipe_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 780, 120));
 
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -357,7 +364,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jckbx_Certificado_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jckbx_Certificado_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jckbx_Certificado_CadTreino.setText("Certificado");
-        jPanel2.add(Jckbx_Certificado_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 400, -1, -1));
+        jPanel2.add(Jckbx_Certificado_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, -1, -1));
 
         Jckbx_Obrigatorio_CadTreino_.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jckbx_Obrigatorio_CadTreino_.setForeground(new java.awt.Color(0, 0, 0));
@@ -367,7 +374,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                 Jckbx_Obrigatorio_CadTreino_ActionPerformed(evt);
             }
         });
-        jPanel2.add(Jckbx_Obrigatorio_CadTreino_, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, -1, -1));
+        jPanel2.add(Jckbx_Obrigatorio_CadTreino_, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, -1, -1));
 
         Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -392,6 +399,25 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Jbtn_Cancelar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
+
+        Jtxtf_consulta_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_consulta_SearchTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_consulta_SearchTreino.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
+        jPanel2.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 660, -1));
+
+        Jbtn_consulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_consulta.setText("Consultar");
+        Jbtn_consulta.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_consultaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -612,19 +638,22 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = ("INSERT INTO cadastro_equipe_treinamento (id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim) "
-                    + "VALUES(?,?,?,?,?)");
+            String query = ("INSERT INTO cadastro_equipe_treinamento (id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
+                    + "VALUES(?,?,?,?,?,?)");
             statement = connection.prepareStatement(query);
             
             String nomeEqp = (String) Jcmbx_Equipe_Alocar_Treinamento.getSelectedItem();
-            String nomeInst = (String) Jcmbx_Instrutor_Alocar_Treinamento.getSelectedItem();
-            int linha = Jtbl_Treinamento.getSelectedRow();
+            //String nomeInst = (String) Jcmbx_Instrutor_Alocar_Treinamento.getSelectedItem();
+            String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+            int treinoLine = Jtbl_Treinamento.getSelectedRow();
+            int instLine = Jtbl_instrutor.getSelectedRow();
             
             statement.setInt(1, getIdEqp("SELECT * FROM vw_equipe WHERE nome LIKE '"+nomeEqp+"'"));
-            statement.setInt(2, Integer.parseInt(Jtbl_Treinamento.getValueAt(linha, 0).toString()));
-            statement.setInt(3, getIdInst("SELECT * FROM vw_funcionario WHERE cargo LIKE '"+nomeInst+"'"));
+            statement.setInt(2, Integer.parseInt(Jtbl_Treinamento.getValueAt(treinoLine, 0).toString()));
+            statement.setInt(3, Integer.parseInt(Jtbl_instrutor.getValueAt(instLine, 0).toString()));
             statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
             statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
+            statement.setString(6, formato);
             statement.execute();
             JOptionPane.showMessageDialog(null, "Cadastro realizado");
         }
@@ -767,21 +796,26 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
-    private void Jcmbx_Instrutor_Alocar_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Instrutor_Alocar_TreinamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcmbx_Instrutor_Alocar_TreinamentoActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
         try {
             this.popTabela("SELECT * FROM vw_treinamento");
             this.popCmBoxEquipe("SELECT nome FROM equipe");
-            this.popCmBoxInstrutor("SELECT nome FROM funcionario WHERE cargo = 'instrutor'");
+            this.popTableInst("SELECT * FROM vw_funcionario WHERE cargo = 'instrutor'");
             
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void Jbtn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consultaActionPerformed
+        try {
+            String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
+            this.popTabela("SELECT * FROM vw_treinamento "
+                + "WHERE nome LIKE '%"+nomeTreino+"%'");
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_consultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -828,6 +862,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral2;
     private javax.swing.JButton Jbtn_Salvar_CadTreino;
+    private javax.swing.JButton Jbtn_consulta;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
@@ -837,7 +872,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Formato_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
-    private javax.swing.JComboBox<String> Jcmbx_Instrutor_Alocar_Treinamento;
     private javax.swing.JComboBox<String> Jcmbx_Status_CadTreino;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JFormattedTextField Jftxtf_prevFim_CadTreino;
@@ -857,8 +891,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel Jpnl_Intrutor_Tela_Alocar_Treinamento;
     private javax.swing.JScrollPane Jslpn_Equipe_Tela_Alocar_Treinamento;
     private javax.swing.JTable Jtbl_Treinamento;
-    private javax.swing.JTextField Jtxtf_Pesquisar_Tela_Alocar_Treinamento;
+    private javax.swing.JTable Jtbl_instrutor;
+    private javax.swing.JTextField Jtxtf_consulta_SearchTreino;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

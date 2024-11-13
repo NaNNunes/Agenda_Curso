@@ -35,8 +35,7 @@ CREATE TABLE treinamento(
 	nome_treinamento varchar(30),
 	descricao VARCHAR(200), 
     carga_Horaria INT,
-	validade INT(3), -- meses ou anos ou ate anos quebrados
-	formato ENUM("Presencial", "Online", "Hibrido")
+	validade INT(3) -- meses ou anos ou ate anos quebrados
 );
 
 CREATE TABLE cadastro_funcionario_equipe(
@@ -56,6 +55,7 @@ CREATE TABLE cadastro_equipe_treinamento(
     id_instrutor INT,
     prev_fim DATE,
 	prev_comeco DATE,
+    formato ENUM("Presencial", "Online", "Hibrido"),
 	CONSTRAINT FK_EquipeTreinoCad FOREIGN KEY (id_equipe)
 		REFERENCES equipe(id_equipe),
 	CONSTRAINT FK_TreinoEquipeCad FOREIGN KEY (id_treinamento)
@@ -115,7 +115,17 @@ CREATE OR REPLACE VIEW vw_getID_Instrutor AS
         funcionario
     WHERE
         funcionario.cargo LIKE 'instrutor';
-            
+          
+CREATE OR REPLACE VIEW vw_CadFuncEqp AS
+	SELECT
+		treinamento.nome_treinamento,
+        equipe.nome
+	FROM cadastro_equipe_treinamento
+    LEFT JOIN treinamento 
+		ON treinamento.id_treinamento = cadastro_equipe_treinamento.id_treinamento
+    RIGHT JOIN equipe
+		ON equipe.id_equipe = cadastro_equipe_treinamento.id_equipe;
+    
 -- ///////////////////////////////////////////////////////////////////
     
 select * from cadastro_funcionario_equipe;
@@ -126,9 +136,13 @@ select * from vw_equipe;
 select * from vw_treinamento;
 select * from vw_setor;
 select * from vw_getId_Instrutor;
+SELECT * from vw_CadFuncEqp;
 
-SELECT treinamento.nome_treinamento, cadastro_equipe_treinamento.id_treinamento 
-	FROM cadastro_equipe_treinamento
-    INNER JOIN treinamento ON cadastro_equipe_treinamento.id_treinamento = treinamento.id_treinamento;
+select * from cadastro_equipe_treinamento;
+
+desc vw_treinamento;
+desc vw_equipe;
 
 desc cadastro_equipe_treinamento;
+desc cadastro_funcionario_equipe;
+

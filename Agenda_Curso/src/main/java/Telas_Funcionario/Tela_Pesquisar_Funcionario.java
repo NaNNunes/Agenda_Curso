@@ -15,6 +15,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -59,7 +61,30 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-
+    
+    private int FindEqp(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        int id = 0;
+        
+        try {
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery(query);
+            if(resultSet.next()){
+                id = resultSet.getInt("id_equipe");
+            }
+            
+        }catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+        }
+        
+        return id;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -395,7 +420,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
         this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
     }//GEN-LAST:event_formWindowOpened
 
@@ -567,8 +591,14 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
-        int id = jTbl_Funcionario.getSelectedRow();
         
+        try {
+            int linha = jTbl_Funcionario.getSelectedRow();
+            int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = "+linha);
+            JOptionPane.showMessageDialog(null, linha);
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
 

@@ -29,8 +29,8 @@ public class Popup_Opcoes extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Jpnl_Conteiner = new javax.swing.JPanel();
+        Jlbl_Titulo = new javax.swing.JLabel();
         Jbtn_CredAcesso_popOp = new javax.swing.JButton();
         Jbtn_CadSet_popOp = new javax.swing.JButton();
 
@@ -48,21 +48,21 @@ public class Popup_Opcoes extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+        Jpnl_Conteiner.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Conteiner.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jPanel1AncestorAdded(evt);
+                Jpnl_ConteinerAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                jPanel1AncestorRemoved(evt);
+                Jpnl_ConteinerAncestorRemoved(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Selecione Opções Abaixo");
+        Jlbl_Titulo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jlbl_Titulo.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo.setText("Selecione Opções Abaixo");
 
         Jbtn_CredAcesso_popOp.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_CredAcesso_popOp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -90,29 +90,29 @@ public class Popup_Opcoes extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout Jpnl_ConteinerLayout = new javax.swing.GroupLayout(Jpnl_Conteiner);
+        Jpnl_Conteiner.setLayout(Jpnl_ConteinerLayout);
+        Jpnl_ConteinerLayout.setHorizontalGroup(
+            Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_ConteinerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(Jlbl_Titulo)
                 .addGap(69, 69, 69))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+        Jpnl_ConteinerLayout.setVerticalGroup(
+            Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(Jlbl_Titulo)
                 .addGap(18, 18, 18)
                 .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -121,23 +121,23 @@ public class Popup_Opcoes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Conteiner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Conteiner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
+    private void Jpnl_ConteinerAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_Jpnl_ConteinerAncestorAdded
         
-    }//GEN-LAST:event_jPanel1AncestorAdded
+    }//GEN-LAST:event_Jpnl_ConteinerAncestorAdded
 
-    private void jPanel1AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorRemoved
+    private void Jpnl_ConteinerAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_Jpnl_ConteinerAncestorRemoved
        
-    }//GEN-LAST:event_jPanel1AncestorRemoved
+    }//GEN-LAST:event_Jpnl_ConteinerAncestorRemoved
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
@@ -196,8 +196,8 @@ public class Popup_Opcoes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Jbtn_CadSet_popOp;
     private javax.swing.JButton Jbtn_CredAcesso_popOp;
+    private javax.swing.JLabel Jlbl_Titulo;
+    private javax.swing.JPanel Jpnl_Conteiner;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
