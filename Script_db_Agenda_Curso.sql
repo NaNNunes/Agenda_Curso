@@ -8,7 +8,6 @@ CREATE TABLE setor (
     sigla CHAR(3)
 );
 
-<<<<<<< HEAD
 CREATE TABLE funcionario(
 	id_funcionario INT UNIQUE NOT NULL PRIMARY KEY,
 	CPF VARCHAR(14) UNIQUE,
@@ -63,62 +62,8 @@ CREATE TABLE cadastro_equipe_treinamento(
 		REFERENCES equipe(id_equipe),
 	CONSTRAINT FK_TreinoEquipeCad FOREIGN KEY (id_treinamento)
 		REFERENCES treinamento(id_treinamento)
-=======
-CREATE TABLE funcionario (
-    id_funcionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    cpf VARCHAR(14) UNIQUE,
-    nome VARCHAR(20),
-    sobrenome VARCHAR(30),
-    telefone VARCHAR(15),
-    email VARCHAR(320) UNIQUE,
-    turno ENUM('matutino', 'vespertino', 'noturno'),
-    data_adimissao DATE DEFAULT CURRENT_TIMESTAMP,
-    cargo ENUM('supervisor', 'instrutor', 'operador'),
-    id_setor INT,
-    CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor) REFERENCES setor (id_setor)
 );
 
-CREATE TABLE equipe (
-    id_equipe INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(15) UNIQUE,
-    descricao VARCHAR(200),
-    turno ENUM('matutino', 'vespertino', 'noturno')
-);
-
-CREATE TABLE treinamento (
-    id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome_treinamento VARCHAR(30),
-    descricao VARCHAR(200),
-    carga_horaria INT,
-    validade INT
-);
-
-CREATE TABLE cadastro_funcionario_equipe (
-    id_cadastro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_funcionario INT,
-    id_equipe INT,
-    CONSTRAINT FK_FuncionarioCad FOREIGN KEY (id_funcionario)
-        REFERENCES funcionario (id_funcionario),
-    CONSTRAINT FK_EquipeCad FOREIGN KEY (id_equipe)
-        REFERENCES equipe (id_equipe)
-);
-
-CREATE TABLE cadastro_equipe_treinamento (
-    id_cadastro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_equipe INT,
-    id_treinamento INT,
-    id_instrutor INT,
-    prev_comeco DATE,
-    prev_fim DATE,
-    formato ENUM('Presencial', 'Online', 'Hibrido'),
-    CONSTRAINT FK_EquipeTreinoCad FOREIGN KEY (id_equipe)
-        REFERENCES equipe (id_equipe),
-    CONSTRAINT FK_TreinoEquipeCad FOREIGN KEY (id_treinamento)
-        REFERENCES treinamento (id_treinamento),
-    CONSTRAINT FK_InstrutorTreinoEqpCad FOREIGN KEY (id_instrutor)
-        REFERENCES funcionario (id_funcionario)
->>>>>>> 1037211bfd92fcdd16ff2a014a380b30ea7af652
-);
 
 CREATE VIEW vw_getId_setor AS
 	SELECT id_setor FROM setor
@@ -129,12 +74,12 @@ CREATE OR REPLACE VIEW vw_funcionario AS
     SELECT 
         funcionario.id_funcionario,
         funcionario.cpf, 
-        concat(funcionario.nome," ",funcionario.sobrenome) AS `nome completo`,
+        concat(funcionario.nome," ",funcionario.sobrenome) AS `nome_completo`,
         funcionario.telefone,
         funcionario.email,
         funcionario.turno,
         funcionario.cargo,
-        setor.sigla AS setor
+        setor.sigla AS setord
     FROM
         funcionario
             INNER JOIN

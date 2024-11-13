@@ -50,7 +50,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         while(resultSet.next()){
             tableModel.addRow(new Object[]{
                 resultSet.getString("id_funcionario"),
-                resultSet.getString("nome completo"),
+                resultSet.getString("nome_completo"),
                 resultSet.getString("turno"),
                 resultSet.getString("Setor")
             });
