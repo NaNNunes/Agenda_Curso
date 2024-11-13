@@ -33,6 +33,22 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         initComponents();
     }
     
+    public Tela_Cadastro_Funcionario(String id){
+        
+    }
+    
+    private void CarregarTela() throws SQLException{
+        initComponents();
+        this.mascaraCombox();
+        
+    }
+    
+    private void mascaraCombox(){
+        this.Jcmbx_Setor_CadFunc.getModel().setSelectedItem("-- selecione --");
+        this.Jcmbx_Cargo_CadFunc.getModel().setSelectedItem("-- selecione --");
+        this.Jcmbx_Turno_CadFunc.getModel().setSelectedItem("-- selecione --");
+    }
+    
     private int pegaIdSetor(String query){ // bind FK id_setor at employee table
         Connection connection = null;
         PreparedStatement statement = null;
@@ -73,7 +89,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery(query);
             
             DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Setor_CadFunc.getModel();
-            cBoxModel.setSelectedItem("-- Selecione --");
             
             while (resultSet.next()){
                 cBoxModel.addElement(resultSet.getString("sigla"));
@@ -551,6 +566,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
             
+            this.CarregarTela();
+            
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println(erro);
@@ -559,8 +576,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.mascaraCombox();
+        
         try {
-            this.popCmBoxSetor("SELECT sigla FROM setor"); // view
+            this.popCmBoxSetor("SELECT * FROM vw_setor");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
         }

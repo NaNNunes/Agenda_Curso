@@ -9,7 +9,7 @@ CREATE TABLE setor (
 );
 
 CREATE TABLE funcionario(
-	id_funcionario INT UNIQUE NOT NULL PRIMARY KEY,
+	id_funcionario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	CPF VARCHAR(14) UNIQUE,
 	nome VARCHAR(20),
 	sobrenome VARCHAR(30),
@@ -32,14 +32,11 @@ CREATE TABLE equipe(
 
 CREATE TABLE treinamento(
 	id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	id_instrutor INT,
 	nome_treinamento varchar(30),
 	descricao VARCHAR(200), 
-    carga_Horaria TIME,
+    carga_Horaria INT,
 	validade INT(3), -- meses ou anos ou ate anos quebrados
-	formato ENUM("Presencial", "Online", "Hibrido"),
-	CONSTRAINT FK_InstrutorTreino FOREIGN KEY (id_instrutor)
-		REFERENCES funcionario(id_funcionario)
+	formato ENUM("Presencial", "Online", "Hibrido")
 );
 
 CREATE TABLE cadastro_funcionario_equipe(
@@ -56,16 +53,20 @@ CREATE TABLE cadastro_equipe_treinamento(
 	id_cadastro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_equipe INT,
 	id_treinamento INT,
+    id_instrutor INT,
     prev_fim DATE,
 	prev_comeco DATE,
 	CONSTRAINT FK_EquipeTreinoCad FOREIGN KEY (id_equipe)
 		REFERENCES equipe(id_equipe),
 	CONSTRAINT FK_TreinoEquipeCad FOREIGN KEY (id_treinamento)
-		REFERENCES treinamento(id_treinamento)
+		REFERENCES treinamento(id_treinamento),
+	CONSTRAINT FK_InstrutorCad FOREIGN KEY (id_instrutor) 
+		REFERENCES funcionario(id_funcionario)
 );
 
+-- ///////////////////////////////////////////////////////////////////
 
-CREATE VIEW vw_getId_setor AS
+CREATE OR REPLACE VIEW vw_getId_setor AS
 	SELECT id_setor FROM setor
 WITH CHECK OPTION;
 DROP VIEW vw_getId_setor;
@@ -79,8 +80,8 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         funcionario.email,
         funcionario.turno,
         funcionario.cargo,
-        setor.sigla AS setord
-    FROM
+        setor.sigla AS setor
+        FROM
         funcionario
             INNER JOIN
         setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
@@ -102,11 +103,32 @@ CREATE OR REPLACE VIEW vw_treinamento AS
 		validade
     FROM treinamento WITH CHECK OPTION;
     
+CREATE OR REPLACE VIEW vw_setor AS
+	SELECT
+		sigla
+	FROM setor WITH CHECK OPTION;
+        
+CREATE OR REPLACE VIEW vw_getID_Instrutor AS
+    SELECT 
+        funcionario.id_funcionario as id_instrutor
+    FROM
+        funcionario
+    WHERE
+        funcionario.cargo LIKE 'instrutor';
+            
+-- ///////////////////////////////////////////////////////////////////
+    
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
 
 select * from vw_funcionario;
+select * from vw_equipe;
+select * from vw_treinamento;
+select * from vw_setor;
+select * from vw_getId_Instrutor;
 
+SELECT treinamento.nome_treinamento, cadastro_equipe_treinamento.id_treinamento 
+	FROM cadastro_equipe_treinamento
+    INNER JOIN treinamento ON cadastro_equipe_treinamento.id_treinamento = treinamento.id_treinamento;
 
-
-    
+desc cadastro_equipe_treinamento;

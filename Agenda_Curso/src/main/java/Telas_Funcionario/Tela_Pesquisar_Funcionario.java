@@ -15,8 +15,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -78,8 +76,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jTbl_Funcionario = new javax.swing.JTable();
         Jbtn_Editar_SerachFunc = new javax.swing.JButton();
         Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
-        Jtxtf_consulta_SearchEqp = new javax.swing.JTextField();
-        Jbtn_consulta_SearchEqp = new javax.swing.JButton();
+        Jtxtf_Consulta_SearchFunc = new javax.swing.JTextField();
+        Jbtn_Consulta_SearchFunc = new javax.swing.JButton();
+        Jbtn_Treinamento = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -141,7 +140,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Editar_SerachFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
+        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 710, -1, -1));
 
         Jbtn_Apagar_SearchFunc.setText("Apagar");
         Jbtn_Apagar_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -151,35 +150,44 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         });
         jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
 
-        Jtxtf_consulta_SearchEqp.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_consulta_SearchEqp.setToolTipText("");
-        Jtxtf_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(90, 30));
-        Jtxtf_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(90, 30));
-        Jtxtf_consulta_SearchEqp.setPreferredSize(new java.awt.Dimension(90, 30));
-        Jtxtf_consulta_SearchEqp.addCaretListener(new javax.swing.event.CaretListener() {
+        Jtxtf_Consulta_SearchFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_Consulta_SearchFunc.setToolTipText("");
+        Jtxtf_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                Jtxtf_consulta_SearchEqpCaretUpdate(evt);
+                Jtxtf_Consulta_SearchFuncCaretUpdate(evt);
             }
         });
-        Jtxtf_consulta_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+        Jtxtf_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //Jtxtf_Consulta_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
-        Jtxtf_consulta_SearchEqp.getAccessibleContext().setAccessibleName("");
+        jPanel3.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
+        Jtxtf_Consulta_SearchFunc.getAccessibleContext().setAccessibleName("");
 
-        Jbtn_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_consulta_SearchEqp.setText("Consultar");
-        Jbtn_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta_SearchEqp.setPreferredSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_Consulta_SearchFunc.setText("Consultar");
+        Jbtn_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_consulta_SearchEqpActionPerformed(evt);
+                Jbtn_Consulta_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        jPanel3.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+
+        Jbtn_Treinamento.setText("Treinamentos");
+        Jbtn_Treinamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_TreinamentoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Jbtn_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -418,17 +426,17 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
 
-    private void Jbtn_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consulta_SearchEqpActionPerformed
+    private void Jbtn_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Consulta_SearchFuncActionPerformed
         
-        String nome = Jtxtf_consulta_SearchEqp.getText();
+        String nome = Jtxtf_Consulta_SearchFunc.getText();
         
         this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'",jTbl_Funcionario);
         
-    }//GEN-LAST:event_Jbtn_consulta_SearchEqpActionPerformed
+    }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
 
-    private void Jtxtf_consulta_SearchEqpCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_consulta_SearchEqpCaretUpdate
+    private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
         // TODO add your handling code here: DELETAR METODO
-    }//GEN-LAST:event_Jtxtf_consulta_SearchEqpCaretUpdate
+    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -558,6 +566,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
+    private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
+        int id = jTbl_Funcionario.getSelectedRow();
+        
+        
+    }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -600,10 +614,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_Apagar_SearchFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_Consulta_SearchFunc;
     private javax.swing.JButton Jbtn_Editar_SerachFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
-    private javax.swing.JButton Jbtn_consulta_SearchEqp;
+    private javax.swing.JButton Jbtn_Treinamento;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
@@ -612,7 +627,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JTextField Jtxtf_consulta_SearchEqp;
+    private javax.swing.JTextField Jtxtf_Consulta_SearchFunc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
