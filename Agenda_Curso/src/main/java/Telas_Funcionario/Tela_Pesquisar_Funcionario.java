@@ -591,7 +591,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
-        
+        // vincular treinamento ao funcionario via equipe vinculada ao treinamento
         try {
             int linha = jTbl_Funcionario.getSelectedRow();
             int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = "+linha);

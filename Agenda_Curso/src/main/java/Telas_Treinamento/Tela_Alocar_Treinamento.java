@@ -177,6 +177,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jlbl_Equipe_Alocar_Treinamento = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtbl_instrutor = new javax.swing.JTable();
+        Jtxtf_Consulta_SearchFunc = new javax.swing.JTextField();
+        Jbtn_Consulta_SearchFunc = new javax.swing.JButton();
         Jpnl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JPanel();
         Jlbl_Identificacao_Tela_Alocar_Treinamento = new javax.swing.JLabel();
         Jlbl_Data_Inicio_CadTreino = new javax.swing.JLabel();
@@ -259,7 +261,37 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Jtbl_instrutor);
 
-        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 300, 70));
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 300, 70));
+
+        Jtxtf_Consulta_SearchFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jtxtf_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jtxtf_Consulta_SearchFunc.setToolTipText("");
+        Jtxtf_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(90, 30));
+        Jtxtf_Consulta_SearchFunc.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                Jtxtf_Consulta_SearchFuncCaretUpdate(evt);
+            }
+        });
+        Jtxtf_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jtxtf_Consulta_SearchFuncActionPerformed(evt);
+            }
+        });
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 180, -1));
+
+        Jbtn_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_Consulta_SearchFunc.setText("Consultar");
+        Jbtn_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Consulta_SearchFuncActionPerformed(evt);
+            }
+        });
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
         jPanel2.add(Jpnl_Intrutor_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 320, 160));
 
@@ -817,6 +849,26 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_consultaActionPerformed
 
+    private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
+        // TODO add your handling code here: DELETAR METODO
+    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
+
+    private void Jtxtf_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncActionPerformed
+
+    private void Jbtn_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Consulta_SearchFuncActionPerformed
+
+        String nome = Jtxtf_Consulta_SearchFunc.getText();
+
+        try {
+            this.popTableInst("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -859,6 +911,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_Cancelar_CadTreino;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_Consulta_SearchFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral2;
     private javax.swing.JButton Jbtn_Salvar_CadTreino;
@@ -892,6 +945,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane Jslpn_Equipe_Tela_Alocar_Treinamento;
     private javax.swing.JTable Jtbl_Treinamento;
     private javax.swing.JTable Jtbl_instrutor;
+    private javax.swing.JTextField Jtxtf_Consulta_SearchFunc;
     private javax.swing.JTextField Jtxtf_consulta_SearchTreino;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
