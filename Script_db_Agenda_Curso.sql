@@ -116,16 +116,20 @@ CREATE OR REPLACE VIEW vw_getID_Instrutor AS
     WHERE
         funcionario.cargo LIKE 'instrutor';
           
-CREATE OR REPLACE VIEW vw_CadFuncEqp AS
+CREATE OR REPLACE VIEW vw_CadFuncEqp AS -- maturar
 	SELECT
-		treinamento.nome_treinamento,
-        equipe.nome
-	FROM cadastro_equipe_treinamento
-    LEFT JOIN treinamento 
-		ON treinamento.id_treinamento = cadastro_equipe_treinamento.id_treinamento
-    RIGHT JOIN equipe
-		ON equipe.id_equipe = cadastro_equipe_treinamento.id_equipe;
-    
+        equipe.id_equipe,
+        funcionario.id_funcionario
+	FROM cadastro_funcionario_equipe
+    LEFT JOIN equipe ON cadastro_funcionario_equipe.id_equipe = equipe.id_equipe
+    RIGHT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
+DROP VIEW vw_CadFuncEqp; 
+
+CREATE OR REPLACE VIEW vw AS
+	SELECT 
+		treinamento.nome,
+        treinamento.validade;
+        
 -- ///////////////////////////////////////////////////////////////////
     
 select * from cadastro_funcionario_equipe;
@@ -136,8 +140,9 @@ select * from vw_equipe;
 select * from vw_treinamento;
 select * from vw_setor;
 select * from vw_getId_Instrutor;
-SELECT * from vw_CadFuncEqp;
+SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
 
+select * from cadastro_funcionario_equipe;
 select * from cadastro_equipe_treinamento;
 
 desc vw_treinamento;

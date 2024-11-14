@@ -578,7 +578,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
 
-            this.CarregarTela();
+            
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
