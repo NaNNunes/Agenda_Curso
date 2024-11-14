@@ -166,6 +166,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTbl_FuncionarioMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

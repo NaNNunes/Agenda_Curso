@@ -10,6 +10,7 @@ import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -57,34 +58,36 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 });
             }
 
-        } catch (SQLException erro){
+        } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-    
-    private int FindEqp(String query) throws SQLException{
+
+    private int FindEqp(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
         int id = 0;
-        
+
         try {
             statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 id = resultSet.getInt("id_equipe");
             }
-            
-        }catch (SQLException erro){
+
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
-        
+
         return id;
     }
-    
+
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -151,6 +154,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 "ID", "CPF", "Nome", "Telefone", "Email", "Turno", "Cargo", "Setor"
             }
         ));
+        jTbl_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTbl_FuncionarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTbl_Funcionario);
         if (jTbl_Funcionario.getColumnModel().getColumnCount() > 0) {
             jTbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
@@ -188,7 +196,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         });
         Jtxtf_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //Jtxtf_Consulta_SearchFuncActionPerformed(evt);
+                Jtxtf_Consulta_SearchFuncActionPerformed(evt);
             }
         });
         jPanel3.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
@@ -451,16 +459,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
 
     private void Jbtn_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Consulta_SearchFuncActionPerformed
-        
-        String nome = Jtxtf_Consulta_SearchFunc.getText();
-        
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'",jTbl_Funcionario);
-        
-    }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
 
-    private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
-        // TODO add your handling code here: DELETAR METODO
-    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
+        String nome = Jtxtf_Consulta_SearchFunc.getText();
+
+        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'", jTbl_Funcionario);
+
+    }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -591,16 +595,45 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
-        
+
         try {
             int linha = jTbl_Funcionario.getSelectedRow();
-            int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = "+linha);
+            int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = " + linha);
             JOptionPane.showMessageDialog(null, linha);
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
+
+    private void jTbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_FuncionarioMouseClicked
+
+        int linhaSelecionada = jTbl_Funcionario.getSelectedRow();
+
+        if (linhaSelecionada != -1) {
+
+            String idFuncionario = jTbl_Funcionario.getValueAt(linhaSelecionada, 0).toString();
+            String cpf = jTbl_Funcionario.getValueAt(linhaSelecionada, 1).toString();
+            String nome = jTbl_Funcionario.getValueAt(linhaSelecionada, 2).toString();
+            String telefone = jTbl_Funcionario.getValueAt(linhaSelecionada, 3).toString();
+            String email = jTbl_Funcionario.getValueAt(linhaSelecionada, 4).toString();
+            String turno = jTbl_Funcionario.getValueAt(linhaSelecionada, 5).toString();
+            String cargo = jTbl_Funcionario.getValueAt(linhaSelecionada, 6).toString();
+            String setor = jTbl_Funcionario.getValueAt(linhaSelecionada, 7).toString();
+
+            Tela_Cadastro_Funcionario telaCadastro = new Tela_Cadastro_Funcionario();
+            telaCadastro.carregarDadosFuncionario(idFuncionario, cpf, nome, telefone, email, turno, cargo, setor);
+            telaCadastro.setVisible(true);
+        }
+    }//GEN-LAST:event_jTbl_FuncionarioMouseClicked
+
+    private void Jtxtf_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncActionPerformed
+
+    private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
+        // TODO add your handling code here: DELETAR METODO
+    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
 
     /**
      * @param args the command line arguments
@@ -636,6 +669,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_BarraLateral;
