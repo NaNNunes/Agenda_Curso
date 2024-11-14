@@ -47,16 +47,40 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
     }
 
     public void carregarDadosFuncionario(String idFuncionario, String cpf, String nome, String telefone, String turno, String email, String cargo, String setor) {
-        jLabel2.setText(idFuncionario);
-        jLabel3.setText(cpf);
-        jLabel4.setText(nome);
-        jLabel6.setText(email);
-        jLabel5.setText(telefone);
-        jLabel9.setText(turno);
-        jLabel7.setText(cargo);
-        jLabel8.setText(setor);
+
+        Jlbl_ID_Tela_Cadastro_Pre.setText(idFuncionario);
+        Jlbl_CPF_Tela_Cadastro_Pre.setText(cpf);
+        Jlbl_Nome_Tela_Cadastro_Pre.setText(nome);
+        Jlbl_Email_Tela_Cadastro_Pre.setText(email);
+        Jlbl_Celular_Tela_Cadastro_Pre.setText(telefone);
+        Jlbl_Turno_Tela_Cadastro_Pre.setText(turno);
+        Jlbl_Cargo_Tela_Cadastro_Pre.setText(cargo);
+        Jlbl_Setor_Tela_Cadastro_Pre.setText(setor);
+
     }
-    
+
+    private boolean modoVisualizacao = false;
+
+    public void alternarModoVisualizacao(boolean visualizar) {
+
+        modoVisualizacao = visualizar;
+
+        Jlbl_Nome_Tela_Cadastro_Pre.setVisible(!visualizar);
+        Jlbl_Email_Tela_Cadastro_Pre.setVisible(!visualizar);
+        Jlbl_Celular_Tela_Cadastro_Pre.setVisible(!visualizar);
+        Jlbl_Turno_Tela_Cadastro_Pre.setVisible(!visualizar);
+        Jlbl_Cargo_Tela_Cadastro_Pre.setVisible(!visualizar);
+        Jlbl_Setor_Tela_Cadastro_Pre.setVisible(!visualizar);
+
+        jTextField1.setVisible(visualizar);
+        jTextField4.setVisible(visualizar);
+        jTextField5.setVisible(visualizar);
+        jTextField2.setVisible(visualizar);
+        jComboBox1.setVisible(visualizar);
+        jComboBox2.setVisible(visualizar);
+        jComboBox3.setVisible(visualizar);
+
+    }
 
     private int pegaIdSetor(String query) {
         Connection connection = null;
@@ -99,35 +123,42 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Title_identificacao = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        Jlbl_CPF_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        Jlbl_CPF_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        Jlbl_CPF_Tela_Cadastro_Pree = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        Jlbl_Nome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_ID_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        Jlbl_ID_Tela_Cadastro_Pree = new javax.swing.JLabel();
+        Jlbl_Nome_Tela_Cadastro_Pree = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        Jlbl_Nome_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         Jpnl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Email_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Numero_Tela_Adicionar_Funcionario1 = new javax.swing.JLabel();
+        Jlbl_Email_Tela_Cadastro_Pree = new javax.swing.JLabel();
+        Jlbl_Celular_Tela_Cadastro_Pree = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        Jlbl_Celular_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        Jlbl_Email_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
         Jpnl_Area_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Area_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Codigo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jlbl_Cargo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Setor_Tela_Cadastro_Pree = new javax.swing.JLabel();
+        Jlbl_Turno_Tela_Cadastro_Pree = new javax.swing.JLabel();
+        Jlbl_Cargo_Tela_Cadastro_Pree = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        Jlbl_Cargo_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        Jlbl_Setor_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        Jlbl_Turno_Tela_Cadastro_Pre = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         Jlbl_Numero_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Jbbuton_Editar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
@@ -156,6 +187,7 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jpnl_Fundo_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Fundo_CadFunc.setMaximumSize(new java.awt.Dimension(1280, 832));
@@ -187,89 +219,62 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("jLabel3");
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setPreferredSize(new java.awt.Dimension(248, 30));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
-        );
+        Jlbl_CPF_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel1.add(Jlbl_CPF_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jlbl_CPF_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_CPF_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_CPF_Tela_Cadastro_Pree.setText("CPF:");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("jLabel2");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        Jlbl_ID_Tela_Cadastro_Pre.setText("jLabel2");
+        jPanel2.add(Jlbl_ID_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("ID:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jlbl_ID_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_ID_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_ID_Tela_Cadastro_Pree.setText("ID:");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_ID_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome Completo: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 160, -1));
+        Jlbl_Nome_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Nome_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Nome_Tela_Cadastro_Pree.setText("Nome Completo: ");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 160, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setText("jLabel4");
+        Jlbl_Nome_Tela_Cadastro_Pre.setText("jLabel4");
+        jPanel3.add(Jlbl_Nome_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(325, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField4.setPreferredSize(new java.awt.Dimension(248, 30));
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
 
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 370, 30));
 
@@ -285,63 +290,51 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         Jlbl_Contato_Tela_Adicionar_Funcionario.setText("Contato");
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jlbl_Email_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Email_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Email_Tela_Adicionar_Funcionario.setText("Email:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jlbl_Email_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Email_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Email_Tela_Cadastro_Pree.setText("Email:");
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        Jlbl_Numero_Tela_Adicionar_Funcionario1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Numero_Tela_Adicionar_Funcionario1.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Numero_Tela_Adicionar_Funcionario1.setText("Celular:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jlbl_Celular_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Celular_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Celular_Tela_Cadastro_Pree.setText("Celular:");
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Celular_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setText("jLabel3");
+        Jlbl_Celular_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel4.add(Jlbl_Celular_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
-        );
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setPreferredSize(new java.awt.Dimension(248, 30));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel5.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("jLabel3");
+        Jlbl_Email_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel5.add(Jlbl_Email_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
-        );
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField5.setPreferredSize(new java.awt.Dimension(248, 30));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
@@ -357,93 +350,57 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         Jlbl_Area_Tela_Adicionar_Funcionario.setText("Área/Atuação");
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jlbl_Setor_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Setor_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Setor_Tela_Cadastro_Pree.setText("Setor: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Setor_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jlbl_Turno_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Turno_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Turno_Tela_Cadastro_Pree.setText("Turno: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setText("Cargo: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        Jlbl_Cargo_Tela_Cadastro_Pree.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Cargo_Tela_Cadastro_Pree.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Cargo_Tela_Cadastro_Pree.setText("Cargo: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Cadastro_Pree, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel6.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setText("jLabel3");
+        Jlbl_Cargo_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel6.add(Jlbl_Cargo_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addContainerGap())
-        );
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
 
         Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel7.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setText("jLabel3");
+        Jlbl_Setor_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel7.add(Jlbl_Setor_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addContainerGap())
-        );
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel7.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
 
         Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel8.setPreferredSize(new java.awt.Dimension(248, 30));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setText("jLabel3");
+        Jlbl_Turno_Tela_Cadastro_Pre.setText("jLabel3");
+        jPanel8.add(Jlbl_Turno_Tela_Cadastro_Pre, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 7, -1, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addContainerGap())
-        );
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 30));
 
         Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
@@ -453,12 +410,17 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         Jlbl_Numero_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jpnl_Container_CadFunc.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(243, 236, 196));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Editar");
-        jButton1.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jpnl_Container_CadFunc.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
+        Jbbuton_Editar.setBackground(new java.awt.Color(243, 236, 196));
+        Jbbuton_Editar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbbuton_Editar.setForeground(new java.awt.Color(0, 0, 0));
+        Jbbuton_Editar.setText("Editar");
+        Jbbuton_Editar.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbbuton_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbbuton_EditarActionPerformed(evt);
+            }
+        });
+        Jpnl_Container_CadFunc.add(Jbbuton_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(243, 236, 196));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -663,22 +625,13 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
 
         Jpnl_Fundo_CadFunc.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(Jpnl_Fundo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        alternarModoVisualizacao(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -818,6 +771,27 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void Jbbuton_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbbuton_EditarActionPerformed
+        modoVisualizacao = !modoVisualizacao;
+        alternarModoVisualizacao(modoVisualizacao);
+    }//GEN-LAST:event_Jbbuton_EditarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -861,6 +835,7 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
+    private javax.swing.JButton Jbbuton_Editar;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
@@ -871,35 +846,37 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Area_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_CPF_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_CPF_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_CPF_Tela_Cadastro_Pree;
     private javax.swing.JLabel Jlbl_Cadastrar_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Cargo_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Codigo_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Cargo_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Cargo_Tela_Cadastro_Pree;
+    private javax.swing.JLabel Jlbl_Celular_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Celular_Tela_Cadastro_Pree;
     private javax.swing.JLabel Jlbl_Contato_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Email_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Email_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Email_Tela_Cadastro_Pree;
+    private javax.swing.JLabel Jlbl_ID_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_ID_Tela_Cadastro_Pree;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Nome_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Nome_Tela_Cadastro_Pree;
     private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario1;
+    private javax.swing.JLabel Jlbl_Setor_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Setor_Tela_Cadastro_Pree;
     private javax.swing.JLabel Jlbl_Title_identificacao;
-    private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Turno_Tela_Cadastro_Pre;
+    private javax.swing.JLabel Jlbl_Turno_Tela_Cadastro_Pree;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Area_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpnl_Container_CadFunc;
     private javax.swing.JPanel Jpnl_Contato_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpnl_Fundo_CadFunc;
     private javax.swing.JPanel Jpnl_Identificacao_Tela_Adicionar_Funcionario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -908,6 +885,10 @@ public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 
 }
