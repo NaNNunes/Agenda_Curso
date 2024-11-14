@@ -600,19 +600,37 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         
         Connection connection = null;
         PreparedStatement statement = null; 
-        
+        int id_funcionario = Integer.parseInt(Jtbl_Funcionarios.getValueAt(Jtbl_Funcionarios.getSelectedRow(), 0).toString());
+        int id_equipe = Integer.parseInt(Jtbl_Equipe.getValueAt(Jtbl_Equipe.getSelectedRow(), 0).toString());
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO cadastro_funcionario_equipe(id_funcionario, id_equipe) VALUES(?,?)";
-            statement = connection.prepareStatement(query);
             
-            statement.setString(1, Jtbl_Funcionarios.getValueAt(Jtbl_Funcionarios.getSelectedRow(), 0).toString());
-            statement.setString(2, Jtbl_Equipe.getValueAt(Jtbl_Equipe.getSelectedRow(), 0).toString());
+            // verificar se funcionario ja esta incluso na equipe
+            String queryVW =  "SELECT * FROM vw_CadFuncEqp WHERE id_funcionario = "+ id_funcionario;
+            statement = connection.prepareStatement(queryVW);
             statement.execute();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado");
+            ResultSet resultSet = statement.executeQuery();
             
-            this.popTblEquipe("SELECT * FROM vw_Equipe");
-            this.popTblFuncionario("SELECT * FROM vw_funcionario");
+            int id_equipeEncontrada = 0;
+            while(resultSet.next()){
+                id_equipeEncontrada =  resultSet.getInt("id_equipe");
+            }
+            
+            if (id_equipe == id_equipeEncontrada){
+                JOptionPane.showMessageDialog(null, "Funcionario ja cadastrado na equipe");
+            }
+            else{
+                // relacao equipe funcionario
+                String query = "INSERT INTO cadastro_funcionario_equipe(id_funcionario, id_equipe) VALUES(?,?)";
+                statement = connection.prepareStatement(query);
+                statement.setInt(1, id_funcionario);
+                statement.setInt(2, id_equipe);
+                statement.execute();
+                JOptionPane.showMessageDialog(null, "Cadastro realizado");
+
+                this.popTblEquipe("SELECT * FROM vw_Equipe");
+                this.popTblFuncionario("SELECT * FROM vw_funcionario");
+            }
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getLocalizedMessage());
