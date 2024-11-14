@@ -607,23 +607,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     private void jTbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_FuncionarioMouseClicked
 
-        int linhaSelecionada = jTbl_Funcionario.getSelectedRow();
-
-        if (linhaSelecionada != -1) {
-
-            String idFuncionario = jTbl_Funcionario.getValueAt(linhaSelecionada, 0).toString();
-            String cpf = jTbl_Funcionario.getValueAt(linhaSelecionada, 1).toString();
-            String nome = jTbl_Funcionario.getValueAt(linhaSelecionada, 2).toString();
-            String telefone = jTbl_Funcionario.getValueAt(linhaSelecionada, 3).toString();
-            String email = jTbl_Funcionario.getValueAt(linhaSelecionada, 4).toString();
-            String turno = jTbl_Funcionario.getValueAt(linhaSelecionada, 5).toString();
-            String cargo = jTbl_Funcionario.getValueAt(linhaSelecionada, 6).toString();
-            String setor = jTbl_Funcionario.getValueAt(linhaSelecionada, 7).toString();
-
-            Tela_Cadastro_Preechida telaprenchida = new Tela_Cadastro_Preechida();
-            telaprenchida.carregarDadosFuncionario(idFuncionario, cpf, nome, telefone, email, turno, cargo, setor);
-            telaprenchida.setVisible(true);
-        }
     }//GEN-LAST:event_jTbl_FuncionarioMouseClicked
 
     private void Jtxtf_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncActionPerformed

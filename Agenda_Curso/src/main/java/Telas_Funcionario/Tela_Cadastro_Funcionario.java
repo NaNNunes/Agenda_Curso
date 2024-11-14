@@ -638,7 +638,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Preechida Tela_CadFunc = new Tela_Cadastro_Preechida();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
