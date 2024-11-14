@@ -28,13 +28,19 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
      */
     public Tela_Cadastro_Equipe() {
         initComponents();
+        this.Jbtn_Editar_CadEqp.setVisible(false);
     }
 
     public void editar_Equipe(String[] dados){
-        this.Jtxtf_Nome_CadEqp.setText(dados[0]);
-        this.Jtxta_descricao_CadEqp.setText(dados[1]);
-        this.Jcmbx_turno_CadFun.setSelectedItem(dados[2]);
+        this.Jbtn_Editar_CadEqp.setVisible(true);
+        this.Jbtn_Cadastro_CadEqp.setVisible(false);
+        this.id_equipe =  Integer.parseInt(dados[0]);
+        this.Jtxtf_Nome_CadEqp.setText(dados[1]);
+        this.Jtxta_descricao_CadEqp.setText(dados[2]);
+        this.Jcmbx_turno_CadFun.setSelectedItem(dados[3]);
     }
+    
+    private int id_equipe;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -383,7 +389,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 Jbtn_Editar_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Fundo_CadEqp.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+        Jpanel_Fundo_CadEqp.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
 
         getContentPane().add(Jpanel_Fundo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
@@ -542,7 +548,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         try{
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "UPDATE equipe SET nome = ?, descricao = ?, turno = ?";
+            String query = "UPDATE equipe SET nome = ?, descricao = ?, turno = ? WHERE id_equipe ="+id_equipe;
             statement = connection.prepareStatement(query);
             String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
             statement.setString(1, Jtxtf_Nome_CadEqp.getText());
