@@ -407,7 +407,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         
         int linha = Jtbl_ListaEqp.getSelectedRow();
         int id = Integer.parseInt(Jtbl_ListaEqp.getValueAt(linha, 0).toString());
-        String[] equipe = new String[3];
+        String[] equipe = new String[4];
         
         try {
             connection = DriverManager.getConnection(url,user,psswrd);
@@ -416,9 +416,10 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
-                equipe[0] = resultSet.getString("nome");
-                equipe[1] = resultSet.getString("descricao");
-                equipe[2] = resultSet.getString("turno");
+                equipe[0] = resultSet.getString("id_equipe");
+                equipe[1] = resultSet.getString("nome");
+                equipe[2] = resultSet.getString("descricao");
+                equipe[3] = resultSet.getString("turno");
             }
             Tela_Cadastro_Equipe tela_equipe = new Tela_Cadastro_Equipe();
             tela_equipe.editar_Equipe(equipe);

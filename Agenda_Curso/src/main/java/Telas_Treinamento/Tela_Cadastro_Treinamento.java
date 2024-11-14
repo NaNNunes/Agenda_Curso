@@ -13,7 +13,6 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -23,37 +22,25 @@ import javax.swing.JOptionPane;
  * @author mathe
  */
 public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Tela_Adicionar_Treinamento
      */
+    
     public Tela_Cadastro_Treinamento() {
         initComponents();
+        this.Jbtn_Editar_CadTreino.setVisible(false);
     }
-    
-    private String pegaIdInstrutor(String query) throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        String id = "";
-        
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            if(resultSet.next()){
-                id = resultSet.getString("id_funcionario");
-            }
-        }
-        catch (SQLException erro){
-            System.out.println("Erro: " + erro.getMessage());
-        }
-        
-        return id;
+    public void editar_Treinamento(String[] dados){
+        this.Jbtn_Salvar_CadTreino.setVisible(false);
+        this.Jbtn_Editar_CadTreino.setVisible(true);
+        this.id_treinamento = Integer.parseInt(dados[0]);
+        this.Jtxtf_Treinamento_CadTreino.setText(dados[1]);
+        this.Jtxta_Descricao_CadTreino.setText(dados[2]);
+        this.Jtxtf_Carga_CadTreino.setText(dados[3]);
+        this.Jtxtf_Validade_CadTreino.setText(dados[4]);
     }
-    
+    private int id_treinamento;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +50,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Jpnl_Fundo_CadTreino = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Jpnl_Identificacao_CadTreino = new javax.swing.JPanel();
@@ -78,7 +65,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtxta_Descricao_CadTreino = new javax.swing.JTextArea();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
-        Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
+        Jbtn_Editar_CadTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -102,8 +89,11 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Fundo_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_CadTreino.setMaximumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadTreino.setMinimumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadTreino.setPreferredSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadTreino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -188,21 +178,21 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
                 Jbtn_Salvar_CadTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, -1, -1));
+        jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, -1, -1));
 
-        Jbtn_Cancelar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cancelar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Cancelar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cancelar_CadTreino.setText("Cancelar");
-        Jbtn_Cancelar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Cancelar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Editar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Editar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Editar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadTreino.setText("Editar");
+        Jbtn_Editar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Editar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cancelar_CadTreinoActionPerformed(evt);
+                Jbtn_Editar_CadTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Cancelar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
+        jPanel2.add(Jbtn_Editar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_CadTreino.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -391,17 +381,17 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Jpnl_Fundo_CadTreino.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -432,14 +422,33 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Treinamento Cadastrado!");
         }
         catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
-            System.out.println("Erro: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
 
-    private void Jbtn_Cancelar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Cancelar_CadTreinoActionPerformed
+    private void Jbtn_Editar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_CadTreinoActionPerformed
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        try {
+            connection = DriverManager.getConnection(url,user,psswrd);
+            String query = "UPDATE treinamento set nome_treinamento = ?, descricao = ?, validade = ?, carga_horaria = ? "
+                    + "WHERE id_treinamento =" + this.id_treinamento;
+            statement = connection.prepareStatement(query);
+            statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
+            statement.setString(2, Jtxta_Descricao_CadTreino.getText());
+            statement.setString(3, Jtxtf_Carga_CadTreino.getText());
+            statement.setString(4, Jtxtf_Validade_CadTreino.getText());
+            statement.execute();
+            JOptionPane.showMessageDialog(null, "Treinamento Atualizado");
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_Editar_CadTreinoActionPerformed
 
     private void Jtxtf_Treinamento_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
         // TODO add your handling code here:
@@ -619,8 +628,8 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
-    private javax.swing.JButton Jbtn_Cancelar_CadTreino;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_Editar_CadTreino;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
     private javax.swing.JButton Jbtn_Salvar_CadTreino;
@@ -637,13 +646,13 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
     private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JPanel Jpnl_Fundo_CadTreino;
     private javax.swing.JPanel Jpnl_Identificacao_CadTreino;
     private javax.swing.JTextArea Jtxta_Descricao_CadTreino;
     private javax.swing.JTextField Jtxtf_Carga_CadTreino;
     private javax.swing.JTextField Jtxtf_Treinamento_CadTreino;
     private javax.swing.JTextField Jtxtf_Validade_CadTreino;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

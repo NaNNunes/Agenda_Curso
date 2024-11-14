@@ -79,6 +79,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
         Jbtn_consulta = new javax.swing.JButton();
         Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
+        Jbtn_Editar_SearchTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -103,6 +104,9 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         });
 
         Jpnl_Fundo_SearchTreino.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_SearchTreino.setMaximumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_SearchTreino.setMinimumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_SearchTreino.setPreferredSize(new java.awt.Dimension(1280, 832));
         Jpnl_Fundo_SearchTreino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jpnl_Conteiner_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
@@ -157,6 +161,14 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             }
         });
         Jpnl_Conteiner_SearchTreino.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 720, -1, -1));
+
+        Jbtn_Editar_SearchTreino.setText("Editar");
+        Jbtn_Editar_SearchTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Editar_SearchTreinoActionPerformed(evt);
+            }
+        });
+        Jpnl_Conteiner_SearchTreino.add(Jbtn_Editar_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 720, -1, -1));
 
         Jpnl_Fundo_SearchTreino.add(Jpnl_Conteiner_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -533,6 +545,40 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
+    private void Jbtn_Editar_SearchTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_SearchTreinoActionPerformed
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        int linha = Jtbl_ListaTreino.getSelectedRow();
+        int id = Integer.parseInt(Jtbl_ListaTreino.getValueAt(linha, 0).toString());
+        String[] dados = new String[5];
+        try {
+            connection = DriverManager.getConnection(url,user,psswrd);
+            String query = "SELECT * FROM treinamento WHERE id_treinamento ="+ id;
+            statement = connection.prepareStatement(query);
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                dados[0] = resultSet.getString("id_treinamento");
+                dados[1] = resultSet.getString("nome_treinamento");
+                dados[2] = resultSet.getString("descricao");
+                dados[3] = resultSet.getString("carga_horaria");
+                dados[4] = resultSet.getString("validade");
+            }
+            
+            Tela_Cadastro_Treinamento CadTreino = new Tela_Cadastro_Treinamento();
+            CadTreino.editar_Treinamento(dados);
+            CadTreino.setVisible(true);
+            this.dispose();
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_Editar_SearchTreinoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -575,6 +621,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_Apagar_SearchFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_Editar_SearchTreino;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
     private javax.swing.JButton Jbtn_consulta;
