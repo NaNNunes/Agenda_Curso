@@ -4,6 +4,13 @@
  */
 package Telas_Iniciais;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author renan_8tvcd4n
@@ -15,6 +22,42 @@ public class Tela_Login extends javax.swing.JFrame {
      */
     public Tela_Login() {
         initComponents();
+    }
+
+    private void verificarLogin() {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        String usuario = Text_login.getText();
+        String senha = Text_senha_login.getText();
+
+        try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?";
+            statement = connection.prepareStatement(query);
+
+            statement.setString(1, usuario);
+            statement.setString(2, senha);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+                Tela_DashBoard_Inicial Tela_DashBoard = new Tela_DashBoard_Inicial();
+                Tela_DashBoard.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro ao conectar com o banco de dados.");
+        }
+
     }
 
     /**
@@ -148,9 +191,7 @@ public class Tela_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Acessar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Acessar_loginActionPerformed
-        Tela_DashBoard_Inicial dashBoard = new Tela_DashBoard_Inicial();
-        dashBoard.setVisible(true);
-        this.dispose();
+        verificarLogin();
     }//GEN-LAST:event_Acessar_loginActionPerformed
 
     /**
