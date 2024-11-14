@@ -94,7 +94,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Jpnl_Fundo_SearchFunc = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -127,8 +127,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Fundo_SearchFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_SearchFunc.setMaximumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_SearchFunc.setMinimumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_SearchFunc.setPreferredSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_SearchFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -219,7 +222,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         });
         jPanel3.add(Jbtn_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_SearchFunc.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -408,17 +411,17 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Jpnl_Fundo_SearchFunc.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_SearchFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_SearchFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -690,9 +693,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JPanel Jpnl_Fundo_SearchFunc;
     private javax.swing.JTextField Jtxtf_Consulta_SearchFunc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTbl_Funcionario;

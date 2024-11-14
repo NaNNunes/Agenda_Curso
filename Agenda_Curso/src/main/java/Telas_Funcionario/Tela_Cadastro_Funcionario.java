@@ -133,6 +133,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
@@ -323,6 +324,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             }
         });
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
+
+        jButton1.setText("Treinamentos");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 250, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
@@ -807,6 +811,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JTextField Jtxtf_Email_CadFunc;
     private javax.swing.JTextField Jtxtf_Nome_CadFunc;
     private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 
 }
