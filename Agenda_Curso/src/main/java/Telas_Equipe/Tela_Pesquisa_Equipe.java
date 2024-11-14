@@ -398,6 +398,38 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_consulta_SearchEqpActionPerformed
 
     private void Jbtn_EditarEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_EditarEqpActionPerformed
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        int linha = Jtbl_ListaEqp.getSelectedRow();
+        int id = Integer.parseInt(Jtbl_ListaEqp.getValueAt(linha, 0).toString());
+        String[] equipe = new String[3];
+        
+        try {
+            connection = DriverManager.getConnection(url,user,psswrd);
+            String query = "SELECT * FROM equipe WHERE id_equipe = " + id;
+            statement = connection.prepareStatement(query);
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                equipe[0] = resultSet.getString("nome");
+                equipe[1] = resultSet.getString("descricao");
+                equipe[2] = resultSet.getString("turno");
+            }
+            Tela_Cadastro_Equipe tela_equipe = new Tela_Cadastro_Equipe();
+            tela_equipe.editar_Equipe(equipe);
+            tela_equipe.setVisible(true);
+            this.dispose();
+        }
+        catch (SQLException erro){
+            System.out.println("Erro: " + erro.getMessage());
+        }
+        
+        
         
     }//GEN-LAST:event_Jbtn_EditarEqpActionPerformed
 
@@ -405,7 +437,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
             Connection connection = null;
             PreparedStatement statement = null;
-
+            
             String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
             String user = "root";
             String psswrd = "";        

@@ -13,13 +13,8 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -35,7 +30,11 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         initComponents();
     }
 
-
+    public void editar_Equipe(String[] dados){
+        this.Jtxtf_Nome_CadEqp.setText(dados[0]);
+        this.Jtxta_descricao_CadEqp.setText(dados[1]);
+        this.Jcmbx_turno_CadFun.setSelectedItem(dados[2]);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,10 +56,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jlbl_Descricao_CadEqp = new javax.swing.JLabel();
         Jcmbx_turno_CadFun = new javax.swing.JComboBox<>();
         Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
-        Jpanel_Conteiner_Dados = new javax.swing.JPanel();
-        Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
-        Jbtn_Apagar_CadEqp = new javax.swing.JButton();
-        Jbtn_Editar_CadEqp = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -76,6 +71,8 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
+        Jbtn_Cadastro_CadEqp = new javax.swing.JButton();
+        Jbtn_Editar_CadEqp = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -157,6 +154,11 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jcmbx_turno_CadFun.setMaximumSize(new java.awt.Dimension(240, 30));
         Jcmbx_turno_CadFun.setMinimumSize(new java.awt.Dimension(240, 30));
         Jcmbx_turno_CadFun.setPreferredSize(new java.awt.Dimension(240, 30));
+        Jcmbx_turno_CadFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_turno_CadFunActionPerformed(evt);
+            }
+        });
         Jpanel_Conteiner_CadEqp.add(Jcmbx_turno_CadFun, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 300, -1));
 
         Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -165,53 +167,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         Jpanel_Fundo_CadEqp.add(Jpanel_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 360, 420));
-
-        Jpanel_Conteiner_Dados.setBackground(new java.awt.Color(249, 246, 226));
-        Jpanel_Conteiner_Dados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cadastro_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cadastro_CadEqp.setText("Cadastrar");
-        Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Cadastro_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cadastro_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
-
-        Jbtn_Apagar_CadEqp.setBackground(new java.awt.Color(234, 151, 151));
-        Jbtn_Apagar_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Apagar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Apagar_CadEqp.setText("Apagar");
-        Jbtn_Apagar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Apagar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Apagar_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Apagar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Apagar_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Apagar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
-
-        Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Editar_CadEqp.setText("Editar");
-        Jbtn_Editar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Editar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Editar_CadEqpActionPerformed(evt);
-            }
-        });
-        Jpanel_Conteiner_Dados.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        Jpanel_Fundo_CadEqp.add(Jpanel_Conteiner_Dados, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 750, 755, 71));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -402,55 +357,43 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         Jpanel_Fundo_CadEqp.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Cadastro_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Cadastro_CadEqp.setText("Cadastrar");
+        Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(120, 45));
+        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Cadastro_CadEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Cadastro_CadEqpActionPerformed(evt);
+            }
+        });
+        Jpanel_Fundo_CadEqp.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
+
+        Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Editar_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadEqp.setText("Editar");
+        Jbtn_Editar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Editar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_Editar_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Editar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Editar_CadEqpActionPerformed(evt);
+            }
+        });
+        Jpanel_Fundo_CadEqp.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+
         getContentPane().add(Jpanel_Fundo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_Cadastro_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastro_CadEqpActionPerformed
-        Connection connection = null;
-        PreparedStatement statement = null;
-
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-
-        try {
-            connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
-            statement = connection.prepareStatement(query);
-
-            String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
-
-            statement.setString(1, Jtxtf_Nome_CadEqp.getText());
-            statement.setString(2, Jtxta_descricao_CadEqp.getText());
-            statement.setString(3, turno);
-
-            statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Equipe Criada");
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
-            System.out.println("Erro: " + erro.getMessage());
-        }
-    }//GEN-LAST:event_Jbtn_Cadastro_CadEqpActionPerformed
-
-    private void Jbtn_Editar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_CadEqpActionPerformed
-        Connection connection = null;
-        PreparedStatement statement = null;
-
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "";
-        String psswrd = "";
-    }//GEN-LAST:event_Jbtn_Editar_CadEqpActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
     }//GEN-LAST:event_formWindowOpened
-
-    private void Jbtn_Apagar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_CadEqpActionPerformed
-        JOptionPane.showConfirmDialog(null, "Atenção!\n Ao Prosseguir no ato irá excluir permanentemente os dados a seguir.");
-
-    }//GEN-LAST:event_Jbtn_Apagar_CadEqpActionPerformed
 
     private void Jtxtf_Nome_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Nome_CadEqpActionPerformed
         // TODO add your handling code here:
@@ -585,6 +528,61 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
+    private void Jcmbx_turno_CadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_turno_CadFunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_turno_CadFunActionPerformed
+
+    private void Jbtn_Editar_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_CadEqpActionPerformed
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        try{
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "UPDATE equipe SET nome = ?, descricao = ?, turno = ?";
+            statement = connection.prepareStatement(query);
+            String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
+            statement.setString(1, Jtxtf_Nome_CadEqp.getText());
+            statement.setString(2, Jtxta_descricao_CadEqp.getText());
+            statement.setString(3, turno);
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Equipe Atualizada");
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_Editar_CadEqpActionPerformed
+
+    private void Jbtn_Cadastro_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastro_CadEqpActionPerformed
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
+            statement = connection.prepareStatement(query);
+
+            String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
+
+            statement.setString(1, Jtxtf_Nome_CadEqp.getText());
+            statement.setString(2, Jtxta_descricao_CadEqp.getText());
+            statement.setString(3, turno);
+
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Equipe Criada");
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
+            System.out.println("Erro: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_Jbtn_Cadastro_CadEqpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -628,7 +626,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
-    private javax.swing.JButton Jbtn_Apagar_CadEqp;
     private javax.swing.JButton Jbtn_Cadastro_CadEqp;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_Editar_CadEqp;
@@ -648,7 +645,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Titulo_CadEqp;
     private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_Conteiner_CadEqp;
-    private javax.swing.JPanel Jpanel_Conteiner_Dados;
     private javax.swing.JPanel Jpanel_Fundo_CadEqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JTextArea Jtxta_descricao_CadEqp;
