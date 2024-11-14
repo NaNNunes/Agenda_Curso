@@ -17,74 +17,73 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author m.schmidt //PopularJTableFuncionario
+ * @author mathe
  */
-public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
+public class Tela_Cadastro_Preechida extends javax.swing.JFrame {
 
     /**
-     * Creates new form Tela_Pesquisar_Funcionario
+     * Creates new form Tela_Adicionar_Funcionario
      */
-    public Tela_Pesquisar_Funcionario() {
+    public Tela_Cadastro_Preechida() {
         initComponents();
     }
 
-    private void PopularJTableFuncionario(String sql, JTable jTbl_Funcionario) {
-        try {
-            // Conexão com o banco de dados
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_agenda_curso", "root", "");
-            PreparedStatement banco = con.prepareStatement(sql);
-            ResultSet resultado = banco.executeQuery();
+    public Tela_Cadastro_Preechida(String id) {
 
-            DefaultTableModel model = (DefaultTableModel) jTbl_Funcionario.getModel();
-            model.setNumRows(0);
-
-            while (resultado.next()) {
-                model.addRow(new Object[]{
-                    resultado.getString("id_funcionario"),
-                    resultado.getString("CPF"),
-                    resultado.getString("nome_completo"),
-                    resultado.getString("Telefone"),
-                    resultado.getString("email"),
-                    resultado.getString("turno"),
-                    resultado.getString("cargo"),
-                    resultado.getString("setor")
-                });
-            }
-
-        } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
-        }
     }
 
-    private int FindEqp(String query) throws SQLException {
+    private void CarregarTela() throws SQLException {
+        initComponents();
+        this.mascaraCombox();
+
+    }
+
+    private void mascaraCombox() {
+    }
+
+    public void carregarDadosFuncionario(String idFuncionario, String cpf, String nome, String telefone, String turno, String email, String cargo, String setor) {
+        jLabel2.setText(idFuncionario);
+        jLabel3.setText(cpf);
+        jLabel4.setText(nome);
+        jLabel6.setText(email);
+        jLabel5.setText(telefone);
+        jLabel9.setText(turno);
+        jLabel7.setText(cargo);
+        jLabel8.setText(setor);
+    }
+    
+
+    private int pegaIdSetor(String query) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
         int id = 0;
 
         try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            statement = connection.prepareStatement(query);
+
             statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
-            if (resultSet.next()) {
-                id = resultSet.getInt("id_equipe");
-            }
 
+            if (resultSet.next()) {
+                id = resultSet.getInt("id_setor");
+            }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+            System.out.println("Erro: " + erro.getMessage());
         }
 
         return id;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,16 +93,42 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Jpnl_Fundo_CadFunc = new javax.swing.JPanel();
+        Jpnl_Container_CadFunc = new javax.swing.JPanel();
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
+        Jlbl_Title_identificacao = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        Jlbl_CPF_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_Funcionario = new javax.swing.JTable();
-        Jbtn_Editar_SerachFunc = new javax.swing.JButton();
-        Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
-        Jtxtf_Consulta_SearchFunc = new javax.swing.JTextField();
-        Jbtn_Consulta_SearchFunc = new javax.swing.JButton();
-        Jbtn_Treinamento = new javax.swing.JButton();
+        Jlbl_Nome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        Jpnl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
+        Jlbl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Email_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Numero_Tela_Adicionar_Funcionario1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        Jpnl_Area_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
+        Jlbl_Area_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Codigo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Turno_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        Jlbl_Cargo_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        Jlbl_Numero_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -121,105 +146,333 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 832));
+        setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpnl_Fundo_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jpnl_Fundo_CadFunc.setMaximumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadFunc.setMinimumSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadFunc.setPreferredSize(new java.awt.Dimension(1280, 832));
+        Jpnl_Fundo_CadFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jpnl_Container_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jpnl_Container_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Container_CadFunc.setPreferredSize(new java.awt.Dimension(1000, 797));
+        Jpnl_Container_CadFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setText("Cadastro Funcionário");
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(351, 49));
+        Jpnl_Container_CadFunc.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Title_identificacao.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Title_identificacao.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Title_identificacao.setText("Identificação");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Title_identificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel3.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
+
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("ID:");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome Completo: ");
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 160, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.setPreferredSize(new java.awt.Dimension(1000, 797));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Pesquisa Funcionario");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        jLabel4.setText("jLabel4");
 
-        jTbl_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "CPF", "Nome", "Telefone", "Email", "Turno", "Cargo", "Setor"
-            }
-        ));
-        jTbl_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTbl_FuncionarioMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTbl_Funcionario);
-        if (jTbl_Funcionario.getColumnModel().getColumnCount() > 0) {
-            jTbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
-            jTbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
-        }
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(325, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 880, 440));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 370, 30));
 
-        Jbtn_Editar_SerachFunc.setText("Editar");
-        Jbtn_Editar_SerachFunc.addActionListener(new java.awt.event.ActionListener() {
+        Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+
+        Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 114));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Contato_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Contato_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Contato_Tela_Adicionar_Funcionario.setText("Contato");
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        Jlbl_Email_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Email_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Email_Tela_Adicionar_Funcionario.setText("Email:");
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        Jlbl_Numero_Tela_Adicionar_Funcionario1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Numero_Tela_Adicionar_Funcionario1.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Numero_Tela_Adicionar_Funcionario1.setText("Celular:");
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel5.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addContainerGap())
+        );
+
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel6.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addContainerGap())
+        );
+
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        Jpnl_Container_CadFunc.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+
+        Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
+        Jpnl_Area_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Jpnl_Area_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
+        Jpnl_Area_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Area_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Area_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Area_Tela_Adicionar_Funcionario.setText("Área/Atuação");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Cargo_Tela_Adicionar_Funcionario.setText("Cargo: ");
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel7.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
+        );
+
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel8.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addContainerGap())
+        );
+
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.setPreferredSize(new java.awt.Dimension(248, 30));
+
+        jLabel9.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
+
+        Jlbl_Numero_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Numero_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
+        Jpnl_Container_CadFunc.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(243, 236, 196));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Editar");
+        jButton1.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jpnl_Container_CadFunc.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(243, 236, 196));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Apagar");
+        jButton2.setPreferredSize(new java.awt.Dimension(151, 35));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Editar_SerachFuncActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 710, -1, -1));
 
-        Jbtn_Apagar_SearchFunc.setText("Apagar");
-        Jbtn_Apagar_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Apagar_SearchFuncActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
-
-        Jtxtf_Consulta_SearchFunc.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_Consulta_SearchFunc.setToolTipText("");
-        Jtxtf_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(90, 30));
-        Jtxtf_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(90, 30));
-        Jtxtf_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(90, 30));
-        Jtxtf_Consulta_SearchFunc.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                Jtxtf_Consulta_SearchFuncCaretUpdate(evt);
-            }
-        });
-        Jtxtf_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jtxtf_Consulta_SearchFuncActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 250, -1));
-        Jtxtf_Consulta_SearchFunc.getAccessibleContext().setAccessibleName("");
-
-        Jbtn_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_Consulta_SearchFunc.setText("Consultar");
-        Jbtn_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Consulta_SearchFunc.setPreferredSize(new java.awt.Dimension(100, 30));
-        Jbtn_Consulta_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Consulta_SearchFuncActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
-
-        Jbtn_Treinamento.setText("Treinamentos");
-        Jbtn_Treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_TreinamentoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Jbtn_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 710, -1, -1));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -408,60 +661,29 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Jpnl_Fundo_CadFunc.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jpnl_Fundo_CadFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
+
     }//GEN-LAST:event_formWindowOpened
 
-    private void Jbtn_Editar_SerachFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_SerachFuncActionPerformed
-
-    }//GEN-LAST:event_Jbtn_Editar_SerachFuncActionPerformed
-
-    private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
-        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0) {
-            Connection connection = null;
-            PreparedStatement statement = null;
-
-            String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-            String user = "root";
-            String psswrd = "";
-
-            try {
-                connection = DriverManager.getConnection(url, user, psswrd);
-                String query = "DELETE FROM funcionario WHERE id_funcionario = ?;";
-                statement = connection.prepareStatement(query);
-                statement.setInt(1, Integer.parseInt(jTbl_Funcionario.getValueAt(jTbl_Funcionario.getSelectedRow(), 0).toString()));
-                statement.execute();
-                this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
-            } catch (SQLException erro) {
-                System.out.println("erro: " + erro.getMessage());
-                System.out.println("erro: " + erro.getSQLState());
-            }
-        }
-    }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
-
-    private void Jbtn_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Consulta_SearchFuncActionPerformed
-
-        String nome = Jtxtf_Consulta_SearchFunc.getText();
-
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'", jTbl_Funcionario);
-
-    }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -478,7 +700,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_Cadastro_Preechida Tela_CadFunc = new Tela_Cadastro_Preechida();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -500,7 +722,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_Cadastro_Preechida Tela_CadFunc = new Tela_Cadastro_Preechida();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -553,6 +775,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
+
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -591,48 +814,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
-    private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
-
-        // vincular treinamento ao funcionario via equipe vinculada ao treinamento
-
-        try {
-            int linha = jTbl_Funcionario.getSelectedRow();
-            int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = " + linha);
-            JOptionPane.showMessageDialog(null, linha);
-        } catch (SQLException ex) {
-            Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
-
-    private void jTbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_FuncionarioMouseClicked
-
-        int linhaSelecionada = jTbl_Funcionario.getSelectedRow();
-
-        if (linhaSelecionada != -1) {
-
-            String idFuncionario = jTbl_Funcionario.getValueAt(linhaSelecionada, 0).toString();
-            String cpf = jTbl_Funcionario.getValueAt(linhaSelecionada, 1).toString();
-            String nome = jTbl_Funcionario.getValueAt(linhaSelecionada, 2).toString();
-            String telefone = jTbl_Funcionario.getValueAt(linhaSelecionada, 3).toString();
-            String email = jTbl_Funcionario.getValueAt(linhaSelecionada, 4).toString();
-            String turno = jTbl_Funcionario.getValueAt(linhaSelecionada, 5).toString();
-            String cargo = jTbl_Funcionario.getValueAt(linhaSelecionada, 6).toString();
-            String setor = jTbl_Funcionario.getValueAt(linhaSelecionada, 7).toString();
-
-            Tela_Cadastro_Preechida telaprenchida = new Tela_Cadastro_Preechida();
-            telaprenchida.carregarDadosFuncionario(idFuncionario, cpf, nome, telefone, email, turno, cargo, setor);
-            telaprenchida.setVisible(true);
-        }
-    }//GEN-LAST:event_jTbl_FuncionarioMouseClicked
-
-    private void Jtxtf_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncActionPerformed
-
-    private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
-        // TODO add your handling code here: DELETAR METODO
-    }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -651,50 +835,79 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Preechida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Preechida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Preechida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Preechida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Pesquisar_Funcionario().setVisible(true);
+                new Tela_Cadastro_Preechida().setVisible(true);
             }
         });
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_BarraLateral;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
-    private javax.swing.JButton Jbtn_Apagar_SearchFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
-    private javax.swing.JButton Jbtn_Consulta_SearchFunc;
-    private javax.swing.JButton Jbtn_Editar_SerachFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
-    private javax.swing.JButton Jbtn_Treinamento;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
+    private javax.swing.JLabel Jlbl_Area_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_CPF_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Cadastrar_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Cargo_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Codigo_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Contato_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Email_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
+    private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario1;
+    private javax.swing.JLabel Jlbl_Title_identificacao;
+    private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JTextField Jtxtf_Consulta_SearchFunc;
+    private javax.swing.JPanel Jpnl_Area_Tela_Adicionar_Funcionario;
+    private javax.swing.JPanel Jpnl_Container_CadFunc;
+    private javax.swing.JPanel Jpnl_Contato_Tela_Adicionar_Funcionario;
+    private javax.swing.JPanel Jpnl_Fundo_CadFunc;
+    private javax.swing.JPanel Jpnl_Identificacao_Tela_Adicionar_Funcionario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_Funcionario;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author mathe
  */
+
 public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
     /**
@@ -41,18 +42,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         initComponents();
         this.mascaraCombox();
 
-    }
-
-    public void carregarDadosFuncionario(String idFuncionario, String cpf, String nome, String telefone, String turno , String email, String cargo, String setor) {
-        jLabel2.setText(idFuncionario);
-        Jftxtf_CPF_CadFunc.setText(cpf);
-        Jtxtf_Nome_CadFunc.setText(nome);
-        Jtxtf_Sobrenome_CadFunc.setText(nome);
-        Jtxtf_Email_CadFunc.setText(email);
-        Jftxtf_Telefone_CadFunc.setText(telefone);
-        Jcmbx_Turno_CadFunc.setSelectedItem(turno);
-        Jcmbx_Cargo_CadFunc.setSelectedItem(cargo);
-        Jcmbx_Setor_CadFunc.setSelectedItem(setor);
     }
 
     private void mascaraCombox() {
@@ -130,9 +119,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jtxtf_Sobrenome_CadFunc = new javax.swing.JTextField();
         Jftxtf_CPF_CadFunc = new javax.swing.JFormattedTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         Jpnl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JPanel();
         Jlbl_Contato_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
         Jlbl_Numero_Tela_Adicionar_Funcionario = new javax.swing.JLabel();
@@ -207,31 +193,32 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         Jtxtf_Nome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Nome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Nome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Nome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Nome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Nome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setText("Sobrenome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         Jtxtf_Sobrenome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Sobrenome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Sobrenome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Sobrenome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
         Jftxtf_CPF_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jftxtf_CPF_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jftxtf_CPF_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
         try {
             Jftxtf_CPF_CadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -239,37 +226,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         Jftxtf_CPF_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("ID:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(248, 30));
-
-        jLabel2.setText("jLabel2");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(203, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
@@ -301,6 +258,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         Jftxtf_Telefone_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
+        Jftxtf_Telefone_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jftxtf_Telefone_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
         try {
             Jftxtf_Telefone_CadFunc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
@@ -329,7 +287,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
@@ -359,7 +317,12 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Setor_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jcmbx_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 250, -1));
+        Jcmbx_Setor_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Setor_CadFuncActionPerformed(evt);
+            }
+        });
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
@@ -624,7 +587,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.mascaraCombox();
 
         try {
-            this.popCmBoxSetor("SELECT * FROM vw_setor");
+            this.popCmBoxSetor("SELECT * FROM setor");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -633,6 +596,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
+
+    private void Jcmbx_Setor_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Setor_CadFuncActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -671,7 +638,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_Cadastro_Preechida Tela_CadFunc = new Tela_Cadastro_Preechida();
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -724,7 +691,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
-
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -767,37 +733,37 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Tela_Cadastro_Funcionario().setVisible(true);
-            }
-        });
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+    //</editor-fold>
+
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new Tela_Cadastro_Funcionario().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_BarraLateral;
@@ -841,9 +807,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JTextField Jtxtf_Email_CadFunc;
     private javax.swing.JTextField Jtxtf_Nome_CadFunc;
     private javax.swing.JTextField Jtxtf_Sobrenome_CadFunc;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
 }
