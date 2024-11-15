@@ -149,7 +149,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         
         int id = 0;
         try {
-            statement.execute(query);
+            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()){
                 id = resultSet.getInt("id_equipe");
@@ -161,6 +161,41 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         
         return id;
     }
+    
+    private boolean VerificaCadastro(int id_equipeSelec, int id_treino){
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        boolean isValid = true;
+        
+        try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query_GetIdEquipeByCadEqpTreino = "SELECT * FROM vw_CadEqpTreino WHERE id_treinamento = "+id_treino;
+            statement = connection.prepareStatement(query_GetIdEquipeByCadEqpTreino);
+            statement.execute();
+            
+            ResultSet resultSet = statement.executeQuery();
+            int id_equipeEncontrada = 0;
+            
+            while(resultSet.next()){
+                id_equipeEncontrada = resultSet.getInt("id_equipe");
+                if(id_equipeEncontrada == id_equipeSelec){
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+            System.out.println("linha 194");
+        }
+        
+        return isValid;
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -668,30 +703,45 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Connection connection = null;
         PreparedStatement statement = null;
         
+        String nomeEqp = (String) Jcmbx_Equipe_Alocar_Treinamento.getSelectedItem();
+        int id_equipeSelec;
+        
+        int instLine = Jtbl_instrutor.getSelectedRow();
+        int instId = Integer.parseInt(Jtbl_instrutor.getValueAt(instLine, 0).toString());
+        
+        int linha_TreinoSelec = Jtbl_Treinamento.getSelectedRow();
+        int id_treino = Integer.parseInt(Jtbl_Treinamento.getValueAt(linha_TreinoSelec, 0).toString());
+        
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = ("INSERT INTO cadastro_equipe_treinamento (id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
+            id_equipeSelec = getIdEqp("SELECT * FROM vw_equipe WHERE nome LIKE "+nomeEqp);
+            
+            if(VerificaCadastro(id_equipeSelec, id_treino)){
+                String query = 
+                    ("INSERT INTO cadastro_equipe_treinamento "
+                    + "(id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
                     + "VALUES(?,?,?,?,?,?)");
-            statement = connection.prepareStatement(query);
-            
-            String nomeEqp = (String) Jcmbx_Equipe_Alocar_Treinamento.getSelectedItem();
-            //String nomeInst = (String) Jcmbx_Instrutor_Alocar_Treinamento.getSelectedItem();
-            String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
-            int treinoLine = Jtbl_Treinamento.getSelectedRow();
-            int instLine = Jtbl_instrutor.getSelectedRow();
-            
-            statement.setInt(1, getIdEqp("SELECT * FROM vw_equipe WHERE nome LIKE '"+nomeEqp+"'"));
-            statement.setInt(2, Integer.parseInt(Jtbl_Treinamento.getValueAt(treinoLine, 0).toString()));
-            statement.setInt(3, Integer.parseInt(Jtbl_instrutor.getValueAt(instLine, 0).toString()));
-            statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
-            statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
-            statement.setString(6, formato);
-            statement.execute();
-            JOptionPane.showMessageDialog(null, "Cadastro realizado");
+                statement = connection.prepareStatement(query);
+                
+                String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+
+                statement.setInt(1, id_equipeSelec);
+                statement.setInt(2, id_treino);
+                statement.setInt(3, instId);
+                statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
+                statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
+                statement.setString(6, formato);
+                statement.execute();
+                JOptionPane.showMessageDialog(null, "Cadastro realizado");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Equipe Já cadastrada ao treinamento");
+            }
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
             System.out.println("Erro: "+ erro.getMessage());
+            System.out.println("linha 743");
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
 

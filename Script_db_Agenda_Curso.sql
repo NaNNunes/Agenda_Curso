@@ -2,6 +2,13 @@ create database db_agenda_curso;
 use db_agenda_curso;
 DROP DATABASE db_agenda_curso;
 
+CREATE TABLE usuario(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) UNIQUE,
+    senha VARCHAR(50),
+    tipo_usuario ENUM('admin', 'operador', 'supervisor') DEFAULT 'operador'
+);
+
 CREATE TABLE setor (
     id_setor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(20) UNIQUE,
@@ -131,6 +138,15 @@ CREATE OR REPLACE VIEW vw AS
         treinamento.validade;
         
 -- ///////////////////////////////////////////////////////////////////
+
+-- erro code 1034 para criação de usuarios e permissoes
+
+-- CREATE USER 'nome'@localhost IDENTIFIED BY '12345';
+/* ERRO 1194
+	GRANT SELECT(id_funcionario, nome_completo, telefone, turno, cargo, setor) 
+	ON db_agenda_curso.vw_funcionario TO 'nome'@localhost WITH GRANT OPTION;
+*/
+-- //////////////////////////////////////////////////////////////////
     
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
@@ -150,4 +166,6 @@ desc vw_equipe;
 
 desc cadastro_equipe_treinamento;
 desc cadastro_funcionario_equipe;
-
+-- //////////////////////////////////////////////////////
+INSERT INTO usuario(usuario, senha) VALUES("login", "login"); -- senha e login padrao
+select * from usuario;
