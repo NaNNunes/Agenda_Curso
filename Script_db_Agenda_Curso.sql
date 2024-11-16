@@ -93,11 +93,31 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         funcionario.turno,
         funcionario.cargo,
         setor.sigla AS setor
+<<<<<<< HEAD
     FROM
+=======
+	FROM
+>>>>>>> b0ac7cc4bd4ac411f4b6c4a2d5362f7383d74887
         funcionario
-            INNER JOIN
+	INNER JOIN
         setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
 DROP VIEW vw_funcionario;
+
+CREATE OR REPLACE VIEW vw_dadosFuncionario AS
+    SELECT 
+        funcionario.id_funcionario,
+        funcionario.cpf, 
+        funcionario.nome,
+        funcionario.sobrenome,
+        funcionario.telefone,
+        funcionario.email,
+        funcionario.turno,
+        funcionario.cargo,
+        setor.sigla AS setor
+	FROM
+        funcionario
+	INNER JOIN
+        setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
 
 CREATE VIEW vw_Equipe AS
 	SELECT
@@ -139,11 +159,14 @@ CREATE OR REPLACE VIEW vw_CadFuncEqp AS -- maturar
     RIGHT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
 DROP VIEW vw_CadFuncEqp; 
 
-CREATE OR REPLACE VIEW vw AS
+CREATE OR REPLACE VIEW vw_CadEqpTreino AS
 	SELECT 
-		treinamento.nome,
-        treinamento.validade;
-        
+		equipe.id_equipe,
+		treinamento.id_treinamento
+	FROM cadastro_equipe_treinamento
+    LEFT JOIN treinamento ON cadastro_equipe_treinamento.id_treinamento = treinamento.id_treinamento
+    RIGHT JOIN equipe ON cadastro_equipe_treinamento.id_equipe = equipe.id_equipe;
+DROP VIEW vw_CadEqpTreino; 
 -- ///////////////////////////////////////////////////////////////////
 
 -- erro code 1034 para criação de usuarios e permissoes
@@ -158,8 +181,18 @@ CREATE OR REPLACE VIEW vw AS
 >>>>>>> 35ef3e234012f2009d2ba8032a6812f1031013d0
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
+DELETE FROM cadastro_equipe_treinamento WHERE id_cadastro > 0;
 
 select * from vw_funcionario;
+<<<<<<< HEAD
+=======
+select * from vw_equipe;
+select * from vw_treinamento;
+select * from vw_setor;
+select * from vw_getId_Instrutor;
+SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
+SELECT * FROM vw_CadEqpTreino;
+>>>>>>> b0ac7cc4bd4ac411f4b6c4a2d5362f7383d74887
 
 
 <<<<<<< HEAD

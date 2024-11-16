@@ -15,6 +15,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -316,6 +319,11 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jftxtf_prevInicion_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevInicion_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevInicion_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevInicion_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jftxtf_prevInicion_CadTreinoActionPerformed(evt);
+            }
+        });
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevInicion_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         Jlbl_Previsao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -692,6 +700,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jckbx_Obrigatorio_CadTreino_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jckbx_Obrigatorio_CadTreino_ActionPerformed
@@ -715,35 +724,54 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         int linha_TreinoSelec = Jtbl_Treinamento.getSelectedRow();
         int id_treino = Integer.parseInt(Jtbl_Treinamento.getValueAt(linha_TreinoSelec, 0).toString());
         
+        String strInitDate = Jftxtf_prevInicion_CadTreino.getText();
+        String strFinalDate = Jftxtf_prevFim_CadTreino.getText();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+         
+        Date Initdate = null;
+        Date Finaldate = null;
+        
         try {
-            connection = DriverManager.getConnection(url, user, psswrd);
-            
-            if(VerificaCadastro(id_equipeSelec, id_treino)){
-                String query = 
-                    ("INSERT INTO cadastro_equipe_treinamento"
-                    + "(id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
-                    + "VALUES(?,?,?,?,?,?)");
-                statement = connection.prepareStatement(query);
-                
-                String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+            Initdate = format.parse(strInitDate);
+            Finaldate = format.parse(strFinalDate);
+        } catch (ParseException ex) {
+            Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (Finaldate.compareTo(Initdate) >= 0){
+            try {
+                connection = DriverManager.getConnection(url, user, psswrd);
 
-                statement.setInt(1, id_equipeSelec);
-                statement.setInt(2, id_treino);
-                statement.setInt(3, instId);
-                statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
-                statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
-                statement.setString(6, formato);
-                statement.execute();
-                JOptionPane.showMessageDialog(null, "Cadastro realizado");
+                if(VerificaCadastro(id_equipeSelec, id_treino)){
+                    String query = 
+                        ("INSERT INTO cadastro_equipe_treinamento"
+                        + "(id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
+                        + "VALUES(?,?,?,?,?,?)");
+                    statement = connection.prepareStatement(query);
+
+                    String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
+
+                    statement.setInt(1, id_equipeSelec);
+                    statement.setInt(2, id_treino);
+                    statement.setInt(3, instId);
+                    statement.setString(4, Jftxtf_prevInicion_CadTreino.getText());
+                    statement.setString(5, Jftxtf_prevFim_CadTreino.getText());
+                    statement.setString(6, formato);
+                    statement.execute();
+                    JOptionPane.showMessageDialog(null, "Cadastro realizado");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Equipe Já cadastrada ao treinamento");
+                }
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Equipe Já cadastrada ao treinamento");
+            catch (SQLException erro){
+                JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+                System.out.println("Erro: "+ erro.getMessage());
+                System.out.println("linha 743");
             }
         }
-        catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
-            System.out.println("Erro: "+ erro.getMessage());
-            System.out.println("linha 743");
+        else {
+            JOptionPane.showMessageDialog(null, "Datas não válidas");
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
 
@@ -938,6 +966,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Jbtn_ConsultaEqp_AlocaTreinoActionPerformed
+
+    private void Jftxtf_prevInicion_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jftxtf_prevInicion_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jftxtf_prevInicion_CadTreinoActionPerformed
 
     /**
      * @param args the command line arguments

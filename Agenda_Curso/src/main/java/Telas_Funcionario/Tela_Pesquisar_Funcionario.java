@@ -98,7 +98,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_Funcionario = new javax.swing.JTable();
+        Jtbl_Funcionario = new javax.swing.JTable();
         Jbtn_Editar_SerachFunc = new javax.swing.JButton();
         Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
         Jtxtf_Consulta_SearchFunc = new javax.swing.JTextField();
@@ -143,7 +143,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jLabel1.setText("Pesquisa Funcionario");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
 
-        jTbl_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
+        Jtbl_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -154,15 +154,15 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 "ID", "CPF", "Nome", "Telefone", "Email", "Turno", "Cargo", "Setor"
             }
         ));
-        jTbl_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
+        Jtbl_Funcionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTbl_FuncionarioMouseClicked(evt);
+                Jtbl_FuncionarioMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTbl_Funcionario);
-        if (jTbl_Funcionario.getColumnModel().getColumnCount() > 0) {
-            jTbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
-            jTbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
+        jScrollPane1.setViewportView(Jtbl_Funcionario);
+        if (Jtbl_Funcionario.getColumnModel().getColumnCount() > 0) {
+            Jtbl_Funcionario.getColumnModel().getColumn(0).setMinWidth(50);
+            Jtbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 880, 440));
@@ -428,11 +428,49 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
+        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", Jtbl_Funcionario);
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_Editar_SerachFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_SerachFuncActionPerformed
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
 
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        int linha = Jtbl_Funcionario.getSelectedRow();
+        int id_funcionario = Integer.parseInt(Jtbl_Funcionario.getValueAt(linha, 0).toString());
+        
+        try{
+            connection = DriverManager.getConnection(url,user,psswrd);
+            String query = "SELECT * FROM vw_dadosFuncionario WHERE id_funcionario = "+id_funcionario;
+            statement = connection.prepareStatement(query);
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            
+            String[] dados = new String[9];
+            if(resultSet.next()){
+                dados[0] = resultSet.getString("id_funcionario");
+                dados[1] = resultSet.getString("cpf");
+                dados[2] = resultSet.getString("nome");
+                dados[3] = resultSet.getString("sobrenome");
+                dados[4] = resultSet.getString("telefone");
+                dados[5] = resultSet.getString("email");
+                dados[6] = resultSet.getString("turno");
+                dados[7] = resultSet.getString("cargo");
+                dados[8] = resultSet.getString("setor");
+            }
+            
+            Tela_Cadastro_Funcionario tela_funcionario = new Tela_Cadastro_Funcionario();
+            tela_funcionario.Editar_CadFunc(dados);
+            tela_funcionario.setVisible(true);
+            this.dispose();
+            
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }//GEN-LAST:event_Jbtn_Editar_SerachFuncActionPerformed
 
     private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
@@ -448,9 +486,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 connection = DriverManager.getConnection(url, user, psswrd);
                 String query = "DELETE FROM funcionario WHERE id_funcionario = ?;";
                 statement = connection.prepareStatement(query);
-                statement.setInt(1, Integer.parseInt(jTbl_Funcionario.getValueAt(jTbl_Funcionario.getSelectedRow(), 0).toString()));
+                statement.setInt(1, Integer.parseInt(Jtbl_Funcionario.getValueAt(Jtbl_Funcionario.getSelectedRow(), 0).toString()));
                 statement.execute();
-                this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", jTbl_Funcionario);
+                this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", Jtbl_Funcionario);
             } catch (SQLException erro) {
                 System.out.println("erro: " + erro.getMessage());
                 System.out.println("erro: " + erro.getSQLState());
@@ -462,7 +500,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
         String nome = Jtxtf_Consulta_SearchFunc.getText();
 
-        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'", jTbl_Funcionario);
+        this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'", Jtbl_Funcionario);
 
     }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed
 
@@ -599,7 +637,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         // vincular treinamento ao funcionario via equipe vinculada ao treinamento
 
         try {
-            int linha = jTbl_Funcionario.getSelectedRow();
+            int linha = Jtbl_Funcionario.getSelectedRow();
             int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = " + linha);
             JOptionPane.showMessageDialog(null, linha);
         } catch (SQLException ex) {
@@ -608,9 +646,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
 
-    private void jTbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_FuncionarioMouseClicked
+    private void Jtbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtbl_FuncionarioMouseClicked
 
-    }//GEN-LAST:event_jTbl_FuncionarioMouseClicked
+    }//GEN-LAST:event_Jtbl_FuncionarioMouseClicked
 
     private void Jtxtf_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncActionPerformed
         // TODO add your handling code here:
@@ -677,10 +715,10 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Fundo_SearchFunc;
+    private javax.swing.JTable Jtbl_Funcionario;
     private javax.swing.JTextField Jtxtf_Consulta_SearchFunc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_Funcionario;
     // End of variables declaration//GEN-END:variables
 }
