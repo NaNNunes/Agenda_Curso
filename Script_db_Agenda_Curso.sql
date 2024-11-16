@@ -132,11 +132,14 @@ CREATE OR REPLACE VIEW vw_CadFuncEqp AS -- maturar
     RIGHT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
 DROP VIEW vw_CadFuncEqp; 
 
-CREATE OR REPLACE VIEW vw AS
+CREATE OR REPLACE VIEW vw_CadEqpTreino AS
 	SELECT 
-		treinamento.nome,
-        treinamento.validade;
-        
+		equipe.id_equipe,
+		treinamento.id_treinamento
+	FROM cadastro_equipe_treinamento
+    LEFT JOIN treinamento ON cadastro_equipe_treinamento.id_treinamento = treinamento.id_treinamento
+    RIGHT JOIN equipe ON cadastro_equipe_treinamento.id_equipe = equipe.id_equipe;
+DROP VIEW vw_CadEqpTreino; 
 -- ///////////////////////////////////////////////////////////////////
 
 -- erro code 1034 para criação de usuarios e permissoes
@@ -150,6 +153,7 @@ CREATE OR REPLACE VIEW vw AS
     
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
+DELETE FROM cadastro_equipe_treinamento WHERE id_cadastro > 0;
 
 select * from vw_funcionario;
 select * from vw_equipe;
@@ -157,6 +161,7 @@ select * from vw_treinamento;
 select * from vw_setor;
 select * from vw_getId_Instrutor;
 SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
+SELECT * FROM vw_CadEqpTreino;
 
 select * from cadastro_funcionario_equipe;
 select * from cadastro_equipe_treinamento;

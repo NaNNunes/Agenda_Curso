@@ -15,6 +15,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -316,6 +319,11 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jftxtf_prevInicion_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevInicion_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevInicion_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jftxtf_prevInicion_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jftxtf_prevInicion_CadTreinoActionPerformed(evt);
+            }
+        });
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevInicion_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         Jlbl_Previsao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -715,6 +723,17 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         int linha_TreinoSelec = Jtbl_Treinamento.getSelectedRow();
         int id_treino = Integer.parseInt(Jtbl_Treinamento.getValueAt(linha_TreinoSelec, 0).toString());
         
+        String dtInicio_txt = Jftxtf_prevInicion_CadTreino.getText();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+         
+        try {
+            Date dataInicio = format.parse(dtInicio_txt);
+            JOptionPane.showMessageDialog(null, dataInicio);
+        } catch (ParseException ex) {
+            Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
             
@@ -938,6 +957,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Jbtn_ConsultaEqp_AlocaTreinoActionPerformed
+
+    private void Jftxtf_prevInicion_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jftxtf_prevInicion_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jftxtf_prevInicion_CadTreinoActionPerformed
 
     /**
      * @param args the command line arguments
