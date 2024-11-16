@@ -6,6 +6,7 @@ package Telas_Funcionario;
 
 import Telas_Equipe.Tela_Cadastro_Equipe;
 import Telas_Equipe.Tela_Pesquisa_Equipe;
+import Telas_Iniciais.Cadastro_Funcionario_Equipe;
 import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
@@ -54,9 +55,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.Jtxtf_Sobrenome_CadFunc.setText(dados[3]);
         this.Jftxtf_Telefone_CadFunc.setText(dados[4]);
         this.Jtxtf_Email_CadFunc.setText(dados[5]);
-        this.Jcmbx_Turno_CadFunc.setSelectedItem(dados[6]);
-        this.Jcmbx_Cargo_CadFunc.setSelectedItem(dados[7]);
-        this.Jcmbx_Setor_CadFunc.setSelectedItem(dados[8]);
+        this.Jcmbx_Turno_CadFunc.getModel().setSelectedItem(dados[6]);
+        this.Jcmbx_Cargo_CadFunc.getModel().setSelectedItem(dados[7]);
+        this.Jcmbx_Setor_CadFunc.getModel().setSelectedItem(dados[8]);
     }
     
     private void mascaraCombox() {
@@ -362,6 +363,11 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jbtn_AddEquipe_cadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
         Jbtn_AddEquipe_cadFunc.setMinimumSize(new java.awt.Dimension(130, 40));
         Jbtn_AddEquipe_cadFunc.setPreferredSize(new java.awt.Dimension(130, 40));
+        Jbtn_AddEquipe_cadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_AddEquipe_cadFuncActionPerformed(evt);
+            }
+        });
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jbtn_AddEquipe_cadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, -1));
 
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
@@ -606,14 +612,16 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario(CPF, nome, sobrenome, Telefone, email, turno, cargo, id_setor)"
-                    + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "UPDATE funcionario set CPF = ?, nome = ?, sobrenome = ?, "
+                + "Telefone = ?, email = ?, turno = ?, cargo = ?, id_setor = ? "
+                + "WHERE id_funcionario = "+id_funcionario;
             statement = connection.prepareStatement(query);
 
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
-            //String sigla = (String) ;
-
+            int setor = this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '"
+                + Jcmbx_Setor_CadFunc.getSelectedItem()+"'"); // tem que ter esse fechamento no final, top 10 sintaxes
+            
             statement.setString(1, Jftxtf_CPF_CadFunc.getText());
             statement.setString(2, Jtxtf_Nome_CadFunc.getText());
             statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
@@ -621,14 +629,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             statement.setString(5, Jtxtf_Email_CadFunc.getText());
             statement.setString(6, turno);
             statement.setString(7, cargo);
-
-            statement.setInt(8, this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '" + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"));
+            statement.setInt(8, setor);
 
             statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
-
-            
-
+            JOptionPane.showMessageDialog(null, "Cadastrado editado!");
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println(erro);
@@ -789,8 +793,48 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
 
     private void Jbtn_Salvar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadFuncActionPerformed
-        // TODO add your handling code here:
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        try {
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "INSERT INTO funcionario(CPF, nome, sobrenome, Telefone, email, turno, cargo, id_setor)"
+                    + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+            statement = connection.prepareStatement(query);
+
+            String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
+            String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
+            //String sigla = (String) ;
+
+            statement.setString(1, Jftxtf_CPF_CadFunc.getText());
+            statement.setString(2, Jtxtf_Nome_CadFunc.getText());
+            statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
+            statement.setString(4, Jftxtf_Telefone_CadFunc.getText());
+            statement.setString(5, Jtxtf_Email_CadFunc.getText());
+            statement.setString(6, turno);
+            statement.setString(7, cargo);
+
+            statement.setInt(8, this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '" + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"));
+
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
+            System.out.println(erro);
+            System.out.println("Erro: " + erro.getMessage());
+        }
     }//GEN-LAST:event_Jbtn_Salvar_CadFuncActionPerformed
+    
+    // tela de inserir funcionario à equipe
+    private void Jbtn_AddEquipe_cadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AddEquipe_cadFuncActionPerformed
+        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe();
+        Cad_FuncEqp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
 
     /**
      * @param args the command line arguments
