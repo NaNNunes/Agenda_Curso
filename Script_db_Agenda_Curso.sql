@@ -78,7 +78,7 @@ CREATE TABLE cadastro_equipe_treinamento (
         REFERENCES funcionario (id_funcionario)
 );
 
-CREATE VIEW vw_getId_setor AS
+CREATE VIEW vw_getid_setor AS
 	SELECT id_setor FROM setor
 WITH CHECK OPTION;
 DROP VIEW vw_getId_setor;
@@ -99,7 +99,7 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
 DROP VIEW vw_funcionario;
 
-CREATE OR REPLACE VIEW vw_dadosFuncionario AS
+CREATE OR REPLACE VIEW vw_dadosfuncionario AS
     SELECT 
         funcionario.id_funcionario,
         funcionario.cpf, 
@@ -136,7 +136,7 @@ CREATE OR REPLACE VIEW vw_setor AS
 		sigla
 	FROM setor WITH CHECK OPTION;
         
-CREATE OR REPLACE VIEW vw_getID_Instrutor AS
+CREATE OR REPLACE VIEW vw_getid_instrutor AS
     SELECT 
         funcionario.id_funcionario as id_instrutor
     FROM
@@ -149,8 +149,8 @@ CREATE OR REPLACE VIEW vw_CadFuncEqp AS -- maturar
         equipe.id_equipe,
         funcionario.id_funcionario
 	FROM cadastro_funcionario_equipe
-    LEFT JOIN equipe ON cadastro_funcionario_equipe.id_equipe = equipe.id_equipe
-    RIGHT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
+    RIGHT JOIN equipe ON cadastro_funcionario_equipe.id_equipe = equipe.id_equipe
+    LEFT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
 DROP VIEW vw_CadFuncEqp; 
 
 CREATE OR REPLACE VIEW vw_CadEqpTreino AS
@@ -161,6 +161,7 @@ CREATE OR REPLACE VIEW vw_CadEqpTreino AS
     LEFT JOIN treinamento ON cadastro_equipe_treinamento.id_treinamento = treinamento.id_treinamento
     RIGHT JOIN equipe ON cadastro_equipe_treinamento.id_equipe = equipe.id_equipe;
 DROP VIEW vw_CadEqpTreino; 
+
 -- ///////////////////////////////////////////////////////////////////
 
 -- erro code 1034 para criação de usuarios e permissoes
@@ -171,10 +172,14 @@ DROP VIEW vw_CadEqpTreino;
 	ON db_agenda_curso.vw_funcionario TO 'nome'@localhost WITH GRANT OPTION;
 */
 -- //////////////////////////////////////////////////////////////////
-    
-select * from cadastro_funcionario_equipe;
+
+>>>>>>> 9dfe09e940bdfba7757e9e6a6a9333adc01d5167
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
 DELETE FROM cadastro_equipe_treinamento WHERE id_cadastro > 0;
+DELETE FROM funcionario WHERE id_funcionario > 0;
+DELETE FROM equipe WHERE id_equipe > 0;
+
+select * from cadastro_funcionario_equipe;
 
 select * from vw_funcionario;
 select * from vw_equipe;
@@ -184,12 +189,11 @@ select * from vw_getId_Instrutor;
 SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
 SELECT * FROM vw_CadEqpTreino;
 
-
 desc vw_treinamento;
 desc vw_equipe;
-
 desc cadastro_equipe_treinamento;
 desc cadastro_funcionario_equipe;
+
 -- //////////////////////////////////////////////////////
 INSERT INTO usuario(usuario, senha) VALUES("login", "login"); -- senha e login padrao
 select * from usuario;
