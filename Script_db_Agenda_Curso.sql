@@ -27,13 +27,13 @@ CREATE TABLE funcionario (
     cargo ENUM('supervisor', 'instrutor', 'operador'),
     id_setor INT,
     CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor) REFERENCES setor (id_setor)
-);
+); 
 
-CREATE TABLE usuarios (
+CREATE TABLE usuarios ( 
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50) UNIQUE,
     senha VARCHAR(50),
-    tipo_usuario ENUM('admin', 'operador', 'supervisor') DEFAULT 'operador'
+    tipo_usuario ENUM('admin', 'operador', 'supervisor' , 'instrutor') DEFAULT 'operador'
 );
 DROP TABLE usuarios;
 
@@ -93,11 +93,7 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         funcionario.turno,
         funcionario.cargo,
         setor.sigla AS setor
-<<<<<<< HEAD
-    FROM
-=======
 	FROM
->>>>>>> b0ac7cc4bd4ac411f4b6c4a2d5362f7383d74887
         funcionario
 	INNER JOIN
         setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
@@ -135,8 +131,6 @@ CREATE OR REPLACE VIEW vw_treinamento AS
 		validade
     FROM treinamento WITH CHECK OPTION;
     
-<<<<<<< HEAD
-=======
 CREATE OR REPLACE VIEW vw_setor AS
 	SELECT
 		sigla
@@ -178,27 +172,19 @@ DROP VIEW vw_CadEqpTreino;
 */
 -- //////////////////////////////////////////////////////////////////
     
->>>>>>> 35ef3e234012f2009d2ba8032a6812f1031013d0
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
 DELETE FROM cadastro_equipe_treinamento WHERE id_cadastro > 0;
 
 select * from vw_funcionario;
-<<<<<<< HEAD
-=======
 select * from vw_equipe;
 select * from vw_treinamento;
 select * from vw_setor;
 select * from vw_getId_Instrutor;
 SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
 SELECT * FROM vw_CadEqpTreino;
->>>>>>> b0ac7cc4bd4ac411f4b6c4a2d5362f7383d74887
 
 
-<<<<<<< HEAD
-
-    
-=======
 desc vw_treinamento;
 desc vw_equipe;
 
@@ -207,4 +193,3 @@ desc cadastro_funcionario_equipe;
 -- //////////////////////////////////////////////////////
 INSERT INTO usuario(usuario, senha) VALUES("login", "login"); -- senha e login padrao
 select * from usuario;
->>>>>>> 35ef3e234012f2009d2ba8032a6812f1031013d0

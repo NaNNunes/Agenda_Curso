@@ -330,8 +330,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
 
     private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
-        if ("supervisor".equals(tipoUsuario)) {
-            Jlbl_TipoUsuario.setText("Supervisor");
+        if ("admin".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
@@ -347,8 +346,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario)) {
-            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
@@ -369,7 +367,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
-        if ("supervisor".equals(tipoUsuario)) {
+        if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
@@ -385,7 +383,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario)) {
+        } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
@@ -416,7 +414,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-        if ("supervisor".equals(tipoUsuario)) {
+        if ("admin".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
@@ -432,7 +430,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario)) {
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
@@ -449,12 +447,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     private void Jbtn_AlocarTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AlocarTreinoActionPerformed
-        if ("supervisor".equals(tipoUsuario)) {
+        if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
             Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento();
             CadEqp_Treino.setVisible(true);
             this.dispose();
 
-        } else if ("operador".equals(tipoUsuario)) {
+        } else if ("operador".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento();
             CadEqp_Treino.setVisible(false);
         } else {
@@ -463,14 +461,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_AlocarTreinoActionPerformed
 
     private void Jbtn_AlocarFuncEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AlocarFuncEqpActionPerformed
-        if ("supervisor".equals(tipoUsuario)) {
+        if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
             Cadastro_Funcionario_Equipe CadFunc_Treino = new Cadastro_Funcionario_Equipe();
             CadFunc_Treino.setVisible(true);
             this.dispose();
 
-        } else if ("operador".equals(tipoUsuario)) {
-            Cadastro_Funcionario_Equipe CadFunc_Treino = new Cadastro_Funcionario_Equipe();
-            CadFunc_Treino.setVisible(false);
+        
         } else {
             JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
