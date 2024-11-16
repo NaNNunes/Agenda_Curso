@@ -8,6 +8,7 @@ CREATE TABLE usuario(
     senha VARCHAR(50),
     tipo_usuario ENUM('admin', 'operador', 'supervisor') DEFAULT 'operador'
 );
+DROP TABLE usuario;
 
 CREATE TABLE setor (
     id_setor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -28,14 +29,6 @@ CREATE TABLE funcionario (
     id_setor INT,
     CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor) REFERENCES setor (id_setor)
 ); 
-
-CREATE TABLE usuarios ( 
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario VARCHAR(50) UNIQUE,
-    senha VARCHAR(50),
-    tipo_usuario ENUM('admin', 'operador', 'supervisor' , 'instrutor') DEFAULT 'operador'
-);
-DROP TABLE usuarios;
 
 CREATE TABLE equipe (
     id_equipe INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -162,6 +155,11 @@ CREATE OR REPLACE VIEW vw_CadEqpTreino AS
     RIGHT JOIN equipe ON cadastro_equipe_treinamento.id_equipe = equipe.id_equipe;
 DROP VIEW vw_CadEqpTreino; 
 
+-- visualizar nome do treinamento que a equipe do funcionario realizou
+CREATE OR REPLACE VIEW vw_treinoFunc AS 
+	SELECT vw_treinamento.nome, vw_cadeqptreino.id_treinamento, vw_cadeqptreino.id_equipe, vw_cadfunceqp.id_funcionario FROM  vw_cadeqptreino
+	LEFT JOIN vw_cadfunceqp ON vw_cadeqptreino.id_equipe = vw_cadfunceqp.id_equipe
+	RIGHT JOIN vw_treinamento ON vw_cadeqptreino.id_treinamento = vw_treinamento.id_treinamento;
 -- ///////////////////////////////////////////////////////////////////
 
 -- erro code 1034 para criação de usuarios e permissoes
@@ -173,7 +171,6 @@ DROP VIEW vw_CadEqpTreino;
 */
 -- //////////////////////////////////////////////////////////////////
 
->>>>>>> 9dfe09e940bdfba7757e9e6a6a9333adc01d5167
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
 DELETE FROM cadastro_equipe_treinamento WHERE id_cadastro > 0;
 DELETE FROM funcionario WHERE id_funcionario > 0;
@@ -189,11 +186,13 @@ select * from vw_getId_Instrutor;
 SELECT * from vw_CadFuncEqp; -- WHERE id_funcionario = 1;
 SELECT * FROM vw_CadEqpTreino;
 
+SELECT * FROM vw_treinoFunc; -- WHERE id_funcionario = 1;
+
 desc vw_treinamento;
 desc vw_equipe;
 desc cadastro_equipe_treinamento;
 desc cadastro_funcionario_equipe;
 
 -- //////////////////////////////////////////////////////
-INSERT INTO usuario(usuario, senha) VALUES("login", "login"); -- senha e login padrao
+INSERT INTO usuario(usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario;
