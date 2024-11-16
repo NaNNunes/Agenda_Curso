@@ -2,6 +2,13 @@ create database db_agenda_curso;
 use db_agenda_curso;
 DROP DATABASE db_agenda_curso;
 
+CREATE TABLE usuario(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) UNIQUE,
+    senha VARCHAR(50),
+    tipo_usuario ENUM('admin', 'operador', 'supervisor') DEFAULT 'operador'
+);
+
 CREATE TABLE setor (
     id_setor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(20) UNIQUE,
@@ -108,11 +115,63 @@ CREATE OR REPLACE VIEW vw_treinamento AS
 		validade
     FROM treinamento WITH CHECK OPTION;
     
+<<<<<<< HEAD
+=======
+CREATE OR REPLACE VIEW vw_setor AS
+	SELECT
+		sigla
+	FROM setor WITH CHECK OPTION;
+        
+CREATE OR REPLACE VIEW vw_getID_Instrutor AS
+    SELECT 
+        funcionario.id_funcionario as id_instrutor
+    FROM
+        funcionario
+    WHERE
+        funcionario.cargo LIKE 'instrutor';
+          
+CREATE OR REPLACE VIEW vw_CadFuncEqp AS -- maturar
+	SELECT
+        equipe.id_equipe,
+        funcionario.id_funcionario
+	FROM cadastro_funcionario_equipe
+    LEFT JOIN equipe ON cadastro_funcionario_equipe.id_equipe = equipe.id_equipe
+    RIGHT JOIN funcionario ON cadastro_funcionario_equipe.id_funcionario = funcionario.id_funcionario;
+DROP VIEW vw_CadFuncEqp; 
+
+CREATE OR REPLACE VIEW vw AS
+	SELECT 
+		treinamento.nome,
+        treinamento.validade;
+        
+-- ///////////////////////////////////////////////////////////////////
+
+-- erro code 1034 para criação de usuarios e permissoes
+
+-- CREATE USER 'nome'@localhost IDENTIFIED BY '12345';
+/* ERRO 1194
+	GRANT SELECT(id_funcionario, nome_completo, telefone, turno, cargo, setor) 
+	ON db_agenda_curso.vw_funcionario TO 'nome'@localhost WITH GRANT OPTION;
+*/
+-- //////////////////////////////////////////////////////////////////
+    
+>>>>>>> 35ef3e234012f2009d2ba8032a6812f1031013d0
 select * from cadastro_funcionario_equipe;
 DELETE FROM cadastro_funcionario_equipe WHERE id_cadastro > 0;
 
 select * from vw_funcionario;
 
 
+<<<<<<< HEAD
 
     
+=======
+desc vw_treinamento;
+desc vw_equipe;
+
+desc cadastro_equipe_treinamento;
+desc cadastro_funcionario_equipe;
+-- //////////////////////////////////////////////////////
+INSERT INTO usuario(usuario, senha) VALUES("login", "login"); -- senha e login padrao
+select * from usuario;
+>>>>>>> 35ef3e234012f2009d2ba8032a6812f1031013d0

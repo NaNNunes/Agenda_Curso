@@ -37,7 +37,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?";
+            String query = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
             statement = connection.prepareStatement(query);
 
             statement.setString(1, usuario);
@@ -56,6 +56,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null,"Erro ao conectar com o banco de dados.");
+            JOptionPane.showMessageDialog(null,"Erro: " + erro.getMessage());
         }
 
     }

@@ -606,7 +606,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             
             // verificar se funcionario ja esta incluso na equipe
-            String queryVW =  "SELECT * FROM vw_CadFuncEqp WHERE id_funcionario = "+ id_funcionario;
+            String queryVW =  "SELECT id_equipe FROM vw_CadFuncEqp WHERE id_funcionario = "+ id_funcionario;
             statement = connection.prepareStatement(queryVW);
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
@@ -614,6 +614,9 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             int id_equipeEncontrada = 0;
             while(resultSet.next()){
                 id_equipeEncontrada =  resultSet.getInt("id_equipe");
+                if(id_equipeEncontrada == id_equipe){
+                    break;
+                }
             }
             
             if (id_equipe == id_equipeEncontrada){
