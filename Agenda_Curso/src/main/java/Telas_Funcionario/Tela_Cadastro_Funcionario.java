@@ -30,20 +30,35 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Adicionar_Funcionario
      */
+    
+    private int id_funcionario;
+    
     public Tela_Cadastro_Funcionario() {
         initComponents();
-    }
-
-    public Tela_Cadastro_Funcionario(String id) {
-
-    }
-
-    private void CarregarTela() throws SQLException {
-        initComponents();
         this.mascaraCombox();
-
+        this.Jbtn_Treinos_CadFunc.setVisible(false);
+        this.Jbtn_AddEquipe_cadFunc.setVisible(false);
+        this.Jbtn_Editar_CadFunc.setVisible(false);
+        this.Jbtn_Salvar_CadFunc.setVisible(true);
     }
-
+    
+    public void Editar_CadFunc(String[] dados){
+        this.Jbtn_Treinos_CadFunc.setVisible(true);
+        this.Jbtn_AddEquipe_cadFunc.setVisible(true);
+        this.Jbtn_Editar_CadFunc.setVisible(true);
+        this.Jbtn_Salvar_CadFunc.setVisible(false);
+        
+        this.id_funcionario = Integer.parseInt(dados[0]);
+        this.Jftxtf_CPF_CadFunc.setText(dados[1]);
+        this.Jtxtf_Nome_CadFunc.setText(dados[2]);
+        this.Jtxtf_Sobrenome_CadFunc.setText(dados[3]);
+        this.Jftxtf_Telefone_CadFunc.setText(dados[4]);
+        this.Jtxtf_Email_CadFunc.setText(dados[5]);
+        this.Jcmbx_Turno_CadFunc.setSelectedItem(dados[6]);
+        this.Jcmbx_Cargo_CadFunc.setSelectedItem(dados[7]);
+        this.Jcmbx_Setor_CadFunc.setSelectedItem(dados[8]);
+    }
+    
     private void mascaraCombox() {
         this.Jcmbx_Setor_CadFunc.getModel().setSelectedItem("-- selecione --");
         this.Jcmbx_Cargo_CadFunc.getModel().setSelectedItem("-- selecione --");
@@ -135,7 +150,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
         Jbtn_Treinos_CadFunc = new javax.swing.JButton();
         Jbtn_AddEquipe_cadFunc = new javax.swing.JButton();
-        Jbtn_Salvar_Tela_Adicionar_Funcionario = new javax.swing.JButton();
+        Jbtn_Editar_CadFunc = new javax.swing.JButton();
+        Jbtn_Salvar_CadFunc = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -350,17 +366,29 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setText("Salvar");
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Salvar_Tela_Adicionar_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_Editar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Editar_CadFunc.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Jbtn_Editar_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadFunc.setText("Editar");
+        Jbtn_Editar_CadFunc.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Editar_CadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(evt);
+                Jbtn_Editar_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Container_CadFunc.add(Jbtn_Salvar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+
+        Jbtn_Salvar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Salvar_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Jbtn_Salvar_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Salvar_CadFunc.setText("Salvar");
+        Jbtn_Salvar_CadFunc.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Salvar_CadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_Salvar_CadFuncActionPerformed(evt);
+            }
+        });
+        Jpnl_Container_CadFunc.add(Jbtn_Salvar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
 
         Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -565,9 +593,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
+    private void Jbtn_Editar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_CadFuncActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -605,11 +634,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             System.out.println(erro);
             System.out.println("Erro: " + erro.getMessage());
         }
-    }//GEN-LAST:event_Jbtn_Salvar_Tela_Adicionar_FuncionarioActionPerformed
+    }//GEN-LAST:event_Jbtn_Editar_CadFuncActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.mascaraCombox();
-
         try {
             this.popCmBoxSetor("SELECT * FROM setor");
         } catch (SQLException ex) {
@@ -761,6 +788,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         /// chamar popup com tabela de treinamentos do funcionario
     }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
 
+    private void Jbtn_Salvar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_Salvar_CadFuncActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -804,9 +835,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_AddEquipe_cadFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_Editar_CadFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
-    private javax.swing.JButton Jbtn_Salvar_Tela_Adicionar_Funcionario;
+    private javax.swing.JButton Jbtn_Salvar_CadFunc;
     private javax.swing.JButton Jbtn_Treinos_CadFunc;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;

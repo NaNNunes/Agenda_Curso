@@ -88,11 +88,27 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         funcionario.turno,
         funcionario.cargo,
         setor.sigla AS setor
-        FROM
+	FROM
         funcionario
-            INNER JOIN
+	INNER JOIN
         setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
 DROP VIEW vw_funcionario;
+
+CREATE OR REPLACE VIEW vw_dadosFuncionario AS
+    SELECT 
+        funcionario.id_funcionario,
+        funcionario.cpf, 
+        funcionario.nome,
+        funcionario.sobrenome,
+        funcionario.telefone,
+        funcionario.email,
+        funcionario.turno,
+        funcionario.cargo,
+        setor.sigla AS setor
+	FROM
+        funcionario
+	INNER JOIN
+        setor ON funcionario.id_setor = setor.id_setor WITH CHECK OPTION;
 
 CREATE VIEW vw_Equipe AS
 	SELECT
