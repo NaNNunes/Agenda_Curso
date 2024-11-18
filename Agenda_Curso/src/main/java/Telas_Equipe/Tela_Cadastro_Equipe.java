@@ -13,8 +13,10 @@ import Telas_configuracao.Popup_Opcoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +31,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     public Tela_Cadastro_Equipe() {
         initComponents();
         this.Jbtn_Editar_CadEqp.setVisible(false);
+        this.Jcmbx_turno_CadFun.getModel().setSelectedItem("-- selecione --");
     }
 
     public void editar_Equipe(String[] dados){
@@ -573,7 +576,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-
+        
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = "INSERT INTO equipe(nome_eqp ,descricao, turno) values(?, ?, ?)";

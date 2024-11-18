@@ -11,6 +11,7 @@ import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -51,6 +52,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         
         this.id_funcionario = Integer.parseInt(dados[0]);
         this.Jftxtf_CPF_CadFunc.setText(dados[1]);
+        this.Jftxtf_CPF_CadFunc.setEditable(false);
+        this.Jftxtf_CPF_CadFunc.setForeground(Color.gray);
         this.Jtxtf_Nome_CadFunc.setText(dados[2]);
         this.Jtxtf_Sobrenome_CadFunc.setText(dados[3]);
         this.Jftxtf_Telefone_CadFunc.setText(dados[4]);
