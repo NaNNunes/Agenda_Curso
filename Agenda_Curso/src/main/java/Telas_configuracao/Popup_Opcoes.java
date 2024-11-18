@@ -129,6 +129,7 @@ public class Popup_Opcoes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jpnl_ConteinerAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_Jpnl_ConteinerAncestorAdded

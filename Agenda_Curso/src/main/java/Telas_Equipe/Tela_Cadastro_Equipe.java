@@ -556,10 +556,14 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
             statement.setString(3, turno);
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Equipe Atualizada");
+            connection.close();
+            statement.close();
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
+        
+        
     }//GEN-LAST:event_Jbtn_Editar_CadEqpActionPerformed
 
     private void Jbtn_Cadastro_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastro_CadEqpActionPerformed
@@ -583,6 +587,8 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Equipe Criada");
+            connection.close();
+            statement.close();
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println("Erro: " + erro.getMessage());

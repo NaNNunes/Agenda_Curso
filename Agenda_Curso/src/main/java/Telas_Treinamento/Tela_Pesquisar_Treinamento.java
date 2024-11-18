@@ -38,8 +38,8 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
         
         try {
             statement.execute();
@@ -56,6 +56,10 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
                     resultSet.getString("validade"),
                 });
             }
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
         }
         catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
@@ -373,6 +377,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -410,6 +415,8 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
                 statement = connection.prepareStatement(query);
                 statement.executeUpdate();
                 this.populaTabela("SELECT * FROM vw_treinamento;");
+                connection.close();
+                statement.close();
             }
             catch (SQLException erro){
                 System.out.println("erro: " + erro.getMessage());
@@ -572,6 +579,9 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             Tela_Cadastro_Treinamento CadTreino = new Tela_Cadastro_Treinamento();
             CadTreino.editar_Treinamento(dados);
             CadTreino.setVisible(true);
+            connection.close();
+            statement.close();
+            resultSet.close();
             this.dispose();
         }
         catch (SQLException erro){

@@ -133,7 +133,7 @@ CREATE TABLE `funcionario` (
   UNIQUE KEY `email` (`email`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +159,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Administração','ADM'),(3,'Automação','ATM'),(4,'teleatendimento','TLA');
+INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Administração','ADM'),(3,'Automação','ATM'),(4,'teleatendimento','TLA'),(6,'VENDAS','VND'),(7,'Financeiro','FNC'),(8,'MARKETING','MTK');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +186,7 @@ CREATE TABLE `treinamento` (
   `carga_Horaria` int(11) DEFAULT NULL,
   `validade` int(3) DEFAULT NULL,
   PRIMARY KEY (`id_treinamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,7 +195,7 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
-INSERT INTO `treinamento` VALUES (5,'Falta d\'água','Ensinamentos falta de água',1,80);
+INSERT INTO `treinamento` VALUES (5,'Falta d\'água','Ensinamentos falta de água',1,80),(7,'Manutençao da rb prafus','Rebimboca da parafuseta',40,2);
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -600,4 +600,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-18  1:16:33
+-- Dump completed on 2024-11-18 14:16:11

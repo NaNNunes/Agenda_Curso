@@ -105,7 +105,8 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery(query);
 
             DefaultComboBoxModel cBoxModel = (DefaultComboBoxModel) Jcmbx_Setor_CadFunc.getModel();
-
+            cBoxModel.removeAllElements();
+            cBoxModel.setSelectedItem("-- selecione --");
             while (resultSet.next()) {
                 cBoxModel.addElement(resultSet.getString("sigla"));
             }
@@ -114,7 +115,65 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-
+    
+    private boolean procuraCPF(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        boolean isRegistered = true;
+        
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        
+        try{
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            
+            if(resultSet.next()){
+                isRegistered = false;
+            }
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+        
+        return isRegistered;
+    }
+    
+    private boolean validadorCPF(String cpf){
+        int[] digito = new int[cpf.length() - 3];
+        int c = 0;
+        int n = 0;
+        int digJ = 0;
+        int digK = 0;
+        int restJ = 0;
+        int restK = 0;
+        String strDigito;
+        
+        for (int i = 0; i < cpf.length(); i++) {
+            if((cpf.charAt(i) != '.') && (cpf.charAt(i) != '-')){
+                strDigito = Character.toString(cpf.charAt(i));
+                digito[c] = Integer.parseInt(strDigito);
+                c++;
+            }
+        }
+        // primeiro digito
+        n = 10;
+        for (int i = 0; i < 9; i++) {
+            restJ += digito[i] * n--;
+        }
+        restJ = restJ % 11;
+        digJ = (restJ == 0 || restJ == 1) ? 0 : (11 - restJ);
+        // segundo digito
+        n = 11;
+        for (int i = 0; i < 10; i++) {
+            restK += digito[i] * n--; 
+        }
+        restK = restK % 11;
+        digK = (restK == 0 || restK == 1) ? 0 : (11 - restK);
+        
+        return (digJ == digito[9] && digK == digito[10]);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -311,7 +370,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
 
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
@@ -341,12 +400,20 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Setor_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jcmbx_Setor_CadFunc.setPreferredSize(new java.awt.Dimension(250, 30));
+        Jcmbx_Setor_CadFunc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jcmbx_Setor_CadFuncMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Jcmbx_Setor_CadFuncMouseEntered(evt);
+            }
+        });
         Jcmbx_Setor_CadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jcmbx_Setor_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 250, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 250, -1));
 
         Jbtn_Treinos_CadFunc.setText("Treinamentos");
         Jbtn_Treinos_CadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
@@ -396,7 +463,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         });
         Jpnl_Container_CadFunc.add(Jbtn_Salvar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
 
-        Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -641,11 +708,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Editar_CadFuncActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            this.popCmBoxSetor("SELECT * FROM setor");
-        } catch (SQLException ex) {
-            Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -653,7 +716,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void Jcmbx_Setor_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
@@ -806,30 +869,41 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-
+        
+        String cpfInserido = Jftxtf_CPF_CadFunc.getText();
         try {
-            connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario "
-                + "(CPF, nome_func, sobrenome, Telefone, "
-                + "email, turno, cargo, id_setor) "
-                + "values(?, ?, ?, ?, ?, ?, ?, ?)";
-            statement = connection.prepareStatement(query);
+            if(validadorCPF(cpfInserido)){
+                if(procuraCPF("SELECT cpf FROM vw_funcionario WHERE cpf LIKE '"+cpfInserido+"';")){
 
-            String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
-            String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
+                    connection = DriverManager.getConnection(url, user, psswrd);
+                    String query = "INSERT INTO funcionario "
+                        + "(CPF, nome_func, sobrenome, Telefone, "
+                        + "email, turno, cargo, id_setor) "
+                        + "values(?, ?, ?, ?, ?, ?, ?, ?)";
+                    statement = connection.prepareStatement(query);
 
-            statement.setString(1, Jftxtf_CPF_CadFunc.getText());
-            statement.setString(2, Jtxtf_Nome_CadFunc.getText());
-            statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
-            statement.setString(4, Jftxtf_Telefone_CadFunc.getText());
-            statement.setString(5, Jtxtf_Email_CadFunc.getText());
-            statement.setString(6, turno);
-            statement.setString(7, cargo);
+                    String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
+                    String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
 
-            statement.setInt(8, this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '" + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"));
+                    statement.setString(1, cpfInserido);
+                    statement.setString(2, Jtxtf_Nome_CadFunc.getText());
+                    statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
+                    statement.setString(4, Jftxtf_Telefone_CadFunc.getText());
+                    statement.setString(5, Jtxtf_Email_CadFunc.getText());
+                    statement.setString(6, turno);
+                    statement.setString(7, cargo);
 
-            statement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
+                    statement.setInt(8, this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '" + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"));
+
+                    statement.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Funcinario Cadastrado!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "CPF já Cadastrado");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "CPF Inválido");
+            }
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println(erro);
@@ -843,6 +917,18 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Cad_FuncEqp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
+
+    private void Jcmbx_Setor_CadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncMouseClicked
+        
+    }//GEN-LAST:event_Jcmbx_Setor_CadFuncMouseClicked
+
+    private void Jcmbx_Setor_CadFuncMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncMouseEntered
+        try {
+            this.popCmBoxSetor("SELECT * FROM setor");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Jcmbx_Setor_CadFuncMouseEntered
 
     /**
      * @param args the command line arguments

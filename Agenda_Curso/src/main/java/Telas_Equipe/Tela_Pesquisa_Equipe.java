@@ -38,8 +38,8 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        Connection connectio = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connectio.prepareStatement(query);
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
         
         try {
             statement.execute();
@@ -55,10 +55,13 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
                     resultSet.getString("turno")
                 });
             }
+            resultSet.close();
         }
         catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
         }
+        connection.close();
+        statement.close();
     }
     
     /**
@@ -434,6 +437,9 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             Tela_Cadastro_Equipe tela_equipe = new Tela_Cadastro_Equipe();
             tela_equipe.editar_Equipe(equipe);
             tela_equipe.setVisible(true);
+            connection.close();
+            statement.close();
+            resultSet.close();
             this.dispose();
         }
         catch (SQLException erro){
@@ -461,6 +467,8 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
                 statement.setInt(1, Integer.parseInt(Jtbl_ListaEqp.getValueAt(Jtbl_ListaEqp.getSelectedRow(), 0).toString()));
                 statement.execute();
                 this.populaTabela("SELECT * FROM vw_Equipe;");
+                connection.close();
+                statement.close();
             }
             catch (SQLException erro){
                 System.out.println("erro: " + erro.getMessage());

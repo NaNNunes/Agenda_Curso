@@ -48,6 +48,10 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
                     resultSet.getString("validade")
                 });
             }
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
         }
         catch(SQLException erro){
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -126,6 +130,7 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

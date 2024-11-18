@@ -15,8 +15,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -43,7 +41,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
             DefaultTableModel model = (DefaultTableModel) jTbl_Funcionario.getModel();
             model.setNumRows(0);
-
+            
             while (resultado.next()) {
                 model.addRow(new Object[]{
                     resultado.getString("id_funcionario"),
@@ -56,33 +54,11 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                     resultado.getString("setor")
                 });
             }
+            
 
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
-    }
-
-    private int FindEqp(String query) throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        int id = 0;
-
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            if (resultSet.next()) {
-                id = resultSet.getInt("id_equipe");
-            }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
-        }
-
-        return id;
     }
     
     /**
@@ -426,6 +402,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -501,7 +478,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private void Jbtn_Consulta_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Consulta_SearchFuncActionPerformed
 
         String nome = Jtxtf_Consulta_SearchFunc.getText();
-
         this.PopularJTableFuncionario("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'", Jtbl_Funcionario);
 
     }//GEN-LAST:event_Jbtn_Consulta_SearchFuncActionPerformed

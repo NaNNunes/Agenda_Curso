@@ -41,19 +41,27 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        //statement.execute();
         
-        ResultSet resultSet = statement.executeQuery(query);
-        DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Funcionarios.getModel();
-        tableModel.setNumRows(0);
-        
-        while(resultSet.next()){
-            tableModel.addRow(new Object[]{
-                resultSet.getString("id_funcionario"),
-                resultSet.getString("nome_completo"),
-                resultSet.getString("turno"),
-                resultSet.getString("Setor")
-            });
+        try{
+            ResultSet resultSet = statement.executeQuery(query);
+            DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Funcionarios.getModel();
+            tableModel.setNumRows(0);
+
+            while(resultSet.next()){
+                tableModel.addRow(new Object[]{
+                    resultSet.getString("id_funcionario"),
+                    resultSet.getString("nome_completo"),
+                    resultSet.getString("turno"),
+                    resultSet.getString("Setor")
+                });
+            }
+
+            connection.close();
+            statement.close();
+            resultSet.close();
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
     
@@ -64,18 +72,25 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        statement.execute();
-        
-        ResultSet resultSet = statement.executeQuery(query);
-        DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Equipe.getModel();
-        tableModel.setNumRows(0);
-        
-        while(resultSet.next()){
-            tableModel.addRow(new Object[]{ //mudar
-                resultSet.getString("id_equipe"),
-                resultSet.getString("nome_eqp"),
-                resultSet.getString("turno"),
-            });
+        try{
+            ResultSet resultSet = statement.executeQuery(query);
+            DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Equipe.getModel();
+            tableModel.setNumRows(0);
+
+            while(resultSet.next()){
+                tableModel.addRow(new Object[]{ //mudar
+                    resultSet.getString("id_equipe"),
+                    resultSet.getString("nome_eqp"),
+                    resultSet.getString("turno"),
+                });
+            }
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
     
@@ -630,6 +645,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             
             // verificar se funcionario ja esta incluso na equipe
+                // tentativa de sintese de metodo retornou constrains fails
             String queryVW =  "SELECT id_equipe FROM vw_CadFuncEqp WHERE id_funcionario = "+ id_funcionario;
             statement = connection.prepareStatement(queryVW);
             statement.execute();
@@ -642,6 +658,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                     break;
                 }
             }
+            resultSet.close();
             
             if (id_equipe == id_equipeEncontrada){
                 JOptionPane.showMessageDialog(null, "Funcionario ja cadastrado na equipe");
@@ -658,6 +675,9 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 this.popTblEquipe("SELECT * FROM vw_Equipe");
                 this.popTblFuncionario("SELECT * FROM vw_funcionario");
             }
+            connection.close();
+            statement.close();
+            
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getLocalizedMessage());

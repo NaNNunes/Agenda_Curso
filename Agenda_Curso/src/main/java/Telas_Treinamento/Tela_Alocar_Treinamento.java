@@ -20,7 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,20 +45,24 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
         
         try {
-            statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
             
             DefaultTableModel model = (DefaultTableModel) Jtbl_Treinamento.getModel();
             model.setNumRows(0);
             
-            while(resultSet.next()){
-                model.addRow(new Object[]{
-                    resultSet.getString("id_treino"),
-                    resultSet.getString("nome"),
-                    resultSet.getString("carga_horaria"),
-                    resultSet.getString("validade"),
-                });
-            }
+            
+                while(resultSet.next()){
+                    model.addRow(new Object[]{
+                        resultSet.getString("id_treino"),
+                        resultSet.getString("nome"),
+                        resultSet.getString("carga_horaria"),
+                        resultSet.getString("validade"),
+                    });
+                }
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
         }
         catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
@@ -88,9 +91,12 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                     resultSet.getString("turno")
                 });
             }
-
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
 
@@ -108,16 +114,19 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
             DefaultTableModel model = (DefaultTableModel) Jtbl_instrutor.getModel();
             model.setNumRows(0);
-
+            
             while (resultSet.next()) {
                 model.addRow(new Object[]{
                     resultSet.getString("id_funcionario"),
                     resultSet.getString("nome_completo"),
                 });
             }
-
+            
+            connection.close();
+            statement.close();
+            resultSet.close();
         } catch (SQLException erro) {
-            System.out.println("Erro: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
     
@@ -147,6 +156,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                     break;
                 }
             }
+            connection.close();
+            statement.close();
+            resultSet.close();
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
@@ -195,7 +207,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
         Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
-        Jbtn_consulta = new javax.swing.JButton();
+        Jbtn_ConsultaTreino_AlocaTreino = new javax.swing.JButton();
         JPanel_BarraLateral2 = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral2 = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -484,17 +496,17 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
         jPanel2.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 660, -1));
 
-        Jbtn_consulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_consulta.setText("Consultar");
-        Jbtn_consulta.setMaximumSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta.setPreferredSize(new java.awt.Dimension(100, 30));
-        Jbtn_consulta.addActionListener(new java.awt.event.ActionListener() {
+        Jbtn_ConsultaTreino_AlocaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaTreino_AlocaTreino.setText("Consultar");
+        Jbtn_ConsultaTreino_AlocaTreino.setMaximumSize(new java.awt.Dimension(100, 30));
+        Jbtn_ConsultaTreino_AlocaTreino.setMinimumSize(new java.awt.Dimension(100, 30));
+        Jbtn_ConsultaTreino_AlocaTreino.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_ConsultaTreino_AlocaTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_consultaActionPerformed(evt);
+                Jbtn_ConsultaTreino_AlocaTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, -1, -1));
+        jPanel2.add(Jbtn_ConsultaTreino_AlocaTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -758,6 +770,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                     statement.setString(6, formato);
                     statement.execute();
                     JOptionPane.showMessageDialog(null, "Cadastro realizado");
+                    
+                    connection.close();
+                    statement.close();
+                    
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Equipe Já cadastrada ao treinamento");
@@ -765,8 +781,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             }
             catch (SQLException erro){
                 JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
-                System.out.println("Erro: "+ erro.getMessage());
-                System.out.println("linha 743");
             }
         }
         else {
@@ -911,14 +925,14 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         try {
             this.popTabela("SELECT * FROM vw_treinamento");
             this.popTableEqp("SELECT * FROM vw_equipe");
-            this.popTableInst("SELECT * FROM vw_funcionario WHERE cargo = 'instrutor'");
+            this.popTableInst("SELECT * FROM vw_funcionario WHERE cargo LIKE 'instrutor'");
             
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void Jbtn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consultaActionPerformed
+    private void Jbtn_ConsultaTreino_AlocaTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaTreino_AlocaTreinoActionPerformed
         try {
             String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
             this.popTabela("SELECT * FROM vw_treinamento "
@@ -926,7 +940,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
-    }//GEN-LAST:event_Jbtn_consultaActionPerformed
+    }//GEN-LAST:event_Jbtn_ConsultaTreino_AlocaTreinoActionPerformed
 
     private void Jtxtf_Consulta_SearchFuncCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
         // TODO add your handling code here: DELETAR METODO
@@ -960,7 +974,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         String nome = Jtxtf_Consulta_SearchFunc.getText();
 
         try {
-            this.popTableEqp("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'");
+            this.popTableEqp("SELECT * FROM vw_equipe WHERE nome_eqp LIKE'%" + nome + "%'");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1014,10 +1028,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_ConsultaEqp_AlocaTreino;
     private javax.swing.JButton Jbtn_ConsultaInst_AlocaTreino;
+    private javax.swing.JButton Jbtn_ConsultaTreino_AlocaTreino;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral2;
     private javax.swing.JButton Jbtn_Salvar_CadTreino;
-    private javax.swing.JButton Jbtn_consulta;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;

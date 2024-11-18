@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +26,7 @@ public class Tela_Login extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void verificarLogin() {
+    private void verificarLogin() throws SQLException {
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -54,12 +56,16 @@ public class Tela_Login extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
             }
-
+            
+            resultSet.close();
+            
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro ao conectar com o banco de dados.");
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
-
+        
+        connection.close();
+        statement.close();
     }
 
     @SuppressWarnings("unchecked")
@@ -188,7 +194,11 @@ public class Tela_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Acessar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Acessar_loginActionPerformed
-        verificarLogin();
+        try {
+            verificarLogin();
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_Acessar_loginActionPerformed
 
     /**

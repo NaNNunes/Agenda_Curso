@@ -82,7 +82,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="17" width="-1" height="-1"/>
+              <AbsoluteConstraints x="260" y="20" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -462,7 +462,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="470" y="30" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="460" y="30" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -575,6 +575,8 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Jcmbx_Setor_CadFuncMouseClicked"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Jcmbx_Setor_CadFuncMouseEntered"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jcmbx_Setor_CadFuncActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -582,7 +584,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="470" y="60" width="250" height="-1"/>
+                      <AbsoluteConstraints x="460" y="60" width="250" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
