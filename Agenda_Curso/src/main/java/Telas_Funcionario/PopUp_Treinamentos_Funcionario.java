@@ -4,6 +4,14 @@
  */
 package Telas_Funcionario;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author renan_8tvcd4n
@@ -17,6 +25,35 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void populaTabela(int id_funcionario) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
+        String query = "SELECT * FROM vw_treinofunc WHERE id_funcionario = "+id_funcionario;
+        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
+        
+        try{
+            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) Jtbl_treinamentos.getModel();
+            model.setNumRows(0);
+            
+            while(resultSet.next()){
+                model.addRow(new Object[]{
+                    resultSet.getString("nome"),
+                    resultSet.getString("nome_completo"),
+                    resultSet.getString("prev_fim"),
+                    resultSet.getString("validade")
+                });
+            }
+        }
+        catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,10 +68,11 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
         Jtbl_treinamentos = new javax.swing.JTable();
         Jlbl_Title = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Jpnl_fundo_PopTreinos.setBackground(new java.awt.Color(243, 228, 188));
 
+        Jtbl_treinamentos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_treinamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -43,7 +81,7 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "treinamento", "instrutor", "validação", "validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_treinamentos);
@@ -62,9 +100,9 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addComponent(Jlbl_Title))
                     .addGroup(Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addContainerGap(84, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
         );
         Jpnl_fundo_PopTreinosLayout.setVerticalGroup(
             Jpnl_fundo_PopTreinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

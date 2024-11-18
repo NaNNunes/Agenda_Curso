@@ -409,7 +409,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = 
                 "INSERT INTO treinamento"
-                + "(nome_treinamento, descricao, carga_Horaria, validade)"
+                + "(nome_treino, descricao, carga_Horaria, validade)"
                 + " VALUES(?,?,?,?)";
             statement = connection.prepareStatement(query);
             
@@ -435,7 +435,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         String psswrd = "";
         try {
             connection = DriverManager.getConnection(url,user,psswrd);
-            String query = "UPDATE treinamento set nome_treinamento = ?, descricao = ?, validade = ?, carga_horaria = ? "
+            String query = "UPDATE treinamento set nome_treino = ?, descricao = ?, validade = ?, carga_horaria = ? "
                     + "WHERE id_treinamento =" + this.id_treinamento;
             statement = connection.prepareStatement(query);
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());

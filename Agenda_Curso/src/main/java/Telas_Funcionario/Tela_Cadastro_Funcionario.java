@@ -612,7 +612,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "UPDATE funcionario set CPF = ?, nome = ?, sobrenome = ?, "
+            String query = "UPDATE funcionario set CPF = ?, nome_func = ?, sobrenome = ?, "
                 + "Telefone = ?, email = ?, turno = ?, cargo = ?, id_setor = ? "
                 + "WHERE id_funcionario = "+id_funcionario;
             statement = connection.prepareStatement(query);
@@ -789,7 +789,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxtf_Sobrenome_CadFuncActionPerformed
 
     private void Jbtn_Treinos_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinos_CadFuncActionPerformed
-        /// chamar popup com tabela de treinamentos do funcionario
+        PopUp_Treinamentos_Funcionario treinoFunc = new PopUp_Treinamentos_Funcionario();
+        try {
+            treinoFunc.populaTabela(id_funcionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        treinoFunc.setVisible(true);
+        
     }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
 
     private void Jbtn_Salvar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadFuncActionPerformed
@@ -802,13 +809,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO funcionario(CPF, nome, sobrenome, Telefone, email, turno, cargo, id_setor)"
-                    + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO funcionario "
+                + "(CPF, nome_func, sobrenome, Telefone, "
+                + "email, turno, cargo, id_setor) "
+                + "values(?, ?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(query);
 
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
-            //String sigla = (String) ;
 
             statement.setString(1, Jftxtf_CPF_CadFunc.getText());
             statement.setString(2, Jtxtf_Nome_CadFunc.getText());

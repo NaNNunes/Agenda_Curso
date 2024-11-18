@@ -41,7 +41,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        statement.execute();
+        //statement.execute();
         
         ResultSet resultSet = statement.executeQuery(query);
         DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Funcionarios.getModel();
@@ -73,7 +73,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         while(resultSet.next()){
             tableModel.addRow(new Object[]{ //mudar
                 resultSet.getString("id_equipe"),
-                resultSet.getString("nome"),
+                resultSet.getString("nome_eqp"),
                 resultSet.getString("turno"),
             });
         }
@@ -114,6 +114,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         Jbtn_ConsultaEqp_CdFE = new javax.swing.JButton();
         Jtxtf_PesquisaEqp_CdFE = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(243, 236, 196));
@@ -351,9 +352,15 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         Jtxtf_PesquisaFunc_CdFE.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_PesquisaFunc_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxtf_PesquisaFunc_CdFE.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_PesquisaFunc_CdFE.setText("id, nome, turno, setor do funcionário.");
         Jtxtf_PesquisaFunc_CdFE.setMaximumSize(new java.awt.Dimension(300, 30));
         Jtxtf_PesquisaFunc_CdFE.setMinimumSize(new java.awt.Dimension(300, 30));
         Jtxtf_PesquisaFunc_CdFE.setPreferredSize(new java.awt.Dimension(300, 30));
+        Jtxtf_PesquisaFunc_CdFE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jtxtf_PesquisaFunc_CdFEMouseClicked(evt);
+            }
+        });
 
         Jbtn_ConsultaFunc_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jbtn_ConsultaFunc_CdFE.setText("Pesquisar");
@@ -376,13 +383,23 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         Jtxtf_PesquisaEqp_CdFE.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_PesquisaEqp_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxtf_PesquisaEqp_CdFE.setForeground(new java.awt.Color(0, 0, 0));
+        Jtxtf_PesquisaEqp_CdFE.setText("id, nome, turno da equipe");
         Jtxtf_PesquisaEqp_CdFE.setMaximumSize(new java.awt.Dimension(300, 30));
         Jtxtf_PesquisaEqp_CdFE.setMinimumSize(new java.awt.Dimension(300, 30));
         Jtxtf_PesquisaEqp_CdFE.setPreferredSize(new java.awt.Dimension(300, 30));
+        Jtxtf_PesquisaEqp_CdFE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jtxtf_PesquisaEqp_CdFEMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cadastro Funcionario Equipe");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Funcionario:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -391,22 +408,6 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(JPanel_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jtxtf_PesquisaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Jbtn_ConsultaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jtxtf_PesquisaEqp_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Jbtn_ConsultaEqp_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 31, 31))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,7 +416,28 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                                 .addGap(481, 481, 481))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(286, 286, 286))))))
+                                .addGap(286, 286, 286))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Jtxtf_PesquisaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Jbtn_ConsultaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(Jtxtf_PesquisaEqp_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Jbtn_ConsultaEqp_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,6 +448,8 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_ConsultaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jtxtf_PesquisaFunc_CdFE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -587,7 +611,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
             this.popTblFuncionario("SELECT * FROM vw_funcionario");
-            this.popTblEquipe("SELECT * FROM vw_Equipe");
+            this.popTblEquipe("SELECT * FROM vw_equipe");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -647,7 +671,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         try {
             String search = Jtxtf_PesquisaFunc_CdFE.getText();
             this.popTblFuncionario("SELECT * FROM vw_funcionario "
-                    + "WHERE id_funcionario = '"+search+"' OR `nome completo` LIKE '%"+search+"%' "
+                    + "WHERE id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
                     + "OR cpf LIKE '"+search+"' OR setor LIKE '%"+search+"%' "
                     + "OR turno LIKE '%"+search+"%' OR cargo LIKE '%"+search+"%' "
                     + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%'");
@@ -666,6 +690,14 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Jbtn_ConsultaEqp_CdFEActionPerformed
+    
+    private void Jtxtf_PesquisaFunc_CdFEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtxtf_PesquisaFunc_CdFEMouseClicked
+        this.Jtxtf_PesquisaFunc_CdFE.selectAll();
+    }//GEN-LAST:event_Jtxtf_PesquisaFunc_CdFEMouseClicked
+
+    private void Jtxtf_PesquisaEqp_CdFEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtxtf_PesquisaEqp_CdFEMouseClicked
+        this.Jtxtf_PesquisaEqp_CdFE.selectAll();
+    }//GEN-LAST:event_Jtxtf_PesquisaEqp_CdFEMouseClicked
 
     /**
      * @param args the command line arguments
@@ -726,6 +758,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
     private javax.swing.JTextField Jtxtf_PesquisaEqp_CdFE;
     private javax.swing.JTextField Jtxtf_PesquisaFunc_CdFE;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

@@ -7,6 +7,7 @@ package Telas_Equipe;
 import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
 import Telas_Iniciais.Tela_Login;
+import Telas_Treinamento.Tela_Alocar_Treinamento;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
@@ -50,7 +51,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             while(resultSet.next()){
                 model.addRow(new Object[]{
                     resultSet.getString("id_equipe"),
-                    resultSet.getString("nome"),
+                    resultSet.getString("nome_eqp"),
                     resultSet.getString("turno")
                 });
             }
@@ -80,6 +81,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         Jbtn_consulta_SearchEqp = new javax.swing.JButton();
         Jbtn_EditarEqp = new javax.swing.JButton();
         Jbtn_Apagar_SearchEqp = new javax.swing.JButton();
+        Jbtn_DefTreino_SearchEqp = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -173,6 +175,14 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             }
         });
         Jpnl_Conteiner_SearchEqp.add(Jbtn_Apagar_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 700, -1, -1));
+
+        Jbtn_DefTreino_SearchEqp.setText("Definir Treinamento");
+        Jbtn_DefTreino_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_DefTreino_SearchEqpActionPerformed(evt);
+            }
+        });
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_DefTreino_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 700, -1, -1));
 
         Jpnl_Fundo_SearchEqp.add(Jpnl_Conteiner_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -417,7 +427,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 equipe[0] = resultSet.getString("id_equipe");
-                equipe[1] = resultSet.getString("nome");
+                equipe[1] = resultSet.getString("nome_eqp");
                 equipe[2] = resultSet.getString("descricao");
                 equipe[3] = resultSet.getString("turno");
             }
@@ -435,6 +445,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_EditarEqpActionPerformed
 
     private void Jbtn_Apagar_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchEqpActionPerformed
+        // delete funciona quando registro nao vinculado a tabela 3ª
         if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
             Connection connection = null;
             PreparedStatement statement = null;
@@ -586,6 +597,12 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
+    private void Jbtn_DefTreino_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_DefTreino_SearchEqpActionPerformed
+        Tela_Alocar_Treinamento Cad_TreinoEqp = new Tela_Alocar_Treinamento();
+        Cad_TreinoEqp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Jbtn_DefTreino_SearchEqpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -628,6 +645,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_logo_Barra_Lateral;
     private javax.swing.JButton Jbtn_Apagar_SearchEqp;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
+    private javax.swing.JButton Jbtn_DefTreino_SearchEqp;
     private javax.swing.JButton Jbtn_EditarEqp;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;

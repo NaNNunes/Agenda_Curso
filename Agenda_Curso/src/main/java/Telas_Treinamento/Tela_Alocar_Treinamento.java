@@ -54,7 +54,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             
             while(resultSet.next()){
                 model.addRow(new Object[]{
-                    resultSet.getString("id_treinamento"),
+                    resultSet.getString("id_treino"),
                     resultSet.getString("nome"),
                     resultSet.getString("carga_horaria"),
                     resultSet.getString("validade"),
@@ -84,7 +84,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             while (resultSet.next()) {
                 model.addRow(new Object[]{
                     resultSet.getString("id_equipe"),
-                    resultSet.getString("nome"),
+                    resultSet.getString("nome_eqp"),
                     resultSet.getString("turno")
                 });
             }
@@ -150,7 +150,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
         catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
-            System.out.println("linha 194");
         }
         
         return isValid;

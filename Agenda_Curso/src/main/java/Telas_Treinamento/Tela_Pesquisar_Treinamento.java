@@ -50,7 +50,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             
             while(resultSet.next()){
                 model.addRow(new Object[]{
-                    resultSet.getString("id_treinamento"),
+                    resultSet.getString("id_treino"),
                     resultSet.getString("nome"),
                     resultSet.getString("carga_horaria"),
                     resultSet.getString("validade"),
@@ -394,6 +394,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_consultaActionPerformed
 
     private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
+        // delete funciona quando registro nao vinculado a tabela 3ª
         if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
             Connection connection = null;
             PreparedStatement statement = null;
@@ -401,18 +402,17 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
             String user = "root";
             String psswrd = "";
-
+            int linha = Jtbl_ListaTreino.getSelectedRow();
+            int id_treino = Integer.parseInt(Jtbl_ListaTreino.getValueAt(linha, 0).toString());
             try {
                 connection = DriverManager.getConnection(url,user,psswrd);
-                String query = "DELETE FROM treinamento WHERE id_treinamento = ?;";
+                String query = "DELETE FROM treinamento WHERE id_treinamento ="+id_treino;
                 statement = connection.prepareStatement(query);
-                statement.setInt(1, Integer.parseInt(Jtbl_ListaTreino.getValueAt(Jtbl_ListaTreino.getSelectedRow(), 0).toString()));
-                statement.execute();
+                statement.executeUpdate();
                 this.populaTabela("SELECT * FROM vw_treinamento;");
             }
             catch (SQLException erro){
                 System.out.println("erro: " + erro.getMessage());
-                System.out.println("erro: " + erro.getSQLState());
             }
         }
     }//GEN-LAST:event_Jbtn_Apagar_SearchFuncActionPerformed
@@ -563,7 +563,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 dados[0] = resultSet.getString("id_treinamento");
-                dados[1] = resultSet.getString("nome_treinamento");
+                dados[1] = resultSet.getString("nome_treino");
                 dados[2] = resultSet.getString("descricao");
                 dados[3] = resultSet.getString("carga_horaria");
                 dados[4] = resultSet.getString("validade");

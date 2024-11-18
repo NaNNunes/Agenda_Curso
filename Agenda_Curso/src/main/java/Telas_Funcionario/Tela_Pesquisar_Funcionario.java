@@ -103,7 +103,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         Jbtn_Apagar_SearchFunc = new javax.swing.JButton();
         Jtxtf_Consulta_SearchFunc = new javax.swing.JTextField();
         Jbtn_Consulta_SearchFunc = new javax.swing.JButton();
-        Jbtn_Treinamento = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_logo_Barra_Lateral = new javax.swing.JPanel();
@@ -177,7 +176,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Editar_SerachFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 710, -1, -1));
+        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 710, -1, -1));
 
         Jbtn_Apagar_SearchFunc.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Apagar_SearchFunc.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -189,7 +188,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Apagar_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 710, -1, -1));
+        jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 710, -1, -1));
 
         Jtxtf_Consulta_SearchFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -223,18 +222,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             }
         });
         jPanel3.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
-
-        Jbtn_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Treinamento.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Treinamento.setText("Treinamentos");
-        Jbtn_Treinamento.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_TreinamentoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(Jbtn_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 710, 180, -1));
 
         Jpnl_Fundo_SearchFunc.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 
@@ -467,7 +454,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             if(resultSet.next()){
                 dados[0] = resultSet.getString("id_funcionario");
                 dados[1] = resultSet.getString("cpf");
-                dados[2] = resultSet.getString("nome");
+                dados[2] = resultSet.getString("nome_func");
                 dados[3] = resultSet.getString("sobrenome");
                 dados[4] = resultSet.getString("telefone");
                 dados[5] = resultSet.getString("email");
@@ -488,6 +475,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Editar_SerachFuncActionPerformed
 
     private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
+        // delete funciona quando registro nao vinculado a tabela 3ª
         if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0) {
             Connection connection = null;
             PreparedStatement statement = null;
@@ -646,20 +634,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
-    private void Jbtn_TreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_TreinamentoActionPerformed
-
-        // vincular treinamento ao funcionario via equipe vinculada ao treinamento
-
-        try {
-            int linha = Jtbl_Funcionario.getSelectedRow();
-            int idEqp = FindEqp("SELECT * FROM vw_equipe WHERE id_funcionario = " + linha);
-            JOptionPane.showMessageDialog(null, linha);
-        } catch (SQLException ex) {
-            Logger.getLogger(Tela_Pesquisar_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_Jbtn_TreinamentoActionPerformed
-
     private void Jtbl_FuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtbl_FuncionarioMouseClicked
 
     }//GEN-LAST:event_Jtbl_FuncionarioMouseClicked
@@ -719,7 +693,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_Editar_SerachFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
-    private javax.swing.JButton Jbtn_Treinamento;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;

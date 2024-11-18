@@ -548,7 +548,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         try{
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "UPDATE equipe SET nome = ?, descricao = ?, turno = ? WHERE id_equipe ="+id_equipe;
+            String query = "UPDATE equipe SET nome_eqp = ?, descricao = ?, turno = ? WHERE id_equipe ="+id_equipe;
             statement = connection.prepareStatement(query);
             String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
             statement.setString(1, Jtxtf_Nome_CadEqp.getText());
@@ -572,7 +572,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "INSERT INTO equipe(nome ,descricao, turno) values(?, ?, ?)"; // adicionar tambem id instrutor
+            String query = "INSERT INTO equipe(nome_eqp ,descricao, turno) values(?, ?, ?)";
             statement = connection.prepareStatement(query);
 
             String turno = (String) Jcmbx_turno_CadFun.getSelectedItem();
