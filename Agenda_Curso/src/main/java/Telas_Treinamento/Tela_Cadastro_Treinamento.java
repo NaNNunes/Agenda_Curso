@@ -22,12 +22,15 @@ import javax.swing.JOptionPane;
  * @author mathe
  */
 public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
+
+    private final String tipoUsuario;
     
     /**
      * Creates new form Tela_Adicionar_Treinamento
      */
     
-    public Tela_Cadastro_Treinamento() {
+    public Tela_Cadastro_Treinamento(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
         initComponents();
         this.Jbtn_Editar_CadTreino.setVisible(false);
     }
@@ -81,6 +84,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -347,11 +351,13 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
                     .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                         .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                                .addGap(53, 53, 53)
+                                .addGap(210, 210, 210)
                                 .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jlbl_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
@@ -363,18 +369,20 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                 .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(Jlbl_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
+                .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                 .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_Configuração_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_trocarUsuario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -467,21 +475,6 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
     private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
-                Tela_SearchFunc.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
-                Tela_CadFunc.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
     }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Funcionario_BarraLateralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
@@ -489,56 +482,72 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
 
     private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
-                Tela_SearchFunc.setVisible(true);
-                this.dispose();
+        if ("admin".equals(tipoUsuario)) {
+            switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
+                    Tela_SearchFunc.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario(tipoUsuario);
+                    Tela_CadFunc.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
             }
-            case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
-                Tela_CadFunc.setVisible(true);
-                this.dispose();
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
+                    Tela_SearchFunc.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
             }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
     }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
 
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
-                Tela_SearchEqp.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
-                Tela_CadEqp.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
+
     }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
-                Tela_SearchEqp.setVisible(true);
-                this.dispose();
+        if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
+            switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
+                    Tela_SearchEqp.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe(tipoUsuario);
+                    Tela_CadEqp.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
             }
-            case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
-                Tela_CadEqp.setVisible(true);
-                this.dispose();
+        } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
+                    Tela_SearchEqp.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
             }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
     }//GEN-LAST:event_Jcmbx_Equipe_BarraLateralActionPerformed
 
@@ -549,42 +558,42 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
         Popup_Opcoes popup_opcoes = new Popup_Opcoes();
         popup_opcoes.setVisible(true);
-
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
-                Tela_SearchTreino.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
-                Tela_CadTreino.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
+
     }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
 
     private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
-            case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
-                Tela_SearchTreino.setVisible(true);
-                this.dispose();
+        if ("admin".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
+                    Tela_SearchTreino.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
+                    Tela_CadTreino.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
             }
-            case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
-                Tela_CadTreino.setVisible(true);
-                this.dispose();
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
+            switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
+                    Tela_SearchTreino.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
             }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
@@ -618,8 +627,10 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            private String tipoUsuario;
             public void run() {
-                new Tela_Cadastro_Treinamento().setVisible(true);
+                this.tipoUsuario = tipoUsuario;
+                new Tela_Cadastro_Treinamento(tipoUsuario).setVisible(true);
             }
         });
     }
@@ -644,6 +655,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Descricao_CadTreino;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Resumo_CadTreino;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
     private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;

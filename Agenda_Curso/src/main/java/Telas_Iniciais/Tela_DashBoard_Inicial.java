@@ -333,12 +333,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         if ("admin".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
                     Tela_SearchFunc.setVisible(true);
                     this.dispose();
                 }
                 case 2 -> {
-                    Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                    Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario(tipoUsuario);
                     Tela_CadFunc.setVisible(true);
                     this.dispose();
                 }
@@ -349,7 +349,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
                     Tela_SearchFunc.setVisible(true);
                     this.dispose();
                 }
@@ -370,12 +370,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
                     Tela_SearchEqp.setVisible(true);
                     this.dispose();
                 }
                 case 2 -> {
-                    Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                    Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe(tipoUsuario);
                     Tela_CadEqp.setVisible(true);
                     this.dispose();
                 }
@@ -386,7 +386,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
                     Tela_SearchEqp.setVisible(true);
                     this.dispose();
                 }
@@ -417,12 +417,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         if ("admin".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
                     Tela_SearchTreino.setVisible(true);
                     this.dispose();
                 }
                 case 2 -> {
-                    Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                    Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
                     Tela_CadTreino.setVisible(true);
                     this.dispose();
                 }
@@ -433,7 +433,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
-                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
                     Tela_SearchTreino.setVisible(true);
                     this.dispose();
                 }
@@ -448,12 +448,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
 
     private void Jbtn_AlocarTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AlocarTreinoActionPerformed
         if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
-            Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento();
+            Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento(tipoUsuario);
             CadEqp_Treino.setVisible(true);
             this.dispose();
 
         } else if ("operador".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
-            Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento();
+            Tela_Alocar_Treinamento CadEqp_Treino = new Tela_Alocar_Treinamento(tipoUsuario);
             CadEqp_Treino.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
@@ -462,7 +462,7 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
 
     private void Jbtn_AlocarFuncEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AlocarFuncEqpActionPerformed
         if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
-            Cadastro_Funcionario_Equipe CadFunc_Treino = new Cadastro_Funcionario_Equipe();
+            Cadastro_Funcionario_Equipe CadFunc_Treino = new Cadastro_Funcionario_Equipe(tipoUsuario);
             CadFunc_Treino.setVisible(true);
             this.dispose();
 

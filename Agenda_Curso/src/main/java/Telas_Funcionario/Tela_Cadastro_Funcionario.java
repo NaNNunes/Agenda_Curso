@@ -34,8 +34,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
      */
     
     private int id_funcionario;
+    private final String tipoUsuario;
     
-    public Tela_Cadastro_Funcionario() {
+    public Tela_Cadastro_Funcionario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
         initComponents();
         this.mascaraCombox();
         this.Jbtn_Treinos_CadFunc.setVisible(false);
@@ -43,6 +45,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.Jbtn_Editar_CadFunc.setVisible(false);
         this.Jbtn_Salvar_CadFunc.setVisible(true);
     }
+
     
     public void Editar_CadFunc(String[] dados){
         this.Jbtn_Treinos_CadFunc.setVisible(true);
@@ -230,6 +233,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 832));
@@ -452,7 +456,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Editar_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 710, -1, -1));
 
         Jbtn_Salvar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Salvar_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -621,11 +625,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                     .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                         .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                                .addGap(53, 53, 53)
+                                .addGap(210, 210, 210)
                                 .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jlbl_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
@@ -637,18 +643,20 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                 .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Jbtn_LogoutButton_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanel_BarraLateralLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(Jlbl_TipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
+                .addComponent(JPanel_logo_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(JPanel_contentFuncionarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JPanel_contentEquipe_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Jpanel_contentTreinamento_Barra_Lateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
                 .addGroup(JPanel_BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_Configuração_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_trocarUsuario_BarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -722,134 +730,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncActionPerformed
 
-    private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
-        Tela_Login telaLogin = new Tela_Login();
-        telaLogin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
-
-    private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
-
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
-                Tela_SearchFunc.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
-                Tela_CadFunc.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
-
-    private void Jcmbx_Funcionario_BarraLateralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
-
-    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
-
-    private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
-        switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
-                Tela_SearchFunc.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
-                Tela_CadFunc.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
-
-    private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
-                Tela_SearchEqp.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
-                Tela_CadEqp.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
-
-    private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
-        switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
-                Tela_SearchEqp.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
-                Tela_CadEqp.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jcmbx_Equipe_BarraLateralActionPerformed
-
-    private void Jbtn_trocarUsuario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
-
-    private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
-        popup_opcoes.setVisible(true);
-    }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
-
-    private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
-                Tela_SearchTreino.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
-                Tela_CadTreino.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
-
-    private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-        switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
-            case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
-                Tela_SearchTreino.setVisible(true);
-                this.dispose();
-            }
-            case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
-                Tela_CadTreino.setVisible(true);
-                this.dispose();
-            }
-            default -> {
-                JOptionPane.showMessageDialog(null, "Selecione uma opção disponivel!");
-            }
-        }
-    }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-
     private void Jtxtf_Sobrenome_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Sobrenome_CadFuncActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jtxtf_Sobrenome_CadFuncActionPerformed
@@ -916,7 +796,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     
     // tela de inserir funcionario à equipe
     private void Jbtn_AddEquipe_cadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AddEquipe_cadFuncActionPerformed
-        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe();
+        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe(tipoUsuario);
         Cad_FuncEqp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
@@ -932,6 +812,136 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncMouseEntered
+
+    private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+        Tela_Login telaLogin = new Tela_Login();
+        telaLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
+
+    private void Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
+
+    }//GEN-LAST:event_Jbtn_IconeFuncionario_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Funcionario_BarraLateralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralMouseClicked
+
+    private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+        if ("admin".equals(tipoUsuario)) {
+            switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
+                    Tela_SearchFunc.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario(tipoUsuario);
+                    Tela_CadFunc.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
+            }
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
+                    Tela_SearchFunc.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
+        }
+    }//GEN-LAST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
+
+    private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
+
+    }//GEN-LAST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+        if ("supervisor".equals(tipoUsuario) || "admin".equals(tipoUsuario)) {
+            switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
+                    Tela_SearchEqp.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe(tipoUsuario);
+                    Tela_CadEqp.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
+            }
+        } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
+                    Tela_SearchEqp.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
+        }
+    }//GEN-LAST:event_Jcmbx_Equipe_BarraLateralActionPerformed
+
+    private void Jbtn_trocarUsuario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
+
+    private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
+        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
+        popup_opcoes.setVisible(true);
+    }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
+
+    private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    }//GEN-LAST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
+
+    private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
+        if ("admin".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+            switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
+                    Tela_SearchTreino.setVisible(true);
+                    this.dispose();
+                }
+                case 2 -> {
+                    Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
+                    Tela_CadTreino.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
+                }
+            }
+        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
+            switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
+                case 1 -> {
+                    Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
+                    Tela_SearchTreino.setVisible(true);
+                    this.dispose();
+                }
+                default -> {
+                    JOptionPane.showMessageDialog(null, "Você não tem permissão para acessar essa opção!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
+        }
+    }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -963,8 +973,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
+        private String tipoUsuario;
         public void run() {
-            new Tela_Cadastro_Funcionario().setVisible(true);
+            this.tipoUsuario = tipoUsuario;
+            new Tela_Cadastro_Funcionario(tipoUsuario).setVisible(true);
         }
     });
 }
@@ -1003,6 +1015,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Sobrenome_Tela_Adicionar_Funcionario;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Title_identificacao;
     private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;

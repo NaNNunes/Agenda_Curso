@@ -20,10 +20,13 @@ import javax.swing.JOptionPane;
  */
 public class Barra_Lateral extends javax.swing.JFrame {
 
+    private final String tipoUsuario;
+
     /**
      * Creates new form Barra_Lateral
      */
-    public Barra_Lateral() {
+    public Barra_Lateral(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
         initComponents();
     }
 
@@ -265,12 +268,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
         
         switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
                 Tela_SearchFunc.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario(tipoUsuario);
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -283,12 +286,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeEquipe_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe(tipoUsuario);
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }
@@ -311,12 +314,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
         switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
             }
@@ -333,12 +336,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jcmbx_Funcionario_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Funcionario_BarraLateralActionPerformed
         switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario();
+                Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
                 Tela_SearchFunc.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario();
+                Tela_Cadastro_Funcionario Tela_CadFunc = new Tela_Cadastro_Funcionario(tipoUsuario);
                 Tela_CadFunc.setVisible(true);
                 this.dispose();
             }
@@ -351,12 +354,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jcmbx_Equipe_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Equipe_BarraLateralActionPerformed
         switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe();
+                Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
                 Tela_SearchEqp.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe();
+                Tela_Cadastro_Equipe Tela_CadEqp = new Tela_Cadastro_Equipe(tipoUsuario);
                 Tela_CadEqp.setVisible(true);
                 this.dispose();
             }
@@ -369,12 +372,12 @@ public class Barra_Lateral extends javax.swing.JFrame {
     private void Jcmbx_Treinamento_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
         switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()){
             case 1 -> {
-                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento();
+                Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
                 Tela_SearchTreino.setVisible(true);
                 this.dispose();
             }
             case 2 -> {
-                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento();
+                Tela_Cadastro_Treinamento Tela_CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
                 Tela_CadTreino.setVisible(true);
                 this.dispose();
             }
@@ -413,8 +416,10 @@ public class Barra_Lateral extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            private String tipoUsuario;
             public void run() {
-                new Barra_Lateral().setVisible(true);
+                this.tipoUsuario = tipoUsuario;
+                new Barra_Lateral(tipoUsuario).setVisible(true);
             }
         });
     }
