@@ -367,6 +367,11 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jcmbx_Formato_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Formato_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Presencial", "Online" }));
         Jcmbx_Formato_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
+        Jcmbx_Formato_CadTreino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcmbx_Formato_CadTreinoActionPerformed(evt);
+            }
+        });
         Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         Jlbl_Status_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -992,6 +997,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
+
+    private void Jcmbx_Formato_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Formato_CadTreinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcmbx_Formato_CadTreinoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -3,10 +3,10 @@ use db_agenda_curso;
 DROP DATABASE db_agenda_curso;
 
 CREATE TABLE usuario(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    usuario VARCHAR(50) UNIQUE,
-    senha VARCHAR(50),
-    tipo_usuario ENUM('admin', 'operador', 'supervisor') DEFAULT 'operador'
+    id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    login_usuario VARCHAR(50) UNIQUE NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+    tipo_usuario ENUM('admin', 'operador', 'supervisor','instrutor')
 );
 DROP TABLE usuario;
 
@@ -237,3 +237,7 @@ desc cadastro_funcionario_equipe;
 -- //////////////////////////////////////////////////////
 INSERT INTO usuario(usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario;
+select * from vw_funcionario;
+select * from funcionario;
+TRUNCATE TABLE funcionario;
+DELETE FROM funcionario WHERE id_funcionario = 12;

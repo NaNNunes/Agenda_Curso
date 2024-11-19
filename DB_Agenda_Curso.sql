@@ -97,7 +97,7 @@ CREATE TABLE `equipe` (
   UNIQUE KEY `nome` (`nome_eqp`),
   UNIQUE KEY `nome_eqp` (`nome_eqp`),
   UNIQUE KEY `nome_eqp_2` (`nome_eqp`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +106,7 @@ CREATE TABLE `equipe` (
 
 LOCK TABLES `equipe` WRITE;
 /*!40000 ALTER TABLE `equipe` DISABLE KEYS */;
-INSERT INTO `equipe` VALUES (8,'Patrulha Falta d\'água 01','Equipe do matutino','matutino'),(9,'Patrulha Falta d\'água 02','Equipe do vespertino','vespertino'),(10,'Patrulha Falta d\'água 03','Equipe do noturno','noturno');
+INSERT INTO `equipe` VALUES (8,'Patrulha Falta d\'água 01','Equipe do matutino','matutino'),(9,'Patrulha Falta d\'água 02','Equipe do vespertino','vespertino'),(10,'Patrulha Falta d\'água 03','Equipe do noturno','noturno'),(11,'Lap','lAP','matutino');
 /*!40000 ALTER TABLE `equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +142,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (12,'123.456.789-98','Claudio','Roberto','(27) 99999-9999','emaildele','noturno','2024-11-18','operador',4),(13,'987.987.789-98','Cleberson','Moura','(78) 97897-8978','emaiclebin','noturno','2024-11-18','operador',4),(14,'123.456.789-10','Erivelton','Silva','(27) 94002-8922','veltin@gmail.com','matutino','2024-11-18','supervisor',3),(15,'889.564.851-32','Sergio','Silva','(85) 85258-6455','Sergio@gmail.com','matutino','2024-11-18','instrutor',3),(16,'784.545.121-24','Thiago','Alamon','(35) 79518-6421','Thiago@gmail.com','vespertino','2024-11-18','instrutor',4);
+INSERT INTO `funcionario` VALUES (12,'123.456.789-98','Claudio','Roberto','(27) 99999-9999','emaildele','noturno','2024-11-18','operador',4),(13,'987.987.789-98','Cleberson','Moura','(78) 97897-8978','emaiclebin','noturno','2024-11-18','operador',4),(14,'123.456.789-10','Erivelton','Silva','(27) 94002-8922','veltin@gmail.com','matutino','2024-11-18','supervisor',3),(15,'889.564.851-32','Sergio','Silva','(85) 85258-6455','Sergio@gmail.com','matutino','2024-11-18','instrutor',3);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +159,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Administração','ADM'),(3,'Automação','ATM'),(4,'teleatendimento','TLA'),(6,'VENDAS','VND'),(7,'Financeiro','FNC'),(8,'MARKETING','MTK');
+INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Administração','ADM'),(3,'Automação','ATM'),(4,'teleatendimento','TLA'),(6,'VENDAS','VND'),(7,'Financeiro','FNC'),(8,'MARKETING','MTK'),(9,'','');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,33 +197,6 @@ LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
 INSERT INTO `treinamento` VALUES (5,'Falta d\'água','Ensinamentos falta de água',1,80),(7,'Manutençao da rb prafus','Rebimboca da parafuseta',40,2);
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario`
---
-
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(50) DEFAULT NULL,
-  `senha` varchar(50) DEFAULT NULL,
-  `tipo_usuario` enum('admin','operador','supervisor') DEFAULT 'operador',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `usuario` (`usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
-
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'login','login','admin');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -600,4 +573,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-18 14:16:11
+-- Dump completed on 2024-11-19 16:44:03

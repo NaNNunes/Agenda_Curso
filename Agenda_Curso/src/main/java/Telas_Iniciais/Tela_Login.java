@@ -56,14 +56,14 @@ public class Tela_Login extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
             }
-            
+
             resultSet.close();
-            
+
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro ao conectar com o banco de dados.");
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
-        
+
         connection.close();
         statement.close();
     }
@@ -85,6 +85,7 @@ public class Tela_Login extends javax.swing.JFrame {
         Esqueceu_senha_login = new javax.swing.JLabel();
         Acessar_login = new javax.swing.JButton();
         Text_senha_login = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setMaximumSize(new java.awt.Dimension(1048, 832));
@@ -170,6 +171,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, 20));
 
         Acessar_login.setBackground(new java.awt.Color(255, 255, 255));
+        Acessar_login.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Acessar_login.setForeground(new java.awt.Color(0, 0, 0));
         Acessar_login.setText("Acessar");
         Acessar_login.setPreferredSize(new java.awt.Dimension(220, 52));
@@ -184,6 +186,16 @@ public class Tela_Login extends javax.swing.JFrame {
         Text_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Text_senha_login.setPreferredSize(new java.awt.Dimension(323, 25));
         jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(234, 242, 5));
+        jLabel1.setText("Adicionar Funcionario?");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, 520));
 
@@ -200,6 +212,21 @@ public class Tela_Login extends javax.swing.JFrame {
             Logger.getLogger(Tela_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Acessar_loginActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        String senha = JOptionPane.showInputDialog(null, "Digite a senha:", "Autenticação", JOptionPane.INFORMATION_MESSAGE);
+        if (senha != null) {
+            if (senha.equals("MykaelLindo")) {
+                JOptionPane.showMessageDialog(null, "Senha correta! Abrindo a tela de Adicionar Usuário.");
+                Tela_Adicionar_Usuario Tela_Adicionar = new Tela_Adicionar_Usuario();
+                Tela_Adicionar.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Senha incorreta! Tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -244,6 +271,7 @@ public class Tela_Login extends javax.swing.JFrame {
     private javax.swing.JLabel Senha_login;
     private javax.swing.JTextField Text_login;
     private javax.swing.JPasswordField Text_senha_login;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
