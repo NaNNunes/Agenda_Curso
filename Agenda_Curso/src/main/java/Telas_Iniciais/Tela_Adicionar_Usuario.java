@@ -48,6 +48,9 @@ public class Tela_Adicionar_Usuario extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 832));
 
         jPanel1.setBackground(new java.awt.Color(249, 246, 226));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 832));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 832));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(47, 63, 115));

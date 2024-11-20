@@ -153,6 +153,7 @@ public class Tela_Cadastro_Setor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jbtn_Cadastrar_CadSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastrar_CadSetActionPerformed

@@ -215,6 +215,7 @@ DELETE FROM treinamento WHERE id_treinamento > 0;
 select * from cadastro_funcionario_equipe;
 select * from cadastro_equipe_treinamento;
 
+select * from funcionario;
 select * from vw_funcionario;
 select * from vw_equipe;
 select * from vw_treinamento;

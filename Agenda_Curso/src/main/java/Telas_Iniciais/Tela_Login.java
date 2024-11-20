@@ -39,7 +39,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
+            String query = "SELECT * FROM usuario WHERE login_usuario = ? AND senha = ?";
             statement = connection.prepareStatement(query);
 
             statement.setString(1, usuario);
