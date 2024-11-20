@@ -236,7 +236,7 @@ desc cadastro_equipe_treinamento;
 desc cadastro_funcionario_equipe;
 
 -- //////////////////////////////////////////////////////
-INSERT INTO usuario(usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
+INSERT INTO usuario(login_usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario;
 select * from vw_funcionario;
 select * from funcionario;

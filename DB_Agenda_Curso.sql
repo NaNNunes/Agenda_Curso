@@ -29,17 +29,17 @@ CREATE TABLE `cadastro_equipe_treinamento` (
   `id_equipe` int(11) DEFAULT NULL,
   `id_treinamento` int(11) DEFAULT NULL,
   `id_instrutor` int(11) DEFAULT NULL,
-  `prev_fim` date DEFAULT NULL,
   `prev_comeco` date DEFAULT NULL,
+  `prev_fim` date DEFAULT NULL,
   `formato` enum('Presencial','Online','Hibrido') DEFAULT NULL,
   PRIMARY KEY (`id_cadastro`),
   KEY `FK_EquipeTreinoCad` (`id_equipe`),
   KEY `FK_TreinoEquipeCad` (`id_treinamento`),
-  KEY `FK_InstrutorCad` (`id_instrutor`),
+  KEY `FK_InstrutorTreinoEqpCad` (`id_instrutor`),
   CONSTRAINT `FK_EquipeTreinoCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
-  CONSTRAINT `FK_InstrutorCad` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`),
+  CONSTRAINT `FK_InstrutorTreinoEqpCad` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`),
   CONSTRAINT `FK_TreinoEquipeCad` FOREIGN KEY (`id_treinamento`) REFERENCES `treinamento` (`id_treinamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,6 @@ CREATE TABLE `cadastro_equipe_treinamento` (
 
 LOCK TABLES `cadastro_equipe_treinamento` WRITE;
 /*!40000 ALTER TABLE `cadastro_equipe_treinamento` DISABLE KEYS */;
-INSERT INTO `cadastro_equipe_treinamento` VALUES (48,8,5,15,'2024-11-30','2024-11-10','Presencial');
 /*!40000 ALTER TABLE `cadastro_equipe_treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +67,7 @@ CREATE TABLE `cadastro_funcionario_equipe` (
   KEY `FK_EquipeCad` (`id_equipe`),
   CONSTRAINT `FK_EquipeCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
   CONSTRAINT `FK_FuncionarioCad` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +76,6 @@ CREATE TABLE `cadastro_funcionario_equipe` (
 
 LOCK TABLES `cadastro_funcionario_equipe` WRITE;
 /*!40000 ALTER TABLE `cadastro_funcionario_equipe` DISABLE KEYS */;
-INSERT INTO `cadastro_funcionario_equipe` VALUES (40,12,8),(41,13,8),(42,15,8);
 /*!40000 ALTER TABLE `cadastro_funcionario_equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,10 +92,8 @@ CREATE TABLE `equipe` (
   `descricao` varchar(200) DEFAULT NULL,
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   PRIMARY KEY (`id_equipe`),
-  UNIQUE KEY `nome` (`nome_eqp`),
-  UNIQUE KEY `nome_eqp` (`nome_eqp`),
-  UNIQUE KEY `nome_eqp_2` (`nome_eqp`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `nome_eqp` (`nome_eqp`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +102,6 @@ CREATE TABLE `equipe` (
 
 LOCK TABLES `equipe` WRITE;
 /*!40000 ALTER TABLE `equipe` DISABLE KEYS */;
-INSERT INTO `equipe` VALUES (8,'Patrulha Falta d\'água 01','Equipe do matutino','matutino'),(9,'Patrulha Falta d\'água 02','Equipe do vespertino','vespertino'),(10,'Patrulha Falta d\'água 03','Equipe do noturno','noturno'),(11,'Lap','lAP','matutino');
 /*!40000 ALTER TABLE `equipe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,21 +114,21 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
   `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(14) DEFAULT NULL,
+  `cpf` varchar(14) DEFAULT NULL,
   `nome_func` varchar(20) DEFAULT NULL,
   `sobrenome` varchar(30) DEFAULT NULL,
-  `Telefone` varchar(15) DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
   `email` varchar(320) DEFAULT NULL,
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
   `data_adimissao` date DEFAULT current_timestamp(),
   `cargo` enum('supervisor','instrutor','operador') DEFAULT NULL,
   `id_setor` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_funcionario`),
-  UNIQUE KEY `CPF` (`CPF`),
+  UNIQUE KEY `cpf` (`cpf`),
   UNIQUE KEY `email` (`email`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +137,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (12,'123.456.789-98','Claudio','Roberto','(27) 99999-9999','emaildele','noturno','2024-11-18','operador',4),(13,'987.987.789-98','Cleberson','Moura','(78) 97897-8978','emaiclebin','noturno','2024-11-18','operador',4),(14,'123.456.789-10','Erivelton','Silva','(27) 94002-8922','veltin@gmail.com','matutino','2024-11-18','supervisor',3),(15,'889.564.851-32','Sergio','Silva','(85) 85258-6455','Sergio@gmail.com','matutino','2024-11-18','instrutor',3);
+INSERT INTO `funcionario` VALUES (8,'999.888.777-14','dsfdsaf','sdfsdf','(65) 46540-6840','dsfdsf','vespertino','2024-11-19','supervisor',1);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +154,7 @@ CREATE TABLE `setor` (
   `sigla` char(3) DEFAULT NULL,
   PRIMARY KEY (`id_setor`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +163,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Recursos Humanos','RH'),(2,'Administração','ADM'),(3,'Automação','ATM'),(4,'teleatendimento','TLA'),(6,'VENDAS','VND'),(7,'Financeiro','FNC'),(8,'MARKETING','MTK'),(9,'','');
+INSERT INTO `setor` VALUES (1,'Administração','ADM'),(2,'Recursos Humanos','RH');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,10 +178,10 @@ CREATE TABLE `treinamento` (
   `id_treinamento` int(11) NOT NULL AUTO_INCREMENT,
   `nome_treino` varchar(30) DEFAULT NULL,
   `descricao` varchar(200) DEFAULT NULL,
-  `carga_Horaria` int(11) DEFAULT NULL,
-  `validade` int(3) DEFAULT NULL,
+  `carga_horaria` int(11) DEFAULT NULL,
+  `validade` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_treinamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,8 +190,34 @@ CREATE TABLE `treinamento` (
 
 LOCK TABLES `treinamento` WRITE;
 /*!40000 ALTER TABLE `treinamento` DISABLE KEYS */;
-INSERT INTO `treinamento` VALUES (5,'Falta d\'água','Ensinamentos falta de água',1,80),(7,'Manutençao da rb prafus','Rebimboca da parafuseta',40,2);
 /*!40000 ALTER TABLE `treinamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `login_usuario` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `tipo_usuario` enum('admin','operador','supervisor','instrutor') DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `login_usuario` (`login_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'login','login','admin');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -409,7 +430,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_dadosfuncionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`CPF` AS `cpf`,`funcionario`.`nome_func` AS `nome_func`,`funcionario`.`sobrenome` AS `sobrenome`,`funcionario`.`Telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
+/*!50001 VIEW `vw_dadosfuncionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`cpf` AS `cpf`,`funcionario`.`nome_func` AS `nome_func`,`funcionario`.`sobrenome` AS `sobrenome`,`funcionario`.`telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
 /*!50002 WITH CASCADED CHECK OPTION */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -447,7 +468,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_funcionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`CPF` AS `cpf`,concat(`funcionario`.`nome_func`,' ',`funcionario`.`sobrenome`) AS `nome_completo`,`funcionario`.`Telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
+/*!50001 VIEW `vw_funcionario` AS select `funcionario`.`id_funcionario` AS `id_funcionario`,`funcionario`.`cpf` AS `cpf`,concat(`funcionario`.`nome_func`,' ',`funcionario`.`sobrenome`) AS `nome_completo`,`funcionario`.`telefone` AS `telefone`,`funcionario`.`email` AS `email`,`funcionario`.`turno` AS `turno`,`funcionario`.`cargo` AS `cargo`,`setor`.`sigla` AS `setor` from (`funcionario` join `setor` on(`funcionario`.`id_setor` = `setor`.`id_setor`)) */
 /*!50002 WITH CASCADED CHECK OPTION */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -540,7 +561,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`id_treinamento` AS `id_treino`,`treinamento`.`nome_treino` AS `nome`,`treinamento`.`carga_Horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade` from `treinamento` */
+/*!50001 VIEW `vw_treinamento` AS select `treinamento`.`id_treinamento` AS `id_treino`,`treinamento`.`nome_treino` AS `nome`,`treinamento`.`carga_horaria` AS `carga_horaria`,`treinamento`.`validade` AS `validade` from `treinamento` */
 /*!50002 WITH CASCADED CHECK OPTION */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -573,4 +594,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-19 16:44:03
+-- Dump completed on 2024-11-19 21:49:37
