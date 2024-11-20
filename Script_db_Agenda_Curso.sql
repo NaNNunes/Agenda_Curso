@@ -27,27 +27,35 @@ CREATE TABLE funcionario (
     data_adimissao DATE DEFAULT CURRENT_TIMESTAMP,
     cargo ENUM('supervisor', 'instrutor', 'operador'),
     id_setor INT,
+    status_func TINYINT(1) DEFAULT 1,
     CONSTRAINT FK_SetorFuncionario FOREIGN KEY (id_setor) REFERENCES setor (id_setor)
 ); 
 ALTER TABLE funcionario CHANGE COLUMN nome nome_func VARCHAR(20);
+ALTER TABLE funcionario ADD COLUMN status TINYINT(1) DEFAULT 1;
+ALTER TABLE funcionario CHANGE COLUMN status status_func TINYINT(1) DEFAULT 1;
 
 CREATE TABLE equipe (
     id_equipe INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome_eqp VARCHAR(30) UNIQUE,
     descricao VARCHAR(200),
-    turno ENUM('matutino', 'vespertino', 'noturno')
+    turno ENUM('matutino', 'vespertino', 'noturno'),
+    status_equp TINYINT(1) DEFAULT 1
 );
 ALTER TABLE equipe CHANGE COLUMN nome nome_eqp VARCHAR(15) UNIQUE;
 ALTER TABLE equipe MODIFY COLUMN nome_eqp VARCHAR(30) UNIQUE;
+ALTER TABLE equipe ADD COLUMN status_eqp TINYINT(1) DEFAULT 1;
+ALTER TABLE equipe CHANGE COLUMN status_equp status_eqp TINYINT(1) DEFAULT 1;
 
 CREATE TABLE treinamento (
     id_treinamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome_treino VARCHAR(30),
     descricao VARCHAR(200),
     carga_horaria INT,
-    validade INT
+    validade INT,
+    status_treino TINYINT(1) DEFAULT 1
 );
 ALTER TABLE treinamento CHANGE COLUMN nome_treinamento nome_treino VARCHAR(30);
+ALTER TABLE treinamento ADD COLUMN status_treino TINYINT(1) DEFAULT 1;
 
 CREATE TABLE cadastro_funcionario_equipe (
     id_cadastro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -89,7 +97,8 @@ CREATE OR REPLACE VIEW vw_funcionario AS
         funcionario.email,
         funcionario.turno,
         funcionario.cargo,
-        setor.sigla AS setor
+        setor.sigla AS setor,
+        funcionario.status_func
 	FROM
         funcionario
 	INNER JOIN
@@ -116,7 +125,8 @@ CREATE OR REPLACE VIEW vw_Equipe AS
 	SELECT
 		id_equipe,
 		nome_eqp,
-        turno
+        turno,
+        status_eqp
         FROM equipe WITH CHECK OPTION;
 DROP VIEW vw_Equipe;
 
@@ -125,7 +135,8 @@ CREATE OR REPLACE VIEW vw_treinamento AS
 		id_treinamento AS id_treino,
 		nome_treino AS nome,
 		carga_horaria,
-		validade
+		validade,
+        status_treino
     FROM treinamento WITH CHECK OPTION;
     
 CREATE OR REPLACE VIEW vw_setor AS
@@ -229,6 +240,8 @@ SELECT * FROM vw_treinoFunc WHERE id_funcionario = 1;
 
 -- ////////////////////////////////////////////////////////////
 
+desc funcionario;
+
 desc vw_treinamento;
 desc vw_equipe;
 desc equipe;
@@ -239,6 +252,6 @@ desc cadastro_funcionario_equipe;
 INSERT INTO usuario(login_usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario;
 select * from vw_funcionario;
-select * from funcionario;
-TRUNCATE TABLE funcionario;
+
 DELETE FROM funcionario WHERE id_funcionario = 12;
+

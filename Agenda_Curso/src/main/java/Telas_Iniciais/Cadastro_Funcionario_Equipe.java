@@ -455,8 +455,8 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            this.popTblFuncionario("SELECT * FROM vw_funcionario");
-            this.popTblEquipe("SELECT * FROM vw_equipe");
+            this.popTblFuncionario("SELECT * FROM vw_funcionario WHERE status_func = 1;");
+            this.popTblEquipe("SELECT * FROM vw_Equipe WHERE status_eqp = 1;");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -502,8 +502,8 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 statement.execute();
                 JOptionPane.showMessageDialog(null, "Cadastro realizado");
 
-                this.popTblEquipe("SELECT * FROM vw_Equipe");
-                this.popTblFuncionario("SELECT * FROM vw_funcionario");
+                this.popTblEquipe("SELECT * FROM vw_Equipe WHERE status_eqp = 1;");
+                this.popTblFuncionario("SELECT * FROM vw_funcionario WHERE status_func = 1;");
             }
             connection.close();
             statement.close();
@@ -521,21 +521,22 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         try {
             String search = Jtxtf_PesquisaFunc_CdFE.getText();
             this.popTblFuncionario("SELECT * FROM vw_funcionario "
-                    + "WHERE id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
+                    + "WHERE (id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
                     + "OR cpf LIKE '"+search+"' OR setor LIKE '%"+search+"%' "
                     + "OR turno LIKE '%"+search+"%' OR cargo LIKE '%"+search+"%' "
-                    + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%'");
+                    + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%') AND status_func = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_Jbtn_ConsultaFunc_CdFEActionPerformed
 
     private void Jbtn_ConsultaEqp_CdFEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaEqp_CdFEActionPerformed
+        
         try {
             String search = Jtxtf_PesquisaEqp_CdFE.getText();
             this.popTblEquipe("SELECT * FROM vw_equipe "
-                    + "WHERE id_equipe = '"+search+"' OR nome LIKE '%"+search+"%' "
-                    + "OR turno LIKE '%"+search+"%'");
+                    + "WHERE (id_equipe = '"+search+"' OR nome_eqp LIKE '%"+search+"%' "
+                    + "OR turno LIKE '%"+search+"%') AND status_eqp = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }

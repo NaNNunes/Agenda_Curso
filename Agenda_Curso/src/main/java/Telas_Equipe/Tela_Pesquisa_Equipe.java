@@ -401,7 +401,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            this.populaTabela("SELECT * FROM vw_Equipe;");
+            this.populaTabela("SELECT * FROM vw_equipe WHERE status_eqp =1");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Pesquisa_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -409,9 +409,10 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
 
     private void Jbtn_consulta_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consulta_SearchEqpActionPerformed
         try {
-            String numEquipe = Jtxtf_consulta_SearchEqp.getText();
-            this.populaTabela("SELECT * FROM equipe "
-                + "WHERE id_equipe = '"+numEquipe+"'"); // view??
+            String search = Jtxtf_consulta_SearchEqp.getText();
+            this.populaTabela("SELECT * FROM vw_equipe "
+                + "WHERE (nome_eqp LIKE'%"+search+"%' OR id_equipe = '"+search+"' "
+                + " OR turno LIKE '%"+search+"%') AND status_eqp = 1");
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
@@ -431,7 +432,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         
         try {
             connection = DriverManager.getConnection(url,user,psswrd);
-            String query = "SELECT * FROM equipe WHERE id_equipe = " + id;
+            String query = "SELECT * FROM equipe WHERE id_equipe = "+id;
             statement = connection.prepareStatement(query);
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
@@ -452,13 +453,10 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         catch (SQLException erro){
             System.out.println("Erro: " + erro.getMessage());
         }
-        
-        
-        
     }//GEN-LAST:event_Jbtn_EditarEqpActionPerformed
 
     private void Jbtn_Apagar_SearchEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchEqpActionPerformed
-        // delete funciona quando registro nao vinculado a tabela 3ª
+        
         if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
             Connection connection = null;
             PreparedStatement statement = null;
@@ -466,14 +464,14 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
             String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
             String user = "root";
             String psswrd = "";        
-
+            int id_eqp = Integer.parseInt(Jtbl_ListaEqp.getValueAt(Jtbl_ListaEqp.getSelectedRow(), 0).toString());
+            
             try {
                 connection = DriverManager.getConnection(url,user,psswrd);
-                String query = "DELETE FROM equipe WHERE id_equipe = ?;";
+                String query = "UPDATE equipe SET status_eqp = 0 WHERE id_equipe ="+id_eqp;
                 statement = connection.prepareStatement(query);
-                statement.setInt(1, Integer.parseInt(Jtbl_ListaEqp.getValueAt(Jtbl_ListaEqp.getSelectedRow(), 0).toString()));
-                statement.execute();
-                this.populaTabela("SELECT * FROM vw_Equipe;");
+                statement.executeUpdate();
+                this.populaTabela("SELECT * FROM vw_Equipe WHERE status_eqp = 1;");
                 connection.close();
                 statement.close();
             }

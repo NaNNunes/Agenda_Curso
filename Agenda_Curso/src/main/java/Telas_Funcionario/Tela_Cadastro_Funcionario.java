@@ -39,16 +39,12 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.tipoUsuario = tipoUsuario;
         initComponents();
         this.mascaraCombox();
-        this.Jbtn_Treinos_CadFunc.setVisible(false);
-        this.Jbtn_AddEquipe_cadFunc.setVisible(false);
         this.Jbtn_Editar_CadFunc.setVisible(false);
         this.Jbtn_Salvar_CadFunc.setVisible(true);
     }
 
     
     public void Editar_CadFunc(String[] dados){
-        this.Jbtn_Treinos_CadFunc.setVisible(true);
-        this.Jbtn_AddEquipe_cadFunc.setVisible(true);
         this.Jbtn_Editar_CadFunc.setVisible(true);
         this.Jbtn_Salvar_CadFunc.setVisible(false);
         
@@ -212,8 +208,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Cargo_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Turno_CadFunc = new javax.swing.JComboBox<>();
         Jcmbx_Setor_CadFunc = new javax.swing.JComboBox<>();
-        Jbtn_Treinos_CadFunc = new javax.swing.JButton();
-        Jbtn_AddEquipe_cadFunc = new javax.swing.JButton();
         Jbtn_Editar_CadFunc = new javax.swing.JButton();
         Jbtn_Salvar_CadFunc = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -419,28 +413,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         });
         Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 250, -1));
 
-        Jbtn_Treinos_CadFunc.setText("Treinamentos");
-        Jbtn_Treinos_CadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
-        Jbtn_Treinos_CadFunc.setMinimumSize(new java.awt.Dimension(130, 40));
-        Jbtn_Treinos_CadFunc.setPreferredSize(new java.awt.Dimension(130, 40));
-        Jbtn_Treinos_CadFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Treinos_CadFuncActionPerformed(evt);
-            }
-        });
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jbtn_Treinos_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, -1, -1));
-
-        Jbtn_AddEquipe_cadFunc.setText("Adicionar Equipe");
-        Jbtn_AddEquipe_cadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
-        Jbtn_AddEquipe_cadFunc.setMinimumSize(new java.awt.Dimension(130, 40));
-        Jbtn_AddEquipe_cadFunc.setPreferredSize(new java.awt.Dimension(130, 40));
-        Jbtn_AddEquipe_cadFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_AddEquipe_cadFuncActionPerformed(evt);
-            }
-        });
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jbtn_AddEquipe_cadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, -1));
-
         Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
         Jbtn_Editar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
@@ -453,7 +425,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Editar_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
 
         Jbtn_Salvar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
         Jbtn_Salvar_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -675,17 +647,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jtxtf_Sobrenome_CadFuncActionPerformed
 
-    private void Jbtn_Treinos_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinos_CadFuncActionPerformed
-        PopUp_Treinamentos_Funcionario treinoFunc = new PopUp_Treinamentos_Funcionario();
-        try {
-            treinoFunc.populaTabela(id_funcionario);
-        } catch (SQLException ex) {
-            Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        treinoFunc.setVisible(true);
-        
-    }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
-
     private void Jbtn_Salvar_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadFuncActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
@@ -735,13 +696,6 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadFuncActionPerformed
     
-    // tela de inserir funcionario à equipe
-    private void Jbtn_AddEquipe_cadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AddEquipe_cadFuncActionPerformed
-        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe(tipoUsuario);
-        Cad_FuncEqp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
-
     private void Jcmbx_Setor_CadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncMouseClicked
         
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncMouseClicked
@@ -926,13 +880,11 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_BarraLateral;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
-    private javax.swing.JButton Jbtn_AddEquipe_cadFunc;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_Editar_CadFunc;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
     private javax.swing.JButton Jbtn_Salvar_CadFunc;
-    private javax.swing.JButton Jbtn_Treinos_CadFunc;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_iconeTreinamento_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_trocarUsuario_BarraLateral;

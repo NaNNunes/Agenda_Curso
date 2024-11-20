@@ -750,8 +750,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            this.popTabela("SELECT * FROM vw_treinamento");
-            this.popTableEqp("SELECT * FROM vw_equipe");
+            this.popTabela("SELECT * FROM vw_treinamento WHERE status_treino = 1");
+            this.popTableEqp("SELECT * FROM vw_Equipe WHERE status_eqp = 1;");
             this.popTableInst("SELECT * FROM vw_funcionario WHERE cargo LIKE 'instrutor'");
             
         } catch (SQLException ex) {
@@ -761,9 +761,11 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     private void Jbtn_ConsultaTreino_AlocaTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaTreino_AlocaTreinoActionPerformed
         try {
-            String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
+            String search = Jtxtf_consulta_SearchTreino.getText();
             this.popTabela("SELECT * FROM vw_treinamento "
-                + "WHERE nome LIKE '%"+nomeTreino+"%'");
+                + "WHERE (id_treino = '"+search+"' OR nome LIKE '%"+search+"%' "
+                + "OR carga_horaria = '"+search+"' OR validade = '"+search+"') "
+                + "AND status_treino = 1;");
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
@@ -779,10 +781,14 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     private void Jbtn_ConsultaInst_AlocaTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaInst_AlocaTreinoActionPerformed
 
-        String nome = Jtxtf_Consulta_SearchFunc.getText();
+        String search = Jtxtf_Consulta_SearchFunc.getText();
 
         try {
-            this.popTableInst("SELECT * FROM vw_funcionario WHERE nome_completo LIKE'%" + nome + "%'");
+            this.popTableInst("SELECT * FROM vw_funcionario "
+                    + "WHERE (id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
+                    + "OR cpf LIKE '"+search+"' OR setor LIKE '%"+search+"%' "
+                    + "OR turno LIKE '%"+search+"%' OR cargo LIKE '%"+search+"%' "
+                    + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%') AND status_func = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -798,10 +804,12 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxtf_ConsultaEqp_AlocaTreinoActionPerformed
 
     private void Jbtn_ConsultaEqp_AlocaTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaEqp_AlocaTreinoActionPerformed
-        String nome = Jtxtf_Consulta_SearchFunc.getText();
+        String search = Jtxtf_Consulta_SearchFunc.getText();
 
         try {
-            this.popTableEqp("SELECT * FROM vw_equipe WHERE nome_eqp LIKE'%" + nome + "%'");
+            this.popTableEqp("SELECT * FROM vw_equipe"
+            + " WHERE (nome_eqp LIKE'%"+search+"%' OR id_equipe = '"+search+"' "
+            + " OR turno LIKE '%"+search+"%') AND status_eqp = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
