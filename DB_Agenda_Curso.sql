@@ -211,6 +211,7 @@ CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `login_usuario` varchar(50) NOT NULL,
   `senha` varchar(50) NOT NULL,
+  `old_psswd` varchar(50) DEFAULT NULL,
   `tipo_usuario` enum('admin','operador','supervisor','instrutor') DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `login_usuario` (`login_usuario`)
@@ -223,7 +224,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'login','login','admin');
+INSERT INTO `usuario` VALUES (1,'login','login',NULL,'admin');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -604,4 +605,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-20 18:23:08
+-- Dump completed on 2024-11-22 16:45:55

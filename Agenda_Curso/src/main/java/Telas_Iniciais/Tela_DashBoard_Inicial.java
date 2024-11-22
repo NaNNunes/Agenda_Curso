@@ -13,6 +13,13 @@ import Telas_Treinamento.Tela_Alocar_Treinamento;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,11 +33,50 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     /**
      * Creates new form Tela_DashBoard_Inicial
      */
-    public Tela_DashBoard_Inicial(String tipoUsuario) {
+    public Tela_DashBoard_Inicial(String tipoUsuario, int id) {
         this.tipoUsuario = tipoUsuario;
+        this.userId = id;
         initComponents();
     }
-
+    private int userId;
+    private void procuraEqptreino(String query){
+        
+    }
+    
+    private void procuraEqpFunc(String query){
+        
+    }
+    
+    private void verificaPrimeiroAcesso(String query) throws SQLException{
+        
+    }
+    
+    private boolean comparaSenha(String query) throws SQLException{
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+        
+        Connection connection = DriverManager.getConnection(url, user, psswrd);
+        PreparedStatement statement = connection.prepareStatement(query);
+        String[] passwd = new String[2];
+        
+        try{
+            ResultSet resultSet = statement.executeQuery();
+        
+            if(resultSet.next()){
+                passwd[0] = resultSet.getString("senha");
+                passwd[1] = resultSet.getString("old_psswd");
+            }
+            resultSet.close();
+        }
+        catch (SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        connection.close();
+        statement.close();
+        
+        return !passwd[0].equals(passwd[1]);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,6 +85,12 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Jbtn_AlocarTreino = new javax.swing.JButton();
         Jbtn_AlocarFuncEqp = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Jtbl_EqpTreino = new javax.swing.JTable();
+        Jlbl_EqpTreino_DashBrd = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Jtbl_EqpFunc = new javax.swing.JTable();
+        Jtbl_EqpFunc_DashBrd = new javax.swing.JLabel();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_contentFuncionarioButton = new javax.swing.JPanel();
@@ -83,6 +135,40 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
             }
         });
 
+        Jtbl_EqpTreino.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Jtbl_EqpTreino);
+
+        Jlbl_EqpTreino_DashBrd.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_EqpTreino_DashBrd.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_EqpTreino_DashBrd.setText("Equipes em treinamento");
+
+        Jtbl_EqpFunc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(Jtbl_EqpFunc);
+
+        Jtbl_EqpFunc_DashBrd.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jtbl_EqpFunc_DashBrd.setForeground(new java.awt.Color(0, 0, 0));
+        Jtbl_EqpFunc_DashBrd.setText("Equipes sem funcionários:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -93,11 +179,29 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 450, Short.MAX_VALUE)
                 .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(126, 126, 126))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jlbl_EqpTreino_DashBrd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jtbl_EqpFunc_DashBrd))
+                .addGap(39, 39, 39))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(714, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Jlbl_EqpTreino_DashBrd)
+                    .addComponent(Jtbl_EqpFunc_DashBrd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jbtn_AlocarTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -285,8 +389,9 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_AlocarFuncEqpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        if ("supervisor".equals(tipoUsuario)) {
+        String msg = "Olá sugiro que mude sua senha";
+        
+        if ("supervisor".equals(tipoUsuario)) {// existem 4 niveis de usuario
             Jlbl_TipoUsuario.setText("Supervisor");
             Jbtn_AlocarTreino.setVisible(true);
             Jbtn_AlocarFuncEqp.setVisible(true);
@@ -294,6 +399,16 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
             Jlbl_TipoUsuario.setText("Operador");
             Jbtn_AlocarTreino.setVisible(false);
             Jbtn_AlocarFuncEqp.setVisible(false);
+        }
+        
+        try {
+            if(comparaSenha("SELECT * FROM usuario WHERE id_usuario = "+this.userId)){
+                if(JOptionPane.showConfirmDialog(null, msg) == 0){
+                    // tela de edição de cadastro do usuario
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Tela_DashBoard_Inicial.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_formWindowOpened
@@ -478,10 +593,16 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Equipe_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
+    private javax.swing.JLabel Jlbl_EqpTreino_DashBrd;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
+    private javax.swing.JTable Jtbl_EqpFunc;
+    private javax.swing.JLabel Jtbl_EqpFunc_DashBrd;
+    private javax.swing.JTable Jtbl_EqpTreino;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

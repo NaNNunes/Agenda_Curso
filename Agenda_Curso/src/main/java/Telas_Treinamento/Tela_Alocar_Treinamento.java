@@ -208,7 +208,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jckbx_Certificado_CadTreino = new javax.swing.JCheckBox();
         Jckbx_Obrigatorio_CadTreino_ = new javax.swing.JCheckBox();
         Jbtn_Salvar_CadTreino = new javax.swing.JButton();
-        Jbtn_Cancelar_CadTreino = new javax.swing.JButton();
         Jtxtf_consulta_SearchTreino = new javax.swing.JTextField();
         Jbtn_ConsultaTreino_AlocaTreino = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
@@ -483,19 +482,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                 Jbtn_Salvar_CadTreinoActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, -1, -1));
-
-        Jbtn_Cancelar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cancelar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Cancelar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_Cancelar_CadTreino.setText("Cancelar");
-        Jbtn_Cancelar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
-        Jbtn_Cancelar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cancelar_CadTreinoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Jbtn_Cancelar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 740, -1, -1));
+        jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 740, -1, -1));
 
         Jtxtf_consulta_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_consulta_SearchTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -744,10 +731,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
 
-    private void Jbtn_Cancelar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cancelar_CadTreinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jbtn_Cancelar_CadTreinoActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
             this.popTabela("SELECT * FROM vw_treinamento WHERE status_treino = 1");
@@ -994,7 +977,6 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_BarraLateral;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
-    private javax.swing.JButton Jbtn_Cancelar_CadTreino;
     private javax.swing.JButton Jbtn_Configuração_BarraLateral;
     private javax.swing.JButton Jbtn_ConsultaEqp_AlocaTreino;
     private javax.swing.JButton Jbtn_ConsultaInst_AlocaTreino;

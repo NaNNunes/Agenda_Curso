@@ -6,9 +6,13 @@ CREATE TABLE usuario(
     id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     login_usuario VARCHAR(50) UNIQUE NOT NULL,
     senha VARCHAR(50) NOT NULL,
+    old_psswd VARCHAR(50),
     tipo_usuario ENUM('admin', 'operador', 'supervisor','instrutor')
 );
 DROP TABLE usuario;
+ALTER TABLE usuario MODIFY COLUMN old_psswd VARCHAR(50) AFTER senha;
+
+DESC usuario;
 
 CREATE TABLE setor (
     id_setor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -250,8 +254,9 @@ desc cadastro_funcionario_equipe;
 
 -- //////////////////////////////////////////////////////
 INSERT INTO usuario(login_usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
-select * from usuario;
-select * from vw_funcionario;
+select * from usuario WHERE login_usuario LIKE 'login';
+
+
 
 DELETE FROM funcionario WHERE id_funcionario = 12;
 

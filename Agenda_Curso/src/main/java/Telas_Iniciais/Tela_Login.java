@@ -25,7 +25,7 @@ public class Tela_Login extends javax.swing.JFrame {
     public Tela_Login() {
         initComponents();
     }
-
+    
     private void verificarLogin() throws SQLException {
 
         Connection connection = null;
@@ -34,6 +34,7 @@ public class Tela_Login extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
+        int id = 0;
         String usuario = Text_login.getText();
         String senha = Text_senha_login.getText();
 
@@ -48,9 +49,10 @@ public class Tela_Login extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
+                id = resultSet.getInt("id_usuario");
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
                 String tipoUsuario = resultSet.getString("tipo_usuario");
-                Tela_DashBoard_Inicial Tela_DashBoard = new Tela_DashBoard_Inicial(tipoUsuario);
+                Tela_DashBoard_Inicial Tela_DashBoard = new Tela_DashBoard_Inicial(tipoUsuario, id);
                 Tela_DashBoard.setVisible(true);
                 this.dispose();
             } else {
@@ -217,7 +219,7 @@ public class Tela_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String senha = JOptionPane.showInputDialog(null, "Digite a senha:", "Autenticação", JOptionPane.INFORMATION_MESSAGE);
         if (senha != null) {
-            if (senha.equals("MykaelLindo")) {
+            if (senha.equals("MykaelLindo")) { // verificar no banco qual é a senha do admin, tendo em vista que ela pode ser modificada
                 JOptionPane.showMessageDialog(null, "Senha correta! Abrindo a tela de Adicionar Usuário.");
                 Tela_Adicionar_Usuario Tela_Adicionar = new Tela_Adicionar_Usuario();
                 Tela_Adicionar.setVisible(true);
