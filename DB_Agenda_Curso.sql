@@ -124,7 +124,6 @@ CREATE TABLE `funcionario` (
   `telefone` varchar(15) DEFAULT NULL,
   `email` varchar(320) DEFAULT NULL,
   `turno` enum('matutino','vespertino','noturno') DEFAULT NULL,
-  `data_adimissao` date DEFAULT current_timestamp(),
   `cargo` enum('supervisor','instrutor','operador') DEFAULT NULL,
   `id_setor` int(11) DEFAULT NULL,
   `status_func` tinyint(1) DEFAULT 1,
@@ -142,7 +141,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (8,'999.888.777-14','dsfdsaf','sdfsdf','(65) 46540-6840','dsfdsf','vespertino','2024-11-19','supervisor',1,1),(9,'221.672.735-09','instrutor','sobrenome','(23) 45423-5342','sdfds','noturno','2024-11-20','instrutor',1,1);
+INSERT INTO `funcionario` VALUES (8,'999.888.777-14','dsfdsaf','sdfsdf','(65) 46540-6840','dsfdsf','vespertino','supervisor',1,1),(9,'221.672.735-09','instrutor','sobrenome','(23) 45423-5342','sdfds','noturno','instrutor',1,1);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,6 +212,7 @@ CREATE TABLE `usuario` (
   `senha` varchar(50) NOT NULL,
   `old_psswd` varchar(50) DEFAULT NULL,
   `tipo_usuario` enum('admin','operador','supervisor','instrutor') DEFAULT NULL,
+  `qtd_acesso` int(11) DEFAULT 0,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `login_usuario` (`login_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -224,7 +224,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'login','login',NULL,'admin');
+INSERT INTO `usuario` VALUES (1,'login','1234567891011','1234567891011','admin',0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,6 +252,21 @@ SET @saved_cs_client     = @@character_set_client;
 /*!50001 CREATE VIEW `vw_cadfunceqp` AS SELECT 
  1 AS `id_equipe`,
  1 AS `id_funcionario`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_credfunc`
+--
+
+DROP TABLE IF EXISTS `vw_credfunc`;
+/*!50001 DROP VIEW IF EXISTS `vw_credfunc`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_credfunc` AS SELECT 
+ 1 AS `id_usuario`,
+ 1 AS `login_usuario`,
+ 1 AS `senha`,
+ 1 AS `old_psswd`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -424,6 +439,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `vw_cadfunceqp` AS select `equipe`.`id_equipe` AS `id_equipe`,`funcionario`.`id_funcionario` AS `id_funcionario` from ((`equipe` left join `cadastro_funcionario_equipe` on(`cadastro_funcionario_equipe`.`id_equipe` = `equipe`.`id_equipe`)) left join `funcionario` on(`cadastro_funcionario_equipe`.`id_funcionario` = `funcionario`.`id_funcionario`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_credfunc`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_credfunc`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_credfunc` AS select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`login_usuario` AS `login_usuario`,`usuario`.`senha` AS `senha`,`usuario`.`old_psswd` AS `old_psswd` from `usuario` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -605,4 +638,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-22 16:45:55
+-- Dump completed on 2024-11-22 21:27:33

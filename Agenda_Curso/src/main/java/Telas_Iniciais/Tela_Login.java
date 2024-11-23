@@ -26,6 +26,8 @@ public class Tela_Login extends javax.swing.JFrame {
         initComponents();
     }
     
+    public static int id_usuario;
+    
     private void verificarLogin() throws SQLException {
 
         Connection connection = null;
@@ -34,7 +36,6 @@ public class Tela_Login extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        int id = 0;
         String usuario = Text_login.getText();
         String senha = Text_senha_login.getText();
 
@@ -49,10 +50,10 @@ public class Tela_Login extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                id = resultSet.getInt("id_usuario");
+                id_usuario = resultSet.getInt("id_usuario");
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
                 String tipoUsuario = resultSet.getString("tipo_usuario");
-                Tela_DashBoard_Inicial Tela_DashBoard = new Tela_DashBoard_Inicial(tipoUsuario, id);
+                Tela_DashBoard_Inicial Tela_DashBoard = new Tela_DashBoard_Inicial(tipoUsuario, id_usuario);
                 Tela_DashBoard.setVisible(true);
                 this.dispose();
             } else {

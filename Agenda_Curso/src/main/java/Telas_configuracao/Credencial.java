@@ -4,6 +4,7 @@
  */
 package Telas_configuracao;
 
+import Telas_Iniciais.Tela_Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,16 +18,16 @@ import javax.swing.JOptionPane;
  *
  * @author renan_8tvcd4n
  */
-public class Credenciais extends javax.swing.JFrame {
+public class Credencial extends javax.swing.JFrame {
 
     /**
      * Creates new form credenciais
      */
-    public Credenciais() {
+    public Credencial() {
         initComponents();
     }
     
-    
+    private int userId = Tela_Login.id_usuario;
     
     private boolean validaSenha(String query) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
@@ -54,15 +55,15 @@ public class Credenciais extends javax.swing.JFrame {
                         isValid = true;
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "Senhas não compativeis");
+                        JOptionPane.showMessageDialog(null, "Senhas não compativeis", "ERRO",JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Nova senha não pode ser igual a senha anterior");
+                    JOptionPane.showMessageDialog(null, "Nova senha não pode ser igual a senha anterior", "ERRO",JOptionPane.ERROR_MESSAGE);
                 }
             }
             else{
-                 JOptionPane.showMessageDialog(null, "Defina uma senha com no mínimo 12 caracteres");
+                 JOptionPane.showMessageDialog(null, "Defina uma senha com no mínimo 12 caracteres", "ERRO",JOptionPane.ERROR_MESSAGE);
             }
         }
         catch (SQLException erro){
@@ -91,7 +92,12 @@ public class Credenciais extends javax.swing.JFrame {
         Jtxtf_rNewPsswd_CredUser = new javax.swing.JTextField();
         Jbtn_Atualizar_CredUser = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         Jpnl_Conteiner_CredFunc.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Conteiner_CredFunc.setMaximumSize(new java.awt.Dimension(400, 300));
@@ -170,7 +176,7 @@ public class Credenciais extends javax.swing.JFrame {
 
     private void Jbtn_Atualizar_CredUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Atualizar_CredUserActionPerformed
         try {
-            if(validaSenha(" ")){
+            if(validaSenha("SELECT * FROM usuario WHERE id_usuario = "+this.userId)){
                 String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
                 String user = "root";
                 String psswrd = "";
@@ -180,19 +186,49 @@ public class Credenciais extends javax.swing.JFrame {
                 
                 try{
                     connection = DriverManager.getConnection(url, user, psswrd);
-                    String query = "";
+                    String query = "UPDATE usuario SET login_usuario = ?, senha = ?, old_psswd = ? WHERE id_usuario ="+this.userId;
                     statement = connection.prepareStatement(query);
+                    
+                    statement.setString(1, Jtxtf_Login_CredUser.getText());
+                    statement.setString(2, Jtxtf_newPsswd_CredUser.getText());
+                    statement.setString(3, Jtxtf_rNewPsswd_CredUser.getText());
+                    
+                    statement.execute();
+                    JOptionPane.showMessageDialog(null, "Credencial de usuário atualizada");
                 }
                 catch (SQLException erro){
                     JOptionPane.showMessageDialog(null, erro.getMessage());
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Credenciais.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Credencial.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
     }//GEN-LAST:event_Jbtn_Atualizar_CredUserActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
+        String user = "root";
+        String psswrd = "";
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        try{
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "SELECT * FROM vw_credfunc WHERE id_usuario ="+this.userId;
+            statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+            
+            if(resultSet.next()){
+                Jtxtf_Login_CredUser.setText(resultSet.getString("login_usuario"));
+            }
+        }
+        catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -211,21 +247,23 @@ public class Credenciais extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Credenciais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Credenciais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Credenciais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Credenciais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Credenciais().setVisible(true);
+                new Credencial().setVisible(true);
             }
         });
     }

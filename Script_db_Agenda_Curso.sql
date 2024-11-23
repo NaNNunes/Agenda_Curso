@@ -7,10 +7,12 @@ CREATE TABLE usuario(
     login_usuario VARCHAR(50) UNIQUE NOT NULL,
     senha VARCHAR(50) NOT NULL,
     old_psswd VARCHAR(50),
-    tipo_usuario ENUM('admin', 'operador', 'supervisor','instrutor')
+    tipo_usuario ENUM('admin', 'operador', 'supervisor','instrutor'),
+    qtd_acesso INT DEFAULT 0
 );
 DROP TABLE usuario;
 ALTER TABLE usuario MODIFY COLUMN old_psswd VARCHAR(50) AFTER senha;
+ALTER TABLE usuario ADD COLUMN qtd_acesso INT DEFAULT 0 AFTER tipo_usuario;
 
 DESC usuario;
 
@@ -28,7 +30,6 @@ CREATE TABLE funcionario (
     telefone VARCHAR(15),
     email VARCHAR(320) UNIQUE,
     turno ENUM('matutino', 'vespertino', 'noturno'),
-    data_adimissao DATE DEFAULT CURRENT_TIMESTAMP,
     cargo ENUM('supervisor', 'instrutor', 'operador'),
     id_setor INT,
     status_func TINYINT(1) DEFAULT 1,
@@ -210,6 +211,15 @@ CREATE OR REPLACE VIEW vw_treinoFunc AS
 		vw_nomeinst ON cadastro_equipe_treinamento.id_treinamento = vw_nomeinst.treino_id;
 SELECT * FROM vw_treinoFunc;
 DROP VIEW vw_treinoFunc;
+
+CREATE OR REPLACE VIEW vw_credfunc AS 
+	SELECT 
+		id_usuario,
+		login_usuario,
+        senha,
+        old_psswd
+	FROM 
+		usuario;
 -- ///////////////////////////////////////////////////////////////////
 
 -- erro code 1034 para criação de usuarios e permissoes
@@ -255,8 +265,6 @@ desc cadastro_funcionario_equipe;
 -- //////////////////////////////////////////////////////
 INSERT INTO usuario(login_usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario WHERE login_usuario LIKE 'login';
-
-
 
 DELETE FROM funcionario WHERE id_funcionario = 12;
 

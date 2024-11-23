@@ -18,7 +18,7 @@ public class Popup_Opcoes extends javax.swing.JFrame {
     public Popup_Opcoes() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +33,7 @@ public class Popup_Opcoes extends javax.swing.JFrame {
         Jlbl_Titulo = new javax.swing.JLabel();
         Jbtn_CredAcesso_popOp = new javax.swing.JButton();
         Jbtn_CadSet_popOp = new javax.swing.JButton();
+        Jbtn_CadUsuario_popOp = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -90,31 +91,48 @@ public class Popup_Opcoes extends javax.swing.JFrame {
             }
         });
 
+        Jbtn_CadUsuario_popOp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_CadUsuario_popOp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_CadUsuario_popOp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_CadUsuario_popOp.setText("Cadastrar Usuário");
+        Jbtn_CadUsuario_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CadUsuario_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CadUsuario_popOp.setPreferredSize(new java.awt.Dimension(230, 30));
+        Jbtn_CadUsuario_popOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_CadUsuario_popOpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Jpnl_ConteinerLayout = new javax.swing.GroupLayout(Jpnl_Conteiner);
         Jpnl_Conteiner.setLayout(Jpnl_ConteinerLayout);
         Jpnl_ConteinerLayout.setHorizontalGroup(
             Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_ConteinerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Jlbl_Titulo)
-                .addGap(69, 69, 69))
             .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Jbtn_CadUsuario_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(Jlbl_Titulo)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         Jpnl_ConteinerLayout.setVerticalGroup(
             Jpnl_ConteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpnl_ConteinerLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(Jlbl_Titulo)
                 .addGap(18, 18, 18)
-                .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
                 .addComponent(Jbtn_CadSet_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(Jbtn_CredAcesso_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(Jbtn_CadUsuario_popOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,7 +168,9 @@ public class Popup_Opcoes extends javax.swing.JFrame {
     }//GEN-LAST:event_formPropertyChange
 
     private void Jbtn_CredAcesso_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CredAcesso_popOpActionPerformed
-        // add tela de modificar credenciais
+        Credencial popCred = new Credencial();
+        popCred.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_Jbtn_CredAcesso_popOpActionPerformed
 
     private void Jbtn_CadSet_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CadSet_popOpActionPerformed
@@ -158,6 +178,10 @@ public class Popup_Opcoes extends javax.swing.JFrame {
        Cad_Setor.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_Jbtn_CadSet_popOpActionPerformed
+
+    private void Jbtn_CadUsuario_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CadUsuario_popOpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jbtn_CadUsuario_popOpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +220,7 @@ public class Popup_Opcoes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Jbtn_CadSet_popOp;
+    private javax.swing.JButton Jbtn_CadUsuario_popOp;
     private javax.swing.JButton Jbtn_CredAcesso_popOp;
     private javax.swing.JLabel Jlbl_Titulo;
     private javax.swing.JPanel Jpnl_Conteiner;
