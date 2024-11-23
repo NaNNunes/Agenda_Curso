@@ -27,7 +27,8 @@ public class Credencial extends javax.swing.JFrame {
         initComponents();
     }
     
-    private int userId = Tela_Login.id_usuario;
+    private final int userId = Tela_Login.id_usuario;
+    private String currentPass;
     
     private boolean validaSenha(String query) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
@@ -36,7 +37,7 @@ public class Credencial extends javax.swing.JFrame {
         
         boolean isValid = false;
         
-        String[] pass = new String[3];
+        String[] pass = new String[2];
         pass[0] = (String) Jtxtf_newPsswd_CredUser.getText();
         pass[1] = (String) Jtxtf_rNewPsswd_CredUser.getText();
         
@@ -46,16 +47,16 @@ public class Credencial extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
             
             if(resultSet.next()){
-                pass[2] = resultSet.getString("senha");
+                this.currentPass = resultSet.getString("senha");
             }
             
             if (pass[0].length() > 11){
-                if(!pass[0].equals(pass[2])){
+                if(!pass[0].equals(currentPass)){
                     if(pass[0].equals(pass[1])){
                         isValid = true;
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "Senhas não compativeis", "ERRO",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Senha não confere", "ERRO",JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 else{
@@ -191,7 +192,7 @@ public class Credencial extends javax.swing.JFrame {
                     
                     statement.setString(1, Jtxtf_Login_CredUser.getText());
                     statement.setString(2, Jtxtf_newPsswd_CredUser.getText());
-                    statement.setString(3, Jtxtf_rNewPsswd_CredUser.getText());
+                    statement.setString(3, this.currentPass);
                     
                     statement.execute();
                     JOptionPane.showMessageDialog(null, "Credencial de usuário atualizada");
