@@ -122,14 +122,22 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
 
+        Jbtn_AlocarTreino.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_AlocarTreino.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_AlocarTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_AlocarTreino.setText("Treinar Equipe");
+        Jbtn_AlocarTreino.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_AlocarTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_AlocarTreinoActionPerformed(evt);
             }
         });
 
+        Jbtn_AlocarFuncEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_AlocarFuncEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_AlocarFuncEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_AlocarFuncEqp.setText("Alocar Funcionários");
+        Jbtn_AlocarFuncEqp.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_AlocarFuncEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_AlocarFuncEqpActionPerformed(evt);
@@ -176,9 +184,9 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(156, 156, 156)
-                .addComponent(Jbtn_AlocarTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 450, Short.MAX_VALUE)
-                .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jbtn_AlocarTreino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 376, Short.MAX_VALUE)
+                .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(126, 126, 126))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
@@ -202,10 +210,10 @@ public class Tela_DashBoard_Inicial extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jbtn_AlocarTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Jbtn_AlocarTreino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jbtn_AlocarFuncEqp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 

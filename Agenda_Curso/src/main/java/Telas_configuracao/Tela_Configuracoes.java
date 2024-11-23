@@ -40,12 +40,13 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Jbtn_CadSet_popOp = new javax.swing.JButton();
-        Jbtn_CredAcesso_popOp = new javax.swing.JButton();
-        Jbtn_CadUsuario_popOp = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         Jlbl_Titulo = new javax.swing.JLabel();
+        Jbtn_CadUsuario_popOp = new javax.swing.JButton();
+        Jbtn_CredAcesso_popOp = new javax.swing.JButton();
+        Jbtn_CadSet_popOp = new javax.swing.JButton();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_contentFuncionarioButton = new javax.swing.JPanel();
@@ -63,49 +64,37 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 832));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Configurações");
-
-        jPanel2.setBackground(new java.awt.Color(47, 63, 115));
+        jPanel2.setBackground(new java.awt.Color(249, 246, 226));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jbtn_CadSet_popOp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_CadSet_popOp.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_CadSet_popOp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_CadSet_popOp.setText("Cadastrar Setor");
-        Jbtn_CadSet_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CadSet_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CadSet_popOp.setPreferredSize(new java.awt.Dimension(550, 50));
-        Jbtn_CadSet_popOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_CadSet_popOpActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Jbtn_CadSet_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Configurações");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
-        Jbtn_CredAcesso_popOp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_CredAcesso_popOp.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_CredAcesso_popOp.setForeground(new java.awt.Color(0, 0, 0));
-        Jbtn_CredAcesso_popOp.setText("Credenciais de Acesso");
-        Jbtn_CredAcesso_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CredAcesso_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
-        Jbtn_CredAcesso_popOp.setPreferredSize(new java.awt.Dimension(550, 50));
-        Jbtn_CredAcesso_popOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_CredAcesso_popOpActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Jbtn_CredAcesso_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jPanel3.setBackground(new java.awt.Color(243, 228, 188));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jbtn_CadUsuario_popOp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_CadUsuario_popOp.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_CadUsuario_popOp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        Jlbl_Titulo.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo.setText("Selecione Opções Abaixo");
+        jPanel3.add(Jlbl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+
+        Jbtn_CadUsuario_popOp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_CadUsuario_popOp.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Jbtn_CadUsuario_popOp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_CadUsuario_popOp.setText("Cadastrar Usuário");
         Jbtn_CadUsuario_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
         Jbtn_CadUsuario_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
@@ -115,35 +104,53 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
                 Jbtn_CadUsuario_popOpActionPerformed(evt);
             }
         });
-        jPanel2.add(Jbtn_CadUsuario_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 550, 50));
+        jPanel3.add(Jbtn_CadUsuario_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        Jlbl_Titulo.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        Jlbl_Titulo.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Titulo.setText("Selecione Opções Abaixo");
-        jPanel2.add(Jlbl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+        Jbtn_CredAcesso_popOp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_CredAcesso_popOp.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Jbtn_CredAcesso_popOp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_CredAcesso_popOp.setText("Credenciais de Acesso");
+        Jbtn_CredAcesso_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CredAcesso_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CredAcesso_popOp.setPreferredSize(new java.awt.Dimension(550, 50));
+        Jbtn_CredAcesso_popOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_CredAcesso_popOpActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Jbtn_CredAcesso_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        Jbtn_CadSet_popOp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_CadSet_popOp.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Jbtn_CadSet_popOp.setForeground(new java.awt.Color(255, 255, 255));
+        Jbtn_CadSet_popOp.setText("Cadastrar Setor");
+        Jbtn_CadSet_popOp.setMaximumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CadSet_popOp.setMinimumSize(new java.awt.Dimension(230, 30));
+        Jbtn_CadSet_popOp.setPreferredSize(new java.awt.Dimension(550, 50));
+        Jbtn_CadSet_popOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jbtn_CadSet_popOpActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Jbtn_CadSet_popOp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 620, 300));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(180, 180, 180)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(62, 62, 62)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(116, 116, 116)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
@@ -290,7 +297,7 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jbtn_CadSet_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CadSet_popOpActionPerformed
-        Tela_Cadastro_Setor Cad_Setor = new Tela_Cadastro_Setor();
+        Tela_Adicionar_Setor Cad_Setor = new Tela_Adicionar_Setor(tipoUsuario);
         Cad_Setor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Jbtn_CadSet_popOpActionPerformed
@@ -439,6 +446,17 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        if(tipoUsuario.equals("admin")){
+            Jbtn_CadSet_popOp.setVisible(true);
+            Jbtn_CadUsuario_popOp.setVisible(true);
+        }else{
+            Jbtn_CadSet_popOp.setVisible(false);
+            Jbtn_CadUsuario_popOp.setVisible(false);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -500,6 +518,7 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
 

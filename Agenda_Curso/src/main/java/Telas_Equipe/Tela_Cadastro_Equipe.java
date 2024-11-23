@@ -57,7 +57,6 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         Jpanel_Fundo_CadEqp = new javax.swing.JPanel();
-        Jlbl_Titulo_CadEqp = new javax.swing.JLabel();
         Jpanel_Conteiner_CadEqp = new javax.swing.JPanel();
         Jlbl_Header_Conteiner_CadEqp = new javax.swing.JLabel();
         Jlbl_Nome_CadEqp = new javax.swing.JLabel();
@@ -85,6 +84,8 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
         Jlbl_TipoUsuario = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        Jlbl_Titulo_CadEqp = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -107,14 +108,9 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jpanel_Fundo_CadEqp.setBackground(new java.awt.Color(249, 246, 226));
+        Jpanel_Fundo_CadEqp.setBackground(new java.awt.Color(243, 228, 188));
         Jpanel_Fundo_CadEqp.setPreferredSize(new java.awt.Dimension(930, 832));
         Jpanel_Fundo_CadEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jlbl_Titulo_CadEqp.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        Jlbl_Titulo_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Titulo_CadEqp.setText("Adicionar Equipe");
-        Jpanel_Fundo_CadEqp.add(Jlbl_Titulo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(619, 72, -1, -1));
 
         Jpanel_Conteiner_CadEqp.setBackground(new java.awt.Color(243, 228, 188));
         Jpanel_Conteiner_CadEqp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -122,12 +118,12 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jpanel_Conteiner_CadEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jlbl_Header_Conteiner_CadEqp.setBackground(new java.awt.Color(0, 0, 0));
-        Jlbl_Header_Conteiner_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Header_Conteiner_CadEqp.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Header_Conteiner_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Header_Conteiner_CadEqp.setText("Identificação");
-        Jpanel_Conteiner_CadEqp.add(Jlbl_Header_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        Jpanel_Conteiner_CadEqp.add(Jlbl_Header_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Jlbl_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Nome_CadEqp.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Nome_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Nome_CadEqp.setText("Nome:");
         Jpanel_Conteiner_CadEqp.add(Jlbl_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 30));
@@ -143,7 +139,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 Jtxtf_Nome_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 300, -1));
+        Jpanel_Conteiner_CadEqp.add(Jtxtf_Nome_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 390, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -155,9 +151,9 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jtxta_descricao_CadEqp.setPreferredSize(new java.awt.Dimension(230, 89));
         jScrollPane1.setViewportView(Jtxta_descricao_CadEqp);
 
-        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 150));
+        Jpanel_Conteiner_CadEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 390, 150));
 
-        Jlbl_Descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Descricao_CadEqp.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Descricao_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Descricao_CadEqp.setText("Descrição:");
         Jpanel_Conteiner_CadEqp.add(Jlbl_Descricao_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
@@ -172,42 +168,42 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 Jcmbx_turno_CadFunActionPerformed(evt);
             }
         });
-        Jpanel_Conteiner_CadEqp.add(Jcmbx_turno_CadFun, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 300, -1));
+        Jpanel_Conteiner_CadEqp.add(Jcmbx_turno_CadFun, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 130, -1));
 
         Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
         Jpanel_Conteiner_CadEqp.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        Jpanel_Fundo_CadEqp.add(Jpanel_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 360, 420));
+        Jpanel_Fundo_CadEqp.add(Jpanel_Conteiner_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 440, 420));
 
-        Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Cadastro_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Cadastro_CadEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Cadastro_CadEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Cadastro_CadEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Cadastro_CadEqp.setText("Cadastrar");
         Jbtn_Cadastro_CadEqp.setMaximumSize(new java.awt.Dimension(120, 45));
         Jbtn_Cadastro_CadEqp.setMinimumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Cadastro_CadEqp.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Cadastro_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Cadastro_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Fundo_CadEqp.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
+        Jpanel_Fundo_CadEqp.add(Jbtn_Cadastro_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, -1, -1));
 
-        Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_CadEqp.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Editar_CadEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Editar_CadEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Editar_CadEqp.setText("Editar");
         Jbtn_Editar_CadEqp.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_Editar_CadEqp.setMinimumSize(new java.awt.Dimension(100, 30));
-        Jbtn_Editar_CadEqp.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Editar_CadEqp.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Editar_CadEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Editar_CadEqpActionPerformed(evt);
             }
         });
-        Jpanel_Fundo_CadEqp.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, -1, -1));
+        Jpanel_Fundo_CadEqp.add(Jbtn_Editar_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -401,6 +397,18 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         );
 
         Jpanel_Fundo_CadEqp.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 797));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Jlbl_Titulo_CadEqp.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        Jlbl_Titulo_CadEqp.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Titulo_CadEqp.setText("Adicionar Equipe");
+        jPanel1.add(Jlbl_Titulo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+
+        Jpanel_Fundo_CadEqp.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         getContentPane().add(Jpanel_Fundo_CadEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
@@ -687,6 +695,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JTextArea Jtxta_descricao_CadEqp;
     private javax.swing.JTextField Jtxtf_Nome_CadEqp;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

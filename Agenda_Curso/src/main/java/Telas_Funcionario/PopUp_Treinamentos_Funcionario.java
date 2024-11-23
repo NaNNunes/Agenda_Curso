@@ -85,12 +85,12 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "treinamento", "instrutor", "validação", "validade"
+                "Treinamento", "Instrutor", "Validação", "Validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_treinamentos);
 
-        Jlbl_Title.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Jlbl_Title.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         Jlbl_Title.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Title.setText("Treinamentos Realizados");
 
@@ -99,23 +99,22 @@ public class PopUp_Treinamentos_Funcionario extends javax.swing.JFrame {
         Jpnl_fundo_PopTreinosLayout.setHorizontalGroup(
             Jpnl_fundo_PopTreinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
-                .addGroup(Jpnl_fundo_PopTreinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(Jlbl_Title))
-                    .addGroup(Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
-                        .addContainerGap(84, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(86, 86, 86))
+                .addGap(109, 109, 109)
+                .addComponent(Jlbl_Title)
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Jpnl_fundo_PopTreinosLayout.setVerticalGroup(
             Jpnl_fundo_PopTreinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpnl_fundo_PopTreinosLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(Jlbl_Title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

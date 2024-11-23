@@ -122,10 +122,10 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jpnl_Conteiner_SearchTreino.setPreferredSize(new java.awt.Dimension(1000, 797));
         Jpnl_Conteiner_SearchTreino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Title_SearchTreino.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Jlbl_Title_SearchTreino.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         Jlbl_Title_SearchTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Title_SearchTreino.setText("Treinamentos");
-        Jpnl_Conteiner_SearchTreino.add(Jlbl_Title_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+        Jpnl_Conteiner_SearchTreino.add(Jlbl_Title_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         Jtbl_ListaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_ListaTreino.setModel(new javax.swing.table.DefaultTableModel(
@@ -136,20 +136,21 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "id", "nome", "carga", "validade"
+                "ID", "Nome", "Carga", "Validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_ListaTreino);
 
-        Jpnl_Conteiner_SearchTreino.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 640, -1));
+        Jpnl_Conteiner_SearchTreino.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 167, 640, 510));
 
         Jtxtf_consulta_SearchTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_consulta_SearchTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxtf_consulta_SearchTreino.setMaximumSize(new java.awt.Dimension(90, 30));
         Jtxtf_consulta_SearchTreino.setMinimumSize(new java.awt.Dimension(90, 30));
         Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
-        Jpnl_Conteiner_SearchTreino.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 250, -1));
+        Jpnl_Conteiner_SearchTreino.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 520, -1));
 
+        Jbtn_consulta.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_consulta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jbtn_consulta.setText("Consultar");
         Jbtn_consulta.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -160,23 +161,29 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
                 Jbtn_consultaActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchTreino.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+        Jpnl_Conteiner_SearchTreino.add(Jbtn_consulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
+        Jbtn_Apagar_SearchFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Apagar_SearchFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Jbtn_Apagar_SearchFunc.setText("Apagar");
+        Jbtn_Apagar_SearchFunc.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Apagar_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Apagar_SearchFuncActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchTreino.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 720, -1, -1));
+        Jpnl_Conteiner_SearchTreino.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 720, -1, -1));
 
+        Jbtn_Editar_SearchTreino.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Editar_SearchTreino.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Jbtn_Editar_SearchTreino.setText("Editar");
+        Jbtn_Editar_SearchTreino.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Editar_SearchTreino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Editar_SearchTreinoActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchTreino.add(Jbtn_Editar_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 720, -1, -1));
+        Jpnl_Conteiner_SearchTreino.add(Jbtn_Editar_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 720, -1, -1));
 
         Jpnl_Fundo_SearchTreino.add(Jpnl_Conteiner_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 

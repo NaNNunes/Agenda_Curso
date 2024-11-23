@@ -126,10 +126,10 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         Jpnl_Conteiner_SearchEqp.setPreferredSize(new java.awt.Dimension(1000, 797));
         Jpnl_Conteiner_SearchEqp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Title_SearchEqp.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        Jlbl_Title_SearchEqp.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         Jlbl_Title_SearchEqp.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Title_SearchEqp.setText("Equipes");
-        Jpnl_Conteiner_SearchEqp.add(Jlbl_Title_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+        Jpnl_Conteiner_SearchEqp.add(Jlbl_Title_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         Jtbl_ListaEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_ListaEqp.setModel(new javax.swing.table.DefaultTableModel(
@@ -145,16 +145,18 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Jtbl_ListaEqp);
 
-        Jpnl_Conteiner_SearchEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 540, -1));
+        Jpnl_Conteiner_SearchEqp.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 177, 740, 470));
 
         Jtxtf_consulta_SearchEqp.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtxtf_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(90, 30));
         Jtxtf_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(90, 30));
         Jtxtf_consulta_SearchEqp.setPreferredSize(new java.awt.Dimension(90, 30));
-        Jpnl_Conteiner_SearchEqp.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 250, -1));
+        Jpnl_Conteiner_SearchEqp.add(Jtxtf_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 630, -1));
 
+        Jbtn_consulta_SearchEqp.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_consulta_SearchEqp.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_consulta_SearchEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_consulta_SearchEqp.setText("Consultar");
         Jbtn_consulta_SearchEqp.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_consulta_SearchEqp.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -164,33 +166,43 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
                 Jbtn_consulta_SearchEqpActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchEqp.add(Jbtn_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_consulta_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, -1, -1));
 
+        Jbtn_EditarEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_EditarEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_EditarEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_EditarEqp.setText("Editar");
+        Jbtn_EditarEqp.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_EditarEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_EditarEqpActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchEqp.add(Jbtn_EditarEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 700, -1, 20));
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_EditarEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 700, 170, 40));
 
+        Jbtn_Apagar_SearchEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Apagar_SearchEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Apagar_SearchEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Apagar_SearchEqp.setText("Apagar");
         Jbtn_Apagar_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Apagar_SearchEqpActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchEqp.add(Jbtn_Apagar_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 700, -1, -1));
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_Apagar_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 700, 170, 40));
 
+        Jbtn_DefTreino_SearchEqp.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_DefTreino_SearchEqp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_DefTreino_SearchEqp.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_DefTreino_SearchEqp.setText("Definir Treinamento");
         Jbtn_DefTreino_SearchEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_DefTreino_SearchEqpActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_SearchEqp.add(Jbtn_DefTreino_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 700, -1, -1));
+        Jpnl_Conteiner_SearchEqp.add(Jbtn_DefTreino_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 170, 40));
 
-        Jpnl_Fundo_SearchEqp.add(Jpnl_Conteiner_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
+        Jpnl_Fundo_SearchEqp.add(Jpnl_Conteiner_SearchEqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -397,6 +409,7 @@ public class Tela_Pesquisa_Equipe extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

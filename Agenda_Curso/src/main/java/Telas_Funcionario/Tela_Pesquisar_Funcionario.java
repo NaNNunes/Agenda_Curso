@@ -126,10 +126,10 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1000, 797));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Pesquisa Funcionario");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         Jtbl_Funcionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,31 +153,31 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             Jtbl_Funcionario.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 880, 440));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 880, 500));
 
-        Jbtn_Editar_SerachFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_SerachFunc.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_Editar_SerachFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_SerachFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Editar_SerachFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Editar_SerachFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Editar_SerachFunc.setText("Editar");
-        Jbtn_Editar_SerachFunc.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Editar_SerachFunc.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Editar_SerachFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Editar_SerachFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 710, -1, -1));
+        jPanel3.add(Jbtn_Editar_SerachFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 710, -1, -1));
 
-        Jbtn_Apagar_SearchFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Apagar_SearchFunc.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_Apagar_SearchFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Apagar_SearchFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Apagar_SearchFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Apagar_SearchFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Apagar_SearchFunc.setText("Apagar");
-        Jbtn_Apagar_SearchFunc.setPreferredSize(new java.awt.Dimension(151, 35));
+        Jbtn_Apagar_SearchFunc.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Apagar_SearchFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Apagar_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 710, -1, -1));
+        jPanel3.add(Jbtn_Apagar_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 710, -1, -1));
 
         Jtxtf_Consulta_SearchFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -195,12 +195,12 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jtxtf_Consulta_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 270, -1));
+        jPanel3.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 770, -1));
         Jtxtf_Consulta_SearchFunc.getAccessibleContext().setAccessibleName("");
 
-        Jbtn_Consulta_SearchFunc.setBackground(new java.awt.Color(243, 236, 196));
+        Jbtn_Consulta_SearchFunc.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_Consulta_SearchFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jbtn_Consulta_SearchFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Consulta_SearchFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Consulta_SearchFunc.setText("Consultar");
         Jbtn_Consulta_SearchFunc.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_Consulta_SearchFunc.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -210,29 +210,35 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                 Jbtn_Consulta_SearchFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        jPanel3.add(Jbtn_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, -1, -1));
 
+        Jbtn_Treinos_CadFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Treinos_CadFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Treinos_CadFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Treinos_CadFunc.setText("Treinamentos");
         Jbtn_Treinos_CadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
         Jbtn_Treinos_CadFunc.setMinimumSize(new java.awt.Dimension(130, 40));
-        Jbtn_Treinos_CadFunc.setPreferredSize(new java.awt.Dimension(130, 40));
+        Jbtn_Treinos_CadFunc.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Treinos_CadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_Treinos_CadFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_Treinos_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 710, -1, -1));
+        jPanel3.add(Jbtn_Treinos_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 710, -1, -1));
 
+        Jbtn_AddEquipe_cadFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_AddEquipe_cadFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_AddEquipe_cadFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_AddEquipe_cadFunc.setText("Adicionar Equipe");
         Jbtn_AddEquipe_cadFunc.setMaximumSize(new java.awt.Dimension(130, 40));
         Jbtn_AddEquipe_cadFunc.setMinimumSize(new java.awt.Dimension(130, 40));
-        Jbtn_AddEquipe_cadFunc.setPreferredSize(new java.awt.Dimension(130, 40));
+        Jbtn_AddEquipe_cadFunc.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_AddEquipe_cadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_AddEquipe_cadFuncActionPerformed(evt);
             }
         });
-        jPanel3.add(Jbtn_AddEquipe_cadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 710, -1, -1));
+        jPanel3.add(Jbtn_AddEquipe_cadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, -1, -1));
 
         Jpnl_Fundo_SearchFunc.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 17, -1, -1));
 

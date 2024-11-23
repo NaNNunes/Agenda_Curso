@@ -104,7 +104,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Adicionar Treinamento");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
@@ -114,12 +114,12 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jpnl_Identificacao_CadTreino.setPreferredSize(new java.awt.Dimension(780, 270));
         Jpnl_Identificacao_CadTreino.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Resumo_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Resumo_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Resumo_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Resumo_CadTreino.setText("Resumo");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Resumo_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        Jlbl_Treinamento_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Treinamento_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Treinamento_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Treinamento_CadTreino.setText("Treinamento: ");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Treinamento_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
@@ -135,7 +135,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         });
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Treinamento_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        Jlbl_Descricao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Descricao_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Descricao_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Descricao_CadTreino.setText("Descrição: ");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Descricao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
@@ -151,7 +151,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jtxtf_Carga_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
         Jpnl_Identificacao_CadTreino.add(Jtxtf_Carga_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
-        Jlbl_Validade_CadTreino.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Jlbl_Validade_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Validade_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Validade_CadTreino.setText("Validade: ");
         Jpnl_Identificacao_CadTreino.add(Jlbl_Validade_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
@@ -172,9 +172,9 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
         jPanel2.add(Jpnl_Identificacao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
-        Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Salvar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Jbtn_Salvar_CadTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Salvar_CadTreino.setText("Salvar");
         Jbtn_Salvar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Salvar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
@@ -184,9 +184,9 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         });
         jPanel2.add(Jbtn_Salvar_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, -1, -1));
 
-        Jbtn_Editar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Editar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadTreino.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Editar_CadTreino.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Jbtn_Editar_CadTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Editar_CadTreino.setText("Editar");
         Jbtn_Editar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Editar_CadTreino.addActionListener(new java.awt.event.ActionListener() {

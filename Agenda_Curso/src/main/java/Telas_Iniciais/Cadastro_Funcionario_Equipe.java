@@ -161,7 +161,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(Jtbl_Equipe);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(797, 256, -1, -1));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, -1, 460));
 
         Jtbl_Funcionarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_Funcionarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -177,16 +177,19 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(Jtbl_Funcionarios);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 256, -1, -1));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, 460));
 
+        Jbtn_Incluir.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Incluir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Incluir.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Incluir.setText("Incluir");
-        Jbtn_Incluir.setPreferredSize(new java.awt.Dimension(100, 30));
+        Jbtn_Incluir.setPreferredSize(new java.awt.Dimension(170, 40));
         Jbtn_Incluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_IncluirActionPerformed(evt);
             }
         });
-        jPanel1.add(Jbtn_Incluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 728, -1, -1));
+        jPanel1.add(Jbtn_Incluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 730, -1, -1));
 
         Jtxtf_PesquisaFunc_CdFE.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_PesquisaFunc_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -200,9 +203,11 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 Jtxtf_PesquisaFunc_CdFEMouseClicked(evt);
             }
         });
-        jPanel1.add(Jtxtf_PesquisaFunc_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 181, -1, -1));
+        jPanel1.add(Jtxtf_PesquisaFunc_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 340, -1));
 
+        Jbtn_ConsultaFunc_CdFE.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_ConsultaFunc_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaFunc_CdFE.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_ConsultaFunc_CdFE.setText("Pesquisar");
         Jbtn_ConsultaFunc_CdFE.setPreferredSize(new java.awt.Dimension(100, 30));
         Jbtn_ConsultaFunc_CdFE.addActionListener(new java.awt.event.ActionListener() {
@@ -210,9 +215,11 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 Jbtn_ConsultaFunc_CdFEActionPerformed(evt);
             }
         });
-        jPanel1.add(Jbtn_ConsultaFunc_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(641, 181, -1, -1));
+        jPanel1.add(Jbtn_ConsultaFunc_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, -1, -1));
 
+        Jbtn_ConsultaEqp_CdFE.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_ConsultaEqp_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaEqp_CdFE.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_ConsultaEqp_CdFE.setText("Pesquisar");
         Jbtn_ConsultaEqp_CdFE.setPreferredSize(new java.awt.Dimension(100, 30));
         Jbtn_ConsultaEqp_CdFE.addActionListener(new java.awt.event.ActionListener() {
@@ -220,7 +227,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 Jbtn_ConsultaEqp_CdFEActionPerformed(evt);
             }
         });
-        jPanel1.add(Jbtn_ConsultaEqp_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1149, 181, -1, -1));
+        jPanel1.add(Jbtn_ConsultaEqp_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 160, -1, -1));
 
         Jtxtf_PesquisaEqp_CdFE.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_PesquisaEqp_CdFE.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -234,17 +241,17 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
                 Jtxtf_PesquisaEqp_CdFEMouseClicked(evt);
             }
         });
-        jPanel1.add(Jtxtf_PesquisaEqp_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(797, 181, 306, -1));
+        jPanel1.add(Jtxtf_PesquisaEqp_CdFE, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 160, 340, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cadastro Funcionario Equipe");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 53, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Funcionario:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 147, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
         jPanel1.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 41, 143, 21));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));

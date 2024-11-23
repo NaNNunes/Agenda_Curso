@@ -251,42 +251,42 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpnl_Container_CadFunc.setPreferredSize(new java.awt.Dimension(1000, 797));
         Jpnl_Container_CadFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setText("Cadastrar Funcionário");
         Jlbl_Cadastrar_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(351, 49));
-        Jpnl_Container_CadFunc.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
+        Jpnl_Container_CadFunc.add(Jlbl_Cadastrar_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 370, -1));
 
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
         Jpnl_Identificacao_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Title_identificacao.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Title_identificacao.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Title_identificacao.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Title_identificacao.setText("Identificação");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Title_identificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Title_identificacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Nome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Nome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Nome_Tela_Adicionar_Funcionario.setText("Nome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Nome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Jtxtf_Nome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Nome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Nome_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Nome_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Nome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Nome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_CPF_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_CPF_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_CPF_Tela_Adicionar_Funcionario.setText("CPF:");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_CPF_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Sobrenome_Tela_Adicionar_Funcionario.setText("Sobrenome: ");
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jlbl_Sobrenome_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
         Jtxtf_Sobrenome_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Sobrenome_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -297,7 +297,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jtxtf_Sobrenome_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jtxtf_Sobrenome_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
         Jftxtf_CPF_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_CPF_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -308,36 +308,36 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         Jftxtf_CPF_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        Jpnl_Identificacao_Tela_Adicionar_Funcionario.add(Jftxtf_CPF_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Identificacao_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         Jpnl_Contato_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 114));
         Jpnl_Contato_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Contato_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Contato_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Contato_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Contato_Tela_Adicionar_Funcionario.setText("Contato");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Jlbl_Numero_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Numero_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Numero_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Numero_Tela_Adicionar_Funcionario.setText("Celular:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Numero_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
         Jtxtf_Email_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jtxtf_Email_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jtxtf_Email_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
         Jtxtf_Email_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtxtf_Email_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jtxtf_Email_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jtxtf_Email_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        Jlbl_Email_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Email_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Email_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Email_Tela_Adicionar_Funcionario.setText("Email:");
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jlbl_Email_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Jftxtf_Telefone_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_Telefone_CadFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -352,41 +352,41 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jftxtf_Telefone_CadFunc.setMaximumSize(new java.awt.Dimension(248, 30));
         Jftxtf_Telefone_CadFunc.setMinimumSize(new java.awt.Dimension(248, 30));
         Jftxtf_Telefone_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jftxtf_Telefone_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jpnl_Contato_Tela_Adicionar_Funcionario.add(Jftxtf_Telefone_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
-        Jpnl_Container_CadFunc.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Contato_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         Jpnl_Area_Tela_Adicionar_Funcionario.setBackground(new java.awt.Color(243, 228, 188));
         Jpnl_Area_Tela_Adicionar_Funcionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Area_Tela_Adicionar_Funcionario.setPreferredSize(new java.awt.Dimension(780, 171));
         Jpnl_Area_Tela_Adicionar_Funcionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Area_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Area_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Area_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Area_Tela_Adicionar_Funcionario.setText("Área/Atuação");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Codigo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Codigo_Tela_Adicionar_Funcionario.setText("Setor: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Codigo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
-        Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Cargo_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Cargo_Tela_Adicionar_Funcionario.setText("Cargo: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Cargo_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Turno_Tela_Adicionar_Funcionario.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Turno_Tela_Adicionar_Funcionario.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Turno_Tela_Adicionar_Funcionario.setText("Turno: ");
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jlbl_Turno_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Jcmbx_Cargo_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Cargo_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Jcmbx_Cargo_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "supervisor", "instrutor", "operador" }));
         Jcmbx_Cargo_CadFunc.setSelectedIndex(-1);
         Jcmbx_Cargo_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Cargo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Cargo_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         Jcmbx_Turno_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Turno_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -394,7 +394,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jcmbx_Turno_CadFunc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matutino", "Vespertino", "Noturno" }));
         Jcmbx_Turno_CadFunc.setSelectedIndex(-1);
         Jcmbx_Turno_CadFunc.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Turno_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         Jcmbx_Setor_CadFunc.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Setor_CadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -412,13 +412,13 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jcmbx_Setor_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 250, -1));
+        Jpnl_Area_Tela_Adicionar_Funcionario.add(Jcmbx_Setor_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 250, -1));
 
-        Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
+        Jpnl_Container_CadFunc.add(Jpnl_Area_Tela_Adicionar_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
 
-        Jbtn_Editar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Editar_CadFunc.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        Jbtn_Editar_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Editar_CadFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Editar_CadFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Editar_CadFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Editar_CadFunc.setText("Editar");
         Jbtn_Editar_CadFunc.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Editar_CadFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -426,11 +426,11 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Editar_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Editar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 670, -1, -1));
 
-        Jbtn_Salvar_CadFunc.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Salvar_CadFunc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Salvar_CadFunc.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Salvar_CadFunc.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Salvar_CadFunc.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jbtn_Salvar_CadFunc.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Salvar_CadFunc.setText("Salvar");
         Jbtn_Salvar_CadFunc.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Salvar_CadFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -438,7 +438,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 Jbtn_Salvar_CadFuncActionPerformed(evt);
             }
         });
-        Jpnl_Container_CadFunc.add(Jbtn_Salvar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 710, -1, -1));
+        Jpnl_Container_CadFunc.add(Jbtn_Salvar_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 670, -1, -1));
 
         Jpnl_Fundo_CadFunc.add(Jpnl_Container_CadFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 

@@ -88,7 +88,6 @@ public class Tela_Login extends javax.swing.JFrame {
         Esqueceu_senha_login = new javax.swing.JLabel();
         Acessar_login = new javax.swing.JButton();
         Text_senha_login = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setMaximumSize(new java.awt.Dimension(1048, 832));
@@ -142,6 +141,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(47, 63, 115));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setMaximumSize(new java.awt.Dimension(600, 570));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 570));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 571));
@@ -152,9 +152,9 @@ public class Tela_Login extends javax.swing.JFrame {
         Imagem_login.setPreferredSize(new java.awt.Dimension(200, 200));
         jPanel1.add(Imagem_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        Login_login.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Login_login.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Login_login.setForeground(new java.awt.Color(255, 255, 255));
-        Login_login.setText("Login");
+        Login_login.setText("Login:");
         jPanel1.add(Login_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         Text_login.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,9 +163,9 @@ public class Tela_Login extends javax.swing.JFrame {
         Text_login.setPreferredSize(new java.awt.Dimension(323, 24));
         jPanel1.add(Text_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, 30));
 
-        Senha_login.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Senha_login.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Senha_login.setForeground(new java.awt.Color(255, 255, 255));
-        Senha_login.setText("Senha");
+        Senha_login.setText("Senha:");
         jPanel1.add(Senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
 
         Esqueceu_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -174,7 +174,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel1.add(Esqueceu_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, 20));
 
         Acessar_login.setBackground(new java.awt.Color(255, 255, 255));
-        Acessar_login.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Acessar_login.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Acessar_login.setForeground(new java.awt.Color(0, 0, 0));
         Acessar_login.setText("Acessar");
         Acessar_login.setPreferredSize(new java.awt.Dimension(220, 52));
@@ -189,16 +189,6 @@ public class Tela_Login extends javax.swing.JFrame {
         Text_senha_login.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         Text_senha_login.setPreferredSize(new java.awt.Dimension(323, 25));
         jPanel1.add(Text_senha_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 30));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(234, 242, 5));
-        jLabel1.setText("Adicionar Funcionario?");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, 520));
 
@@ -215,22 +205,6 @@ public class Tela_Login extends javax.swing.JFrame {
             Logger.getLogger(Tela_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Acessar_loginActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        /*String senha = JOptionPane.showInputDialog(null, "Digite a senha:", "Autenticação", JOptionPane.INFORMATION_MESSAGE);
-        if (senha != null) {
-            if (senha.equals("MykaelLindo")) { // verificar no banco qual é a senha do admin, tendo em vista que ela pode ser modificada
-                JOptionPane.showMessageDialog(null, "Senha correta! Abrindo a tela de Adicionar Usuário.");
-                Tela_Adicionar_Usuario Tela_Adicionar = new Tela_Adicionar_Usuario();
-                Tela_Adicionar.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Senha incorreta! Tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        */
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -275,7 +249,6 @@ public class Tela_Login extends javax.swing.JFrame {
     private javax.swing.JLabel Senha_login;
     private javax.swing.JTextField Text_login;
     private javax.swing.JPasswordField Text_senha_login;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

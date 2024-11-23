@@ -243,21 +243,21 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 797));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Selecionar_Tela_Alocar_Treinamento.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Jlbl_Selecionar_Tela_Alocar_Treinamento.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         Jlbl_Selecionar_Tela_Alocar_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Selecionar_Tela_Alocar_Treinamento.setText("Alocar Treinamento");
         Jlbl_Selecionar_Tela_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(351, 49));
-        jPanel2.add(Jlbl_Selecionar_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 320, -1));
+        jPanel2.add(Jlbl_Selecionar_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 340, -1));
 
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(275, 73));
         Jpnl_Intrutor_Tela_Alocar_Treinamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Equipe_Alocar_Treinamento.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Equipe_Alocar_Treinamento.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Equipe_Alocar_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Equipe_Alocar_Treinamento.setText("Intrutor:");
-        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jlbl_Equipe_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1, -1, -1));
+        Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jlbl_Equipe_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Jtbl_instrutor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_instrutor.setModel(new javax.swing.table.DefaultTableModel(
@@ -293,7 +293,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         });
         Jpnl_Intrutor_Tela_Alocar_Treinamento.add(Jtxtf_Consulta_SearchFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 240, -1));
 
+        Jbtn_ConsultaInst_AlocaTreino.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_ConsultaInst_AlocaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaInst_AlocaTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_ConsultaInst_AlocaTreino.setText("Consultar");
         Jbtn_ConsultaInst_AlocaTreino.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_ConsultaInst_AlocaTreino.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -312,15 +314,15 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpnl_Identificacao_Tela_Alocar_Treinamento.setPreferredSize(new java.awt.Dimension(780, 171));
         Jpnl_Identificacao_Tela_Alocar_Treinamento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Identificacao_Tela_Alocar_Treinamento.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Identificacao_Tela_Alocar_Treinamento.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Identificacao_Tela_Alocar_Treinamento.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_Identificacao_Tela_Alocar_Treinamento.setText("Opercação");
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        Jlbl_Identificacao_Tela_Alocar_Treinamento.setText("Opercação:");
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Jlbl_Data_Inicio_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Data_Inicio_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Data_Inicio_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Data_Inicio_CadTreino.setText("Data de Inicio: ");
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Data_Inicio_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Data_Inicio_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         Jftxtf_prevInicion_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_prevInicion_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
@@ -338,12 +340,12 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                 Jftxtf_prevInicion_CadTreinoActionPerformed(evt);
             }
         });
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevInicion_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevInicion_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        Jlbl_Previsao_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Previsao_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Previsao_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Previsao_CadTreino.setText("Previsão de Temino:");
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Previsao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Previsao_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
         Jftxtf_prevFim_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jftxtf_prevFim_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
@@ -356,12 +358,12 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jftxtf_prevFim_CadTreino.setMaximumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevFim_CadTreino.setMinimumSize(new java.awt.Dimension(248, 30));
         Jftxtf_prevFim_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevFim_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jftxtf_prevFim_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, -1));
 
-        Jlbl_Formato_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Formato_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Formato_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Formato_CadTreino.setText("Formato: ");
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         Jcmbx_Formato_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Formato_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Presencial", "Online" }));
@@ -371,19 +373,19 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                 Jcmbx_Formato_CadTreinoActionPerformed(evt);
             }
         });
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Formato_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        Jlbl_Status_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Status_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Status_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Status_CadTreino.setText("Status: ");
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jlbl_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
         Jcmbx_Status_CadTreino.setBackground(new java.awt.Color(255, 255, 255));
         Jcmbx_Status_CadTreino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Jcmbx_Status_CadTreino.setPreferredSize(new java.awt.Dimension(248, 30));
-        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        Jpnl_Identificacao_Tela_Alocar_Treinamento.add(Jcmbx_Status_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
 
-        jPanel2.add(Jpnl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, 180));
+        jPanel2.add(Jpnl_Identificacao_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, 180));
 
         Jtbl_Treinamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -398,17 +400,17 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         ));
         Jslpn_Equipe_Tela_Alocar_Treinamento.setViewportView(Jtbl_Treinamento);
 
-        jPanel2.add(Jslpn_Equipe_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 780, 120));
+        jPanel2.add(Jslpn_Equipe_Tela_Alocar_Treinamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 780, 140));
 
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setBackground(new java.awt.Color(243, 236, 196));
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setPreferredSize(new java.awt.Dimension(275, 73));
         Jpnl_Equipe_Tela_Alocar_Treinamento1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jlbl_Equipe_Alocar_Treinamento1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jlbl_Equipe_Alocar_Treinamento1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jlbl_Equipe_Alocar_Treinamento1.setForeground(new java.awt.Color(0, 0, 0));
         Jlbl_Equipe_Alocar_Treinamento1.setText("Equipe:");
-        Jpnl_Equipe_Tela_Alocar_Treinamento1.add(Jlbl_Equipe_Alocar_Treinamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 1, -1, -1));
+        Jpnl_Equipe_Tela_Alocar_Treinamento1.add(Jlbl_Equipe_Alocar_Treinamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Jtbl_Equipe_AlocaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Jtbl_Equipe_AlocaTreino.setModel(new javax.swing.table.DefaultTableModel(
@@ -444,7 +446,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         });
         Jpnl_Equipe_Tela_Alocar_Treinamento1.add(Jtxtf_ConsultaEqp_AlocaTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 240, -1));
 
+        Jbtn_ConsultaEqp_AlocaTreino.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_ConsultaEqp_AlocaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaEqp_AlocaTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_ConsultaEqp_AlocaTreino.setText("Consultar");
         Jbtn_ConsultaEqp_AlocaTreino.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_ConsultaEqp_AlocaTreino.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -458,12 +462,12 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
         jPanel2.add(Jpnl_Equipe_Tela_Alocar_Treinamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 380, 160));
 
-        Jckbx_Certificado_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jckbx_Certificado_CadTreino.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jckbx_Certificado_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
         Jckbx_Certificado_CadTreino.setText("Certificado");
         jPanel2.add(Jckbx_Certificado_CadTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, -1, -1));
 
-        Jckbx_Obrigatorio_CadTreino_.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        Jckbx_Obrigatorio_CadTreino_.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         Jckbx_Obrigatorio_CadTreino_.setForeground(new java.awt.Color(0, 0, 0));
         Jckbx_Obrigatorio_CadTreino_.setText("Obrigatorio");
         Jckbx_Obrigatorio_CadTreino_.addActionListener(new java.awt.event.ActionListener() {
@@ -473,9 +477,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         });
         jPanel2.add(Jckbx_Obrigatorio_CadTreino_, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 500, -1, -1));
 
-        Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(243, 236, 196));
-        Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Jbtn_Salvar_CadTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jbtn_Salvar_CadTreino.setBackground(new java.awt.Color(47, 63, 115));
+        Jbtn_Salvar_CadTreino.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Jbtn_Salvar_CadTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_Salvar_CadTreino.setText("Salvar");
         Jbtn_Salvar_CadTreino.setPreferredSize(new java.awt.Dimension(151, 35));
         Jbtn_Salvar_CadTreino.addActionListener(new java.awt.event.ActionListener() {
@@ -492,7 +496,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jtxtf_consulta_SearchTreino.setPreferredSize(new java.awt.Dimension(90, 30));
         jPanel2.add(Jtxtf_consulta_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 660, -1));
 
+        Jbtn_ConsultaTreino_AlocaTreino.setBackground(new java.awt.Color(47, 63, 115));
         Jbtn_ConsultaTreino_AlocaTreino.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Jbtn_ConsultaTreino_AlocaTreino.setForeground(new java.awt.Color(255, 255, 255));
         Jbtn_ConsultaTreino_AlocaTreino.setText("Consultar");
         Jbtn_ConsultaTreino_AlocaTreino.setMaximumSize(new java.awt.Dimension(100, 30));
         Jbtn_ConsultaTreino_AlocaTreino.setMinimumSize(new java.awt.Dimension(100, 30));
