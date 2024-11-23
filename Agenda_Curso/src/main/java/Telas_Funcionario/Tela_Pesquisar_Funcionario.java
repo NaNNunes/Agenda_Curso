@@ -11,6 +11,7 @@ import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
 import Telas_configuracao.Popup_Opcoes;
+import Telas_configuracao.Tela_Configuracoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -476,6 +477,24 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here: DELETAR METODO
     }//GEN-LAST:event_Jtxtf_Consulta_SearchFuncCaretUpdate
 
+    private void Jbtn_Treinos_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinos_CadFuncActionPerformed
+        int id_funcionario = Integer.parseInt(Jtbl_Funcionario.getValueAt(Jtbl_Funcionario.getSelectedRow(), NORMAL).toString());
+        PopUp_Treinamentos_Funcionario treinoFunc = new PopUp_Treinamentos_Funcionario();
+        try {
+            treinoFunc.populaTabela(id_funcionario);
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+        treinoFunc.setVisible(true);
+
+    }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
+
+    private void Jbtn_AddEquipe_cadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AddEquipe_cadFuncActionPerformed
+        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe(tipoUsuario);
+        Cad_FuncEqp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
+
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
         telaLogin.setVisible(true);
@@ -507,7 +526,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+        } else if ("supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
@@ -544,7 +563,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
+        } else if ("intrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
@@ -565,8 +584,8 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_trocarUsuario_BarraLateralActionPerformed
 
     private void Jbtn_Configuração_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Configuração_BarraLateralActionPerformed
-        Popup_Opcoes popup_opcoes = new Popup_Opcoes();
-        popup_opcoes.setVisible(true);
+        Tela_Configuracoes Configuracoes = new Tela_Configuracoes(tipoUsuario);
+        Configuracoes.setVisible(true);
     }//GEN-LAST:event_Jbtn_Configuração_BarraLateralActionPerformed
 
     private void Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_iconeTreinamento_BarraLateral_CadEqpActionPerformed
@@ -590,7 +609,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
+        } else if ("supervisor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
@@ -605,24 +624,6 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Tipo de usuário não reconhecido!");
         }
     }//GEN-LAST:event_Jcmbx_Treinamento_BarraLateralActionPerformed
-
-    private void Jbtn_Treinos_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Treinos_CadFuncActionPerformed
-        int id_funcionario = Integer.parseInt(Jtbl_Funcionario.getValueAt(Jtbl_Funcionario.getSelectedRow(), NORMAL).toString());
-        PopUp_Treinamentos_Funcionario treinoFunc = new PopUp_Treinamentos_Funcionario();
-        try {
-            treinoFunc.populaTabela(id_funcionario);
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-        }
-        treinoFunc.setVisible(true);
-
-    }//GEN-LAST:event_Jbtn_Treinos_CadFuncActionPerformed
-
-    private void Jbtn_AddEquipe_cadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_AddEquipe_cadFuncActionPerformed
-        Cadastro_Funcionario_Equipe Cad_FuncEqp = new Cadastro_Funcionario_Equipe(tipoUsuario);
-        Cad_FuncEqp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jbtn_AddEquipe_cadFuncActionPerformed
 
     /**
      * @param args the command line arguments

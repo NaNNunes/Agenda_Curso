@@ -218,7 +218,7 @@ public class Tela_Login extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-        String senha = JOptionPane.showInputDialog(null, "Digite a senha:", "Autenticação", JOptionPane.INFORMATION_MESSAGE);
+        /*String senha = JOptionPane.showInputDialog(null, "Digite a senha:", "Autenticação", JOptionPane.INFORMATION_MESSAGE);
         if (senha != null) {
             if (senha.equals("MykaelLindo")) { // verificar no banco qual é a senha do admin, tendo em vista que ela pode ser modificada
                 JOptionPane.showMessageDialog(null, "Senha correta! Abrindo a tela de Adicionar Usuário.");
@@ -229,6 +229,7 @@ public class Tela_Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Senha incorreta! Tente novamente.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
+        */
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
