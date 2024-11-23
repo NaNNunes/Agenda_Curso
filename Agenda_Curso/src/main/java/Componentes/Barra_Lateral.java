@@ -229,7 +229,7 @@ public class Barra_Lateral extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
+        } else if ("supervisor".equals(tipoUsuario) || "instrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Funcionario_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Funcionario Tela_SearchFunc = new Tela_Pesquisar_Funcionario(tipoUsuario);
@@ -266,7 +266,7 @@ public class Barra_Lateral extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "intrutor".equals(tipoUsuario)) {
+        } else if ("intrutor".equals(tipoUsuario)) {
             switch (Jcmbx_Equipe_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisa_Equipe Tela_SearchEqp = new Tela_Pesquisa_Equipe(tipoUsuario);
@@ -312,7 +312,7 @@ public class Barra_Lateral extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Selecione uma opção disponível!");
                 }
             }
-        } else if ("operador".equals(tipoUsuario) || "supervisor".equals(tipoUsuario)) {
+        } else if ("supervisor".equals(tipoUsuario)) {
             switch (Jcmbx_Treinamento_BarraLateral.getSelectedIndex()) {
                 case 1 -> {
                     Tela_Pesquisar_Treinamento Tela_SearchTreino = new Tela_Pesquisar_Treinamento(tipoUsuario);
