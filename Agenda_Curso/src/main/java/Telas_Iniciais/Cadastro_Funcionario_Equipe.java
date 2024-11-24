@@ -39,20 +39,20 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void popTblFuncionario(String query) throws SQLException{
+    private void popTblFuncionario(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
-        try{
+
+        try {
             ResultSet resultSet = statement.executeQuery(query);
             DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Funcionarios.getModel();
             tableModel.setNumRows(0);
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 tableModel.addRow(new Object[]{
                     resultSet.getString("id_funcionario"),
                     resultSet.getString("nome_completo"),
@@ -64,41 +64,38 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             connection.close();
             statement.close();
             resultSet.close();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
-    
-    private void popTblEquipe(String query) throws SQLException{
+
+    private void popTblEquipe(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        try{
+        try {
             ResultSet resultSet = statement.executeQuery(query);
             DefaultTableModel tableModel = (DefaultTableModel) Jtbl_Equipe.getModel();
             tableModel.setNumRows(0);
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 tableModel.addRow(new Object[]{ //mudar
                     resultSet.getString("id_equipe"),
                     resultSet.getString("nome_eqp"),
-                    resultSet.getString("turno"),
-                });
+                    resultSet.getString("turno"),});
             }
-            
+
             connection.close();
             statement.close();
             resultSet.close();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -437,40 +434,50 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_IncluirActionPerformed
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = null;
-        PreparedStatement statement = null; 
+        PreparedStatement statement = null;
         int id_funcionario = Integer.parseInt(Jtbl_Funcionarios.getValueAt(Jtbl_Funcionarios.getSelectedRow(), 0).toString());
         int id_equipe = Integer.parseInt(Jtbl_Equipe.getValueAt(Jtbl_Equipe.getSelectedRow(), 0).toString());
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            
+
             // verificar se funcionario ja esta incluso na equipe
-                // tentativa de sintese de metodo retornou constrains fails
-            String queryVW =  "SELECT id_equipe FROM vw_CadFuncEqp WHERE id_funcionario = "+ id_funcionario;
+            // tentativa de sintese de metodo retornou constrains fails
+            String queryVW = "SELECT id_equipe FROM vw_CadFuncEqp WHERE id_funcionario = " + id_funcionario;
             statement = connection.prepareStatement(queryVW);
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
-            
+
             int id_equipeEncontrada = 0;
-            while(resultSet.next()){
-                id_equipeEncontrada =  resultSet.getInt("id_equipe");
-                if(id_equipeEncontrada == id_equipe){
+            while (resultSet.next()) {
+                id_equipeEncontrada = resultSet.getInt("id_equipe");
+                if (id_equipeEncontrada == id_equipe) {
                     break;
                 }
             }
             resultSet.close();
-            
-            if (id_equipe == id_equipeEncontrada){
+
+            if (id_equipe == id_equipeEncontrada) {
                 JOptionPane.showMessageDialog(null, "Funcionario ja cadastrado na equipe");
-            }
-            else{
+            } else {
                 // relacao equipe funcionario
                 String query = "INSERT INTO cadastro_funcionario_equipe(id_funcionario, id_equipe) VALUES(?,?)";
                 statement = connection.prepareStatement(query);
@@ -484,12 +491,10 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
             }
             connection.close();
             statement.close();
-            
-        }
-        catch (SQLException erro){
+
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getLocalizedMessage());
-        }
-        catch (ArrayIndexOutOfBoundsException erro){
+        } catch (ArrayIndexOutOfBoundsException erro) {
             JOptionPane.showMessageDialog(null, "Necessário definir o funcionario e a equipe para realizar cadastro.");
         }
     }//GEN-LAST:event_Jbtn_IncluirActionPerformed
@@ -498,27 +503,27 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         try {
             String search = Jtxtf_PesquisaFunc_CdFE.getText();
             this.popTblFuncionario("SELECT * FROM vw_funcionario "
-                    + "WHERE (id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
-                    + "OR cpf LIKE '"+search+"' OR setor LIKE '%"+search+"%' "
-                    + "OR turno LIKE '%"+search+"%' OR cargo LIKE '%"+search+"%' "
-                    + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%') AND status_func = 1");
+                    + "WHERE (id_funcionario = '" + search + "' OR `nome_completo` LIKE '%" + search + "%' "
+                    + "OR cpf LIKE '" + search + "' OR setor LIKE '%" + search + "%' "
+                    + "OR turno LIKE '%" + search + "%' OR cargo LIKE '%" + search + "%' "
+                    + "OR telefone LIKE '%" + search + "%' OR email LIKE '%" + search + "%') AND status_func = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
     }//GEN-LAST:event_Jbtn_ConsultaFunc_CdFEActionPerformed
 
     private void Jbtn_ConsultaEqp_CdFEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_ConsultaEqp_CdFEActionPerformed
-        
+
         try {
             String search = Jtxtf_PesquisaEqp_CdFE.getText();
             this.popTblEquipe("SELECT * FROM vw_equipe "
-                    + "WHERE (id_equipe = '"+search+"' OR nome_eqp LIKE '%"+search+"%' "
-                    + "OR turno LIKE '%"+search+"%') AND status_eqp = 1");
+                    + "WHERE (id_equipe = '" + search + "' OR nome_eqp LIKE '%" + search + "%' "
+                    + "OR turno LIKE '%" + search + "%') AND status_eqp = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Cadastro_Funcionario_Equipe.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Jbtn_ConsultaEqp_CdFEActionPerformed
-    
+
     private void Jtxtf_PesquisaFunc_CdFEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtxtf_PesquisaFunc_CdFEMouseClicked
         this.Jtxtf_PesquisaFunc_CdFE.selectAll();
     }//GEN-LAST:event_Jtxtf_PesquisaFunc_CdFEMouseClicked
@@ -696,6 +701,7 @@ public class Cadastro_Funcionario_Equipe extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Cadastro_Funcionario_Equipe(tipoUsuario).setVisible(true);

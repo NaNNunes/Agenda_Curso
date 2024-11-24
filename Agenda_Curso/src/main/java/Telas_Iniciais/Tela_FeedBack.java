@@ -72,6 +72,11 @@ public class Tela_FeedBack extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1280, 832));
         setMinimumSize(new java.awt.Dimension(1280, 832));
         setPreferredSize(new java.awt.Dimension(1280, 832));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -456,6 +461,21 @@ public class Tela_FeedBack extends javax.swing.JFrame {
         Configuracoes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

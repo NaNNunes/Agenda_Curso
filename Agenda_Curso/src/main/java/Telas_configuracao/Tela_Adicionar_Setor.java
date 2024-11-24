@@ -27,6 +27,7 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
 
     private final String tipoUsuario;
     private final int userId = Tela_Login.id_usuario;
+
     /**
      * Creates new form Tela_Adicionar_Setor
      */
@@ -65,7 +66,7 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -74,6 +75,11 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 832));
         setMinimumSize(new java.awt.Dimension(1280, 832));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 832));
@@ -285,9 +291,9 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -495,6 +501,21 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -525,6 +546,7 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Tela_Adicionar_Setor(tipoUsuario).setVisible(true);
@@ -548,7 +570,7 @@ public class Tela_Adicionar_Setor extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Nome_CadSet;
     private javax.swing.JLabel Jlbl_Sigla_CadSet;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Titulo_CadSet;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Conteiner;

@@ -28,6 +28,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
     private final String tipoUsuario;
     private final int userId = Tela_Login.id_usuario;
+
     /**
      * Creates new form Tela_Cadastro_Equipe
      */
@@ -84,7 +85,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -333,9 +334,9 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -386,7 +387,17 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jtxtf_Nome_CadEqpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Nome_CadEqpActionPerformed
@@ -442,9 +453,9 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                
+
                 JOptionPane.showMessageDialog(null, "O nome da equipe já está cadastrado. Escolha outro Nome.");
-                
+
             } else {
                 String query = "INSERT INTO equipe(nome_eqp ,descricao, turno) values(?, ?, ?)";
                 statement = connection.prepareStatement(query);
@@ -458,10 +469,10 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
                 statement.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Equipe Criada");
             }
-            
+
             connection.close();
             statement.close();
-            
+
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão preenchiodos corretamente!");
             System.out.println("Erro: " + erro.getMessage());
@@ -662,7 +673,7 @@ public class Tela_Cadastro_Equipe extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Header_Conteiner_CadEqp;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Nome_CadEqp;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Titulo_CadEqp;
     private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_Conteiner_CadEqp;

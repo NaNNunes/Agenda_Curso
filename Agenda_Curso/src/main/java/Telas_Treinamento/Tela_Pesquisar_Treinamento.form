@@ -117,7 +117,7 @@
                       <Table columnCount="4" rowCount="4">
                         <Column editable="true" title="ID" type="java.lang.Object"/>
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
-                        <Column editable="true" title="Carga" type="java.lang.Object"/>
+                        <Column editable="true" title="Carga Horaria" type="java.lang.Object"/>
                         <Column editable="true" title="Validade" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -549,7 +549,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="Jlbl_TipoUsuario1">
+            <Component class="javax.swing.JLabel" name="Jlbl_TipoUsuario">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>

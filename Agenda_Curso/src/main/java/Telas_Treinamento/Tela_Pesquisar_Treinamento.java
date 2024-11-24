@@ -40,39 +40,30 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void populaTabela(String query) throws SQLException{
-        
+    private void populaTabela(String query) throws SQLException {
+
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
-        try {
-            statement.execute();
-            ResultSet resultSet = statement.executeQuery(query);
-            
+
+        try (Connection connection = DriverManager.getConnection(url, user, psswrd); PreparedStatement statement = connection.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
+
             DefaultTableModel model = (DefaultTableModel) Jtbl_ListaTreino.getModel();
-            model.setNumRows(0);
-            
-            while(resultSet.next()){
+            model.setNumRows(0); // Limpa a tabela antes de popular
+
+            while (resultSet.next()) {
                 model.addRow(new Object[]{
                     resultSet.getString("id_treino"),
                     resultSet.getString("nome"),
                     resultSet.getString("carga_horaria"),
-                    resultSet.getString("validade"),
-                });
+                    resultSet.getString("validade"),});
             }
-            
-            connection.close();
-            statement.close();
-            resultSet.close();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,7 +93,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -140,7 +131,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Carga", "Validade"
+                "ID", "Nome", "Carga Horaria", "Validade"
             }
         ));
         jScrollPane1.setViewportView(Jtbl_ListaTreino);
@@ -304,9 +295,9 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -371,21 +362,32 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Pesquisar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_consultaActionPerformed
-            try {
-                String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
-                this.populaTabela("SELECT * FROM vw_treinamento "
-                + "WHERE nome_treinamento LIKE '%"+nomeTreino+"%'");
-            } catch (SQLException erro) {
-                    System.out.println("Erro: " + erro.getMessage());
-            }
+        try {
+            String nomeTreino = Jtxtf_consulta_SearchTreino.getText();
+            this.populaTabela("SELECT * FROM vw_treinamento WHERE nome LIKE '%" + nomeTreino + "%'");
+        } catch (SQLException erro) {
+            System.out.println("Erro: " + erro.getMessage());
+        }
     }//GEN-LAST:event_Jbtn_consultaActionPerformed
 
     private void Jbtn_Apagar_SearchFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Apagar_SearchFuncActionPerformed
         // delete funciona quando registro nao vinculado a tabela 3ª
-        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0){
+        if (JOptionPane.showConfirmDialog(rootPane, "Tem certeza?") == 0) {
             Connection connection = null;
             PreparedStatement statement = null;
 
@@ -395,15 +397,14 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             int linha = Jtbl_ListaTreino.getSelectedRow();
             int id_treino = Integer.parseInt(Jtbl_ListaTreino.getValueAt(linha, 0).toString());
             try {
-                connection = DriverManager.getConnection(url,user,psswrd);
-                String query = "DELETE FROM treinamento WHERE id_treinamento ="+id_treino;
+                connection = DriverManager.getConnection(url, user, psswrd);
+                String query = "DELETE FROM treinamento WHERE id_treinamento =" + id_treino;
                 statement = connection.prepareStatement(query);
                 statement.executeUpdate();
                 this.populaTabela("SELECT * FROM vw_treinamento;");
                 connection.close();
                 statement.close();
-            }
-            catch (SQLException erro){
+            } catch (SQLException erro) {
                 System.out.println("erro: " + erro.getMessage());
             }
         }
@@ -420,19 +421,19 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         int id = Integer.parseInt(Jtbl_ListaTreino.getValueAt(linha, 0).toString());
         String[] dados = new String[5];
         try {
-            connection = DriverManager.getConnection(url,user,psswrd);
-            String query = "SELECT * FROM treinamento WHERE id_treinamento ="+ id;
+            connection = DriverManager.getConnection(url, user, psswrd);
+            String query = "SELECT * FROM treinamento WHERE id_treinamento =" + id;
             statement = connection.prepareStatement(query);
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 dados[0] = resultSet.getString("id_treinamento");
                 dados[1] = resultSet.getString("nome_treino");
                 dados[2] = resultSet.getString("descricao");
                 dados[3] = resultSet.getString("carga_horaria");
                 dados[4] = resultSet.getString("validade");
             }
-            
+
             Tela_Cadastro_Treinamento CadTreino = new Tela_Cadastro_Treinamento(tipoUsuario);
             CadTreino.editar_Treinamento(dados);
             CadTreino.setVisible(true);
@@ -440,8 +441,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
             statement.close();
             resultSet.close();
             this.dispose();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Editar_SearchTreinoActionPerformed
@@ -615,6 +615,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Tela_Pesquisar_Treinamento(tipoUsuario).setVisible(true);
@@ -637,7 +638,7 @@ public class Tela_Pesquisar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Title_SearchTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Conteiner_SearchTreino;

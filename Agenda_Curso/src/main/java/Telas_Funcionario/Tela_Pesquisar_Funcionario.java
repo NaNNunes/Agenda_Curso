@@ -31,6 +31,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     private final String tipoUsuario;
     private final int userId = Tela_Login.id_usuario;
+
     /**
      * Creates new form Tela_Pesquisar_Funcionario
      */
@@ -46,8 +47,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             PreparedStatement banco = con.prepareStatement(sql);
             ResultSet resultado = banco.executeQuery();
 
-
-            if (!resultado.isBeforeFirst()) { 
+            if (!resultado.isBeforeFirst()) {
                 JOptionPane.showMessageDialog(null,
                         "Nenhum funcionário encontrado.",
                         "Nenhum Resultado",
@@ -105,7 +105,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -358,9 +358,9 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -421,6 +421,17 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", Jtbl_Funcionario);
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_Editar_SerachFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Editar_SerachFuncActionPerformed
@@ -442,7 +453,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             ResultSet resultSet = statement.executeQuery();
 
             String[] dados = new String[9];
-            
+
             if (resultSet.next()) {
                 dados[0] = resultSet.getString("id_funcionario");
                 dados[1] = resultSet.getString("cpf");
@@ -477,8 +488,8 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
             int id_funcionario = Integer.parseInt(Jtbl_Funcionario.getValueAt(Jtbl_Funcionario.getSelectedRow(), 0).toString());
             try {
                 connection = DriverManager.getConnection(url, user, psswrd);
-                
-                String query = "DELETE FROM funcionario WHERE id_funcionario ="+id_funcionario+";";
+
+                String query = "DELETE FROM funcionario WHERE id_funcionario =" + id_funcionario + ";";
                 statement = connection.prepareStatement(query);
                 statement.execute();
                 this.PopularJTableFuncionario("SELECT * FROM vw_funcionario;", Jtbl_Funcionario);
@@ -717,7 +728,7 @@ public class Tela_Pesquisar_Funcionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Fundo_SearchFunc;
     private javax.swing.JTable Jtbl_Funcionario;

@@ -61,7 +61,7 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -256,9 +256,9 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -322,19 +322,30 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
 
     private void Jbtn_CadUsuario_popOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_CadUsuario_popOpActionPerformed
         // TODO add your handling code here:
-        Tela_Adicionar_Usuario add_user =  new Tela_Adicionar_Usuario(tipoUsuario);
+        Tela_Adicionar_Usuario add_user = new Tela_Adicionar_Usuario(tipoUsuario);
         add_user.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Jbtn_CadUsuario_popOpActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        if(tipoUsuario.equals("admin")){
+        if (tipoUsuario.equals("admin")) {
             Jbtn_CadSet_popOp.setVisible(true);
             Jbtn_CadUsuario_popOp.setVisible(true);
-        }else{
+        } else {
             Jbtn_CadSet_popOp.setVisible(false);
             Jbtn_CadUsuario_popOp.setVisible(false);
+        }
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -507,7 +518,7 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
-            
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Tela_Configuracoes(tipoUsuario).setVisible(true);
@@ -530,7 +541,7 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Titulo;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JButton jButton1;
@@ -541,6 +552,5 @@ public class Tela_Configuracoes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
-
 
 }

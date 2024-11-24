@@ -28,17 +28,15 @@ import javax.swing.JOptionPane;
  *
  * @author mathe
  */
-
 public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
     /**
      * Creates new form Tela_Adicionar_Funcionario
      */
-    
     private int id_funcionario;
     private final String tipoUsuario;
     private final int userId = Tela_Login.id_usuario;
-    
+
     public Tela_Cadastro_Funcionario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
         initComponents();
@@ -47,11 +45,10 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.Jbtn_Salvar_CadFunc.setVisible(true);
     }
 
-    
-    public void Editar_CadFunc(String[] dados){
+    public void Editar_CadFunc(String[] dados) {
         this.Jbtn_Editar_CadFunc.setVisible(true);
         this.Jbtn_Salvar_CadFunc.setVisible(false);
-        
+
         this.id_funcionario = Integer.parseInt(dados[0]);
         this.Jftxtf_CPF_CadFunc.setText(dados[1]);
         this.Jftxtf_CPF_CadFunc.setEnabled(false);
@@ -63,7 +60,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         this.Jcmbx_Cargo_CadFunc.getModel().setSelectedItem(dados[7]);
         this.Jcmbx_Setor_CadFunc.getModel().setSelectedItem(dados[8]);
     }
-    
+
     private void mascaraCombox() {
         this.Jcmbx_Setor_CadFunc.getModel().setSelectedItem("-- selecione --");
         this.Jcmbx_Cargo_CadFunc.getModel().setSelectedItem("-- selecione --");
@@ -119,32 +116,31 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-    
-    private boolean procuraCPF(String query) throws SQLException{
+
+    private boolean procuraCPF(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
         boolean isRegistered = true;
-        
+
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
-        try{
+
+        try {
             statement.execute();
             ResultSet resultSet = statement.executeQuery();
-            
-            if(resultSet.next()){
+
+            if (resultSet.next()) {
                 isRegistered = false;
             }
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage() + "141");
         }
-        
+
         return isRegistered;
     }
-    
-    private boolean validadorCPF(String cpf){
+
+    private boolean validadorCPF(String cpf) {
         int[] digito = new int[cpf.length() - 3];
         int c = 0;
         int n = 0;
@@ -153,9 +149,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         int restJ = 0;
         int restK = 0;
         String strDigito;
-        
+
         for (int i = 0; i < cpf.length(); i++) {
-            if((cpf.charAt(i) != '.') && (cpf.charAt(i) != '-')){
+            if ((cpf.charAt(i) != '.') && (cpf.charAt(i) != '-')) {
                 strDigito = Character.toString(cpf.charAt(i));
                 digito[c] = Integer.parseInt(strDigito);
                 c++;
@@ -171,13 +167,14 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         // segundo digito
         n = 11;
         for (int i = 0; i < 10; i++) {
-            restK += digito[i] * n--; 
+            restK += digito[i] * n--;
         }
         restK = restK % 11;
         digK = (restK == 0 || restK == 1) ? 0 : (11 - restK);
-        
+
         return (digJ == digito[9] && digK == digito[10]);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,7 +222,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -559,9 +556,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -631,15 +628,15 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
             String query = "UPDATE funcionario set cpf = ?, nome_func = ?, sobrenome = ?, "
-                + "Telefone = ?, email = ?, turno = ?, cargo = ?, id_setor = ? "
-                + "WHERE id_funcionario = "+id_funcionario;
+                    + "Telefone = ?, email = ?, turno = ?, cargo = ?, id_setor = ? "
+                    + "WHERE id_funcionario = " + id_funcionario;
             statement = connection.prepareStatement(query);
 
             String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
             String cargo = (String) Jcmbx_Cargo_CadFunc.getSelectedItem();
             int setor = this.pegaIdSetor("SELECT * FROM setor WHERE sigla = '"
-                + Jcmbx_Setor_CadFunc.getSelectedItem()+"'"); // tem que ter esse fechamento no final, top 10 sintaxes
-            
+                    + Jcmbx_Setor_CadFunc.getSelectedItem() + "'"); // tem que ter esse fechamento no final, top 10 sintaxes
+
             statement.setString(1, Jftxtf_CPF_CadFunc.getText());
             statement.setString(2, Jtxtf_Nome_CadFunc.getText());
             statement.setString(3, Jtxtf_Sobrenome_CadFunc.getText());
@@ -659,7 +656,17 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_Jbtn_Editar_CadFuncActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -667,7 +674,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void Jcmbx_Setor_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncActionPerformed
-        
+
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncActionPerformed
 
     private void Jtxtf_Sobrenome_CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxtf_Sobrenome_CadFuncActionPerformed
@@ -681,17 +688,17 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         String cpfInserido = Jftxtf_CPF_CadFunc.getText();
         try {
-            if(validadorCPF(cpfInserido)){
-                if(procuraCPF("SELECT cpf FROM vw_dadosfuncionario WHERE cpf LIKE '"+cpfInserido+"';")){
+            if (validadorCPF(cpfInserido)) {
+                if (procuraCPF("SELECT cpf FROM vw_dadosfuncionario WHERE cpf LIKE '" + cpfInserido + "';")) {
 
                     connection = DriverManager.getConnection(url, user, psswrd);
                     String query = "INSERT INTO funcionario "
-                        + "(cpf, nome_func , sobrenome, Telefone, "
-                        + "email, turno, cargo, id_setor) "
-                        + "values(?, ?, ?, ?, ?, ?, ?, ?)";
+                            + "(cpf, nome_func , sobrenome, Telefone, "
+                            + "email, turno, cargo, id_setor) "
+                            + "values(?, ?, ?, ?, ?, ?, ?, ?)";
                     statement = connection.prepareStatement(query);
 
                     String turno = (String) Jcmbx_Turno_CadFunc.getSelectedItem();
@@ -712,8 +719,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "CPF já Cadastrado");
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null, "CPF Inválido");
             }
         } catch (SQLException erro) {
@@ -722,9 +728,9 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
             System.out.println("Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadFuncActionPerformed
-    
+
     private void Jcmbx_Setor_CadFuncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncMouseClicked
-        
+
     }//GEN-LAST:event_Jcmbx_Setor_CadFuncMouseClicked
 
     private void Jcmbx_Setor_CadFuncMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jcmbx_Setor_CadFuncMouseEntered
@@ -878,39 +884,40 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(Tela_Cadastro_Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-    //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-        private String tipoUsuario;
-        public void run() {
-            this.tipoUsuario = tipoUsuario;
-            new Tela_Cadastro_Funcionario(tipoUsuario).setVisible(true);
-        }
-    });
-}
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            private String tipoUsuario;
+
+            public void run() {
+                this.tipoUsuario = tipoUsuario;
+                new Tela_Cadastro_Funcionario(tipoUsuario).setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel_BarraLateral;
@@ -941,7 +948,7 @@ public class Tela_Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Nome_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Numero_Tela_Adicionar_Funcionario;
     private javax.swing.JLabel Jlbl_Sobrenome_Tela_Adicionar_Funcionario;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Title_identificacao;
     private javax.swing.JLabel Jlbl_Turno_Tela_Adicionar_Funcionario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;

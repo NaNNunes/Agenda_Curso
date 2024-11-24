@@ -19,7 +19,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author mathe
@@ -28,16 +27,18 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
     private final String tipoUsuario;
     private int userId;
+
     /**
      * Creates new form Tela_Adicionar_Treinamento
      */
-    
+
     public Tela_Cadastro_Treinamento(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
         initComponents();
         this.Jbtn_Editar_CadTreino.setVisible(false);
     }
-    public void editar_Treinamento(String[] dados){
+
+    public void editar_Treinamento(String[] dados) {
         this.Jbtn_Salvar_CadTreino.setVisible(false);
         this.Jbtn_Editar_CadTreino.setVisible(true);
         this.id_treinamento = Integer.parseInt(dados[0]);
@@ -47,6 +48,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         this.Jtxtf_Validade_CadTreino.setText(dados[4]);
     }
     private int id_treinamento;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,7 +85,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -314,9 +316,9 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -378,28 +380,27 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private void Jbtn_Salvar_CadTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Salvar_CadTreinoActionPerformed
         Connection connection = null;
         PreparedStatement statement = null;
-        
+
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query = 
-                "INSERT INTO treinamento"
-                + "(nome_treino, descricao, carga_Horaria, validade)"
-                + " VALUES(?,?,?,?)";
+            String query
+                    = "INSERT INTO treinamento"
+                    + "(nome_treino, descricao, carga_Horaria, validade)"
+                    + " VALUES(?,?,?,?)";
             statement = connection.prepareStatement(query);
-            
+
             statement.setString(1, Jtxtf_Treinamento_CadTreino.getText());
             statement.setString(2, Jtxta_Descricao_CadTreino.getText());
             statement.setString(3, Jtxtf_Carga_CadTreino.getText());
             statement.setString(4, Jtxtf_Validade_CadTreino.getText());
-            
+
             statement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Treinamento Cadastrado!");
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
@@ -412,7 +413,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         String user = "root";
         String psswrd = "";
         try {
-            connection = DriverManager.getConnection(url,user,psswrd);
+            connection = DriverManager.getConnection(url, user, psswrd);
             String query = "UPDATE treinamento set nome_treino = ?, descricao = ?, validade = ?, carga_horaria = ? "
                     + "WHERE id_treinamento =" + this.id_treinamento;
             statement = connection.prepareStatement(query);
@@ -422,8 +423,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
             statement.setString(4, Jtxtf_Validade_CadTreino.getText());
             statement.execute();
             JOptionPane.showMessageDialog(null, "Treinamento Atualizado");
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_Jbtn_Editar_CadTreinoActionPerformed
@@ -433,7 +433,17 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxtf_Treinamento_CadTreinoActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
@@ -606,6 +616,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Tela_Cadastro_Treinamento(tipoUsuario).setVisible(true);
@@ -630,7 +641,7 @@ public class Tela_Cadastro_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Descricao_CadTreino;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
     private javax.swing.JLabel Jlbl_Resumo_CadTreino;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JLabel Jlbl_Treinamento_CadTreino;
     private javax.swing.JLabel Jlbl_Validade_CadTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;

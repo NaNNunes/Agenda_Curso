@@ -34,6 +34,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
     private final String tipoUsuario;
     private int userId;
+
     /**
      * Creates new form Tela_Alocar_Treinamento
      */
@@ -41,40 +42,37 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         this.tipoUsuario = tipoUsuario;
         initComponents();
     }
-    
-    private void popTabela(String query) throws SQLException{
+
+    private void popTabela(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = (Connection) DriverManager.getConnection(url, user, psswrd);
         PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
-        
+
         try {
             ResultSet resultSet = statement.executeQuery(query);
-            
+
             DefaultTableModel model = (DefaultTableModel) Jtbl_Treinamento.getModel();
             model.setNumRows(0);
-            
-            
-                while(resultSet.next()){
-                    model.addRow(new Object[]{
-                        resultSet.getString("id_treino"),
-                        resultSet.getString("nome"),
-                        resultSet.getString("carga_horaria"),
-                        resultSet.getString("validade"),
-                    });
-                }
-            
+
+            while (resultSet.next()) {
+                model.addRow(new Object[]{
+                    resultSet.getString("id_treino"),
+                    resultSet.getString("nome"),
+                    resultSet.getString("carga_horaria"),
+                    resultSet.getString("validade"),});
+            }
+
             connection.close();
             statement.close();
             resultSet.close();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
     }
-    
+
     private void popTableEqp(String query) throws SQLException {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
@@ -86,10 +84,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         try {
             statement.execute();
             ResultSet resultSet = statement.executeQuery(query);
-            
+
             DefaultTableModel model = (DefaultTableModel) Jtbl_Equipe_AlocaTreino.getModel();
             model.setNumRows(0);
-            
+
             while (resultSet.next()) {
                 model.addRow(new Object[]{
                     resultSet.getString("id_equipe"),
@@ -97,7 +95,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                     resultSet.getString("turno")
                 });
             }
-            
+
             connection.close();
             statement.close();
             resultSet.close();
@@ -120,14 +118,13 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
             DefaultTableModel model = (DefaultTableModel) Jtbl_instrutor.getModel();
             model.setNumRows(0);
-            
+
             while (resultSet.next()) {
                 model.addRow(new Object[]{
                     resultSet.getString("id_funcionario"),
-                    resultSet.getString("nome_completo"),
-                });
+                    resultSet.getString("nome_completo"),});
             }
-            
+
             connection.close();
             statement.close();
             resultSet.close();
@@ -135,29 +132,29 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
-    
-    private boolean VerificaCadastro(int id_equipeSelec, int id_treino){
+
+    private boolean VerificaCadastro(int id_equipeSelec, int id_treino) {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = null;
         PreparedStatement statement = null;
-        
+
         boolean isValid = true;
-        
+
         try {
             connection = DriverManager.getConnection(url, user, psswrd);
-            String query_GetIdEquipeByCadEqpTreino = "SELECT * FROM vw_CadEqpTreino WHERE id_treinamento = "+id_treino;
+            String query_GetIdEquipeByCadEqpTreino = "SELECT * FROM vw_CadEqpTreino WHERE id_treinamento = " + id_treino;
             statement = connection.prepareStatement(query_GetIdEquipeByCadEqpTreino);
             statement.execute();
-            
+
             ResultSet resultSet = statement.executeQuery();
             int id_equipeEncontrada;
-            
-            while(resultSet.next()){
+
+            while (resultSet.next()) {
                 id_equipeEncontrada = resultSet.getInt("id_equipe");
-                if(id_equipeEncontrada == id_equipeSelec){
+                if (id_equipeEncontrada == id_equipeSelec) {
                     isValid = false;
                     break;
                 }
@@ -165,13 +162,13 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             connection.close();
             statement.close();
             resultSet.close();
-        }
-        catch (SQLException erro){
+        } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
-        
+
         return isValid;
-    } 
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,7 +221,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -628,9 +625,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -697,42 +694,42 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
         String user = "root";
         String psswrd = "";
-        
+
         Connection connection = null;
         PreparedStatement statement = null;
-        
+
         int TreinoLine = Jtbl_Equipe_AlocaTreino.getSelectedRow();
         int id_equipeSelec = Integer.parseInt(Jtbl_Equipe_AlocaTreino.getValueAt(TreinoLine, 0).toString());
-        
+
         int instLine = Jtbl_instrutor.getSelectedRow();
         int instId = Integer.parseInt(Jtbl_instrutor.getValueAt(instLine, 0).toString());
-        
+
         int linha_TreinoSelec = Jtbl_Treinamento.getSelectedRow();
         int id_treino = Integer.parseInt(Jtbl_Treinamento.getValueAt(linha_TreinoSelec, 0).toString());
-        
+
         String strInitDate = Jftxtf_prevInicion_CadTreino.getText();
         String strFinalDate = Jftxtf_prevFim_CadTreino.getText();
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-         
+
         Date Initdate = null;
         Date Finaldate = null;
-        
+
         try {
             Initdate = format.parse(strInitDate);
             Finaldate = format.parse(strFinalDate);
         } catch (ParseException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (Finaldate.compareTo(Initdate) >= 0){
+
+        if (Finaldate.compareTo(Initdate) >= 0) {
             try {
                 connection = DriverManager.getConnection(url, user, psswrd);
 
-                if(VerificaCadastro(id_equipeSelec, id_treino)){
-                    String query = 
-                        ("INSERT INTO cadastro_equipe_treinamento"
-                        + "(id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
-                        + "VALUES(?,?,?,?,?,?)");
+                if (VerificaCadastro(id_equipeSelec, id_treino)) {
+                    String query
+                            = ("INSERT INTO cadastro_equipe_treinamento"
+                            + "(id_equipe, id_treinamento, id_instrutor, prev_comeco, prev_fim, formato) "
+                            + "VALUES(?,?,?,?,?,?)");
                     statement = connection.prepareStatement(query);
 
                     String formato = (String) Jcmbx_Formato_CadTreino.getSelectedItem();
@@ -745,20 +742,17 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
                     statement.setString(6, formato);
                     statement.execute();
                     JOptionPane.showMessageDialog(null, "Cadastro realizado");
-                    
+
                     connection.close();
                     statement.close();
-                    
-                }
-                else{
+
+                } else {
                     JOptionPane.showMessageDialog(null, "Equipe Já cadastrada ao treinamento");
                 }
-            }
-            catch (SQLException erro){
+            } catch (SQLException erro) {
                 JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Datas não válidas");
         }
     }//GEN-LAST:event_Jbtn_Salvar_CadTreinoActionPerformed
@@ -768,9 +762,20 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
             this.popTabela("SELECT * FROM vw_treinamento WHERE status_treino = 1");
             this.popTableEqp("SELECT * FROM vw_Equipe WHERE status_eqp = 1;");
             this.popTableInst("SELECT * FROM vw_funcionario WHERE cargo LIKE 'instrutor'");
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if ("supervisor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Supervisor");
+        } else if ("operador".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Operador");
+        } else if ("instrutor".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Instrutor");
+        } else if ("admin".equals(tipoUsuario)) {
+            Jlbl_TipoUsuario.setText("Administrador");
+        } else {
+            Jlbl_TipoUsuario.setText("Usuário Desconhecido");
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -778,9 +783,9 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         try {
             String search = Jtxtf_consulta_SearchTreino.getText();
             this.popTabela("SELECT * FROM vw_treinamento "
-                + "WHERE (id_treino = '"+search+"' OR nome LIKE '%"+search+"%' "
-                + "OR carga_horaria = '"+search+"' OR validade = '"+search+"') "
-                + "AND status_treino = 1;");
+                    + "WHERE (id_treino = '" + search + "' OR nome LIKE '%" + search + "%' "
+                    + "OR carga_horaria = '" + search + "' OR validade = '" + search + "') "
+                    + "AND status_treino = 1;");
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro.getMessage());
         }
@@ -800,10 +805,10 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
         try {
             this.popTableInst("SELECT * FROM vw_funcionario "
-                    + "WHERE (id_funcionario = '"+search+"' OR `nome_completo` LIKE '%"+search+"%' "
-                    + "OR cpf LIKE '"+search+"' OR setor LIKE '%"+search+"%' "
-                    + "OR turno LIKE '%"+search+"%' OR cargo LIKE '%"+search+"%' "
-                    + "OR telefone LIKE '%"+search+"%' OR email LIKE '%"+search+"%') AND status_func = 1");
+                    + "WHERE (id_funcionario = '" + search + "' OR `nome_completo` LIKE '%" + search + "%' "
+                    + "OR cpf LIKE '" + search + "' OR setor LIKE '%" + search + "%' "
+                    + "OR turno LIKE '%" + search + "%' OR cargo LIKE '%" + search + "%' "
+                    + "OR telefone LIKE '%" + search + "%' OR email LIKE '%" + search + "%') AND status_func = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -823,8 +828,8 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
 
         try {
             this.popTableEqp("SELECT * FROM vw_equipe"
-            + " WHERE (nome_eqp LIKE'%"+search+"%' OR id_equipe = '"+search+"' "
-            + " OR turno LIKE '%"+search+"%') AND status_eqp = 1");
+                    + " WHERE (nome_eqp LIKE'%" + search + "%' OR id_equipe = '" + search + "' "
+                    + " OR turno LIKE '%" + search + "%') AND status_eqp = 1");
         } catch (SQLException ex) {
             Logger.getLogger(Tela_Alocar_Treinamento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1007,6 +1012,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             private String tipoUsuario;
+
             public void run() {
                 this.tipoUsuario = tipoUsuario;
                 new Tela_Alocar_Treinamento(tipoUsuario).setVisible(true);
@@ -1044,7 +1050,7 @@ public class Tela_Alocar_Treinamento extends javax.swing.JFrame {
     private javax.swing.JLabel Jlbl_Previsao_CadTreino;
     private javax.swing.JLabel Jlbl_Selecionar_Tela_Alocar_Treinamento;
     private javax.swing.JLabel Jlbl_Status_CadTreino;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
     private javax.swing.JPanel Jpnl_Equipe_Tela_Alocar_Treinamento1;
     private javax.swing.JPanel Jpnl_Identificacao_Tela_Alocar_Treinamento;
