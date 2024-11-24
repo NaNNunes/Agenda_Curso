@@ -39,7 +39,7 @@ CREATE TABLE `cadastro_equipe_treinamento` (
   CONSTRAINT `FK_EquipeTreinoCad` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`),
   CONSTRAINT `FK_InstrutorTreinoEqpCad` FOREIGN KEY (`id_instrutor`) REFERENCES `funcionario` (`id_funcionario`),
   CONSTRAINT `FK_TreinoEquipeCad` FOREIGN KEY (`id_treinamento`) REFERENCES `treinamento` (`id_treinamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `cadastro_equipe_treinamento` (
 
 LOCK TABLES `cadastro_equipe_treinamento` WRITE;
 /*!40000 ALTER TABLE `cadastro_equipe_treinamento` DISABLE KEYS */;
-INSERT INTO `cadastro_equipe_treinamento` VALUES (1,2,1,9,'2021-11-30','2021-11-30','Presencial');
+INSERT INTO `cadastro_equipe_treinamento` VALUES (1,2,1,9,'2021-11-30','2021-11-30','Presencial'),(2,5,1,9,'2000-11-11','2002-11-17','Hibrido');
 /*!40000 ALTER TABLE `cadastro_equipe_treinamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +96,7 @@ CREATE TABLE `equipe` (
   `status_eqp` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`id_equipe`),
   UNIQUE KEY `nome_eqp` (`nome_eqp`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,8 +105,32 @@ CREATE TABLE `equipe` (
 
 LOCK TABLES `equipe` WRITE;
 /*!40000 ALTER TABLE `equipe` DISABLE KEYS */;
-INSERT INTO `equipe` VALUES (2,'Equipe 01','01','vespertino',0),(3,'Equipe 02','sdf','vespertino',1),(4,'Equipe 03','sdf','vespertino',1);
+INSERT INTO `equipe` VALUES (2,'Equipe 01','01','vespertino',0),(3,'Equipe 02','sdf','vespertino',1),(4,'Equipe 03','sdf','vespertino',1),(5,'Equipe Teste','aaaaaaaaaaa','matutino',1);
 /*!40000 ALTER TABLE `equipe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `feedback` (
+  `id_feedback` int(11) NOT NULL AUTO_INCREMENT,
+  `feedback` varchar(700) DEFAULT NULL,
+  PRIMARY KEY (`id_feedback`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feedback`
+--
+
+LOCK TABLES `feedback` WRITE;
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+INSERT INTO `feedback` VALUES (1,'asdasdasdasdasd');
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -132,7 +156,7 @@ CREATE TABLE `funcionario` (
   UNIQUE KEY `email` (`email`),
   KEY `FK_SetorFuncionario` (`id_setor`),
   CONSTRAINT `FK_SetorFuncionario` FOREIGN KEY (`id_setor`) REFERENCES `setor` (`id_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +239,7 @@ CREATE TABLE `usuario` (
   `qtd_acesso` int(11) DEFAULT 0,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `login_usuario` (`login_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +248,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'login','1234567891011','1234567891011','admin',0);
+INSERT INTO `usuario` VALUES (1,'login','1234567891011','1234567891011','admin',0),(2,'leo','leo123456789','instrutor','instrutor',0),(3,'admin','admin123456789','admin','admin',0),(4,'matheus','matheus',NULL,'supervisor',0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -638,4 +662,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-22 21:27:33
+-- Dump completed on 2024-11-24 17:30:44

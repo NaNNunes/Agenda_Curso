@@ -148,7 +148,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Imagem_login.setForeground(new java.awt.Color(255, 255, 255));
-        Imagem_login.setText("Logo");
+        Imagem_login.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoLoginAgendaCurso.png")); // NOI18N
         Imagem_login.setPreferredSize(new java.awt.Dimension(200, 200));
         jPanel1.add(Imagem_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 

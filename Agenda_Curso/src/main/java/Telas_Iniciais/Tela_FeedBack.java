@@ -2,86 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Telas_configuracao;
+package Telas_Iniciais;
 
 import Telas_Equipe.Tela_Cadastro_Equipe;
 import Telas_Equipe.Tela_Pesquisa_Equipe;
 import Telas_Funcionario.Tela_Cadastro_Funcionario;
 import Telas_Funcionario.Tela_Pesquisar_Funcionario;
-import Telas_Iniciais.Tela_DashBoard_Inicial;
-import Telas_Iniciais.Tela_FeedBack;
-import Telas_Iniciais.Tela_Login;
 import Telas_Treinamento.Tela_Cadastro_Treinamento;
 import Telas_Treinamento.Tela_Pesquisar_Treinamento;
+import Telas_configuracao.Tela_Configuracoes;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author mathe
  */
-public class Tela_Mudar_Credencial extends javax.swing.JFrame {
+public class Tela_FeedBack extends javax.swing.JFrame {
 
     private final String tipoUsuario;
+    private final int userId = Tela_Login.id_usuario;
+
     /**
-     * Creates new form Tela_Mudar_Credencial
+     * Creates new form Tela_FeedBack
      */
-    public Tela_Mudar_Credencial(String tipoUsuario) {
+    public Tela_FeedBack(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
         initComponents();
-    }
-    
-    private final int userId = Tela_Login.id_usuario;
-    private String currentPass;
-    
-    private boolean validaSenha(String query) throws SQLException{
-        String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-        String user = "root";
-        String psswrd = "";
-        
-        boolean isValid = false;
-        
-        String[] pass = new String[2];
-        pass[0] = (String) Jtxtf_newPsswd_CredUser.getText();
-        pass[1] = (String) Jtxtf_rNewPsswd_CredUser.getText();
-        
-        Connection connection = DriverManager.getConnection(url, user, psswrd);
-        PreparedStatement statement = connection.prepareStatement(query);
-        try{
-            ResultSet resultSet = statement.executeQuery();
-            
-            if(resultSet.next()){
-                this.currentPass = resultSet.getString("senha");
-            }
-            
-            if (pass[0].length() > 11){
-                if(!pass[0].equals(currentPass)){
-                    if(pass[0].equals(pass[1])){
-                        isValid = true;
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null, "Senha não confere", "ERRO",JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Nova senha não pode ser igual a senha anterior", "ERRO",JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            else{
-                 JOptionPane.showMessageDialog(null, "Defina uma senha com no mínimo 12 caracteres", "ERRO",JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        catch (SQLException erro){
-            JOptionPane.showMessageDialog(null , erro.getMessage());
-        }
-        
-        return isValid;
     }
 
     /**
@@ -94,17 +44,13 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Jpnl_Conteiner_CredFunc = new javax.swing.JPanel();
-        Jbtn_Atualizar_CredUser = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        Jtxtf_Login_CredUser = new javax.swing.JTextField();
-        Jtxtf_newPsswd_CredUser = new javax.swing.JTextField();
-        Jtxtf_rNewPsswd_CredUser = new javax.swing.JTextField();
-        Jbtn_Cadastrar_CadSet = new javax.swing.JButton();
-        Jlbl_title_credUser1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        Jlbl_Title_SearchTreino = new javax.swing.JLabel();
         JPanel_BarraLateral = new javax.swing.JPanel();
         Jbtn_LogoutButton_BarraLateral = new javax.swing.JButton();
         JPanel_contentFuncionarioButton = new javax.swing.JPanel();
@@ -116,134 +62,59 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
         Jpanel_contentTreinamento_Barra_Lateral = new javax.swing.JPanel();
         Jbtn_iconeTreinamento_BarraLateral_CadEqp = new javax.swing.JButton();
         Jcmbx_Treinamento_BarraLateral = new javax.swing.JComboBox<>();
-        Jlbl_TipoUsuario1 = new javax.swing.JLabel();
+        Jlbl_TipoUsuario = new javax.swing.JLabel();
         Jlbl_Logo_BarraLateral_Eqp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 832));
         setMinimumSize(new java.awt.Dimension(1280, 832));
+        setPreferredSize(new java.awt.Dimension(1280, 832));
 
         jPanel1.setBackground(new java.awt.Color(243, 236, 196));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 832));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 832));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 832));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jpnl_Conteiner_CredFunc.setBackground(new java.awt.Color(249, 246, 226));
-        Jpnl_Conteiner_CredFunc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Jpnl_Conteiner_CredFunc.setMaximumSize(new java.awt.Dimension(400, 300));
-        Jpnl_Conteiner_CredFunc.setMinimumSize(new java.awt.Dimension(400, 300));
-        Jpnl_Conteiner_CredFunc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Jbtn_Atualizar_CredUser.setBackground(new java.awt.Color(47, 63, 115));
-        Jbtn_Atualizar_CredUser.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jbtn_Atualizar_CredUser.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Atualizar_CredUser.setText("Salvar");
-        Jbtn_Atualizar_CredUser.setPreferredSize(new java.awt.Dimension(170, 40));
-        Jbtn_Atualizar_CredUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Atualizar_CredUserActionPerformed(evt);
-            }
-        });
-        Jpnl_Conteiner_CredFunc.add(Jbtn_Atualizar_CredUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(243, 228, 188));
+        jPanel2.setBackground(new java.awt.Color(249, 246, 226));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Repetir Senha:");
+        jPanel3.setBackground(new java.awt.Color(243, 228, 188));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Nova Senha:");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 500, 230));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Login de usuário:");
+        jLabel1.setText("Adicione um FeedBack do nosso sistema:");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
-        Jtxtf_Login_CredUser.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_Login_CredUser.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_Login_CredUser.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_Login_CredUser.setMaximumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_Login_CredUser.setMinimumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_Login_CredUser.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 540, 300));
 
-        Jtxtf_newPsswd_CredUser.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_newPsswd_CredUser.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_newPsswd_CredUser.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_newPsswd_CredUser.setMaximumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_newPsswd_CredUser.setMinimumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_newPsswd_CredUser.setPreferredSize(new java.awt.Dimension(140, 30));
-
-        Jtxtf_rNewPsswd_CredUser.setBackground(new java.awt.Color(255, 255, 255));
-        Jtxtf_rNewPsswd_CredUser.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Jtxtf_rNewPsswd_CredUser.setForeground(new java.awt.Color(0, 0, 0));
-        Jtxtf_rNewPsswd_CredUser.setMaximumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_rNewPsswd_CredUser.setMinimumSize(new java.awt.Dimension(140, 30));
-        Jtxtf_rNewPsswd_CredUser.setPreferredSize(new java.awt.Dimension(140, 30));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jtxtf_Login_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jtxtf_newPsswd_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Jtxtf_rNewPsswd_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(22, 22, 22))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jtxtf_Login_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jtxtf_newPsswd_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jtxtf_rNewPsswd_CredUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-
-        Jpnl_Conteiner_CredFunc.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 520, 200));
-
-        Jbtn_Cadastrar_CadSet.setBackground(new java.awt.Color(47, 63, 115));
-        Jbtn_Cadastrar_CadSet.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jbtn_Cadastrar_CadSet.setForeground(new java.awt.Color(255, 255, 255));
-        Jbtn_Cadastrar_CadSet.setText("Voltar");
-        Jbtn_Cadastrar_CadSet.setMaximumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastrar_CadSet.setMinimumSize(new java.awt.Dimension(120, 45));
-        Jbtn_Cadastrar_CadSet.setPreferredSize(new java.awt.Dimension(170, 40));
-        Jbtn_Cadastrar_CadSet.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setBackground(new java.awt.Color(47, 63, 115));
+        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Salvar");
+        jButton3.setPreferredSize(new java.awt.Dimension(170, 40));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jbtn_Cadastrar_CadSetActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        Jpnl_Conteiner_CredFunc.add(Jbtn_Cadastrar_CadSet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
 
-        Jlbl_title_credUser1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        Jlbl_title_credUser1.setForeground(new java.awt.Color(0, 0, 0));
-        Jlbl_title_credUser1.setText("Gerenciar Credencial");
-        Jpnl_Conteiner_CredFunc.add(Jlbl_title_credUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+        Jlbl_Title_SearchTreino.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        Jlbl_Title_SearchTreino.setForeground(new java.awt.Color(0, 0, 0));
+        Jlbl_Title_SearchTreino.setText("FeedBack");
+        jPanel2.add(Jlbl_Title_SearchTreino, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
 
-        jPanel1.add(Jpnl_Conteiner_CredFunc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 660, 550));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 650, 480));
 
         JPanel_BarraLateral.setBackground(new java.awt.Color(47, 63, 115));
         JPanel_BarraLateral.setPreferredSize(new java.awt.Dimension(232, 832));
@@ -358,9 +229,9 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
 
         JPanel_BarraLateral.add(Jpanel_contentTreinamento_Barra_Lateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 405, 231, -1));
 
-        Jlbl_TipoUsuario1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Jlbl_TipoUsuario1.setForeground(new java.awt.Color(255, 255, 255));
-        JPanel_BarraLateral.add(Jlbl_TipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
+        Jlbl_TipoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Jlbl_TipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        JPanel_BarraLateral.add(Jlbl_TipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 16, 143, 21));
 
         Jlbl_Logo_BarraLateral_Eqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\LogoDashBoard.png")); // NOI18N
         JPanel_BarraLateral.add(Jlbl_Logo_BarraLateral_Eqp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 143, 143));
@@ -390,17 +261,17 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
         });
         JPanel_BarraLateral.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 210, 40));
 
-        jButton3.setBackground(new java.awt.Color(47, 63, 115));
-        jButton3.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\IconeConsiguraçõesAgendaCurso.png")); // NOI18N
-        jButton3.setText("Configurações");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(new java.awt.Color(47, 63, 115));
+        jButton4.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\TechNight\\Agenda_Curso\\Imagens\\IconeConsiguraçõesAgendaCurso.png")); // NOI18N
+        jButton4.setText("Configurações");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        JPanel_BarraLateral.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 780, 210, 40));
+        JPanel_BarraLateral.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 780, 210, 40));
 
         jPanel1.add(JPanel_BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -419,43 +290,33 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jbtn_Atualizar_CredUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Atualizar_CredUserActionPerformed
-        try {
-            if(validaSenha("SELECT * FROM usuario WHERE id_usuario = "+this.userId)){
-                String url = "jdbc:mysql://localhost:3306/db_agenda_curso";
-                String user = "root";
-                String psswrd = "";
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String feedbackTexto = jTextArea1.getText();
 
-                Connection connection = null;
-                PreparedStatement statement = null;
-
-                try{
-                    connection = DriverManager.getConnection(url, user, psswrd);
-                    String query = "UPDATE usuario SET login_usuario = ?, senha = ?, old_psswd = ? WHERE id_usuario ="+this.userId;
-                    statement = connection.prepareStatement(query);
-
-                    statement.setString(1, Jtxtf_Login_CredUser.getText());
-                    statement.setString(2, Jtxtf_newPsswd_CredUser.getText());
-                    statement.setString(3, this.currentPass);
-
-                    statement.execute();
-                    JOptionPane.showMessageDialog(null, "Credencial de usuário atualizada");
-                }
-                catch (SQLException erro){
-                    JOptionPane.showMessageDialog(null, erro.getMessage());
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Credencial.class.getName()).log(Level.SEVERE, null, ex);
+        if (feedbackTexto.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira seu feedback antes de salvar.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
-    }//GEN-LAST:event_Jbtn_Atualizar_CredUserActionPerformed
+        String sqlInsert = "INSERT INTO feedback (feedback) VALUES (?)";
 
-    private void Jbtn_Cadastrar_CadSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_Cadastrar_CadSetActionPerformed
-        Tela_Configuracoes Opcoes = new Tela_Configuracoes(tipoUsuario);
-        Opcoes.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Jbtn_Cadastrar_CadSetActionPerformed
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_agenda_curso", "root", ""); PreparedStatement smt = con.prepareStatement(sqlInsert)) {
+
+            smt.setString(1, feedbackTexto);
+
+            int rowsAffected = smt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(this, "Feedback salvo com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                jTextArea1.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "O feedback não pôde ser salvo.", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar o feedback: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Jbtn_LogoutButton_BarraLateralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jbtn_LogoutButton_BarraLateralActionPerformed
         Tela_Login telaLogin = new Tela_Login();
@@ -590,11 +451,11 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Tela_Configuracoes Configuracoes = new Tela_Configuracoes(tipoUsuario);
         Configuracoes.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -613,13 +474,13 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mudar_Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_FeedBack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mudar_Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_FeedBack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mudar_Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_FeedBack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Mudar_Credencial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_FeedBack.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -628,7 +489,7 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
             private String tipoUsuario;
             public void run() {
                 this.tipoUsuario = tipoUsuario;
-                new Tela_Mudar_Credencial(tipoUsuario).setVisible(true);
+                new Tela_FeedBack(tipoUsuario).setVisible(true);
             }
         });
     }
@@ -637,8 +498,6 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel_BarraLateral;
     private javax.swing.JPanel JPanel_contentEquipe_BarraLateral;
     private javax.swing.JPanel JPanel_contentFuncionarioButton;
-    private javax.swing.JButton Jbtn_Atualizar_CredUser;
-    private javax.swing.JButton Jbtn_Cadastrar_CadSet;
     private javax.swing.JButton Jbtn_IconeFuncionario_BarraLateral_CadEqp;
     private javax.swing.JButton Jbtn_LogoutButton_BarraLateral;
     private javax.swing.JButton Jbtn_iconeEquipe_BarraLateral_CadEqp;
@@ -647,20 +506,18 @@ public class Tela_Mudar_Credencial extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Jcmbx_Funcionario_BarraLateral;
     private javax.swing.JComboBox<String> Jcmbx_Treinamento_BarraLateral;
     private javax.swing.JLabel Jlbl_Logo_BarraLateral_Eqp;
-    private javax.swing.JLabel Jlbl_TipoUsuario1;
-    private javax.swing.JLabel Jlbl_title_credUser1;
+    private javax.swing.JLabel Jlbl_TipoUsuario;
+    private javax.swing.JLabel Jlbl_Title_SearchTreino;
     private javax.swing.JPanel Jpanel_contentTreinamento_Barra_Lateral;
-    private javax.swing.JPanel Jpnl_Conteiner_CredFunc;
-    private javax.swing.JTextField Jtxtf_Login_CredUser;
-    private javax.swing.JTextField Jtxtf_newPsswd_CredUser;
-    private javax.swing.JTextField Jtxtf_rNewPsswd_CredUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
