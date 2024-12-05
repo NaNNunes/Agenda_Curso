@@ -271,5 +271,9 @@ desc cadastro_funcionario_equipe;
 INSERT INTO usuario(login_usuario, senha, tipo_usuario) VALUES("login", "login", "admin"); -- senha e login padrao
 select * from usuario WHERE login_usuario LIKE 'login';
 
+select * from usuario;
+
+UPDATE usuario SET senha = "senha", old_psswd = " " WHERE id_usuario = 2; 
+
 DELETE FROM funcionario WHERE id_funcionario = 12;
 
